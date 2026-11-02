@@ -1,0 +1,62 @@
+{
+  "title": "Outbox Pattern",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 7.0,
+      "text": "Save the order, then publish the event... crash?",
+      "say": "A service saves an order, then publishes an event to a message broker. What if it crashes between the two?",
+      "voice": "/audio/outbox-pattern/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 7,
+      "duration": 9.5,
+      "text": "Saved, but never announced: the dual write problem.",
+      "say": "The order is saved, but the event is never sent. Other services never find out, and your data drifts apart. This is the dual write problem.",
+      "voice": "/audio/outbox-pattern/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 8,
+      "duration": 10.5,
+      "text": "One transaction: save the order and the event.",
+      "say": "The outbox pattern fixes it. In one local transaction, the service saves the order, and also writes the event into an outbox table in the same database.",
+      "voice": "/audio/outbox-pattern/concept.wav"
+    },
+    {
+      "id": "relay",
+      "min": 6,
+      "duration": 6.5,
+      "text": "A relay publishes the outbox to the broker.",
+      "say": "A separate relay reads the outbox, publishes the events to the broker, and marks them as sent.",
+      "voice": "/audio/outbox-pattern/relay.wav"
+    },
+    {
+      "id": "crash",
+      "min": 8,
+      "duration": 8,
+      "text": "Crash? The event is still safe. Retry.",
+      "say": "If anything crashes, the event is still safe in the outbox, so the relay simply tries again. Nothing is lost.",
+      "voice": "/audio/outbox-pattern/crash.wav"
+    },
+    {
+      "id": "tradeoff",
+      "min": 6,
+      "duration": 6.5,
+      "text": "At-least-once: consumers must be idempotent.",
+      "say": "The catch: events may be delivered more than once, so consumers must be idempotent.",
+      "voice": "/audio/outbox-pattern/tradeoff.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: change data capture. Follow for more!",
+      "say": "Next up, change data capture. Follow for more system design.",
+      "voice": "/audio/outbox-pattern/close.wav"
+    }
+  ]
+}
