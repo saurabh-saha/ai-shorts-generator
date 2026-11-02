@@ -1,0 +1,204 @@
+{
+  "title": "React 5: Events & Inputs",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "events",
+      "min": 8,
+      "duration": 13.0,
+      "text": "Handling events.",
+      "visual": "code",
+      "items": [
+        [
+          "<button onClick={handleClick}>",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "function handleClick(e) {",
+          "yellow"
+        ],
+        [
+          "  e.preventDefault();",
+          "green"
+        ],
+        [
+          "  setCount(c => c + 1);",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "Event handlers are functions you pass as props, named in camel case, like on click. React hands you a synthetic event that works the same in every browser, with the usual methods, like prevent default.",
+      "voice": "/audio/react-05-events/events.wav"
+    },
+    {
+      "id": "mistake",
+      "min": 8,
+      "duration": 11.5,
+      "text": "Pass the function, don't call it.",
+      "visual": "compare",
+      "left": {
+        "title": "Wrong",
+        "color": "red",
+        "items": [
+          "onClick={save()}",
+          "Runs during render"
+        ]
+      },
+      "right": {
+        "title": "Right",
+        "color": "green",
+        "items": [
+          "onClick={save}",
+          "onClick={() => save(id)}"
+        ]
+      },
+      "say": "The classic mistake: writing parentheses after the handler. That calls it during render. Pass the function itself, or wrap it in an arrow function when you need to give it arguments.",
+      "voice": "/audio/react-05-events/mistake.wav"
+    },
+    {
+      "id": "controlled",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Controlled inputs.",
+      "visual": "code",
+      "badge": "STATE IS THE SOURCE OF TRUTH",
+      "items": [
+        [
+          "const [name, setName] = useState('');",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<input",
+          "blue"
+        ],
+        [
+          "  value={name}",
+          "green"
+        ],
+        [
+          "  onChange={e =>",
+          "green"
+        ],
+        [
+          "    setName(e.target.value)}",
+          "green"
+        ],
+        [
+          "/>",
+          "blue"
+        ]
+      ],
+      "say": "A controlled input gets its value from state, and updates state on every change. React state is the single source of truth, so you can validate, format, or reset the field any time.",
+      "voice": "/audio/react-05-events/controlled.wav"
+    },
+    {
+      "id": "versus",
+      "min": 8,
+      "duration": 10.0,
+      "text": "Controlled vs uncontrolled.",
+      "visual": "compare",
+      "left": {
+        "title": "Controlled",
+        "color": "green",
+        "items": [
+          "Value lives in state",
+          "Validate every key",
+          "More code"
+        ]
+      },
+      "right": {
+        "title": "Uncontrolled",
+        "color": "blue",
+        "items": [
+          "Value lives in the DOM",
+          "Read via ref or FormData",
+          "Less code"
+        ]
+      },
+      "say": "Uncontrolled inputs let the browser hold the value, and you read it when needed, with a ref or form data. It is less code, but you lose live validation and control.",
+      "voice": "/audio/react-05-events/versus.wav"
+    },
+    {
+      "id": "submit",
+      "min": 8,
+      "duration": 11.5,
+      "text": "Submitting a form.",
+      "visual": "code",
+      "items": [
+        [
+          "function onSubmit(e) {",
+          "yellow"
+        ],
+        [
+          "  e.preventDefault();",
+          "green"
+        ],
+        [
+          "  save({ name, email });",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<form onSubmit={onSubmit}>",
+          "blue"
+        ]
+      ],
+      "say": "Put the handler on the form's on submit, not on the button's click. That way pressing enter works too. Prevent the default page reload, and send your state to wherever it needs to go.",
+      "voice": "/audio/react-05-events/submit.wav"
+    },
+    {
+      "id": "types",
+      "min": 8,
+      "duration": 11.0,
+      "text": "Other input types.",
+      "visual": "chips",
+      "items": [
+        [
+          "checkbox: use checked",
+          "blue"
+        ],
+        [
+          "select: value + onChange",
+          "yellow"
+        ],
+        [
+          "textarea: value, like input",
+          "green"
+        ],
+        [
+          "file: always uncontrolled",
+          "red"
+        ]
+      ],
+      "say": "Checkboxes use the checked prop, selects and text areas use value like a normal input, and file inputs are always uncontrolled, because only the user can set a file.",
+      "voice": "/audio/react-05-events/types.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 6.5,
+      "text": "Next: lists, keys, conditionals.",
+      "say": "Next up, lists, keys, and conditional rendering. Follow for more React.",
+      "voice": "/audio/react-05-events/close.wav"
+    }
+  ]
+}

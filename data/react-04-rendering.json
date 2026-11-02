@@ -1,0 +1,190 @@
+{
+  "title": "React 4: Rendering & Re-renders",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "phases",
+      "min": 9,
+      "duration": 14.5,
+      "text": "Trigger, render, commit.",
+      "visual": "flow",
+      "badge": "THREE STEPS EVERY TIME",
+      "items": [
+        [
+          "1. Trigger",
+          "yellow",
+          "a state change, or first load"
+        ],
+        [
+          "2. Render",
+          "blue",
+          "React calls your components"
+        ],
+        [
+          "3. Commit",
+          "green",
+          "apply minimal DOM changes"
+        ]
+      ],
+      "say": "React updates the screen in three steps. A trigger, like a state change. Then render, where React calls your components to work out what the UI should be. And finally commit, where it applies only the minimal changes to the DOM.",
+      "voice": "/audio/react-04-rendering/phases.wav"
+    },
+    {
+      "id": "triggers",
+      "min": 8,
+      "duration": 10.0,
+      "text": "What causes a re-render?",
+      "visual": "chips",
+      "items": [
+        [
+          "Its own state changed",
+          "green"
+        ],
+        [
+          "Its parent re-rendered",
+          "blue"
+        ],
+        [
+          "A context it reads changed",
+          "yellow"
+        ],
+        [
+          "Not: a plain variable changing",
+          "red"
+        ]
+      ],
+      "say": "A component re-renders when its own state changes, when its parent re-renders, or when a context it reads changes. Changing a plain variable does nothing.",
+      "voice": "/audio/react-04-rendering/triggers.wav"
+    },
+    {
+      "id": "pure",
+      "min": 9,
+      "duration": 13.0,
+      "text": "Rendering must be pure.",
+      "visual": "chips",
+      "items": [
+        [
+          "Same inputs, same output",
+          "green"
+        ],
+        [
+          "No mutating outside variables",
+          "red"
+        ],
+        [
+          "No fetching while rendering",
+          "red"
+        ],
+        [
+          "StrictMode double-renders to catch it",
+          "yellow"
+        ]
+      ],
+      "say": "Rendering has to be pure: the same props and state always produce the same output. Don't mutate outside variables or fetch data while rendering. Strict Mode renders twice in development to help you catch it.",
+      "voice": "/audio/react-04-rendering/pure.wav"
+    },
+    {
+      "id": "cascade",
+      "min": 9,
+      "duration": 14.0,
+      "text": "Children re-render with their parent.",
+      "visual": "flow",
+      "badge": "RENDERING IS CHEAP, THE DOM IS NOT",
+      "items": [
+        [
+          "App",
+          "yellow",
+          "state changes here"
+        ],
+        [
+          "Sidebar",
+          "blue",
+          "re-renders too"
+        ],
+        [
+          "Post",
+          "blue",
+          "re-renders too"
+        ],
+        [
+          "Real DOM",
+          "green",
+          "only changed bits"
+        ]
+      ],
+      "say": "When a component re-renders, all of its children re-render too, even if their props didn't change. That is normally fine, because rendering is cheap, and React only touches the real DOM where something actually changed.",
+      "voice": "/audio/react-04-rendering/cascade.wav"
+    },
+    {
+      "id": "batch",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Updates are batched.",
+      "visual": "code",
+      "items": [
+        [
+          "function onClick() {",
+          "yellow"
+        ],
+        [
+          "  setA(1);",
+          "green"
+        ],
+        [
+          "  setB(2);",
+          "green"
+        ],
+        [
+          "  setC(3);",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ],
+        [
+          "// ONE render, not three",
+          "pink"
+        ]
+      ],
+      "say": "React batches all the state updates inside one event, and renders once at the end. Three setters in one click still means one render.",
+      "voice": "/audio/react-04-rendering/batch.wav"
+    },
+    {
+      "id": "debug",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Debugging renders.",
+      "visual": "chips",
+      "items": [
+        [
+          "DevTools: highlight updates",
+          "blue"
+        ],
+        [
+          "Profiler flame graph",
+          "yellow"
+        ],
+        [
+          "Ask: why did this render?",
+          "green"
+        ],
+        [
+          "Fix measured slowness only",
+          "red"
+        ]
+      ],
+      "say": "Use the React DevTools to highlight updates and record a profile, ask why a component rendered, and only fix slowness that you have actually measured.",
+      "voice": "/audio/react-04-rendering/debug.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: events and inputs.",
+      "say": "Next up, events and controlled inputs. Follow for more React.",
+      "voice": "/audio/react-04-rendering/close.wav"
+    }
+  ]
+}

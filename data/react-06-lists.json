@@ -1,0 +1,186 @@
+{
+  "title": "React 6: Lists & Conditionals",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "map",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Rendering lists with map.",
+      "visual": "code",
+      "items": [
+        [
+          "{todos.map(todo => (",
+          "yellow"
+        ],
+        [
+          "  <li key={todo.id}>",
+          "blue"
+        ],
+        [
+          "    {todo.text}",
+          "green"
+        ],
+        [
+          "  </li>",
+          "blue"
+        ],
+        [
+          "))}",
+          "yellow"
+        ]
+      ],
+      "say": "To render a list, map over your data and return an element for each item. Every item needs a key, and that key must identify the item.",
+      "voice": "/audio/react-06-lists/map.wav"
+    },
+    {
+      "id": "why",
+      "min": 9,
+      "duration": 14.5,
+      "text": "Why keys matter.",
+      "visual": "compare",
+      "left": {
+        "title": "Index as key",
+        "color": "red",
+        "items": [
+          "Breaks on reorder",
+          "State sticks to the wrong row"
+        ]
+      },
+      "right": {
+        "title": "Stable ID",
+        "color": "green",
+        "items": [
+          "Tracks each item",
+          "State follows the item"
+        ]
+      },
+      "say": "React uses keys to match old items with new ones. With an index as the key, reordering or deleting items makes state, like a half-typed input, jump to the wrong row. A stable ID keeps each item's state with that item.",
+      "voice": "/audio/react-06-lists/why.wav"
+    },
+    {
+      "id": "rules",
+      "min": 8,
+      "duration": 11.0,
+      "text": "The rules for keys.",
+      "visual": "chips",
+      "items": [
+        [
+          "Unique among siblings",
+          "green"
+        ],
+        [
+          "Stable between renders",
+          "blue"
+        ],
+        [
+          "Never Math.random()",
+          "red"
+        ],
+        [
+          "Not available as a prop",
+          "yellow"
+        ]
+      ],
+      "say": "Keys must be unique among siblings, and stable between renders, so never use a random number. They are for React's use, and don't arrive in the component as a prop.",
+      "voice": "/audio/react-06-lists/rules.wav"
+    },
+    {
+      "id": "conditional",
+      "min": 9,
+      "duration": 9.5,
+      "text": "Conditional rendering.",
+      "visual": "code",
+      "items": [
+        [
+          "{isLoggedIn ? <Dashboard />",
+          "green"
+        ],
+        [
+          "            : <Login />}",
+          "green"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "{hasError && <ErrorMessage />}",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "if (!user) return null;",
+          "yellow"
+        ]
+      ],
+      "say": "Use a ternary to pick between two outputs, the and operator to show something only when a condition holds, and an early return to render nothing at all.",
+      "voice": "/audio/react-06-lists/conditional.wav"
+    },
+    {
+      "id": "gotcha",
+      "min": 8,
+      "duration": 11.0,
+      "text": "The stray zero.",
+      "visual": "compare",
+      "left": {
+        "title": "count && <X />",
+        "color": "red",
+        "items": [
+          "If count is 0",
+          "it renders a literal 0"
+        ]
+      },
+      "right": {
+        "title": "count > 0 && <X />",
+        "color": "green",
+        "items": [
+          "Always a boolean",
+          "renders nothing, or X"
+        ]
+      },
+      "say": "A well-known gotcha: using a number with the and operator. If the count is zero, React renders the zero. Compare it to a boolean first, so you get nothing instead.",
+      "voice": "/audio/react-06-lists/gotcha.wav"
+    },
+    {
+      "id": "states",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Every list has four states.",
+      "visual": "chips",
+      "badge": "DESIGN ALL FOUR",
+      "items": [
+        [
+          "Loading",
+          "blue"
+        ],
+        [
+          "Error",
+          "red"
+        ],
+        [
+          "Empty",
+          "yellow"
+        ],
+        [
+          "Data",
+          "green"
+        ]
+      ],
+      "say": "Every list has four states: loading, error, empty, and data. Real users hit all of them, so design and test each one.",
+      "voice": "/audio/react-06-lists/states.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: useEffect.",
+      "say": "Next up, use effect. Follow for more React.",
+      "voice": "/audio/react-06-lists/close.wav"
+    }
+  ]
+}
