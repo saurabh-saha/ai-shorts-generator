@@ -1,0 +1,62 @@
+{
+  "title": "Change Data Capture",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 5,
+      "duration": 7.5,
+      "text": "How do search, cache, and analytics learn of a change?",
+      "say": "How do other systems, like search, caches, and analytics, find out when your database changes?",
+      "voice": "/audio/change-data-capture/hook.wav"
+    },
+    {
+      "id": "polling",
+      "min": 7,
+      "duration": 8.5,
+      "text": "Polling: slow, heavy, and it misses deletes.",
+      "say": "One way is polling: constantly asking the database what changed. It's slow, it adds load, and it can miss deletes.",
+      "voice": "/audio/change-data-capture/polling.wav"
+    },
+    {
+      "id": "log",
+      "min": 6,
+      "duration": 7.5,
+      "text": "Databases already log every change first.",
+      "say": "But every database already writes each change to a transaction log first, so it can recover from crashes.",
+      "voice": "/audio/change-data-capture/log.wav"
+    },
+    {
+      "id": "cdc",
+      "min": 7,
+      "duration": 7,
+      "text": "CDC reads the log and emits events, in order.",
+      "say": "Change data capture reads that log, and turns each change into an event, in the exact order it happened.",
+      "voice": "/audio/change-data-capture/cdc.wav"
+    },
+    {
+      "id": "fanout",
+      "min": 6,
+      "duration": 6,
+      "text": "Consumers update in near real time.",
+      "say": "Those events flow into a stream, and every consumer updates itself in near real time.",
+      "voice": "/audio/change-data-capture/fanout.wav"
+    },
+    {
+      "id": "benefits",
+      "min": 8,
+      "duration": 8,
+      "text": "No app changes. Captures deletes. Powers outbox relays.",
+      "say": "You don't change your application code, deletes are captured too, and it's the usual way to build an outbox relay.",
+      "voice": "/audio/change-data-capture/benefits.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: stream processing. Follow for more!",
+      "say": "Next up, stream processing. Follow for more system design.",
+      "voice": "/audio/change-data-capture/close.wav"
+    }
+  ]
+}
