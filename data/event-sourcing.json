@@ -1,0 +1,62 @@
+{
+  "title": "Event Sourcing",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 5,
+      "duration": 8.5,
+      "text": "Normal databases overwrite the old value.",
+      "say": "Most databases store only the current state. When a balance changes, the old value is overwritten, and the history is lost.",
+      "voice": "/audio/event-sourcing/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 6,
+      "duration": 6.5,
+      "text": "Event sourcing: store every change as an event.",
+      "say": "Event sourcing flips that. Every change is stored as an immutable event, in an append-only log.",
+      "voice": "/audio/event-sourcing/concept.wav"
+    },
+    {
+      "id": "state",
+      "min": 7,
+      "duration": 7,
+      "text": "State = replaying the events.",
+      "say": "The current state is just the result of replaying those events from the beginning.",
+      "voice": "/audio/event-sourcing/state.wav"
+    },
+    {
+      "id": "benefits",
+      "min": 8,
+      "duration": 8,
+      "text": "Audit trail. Time travel. Replay to fix bugs.",
+      "say": "You get a full audit trail, you can rebuild the past at any point in time, and you can fix bugs by replaying events.",
+      "voice": "/audio/event-sourcing/benefits.wav"
+    },
+    {
+      "id": "snapshots",
+      "min": 7,
+      "duration": 8.0,
+      "text": "Snapshots: replay only what came after.",
+      "say": "Replaying a million events would be slow, so systems take periodic snapshots, and replay only what came after.",
+      "voice": "/audio/event-sourcing/snapshots.wav"
+    },
+    {
+      "id": "tradeoff",
+      "min": 8,
+      "duration": 8,
+      "text": "The cost: complexity and a separate read model.",
+      "say": "The cost: it's more complex, events can never change, and queries usually need a separate read model.",
+      "voice": "/audio/event-sourcing/tradeoff.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next up: CQRS. Follow for more!",
+      "say": "Next up, C Q R S. Follow for more system design.",
+      "voice": "/audio/event-sourcing/close.wav"
+    }
+  ]
+}
