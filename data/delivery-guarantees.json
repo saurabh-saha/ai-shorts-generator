@@ -1,0 +1,62 @@
+{
+  "title": "Delivery Guarantees",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 9.5,
+      "text": "Lost message? Lost ack? Crash? What can we promise?",
+      "say": "A message crosses the network. It can be lost, the acknowledgment can be lost, or the consumer can crash. So what can a system promise?",
+      "voice": "/audio/delivery-guarantees/hook.wav"
+    },
+    {
+      "id": "most",
+      "min": 6,
+      "duration": 7.0,
+      "text": "At most once: send and forget. May lose.",
+      "say": "At most once: send and forget. If something fails the message is lost, but it is never duplicated.",
+      "voice": "/audio/delivery-guarantees/most.wav"
+    },
+    {
+      "id": "least",
+      "min": 8,
+      "duration": 9.0,
+      "text": "At least once: retry until acked. May duplicate.",
+      "say": "At least once: retry until acknowledged. Nothing is lost, but if the acknowledgment gets lost, the message arrives twice.",
+      "voice": "/audio/delivery-guarantees/least.wav"
+    },
+    {
+      "id": "exactly",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Exactly once = at-least-once + deduplication.",
+      "say": "Exactly once is what everyone wants. In reality it is at-least-once delivery plus deduplication, so the effect happens only once.",
+      "voice": "/audio/delivery-guarantees/exactly.wav"
+    },
+    {
+      "id": "how",
+      "min": 7,
+      "duration": 8.5,
+      "text": "Idempotent consumers. Transactions.",
+      "say": "In practice that means idempotent consumers, or transactions that commit the output and the offset together. Kafka offers both.",
+      "voice": "/audio/delivery-guarantees/how.wav"
+    },
+    {
+      "id": "choose",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Metrics, most systems, payments: pick by cost.",
+      "say": "Metrics can live with at-most-once. Most systems use at-least-once plus idempotency. Payments need exactly-once effects.",
+      "voice": "/audio/delivery-guarantees/choose.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: windowing types. Follow for more!",
+      "say": "Next up, windowing types. Follow for more system design.",
+      "voice": "/audio/delivery-guarantees/close.wav"
+    }
+  ]
+}
