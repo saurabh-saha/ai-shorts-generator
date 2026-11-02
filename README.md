@@ -1,6 +1,6 @@
-# System Design Shorts
+# AI Shorts Generator
 
-Programmatic 1080x1920 (YouTube Shorts) explainers built with [Revideo](https://github.com/redotvideo/revideo) (open source).
+Programmatic 1080x1920 (YouTube Shorts) explainers, narrated and animated from a JSON script. The first series covers system design (rate limiter, load balancer, caching, message queue, DB sharding, consistent hashing, CDN, API gateway, circuit breaker, idempotency). Built with [Revideo](https://github.com/redotvideo/revideo) (open source).
 
 ```bash
 npm install
