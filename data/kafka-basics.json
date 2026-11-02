@@ -1,0 +1,62 @@
+{
+  "title": "Kafka Basics",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 7.0,
+      "text": "Kafka: a distributed log.",
+      "say": "Kafka is a distributed log. Producers append events to it, and consumers read them whenever they like.",
+      "voice": "/audio/kafka-basics/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 7,
+      "duration": 7,
+      "text": "A topic is an append-only log. Each event has an offset.",
+      "say": "Events are stored in a topic, which is an append-only log. Every event gets a number called an offset.",
+      "voice": "/audio/kafka-basics/concept.wav"
+    },
+    {
+      "id": "read",
+      "min": 9,
+      "duration": 10.5,
+      "text": "Consumers track their own offset. Reading deletes nothing.",
+      "say": "Consumers keep track of their own position, the offset, and read at their own pace. Reading never deletes anything, so many consumers can read the same data.",
+      "voice": "/audio/kafka-basics/read.wav"
+    },
+    {
+      "id": "partitions",
+      "min": 7,
+      "duration": 8.0,
+      "text": "Partitions: scale the log across brokers.",
+      "say": "To scale, a topic is split into partitions, spread across brokers. Each partition is its own ordered log.",
+      "voice": "/audio/kafka-basics/partitions.wav"
+    },
+    {
+      "id": "keys",
+      "min": 9,
+      "duration": 9,
+      "text": "The key picks the partition. Same key, same order.",
+      "say": "The event key decides the partition, so all events for the same key land in the same partition, and stay in order.",
+      "voice": "/audio/kafka-basics/keys.wav"
+    },
+    {
+      "id": "durable",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Replicated. Kept for the retention period.",
+      "say": "Partitions are replicated across brokers, and events are kept for a retention period, not until they are read.",
+      "voice": "/audio/kafka-basics/durable.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: consumer groups. Follow for more!",
+      "say": "Next up, consumer groups. Follow for more system design.",
+      "voice": "/audio/kafka-basics/close.wav"
+    }
+  ]
+}
