@@ -1,0 +1,55 @@
+{
+  "title": "The ReAct Loop",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 7.5,
+      "text": "ReAct: reason, then act.",
+      "say": "How does an agent decide what to do next? Many use a pattern called ReAct, short for reason and act.",
+      "voice": "/audio/react-loop/hook.wav"
+    },
+    {
+      "id": "trace",
+      "min": 8,
+      "duration": 8,
+      "text": "Think, act, observe, repeat.",
+      "say": "The model thinks about the situation, picks an action, reads the observation, and thinks again, until it can answer.",
+      "voice": "/audio/react-loop/trace.wav"
+    },
+    {
+      "id": "why",
+      "min": 7,
+      "duration": 7,
+      "text": "Reasoning out loud helps it plan.",
+      "say": "Writing out its reasoning before each action helps the model plan, and gives you a readable trace to debug.",
+      "voice": "/audio/react-loop/why.wav"
+    },
+    {
+      "id": "stop",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Always cap the number of steps.",
+      "say": "The loop ends when the model decides it has the answer. Always add a maximum number of steps, as a safety net.",
+      "voice": "/audio/react-loop/stop.wav"
+    },
+    {
+      "id": "failures",
+      "min": 9,
+      "duration": 10.0,
+      "text": "Repeats, invented results, never stops.",
+      "say": "Typical failures: repeating the same action, inventing tool results, or never deciding to stop. Detect repeats, and cap the steps.",
+      "voice": "/audio/react-loop/failures.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: agent memory. Follow for more!",
+      "say": "Next up, agent memory. Follow for more agentic AI.",
+      "voice": "/audio/react-loop/close.wav"
+    }
+  ]
+}
