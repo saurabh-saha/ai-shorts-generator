@@ -1,0 +1,200 @@
+{
+  "title": "React 26: Concurrent React",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "problem",
+      "min": 9,
+      "duration": 11.0,
+      "text": "When rendering blocks typing.",
+      "visual": "flow",
+      "badge": "THE INPUT FEELS STUCK",
+      "badgeColor": "red",
+      "items": [
+        [
+          "User types",
+          "yellow",
+          "one key press"
+        ],
+        [
+          "Huge list re-renders",
+          "red",
+          "takes 200 ms"
+        ],
+        [
+          "Input freezes",
+          "red",
+          "typing feels laggy"
+        ]
+      ],
+      "say": "Imagine a search box that filters a huge list. Every keystroke triggers a heavy re-render, and the browser can't update the input until it finishes, so typing feels laggy.",
+      "voice": "/audio/react-26-concurrent/problem.wav"
+    },
+    {
+      "id": "idea",
+      "min": 9,
+      "duration": 14.5,
+      "text": "Urgent vs non-urgent updates.",
+      "visual": "compare",
+      "left": {
+        "title": "Urgent",
+        "color": "red",
+        "items": [
+          "Typing, clicking, pressing",
+          "Must feel instant"
+        ]
+      },
+      "right": {
+        "title": "Transition",
+        "color": "green",
+        "items": [
+          "Showing new results",
+          "Can be interrupted"
+        ]
+      },
+      "say": "Concurrent React lets you mark updates by importance. Urgent updates, like typing, must feel instant. Transition updates, like showing new results, can wait, and React can interrupt them if something more urgent arrives.",
+      "voice": "/audio/react-26-concurrent/idea.wav"
+    },
+    {
+      "id": "transition",
+      "min": 10,
+      "duration": 11.5,
+      "text": "useTransition.",
+      "visual": "code",
+      "items": [
+        [
+          "const [isPending, start] = useTransition();",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "function onChange(e) {",
+          "blue"
+        ],
+        [
+          "  setQuery(e.target.value);   // urgent",
+          "green"
+        ],
+        [
+          "  start(() => {",
+          "pink"
+        ],
+        [
+          "    setResults(search(e.target.value));",
+          "pink"
+        ],
+        [
+          "  });                        // can wait",
+          "pink"
+        ],
+        [
+          "}",
+          "blue"
+        ]
+      ],
+      "say": "Wrap the slow state update in start Transition. The input updates immediately, and the results render in the background. The pending flag tells you when the transition is still in progress.",
+      "voice": "/audio/react-26-concurrent/transition.wav"
+    },
+    {
+      "id": "deferred",
+      "min": 9,
+      "duration": 12.0,
+      "text": "useDeferredValue.",
+      "visual": "code",
+      "items": [
+        [
+          "const deferred = useDeferredValue(query);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<Results query={deferred} />",
+          "green"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "// old results stay visible while",
+          "muted"
+        ],
+        [
+          "// the new ones render in the background",
+          "muted"
+        ]
+      ],
+      "say": "When you don't control the code that sets the state, use Deferred Value gives you a lagging copy of a value. The urgent part updates first, and the heavy part catches up when React has time.",
+      "voice": "/audio/react-26-concurrent/deferred.wav"
+    },
+    {
+      "id": "suspense",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Transitions and Suspense.",
+      "visual": "chips",
+      "items": [
+        [
+          "Keep the old UI while loading",
+          "green"
+        ],
+        [
+          "isPending for subtle feedback",
+          "blue"
+        ],
+        [
+          "Don't hide content behind spinners",
+          "red"
+        ],
+        [
+          "Works together with Suspense",
+          "yellow"
+        ]
+      ],
+      "say": "Transitions pair well with Suspense. Instead of replacing the screen with a spinner, React keeps the old content visible while new content loads, and you can use the pending flag for a subtle indicator.",
+      "voice": "/audio/react-26-concurrent/suspense.wav"
+    },
+    {
+      "id": "when",
+      "min": 9,
+      "duration": 13.5,
+      "text": "When to use them.",
+      "visual": "chips",
+      "items": [
+        [
+          "Not a magic performance fix",
+          "red"
+        ],
+        [
+          "Combine with memo for big lists",
+          "blue"
+        ],
+        [
+          "Profile first",
+          "yellow"
+        ],
+        [
+          "Goal: keep input responsive",
+          "green"
+        ]
+      ],
+      "say": "These tools don't make slow code fast. They prioritize work. Combine them with memoization for big lists, profile first, and use them to keep inputs responsive while heavy work happens behind the scenes.",
+      "voice": "/audio/react-26-concurrent/when.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: React 19 actions.",
+      "say": "Next up, React 19 actions. Follow for more React.",
+      "voice": "/audio/react-26-concurrent/close.wav"
+    }
+  ]
+}

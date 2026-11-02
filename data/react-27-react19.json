@@ -1,0 +1,242 @@
+{
+  "title": "React 27: React 19 Actions",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "actions",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Actions: forms made simple.",
+      "visual": "code",
+      "items": [
+        [
+          "async function save(formData) {",
+          "yellow"
+        ],
+        [
+          "  await api.save(formData.get('name'));",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<form action={save}>",
+          "blue"
+        ],
+        [
+          "  <input name=\"name\" />",
+          "blue"
+        ],
+        [
+          "  <button>Save</button>",
+          "blue"
+        ],
+        [
+          "</form>",
+          "blue"
+        ]
+      ],
+      "say": "In React nineteen, a form's action prop can be a function, even an async one. React calls it with the form data, tracks the pending state, and resets the form for you when it succeeds.",
+      "voice": "/audio/react-27-react19/actions.wav"
+    },
+    {
+      "id": "state",
+      "min": 9,
+      "duration": 11.5,
+      "text": "useActionState.",
+      "visual": "code",
+      "items": [
+        [
+          "const [state, formAction, pending] =",
+          "yellow"
+        ],
+        [
+          "  useActionState(save, null);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<form action={formAction}>",
+          "blue"
+        ],
+        [
+          "  <button disabled={pending}>",
+          "green"
+        ],
+        [
+          "    Save",
+          "green"
+        ],
+        [
+          "  </button>",
+          "green"
+        ],
+        [
+          "</form>",
+          "blue"
+        ]
+      ],
+      "say": "use Action State wraps an action, and gives you its latest result, such as validation errors, a wrapped action to pass to the form, and a pending flag, all in one hook.",
+      "voice": "/audio/react-27-react19/state.wav"
+    },
+    {
+      "id": "status",
+      "min": 8,
+      "duration": 10.5,
+      "text": "useFormStatus.",
+      "visual": "code",
+      "items": [
+        [
+          "function SubmitButton() {",
+          "yellow"
+        ],
+        [
+          "  const { pending } = useFormStatus();",
+          "blue"
+        ],
+        [
+          "  return (",
+          "muted"
+        ],
+        [
+          "    <button disabled={pending}>Save</button>",
+          "green"
+        ],
+        [
+          "  );",
+          "muted"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "use Form Status lets any component inside a form read whether that form is submitting. A reusable submit button can disable itself, with no props passed down.",
+      "voice": "/audio/react-27-react19/status.wav"
+    },
+    {
+      "id": "optimistic",
+      "min": 9,
+      "duration": 11.0,
+      "text": "useOptimistic.",
+      "visual": "code",
+      "badge": "SHOW THE RESULT BEFORE THE SERVER",
+      "items": [
+        [
+          "const [shown, addOptimistic] =",
+          "yellow"
+        ],
+        [
+          "  useOptimistic(todos);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "addOptimistic(newTodo);   // instant",
+          "green"
+        ],
+        [
+          "await save(newTodo);      // confirm",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "// on failure it rolls back",
+          "red"
+        ]
+      ],
+      "say": "use Optimistic shows the expected result immediately, while the server request is still in flight. If the request fails, the UI automatically rolls back to the real state.",
+      "voice": "/audio/react-27-react19/optimistic.wav"
+    },
+    {
+      "id": "use",
+      "min": 9,
+      "duration": 12.5,
+      "text": "The use() API.",
+      "visual": "code",
+      "items": [
+        [
+          "// read a promise during render",
+          "muted"
+        ],
+        [
+          "const user = use(userPromise);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "// or read context, even conditionally",
+          "muted"
+        ],
+        [
+          "if (open) {",
+          "blue"
+        ],
+        [
+          "  const theme = use(ThemeContext);",
+          "green"
+        ],
+        [
+          "}",
+          "blue"
+        ]
+      ],
+      "say": "The use function reads a resource while rendering. Given a promise, it suspends until it resolves. Given a context, it reads the value, and unlike hooks, it can be called inside conditions.",
+      "voice": "/audio/react-27-react19/use.wav"
+    },
+    {
+      "id": "small",
+      "min": 9,
+      "duration": 14.0,
+      "text": "Smaller improvements.",
+      "visual": "chips",
+      "items": [
+        [
+          "ref is now a normal prop",
+          "green"
+        ],
+        [
+          "<Context value> replaces .Provider",
+          "blue"
+        ],
+        [
+          "<title> and <meta> in components",
+          "yellow"
+        ],
+        [
+          "Cleanup functions for refs",
+          "pink"
+        ]
+      ],
+      "say": "React nineteen also made smaller changes. Refs are a regular prop, you render the context itself as a provider, title and meta tags can live inside components, and ref callbacks can return a cleanup function.",
+      "voice": "/audio/react-27-react19/small.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: Server Components.",
+      "say": "Next up, Server Components and Next J S. Follow for more React.",
+      "voice": "/audio/react-27-react19/close.wav"
+    }
+  ]
+}

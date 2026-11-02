@@ -1,0 +1,190 @@
+{
+  "title": "React 25: Animation",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "css",
+      "min": 9,
+      "duration": 14.5,
+      "text": "Start with CSS.",
+      "visual": "compare",
+      "left": {
+        "title": "CSS transitions",
+        "color": "green",
+        "items": [
+          "Simple state changes",
+          "Cheap, no library"
+        ]
+      },
+      "right": {
+        "title": "JS animation",
+        "color": "blue",
+        "items": [
+          "Sequences and gestures",
+          "Layout and exit animations"
+        ]
+      },
+      "say": "Many animations need nothing more than a CSS transition between two states, like a hover or an open panel. Reach for a JavaScript library when you need sequences, gestures, layout changes, or elements that animate out.",
+      "voice": "/audio/react-25-animation/css.wav"
+    },
+    {
+      "id": "motion",
+      "min": 9,
+      "duration": 12.0,
+      "text": "Framer Motion.",
+      "visual": "code",
+      "items": [
+        [
+          "<motion.div",
+          "yellow"
+        ],
+        [
+          "  initial={{ opacity: 0, y: 20 }}",
+          "blue"
+        ],
+        [
+          "  animate={{ opacity: 1, y: 0 }}",
+          "green"
+        ],
+        [
+          "  transition={{ duration: 0.3 }}",
+          "pink"
+        ],
+        [
+          "/>",
+          "yellow"
+        ]
+      ],
+      "say": "With Framer Motion, a motion element takes an initial state and an animate state, and animates between them. It is declarative, so you describe where it should end up, not how to get there.",
+      "voice": "/audio/react-25-animation/motion.wav"
+    },
+    {
+      "id": "exit",
+      "min": 9,
+      "duration": 12.0,
+      "text": "Animating out.",
+      "visual": "code",
+      "badge": "EXIT NEEDS ANIMATEPRESENCE",
+      "items": [
+        [
+          "<AnimatePresence>",
+          "yellow"
+        ],
+        [
+          "  {open && (",
+          "blue"
+        ],
+        [
+          "    <motion.div",
+          "green"
+        ],
+        [
+          "      exit={{ opacity: 0 }}",
+          "green"
+        ],
+        [
+          "    />",
+          "green"
+        ],
+        [
+          "  )}",
+          "blue"
+        ],
+        [
+          "</AnimatePresence>",
+          "yellow"
+        ]
+      ],
+      "say": "Normally, React removes an element instantly when it unmounts. Animate Presence keeps it in the DOM until its exit animation finishes, so things can fade or slide away instead of vanishing.",
+      "voice": "/audio/react-25-animation/exit.wav"
+    },
+    {
+      "id": "layout",
+      "min": 9,
+      "duration": 13.5,
+      "text": "Layout, gestures, springs.",
+      "visual": "chips",
+      "items": [
+        [
+          "layout prop: animate reordering",
+          "green"
+        ],
+        [
+          "Shared layout transitions",
+          "blue"
+        ],
+        [
+          "Gestures: drag, hover, tap",
+          "yellow"
+        ],
+        [
+          "Springs feel natural",
+          "pink"
+        ]
+      ],
+      "say": "Adding the layout prop animates elements to their new positions when the layout changes, like a reordered list. Framer Motion also handles shared transitions between screens, drag and tap gestures, and spring physics.",
+      "voice": "/audio/react-25-animation/layout.wav"
+    },
+    {
+      "id": "perf",
+      "min": 9,
+      "duration": 13.0,
+      "text": "Performance and accessibility.",
+      "visual": "chips",
+      "items": [
+        [
+          "Animate transform and opacity",
+          "green"
+        ],
+        [
+          "Avoid animating width and height",
+          "red"
+        ],
+        [
+          "Use will-change sparingly",
+          "yellow"
+        ],
+        [
+          "Respect prefers-reduced-motion",
+          "blue"
+        ]
+      ],
+      "say": "For smooth animation, stick to transform and opacity, which the browser can run on the G P U. Avoid animating width and height. And respect the reduced-motion setting, because some users get sick from movement.",
+      "voice": "/audio/react-25-animation/perf.wav"
+    },
+    {
+      "id": "libs",
+      "min": 8,
+      "duration": 11.0,
+      "text": "Other libraries.",
+      "visual": "compare",
+      "left": {
+        "title": "Framer Motion",
+        "color": "green",
+        "items": [
+          "Declarative and easy",
+          "Layout and exit built in"
+        ]
+      },
+      "right": {
+        "title": "react-spring, GSAP",
+        "color": "blue",
+        "items": [
+          "Physics springs, timelines",
+          "More control, more code"
+        ]
+      },
+      "say": "Framer Motion is the easiest starting point. React Spring is built around physics, and GSAP is a powerful timeline engine, with more control, but more code to write.",
+      "voice": "/audio/react-25-animation/libs.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: concurrent React.",
+      "say": "Next up, concurrent React. Follow for more React.",
+      "voice": "/audio/react-25-animation/close.wav"
+    }
+  ]
+}
