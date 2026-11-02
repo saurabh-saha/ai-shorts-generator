@@ -1,0 +1,63 @@
+{
+  "title": "MCP",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 7.0,
+      "text": "Every tool needs its own integration.",
+      "say": "Every tool needs its own custom integration. Three agents and three tools already means nine connections.",
+      "voice": "/audio/mcp/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 7,
+      "duration": 8.5,
+      "text": "MCP: one standard protocol.",
+      "say": "The Model Context Protocol, or M C P, is an open standard that lets any agent talk to any tool server in the same way.",
+      "voice": "/audio/mcp/concept.wav"
+    },
+    {
+      "id": "discover",
+      "min": 9,
+      "duration": 10.5,
+      "text": "Servers describe their tools. Agents discover them.",
+      "say": "A server describes what it offers: tools, resources like files and data, and prompt templates. The agent discovers them at runtime with a list request.",
+      "voice": "/audio/mcp/discover.wav"
+    },
+    {
+      "id": "call",
+      "min": 9,
+      "duration": 9,
+      "text": "Call a tool. Handle the result or the error.",
+      "say": "To use a tool, the agent sends a call with the tool name and arguments, and gets back a structured result, or an error it can handle.",
+      "voice": "/audio/mcp/call.wav"
+    },
+    {
+      "id": "scale",
+      "min": 7,
+      "duration": 7.5,
+      "text": "50 tools? Load only what the task needs.",
+      "say": "With fifty tools, don't put them all in the prompt. Group or filter them, and load only what the task needs.",
+      "voice": "/audio/mcp/scale.wav"
+    },
+    {
+      "id": "safety",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Treat tool servers as untrusted.",
+      "say": "And treat tool servers as untrusted: authenticate them, limit their permissions, and validate what comes back.",
+      "voice": "/audio/mcp/safety.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: guardrails. Follow for more!",
+      "say": "Next up, guardrails. Follow for more agentic AI.",
+      "voice": "/audio/mcp/close.wav"
+    }
+  ]
+}
