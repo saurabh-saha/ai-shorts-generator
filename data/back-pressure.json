@@ -1,0 +1,62 @@
+{
+  "title": "Back Pressure",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 6,
+      "text": "A producer faster than its consumer...",
+      "say": "What happens when a producer sends data faster than a consumer can handle?",
+      "voice": "/audio/back-pressure/hook.wav"
+    },
+    {
+      "id": "overflow",
+      "min": 7,
+      "duration": 7,
+      "text": "The buffer fills: crash or drop data.",
+      "say": "The buffer in between fills up. Then you either run out of memory and crash, or start dropping data.",
+      "voice": "/audio/back-pressure/overflow.wav"
+    },
+    {
+      "id": "concept",
+      "min": 6,
+      "duration": 6,
+      "text": "Back pressure: the consumer says slow down.",
+      "say": "Back pressure is the consumer telling the producer: slow down.",
+      "voice": "/audio/back-pressure/concept.wav"
+    },
+    {
+      "id": "strategies",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Slow the producer. Bound the buffer. Drop on purpose.",
+      "say": "There are three common responses: slow the producer down, keep the buffer bounded, or drop the least important data on purpose.",
+      "voice": "/audio/back-pressure/strategies.wav"
+    },
+    {
+      "id": "pull",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Pull: ask for more only when ready.",
+      "say": "Many systems use pull instead of push. The consumer asks for the next batch only when it is ready, so overload is impossible by design.",
+      "voice": "/audio/back-pressure/pull.wav"
+    },
+    {
+      "id": "examples",
+      "min": 6,
+      "duration": 9.0,
+      "text": "Kafka, Reactive Streams, TCP.",
+      "say": "Kafka consumers pull at their own pace, Reactive Streams build request n into the contract, and TCP uses a window size.",
+      "voice": "/audio/back-pressure/examples.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: delivery guarantees. Follow for more!",
+      "say": "Next up, delivery guarantees. Follow for more system design.",
+      "voice": "/audio/back-pressure/close.wav"
+    }
+  ]
+}
