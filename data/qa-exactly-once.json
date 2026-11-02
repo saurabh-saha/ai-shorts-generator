@@ -1,0 +1,148 @@
+{
+  "title": "Interview Q: Exactly-Once Events",
+  "subtitle": "Agentic AI Interview Q&A",
+  "audio": null,
+  "beats": [
+    {
+      "id": "q",
+      "min": 6,
+      "duration": 10.0,
+      "text": "Exactly-once, ordering, fault tolerance.",
+      "visual": "question",
+      "items": [
+        "Agents emit and listen to events. How do you guarantee exactly-once processing, ordering, and fault tolerance?"
+      ],
+      "say": "Interview question. Multiple agents emit and listen to events. How do you guarantee exactly-once processing, ordering, and fault tolerance?",
+      "voice": "/audio/qa-exactly-once/q.wav"
+    },
+    {
+      "id": "reality",
+      "min": 7,
+      "duration": 11.0,
+      "text": "Be honest: exactly-once delivery doesn't exist.",
+      "visual": "chips",
+      "items": [
+        [
+          "At-least-once delivery",
+          "yellow"
+        ],
+        [
+          "+ idempotent processing",
+          "green"
+        ],
+        [
+          "= exactly-once effect",
+          "blue"
+        ]
+      ],
+      "say": "Be honest: exactly-once delivery doesn't exist over a network. Aim for at-least-once delivery, plus idempotent processing, so the effect happens once.",
+      "voice": "/audio/qa-exactly-once/reality.wav"
+    },
+    {
+      "id": "dedupe",
+      "min": 8,
+      "duration": 10.0,
+      "text": "Dedupe with event IDs.",
+      "visual": "flow",
+      "items": [
+        [
+          "Event with a unique ID",
+          "yellow",
+          ""
+        ],
+        [
+          "Consumer checks processed IDs",
+          "blue",
+          "same transaction as the effect"
+        ],
+        [
+          "Skip duplicates",
+          "green",
+          ""
+        ]
+      ],
+      "say": "Give every event a unique I D. The consumer records the I Ds it has processed, in the same transaction as its side effects, and skips duplicates.",
+      "voice": "/audio/qa-exactly-once/dedupe.wav"
+    },
+    {
+      "id": "order",
+      "min": 8,
+      "duration": 10.5,
+      "text": "Ordering holds per partition.",
+      "visual": "chips",
+      "items": [
+        [
+          "Partition by workflow ID",
+          "blue"
+        ],
+        [
+          "Order holds per key",
+          "green"
+        ],
+        [
+          "Don't expect a global order",
+          "red"
+        ]
+      ],
+      "say": "Ordering is only guaranteed per partition. Partition by a key like workflow I D, so one workflow's events stay in order, and don't expect a global order.",
+      "voice": "/audio/qa-exactly-once/order.wav"
+    },
+    {
+      "id": "fault",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Outbox, retries, dead letters.",
+      "visual": "chips",
+      "items": [
+        [
+          "Transactional outbox",
+          "green"
+        ],
+        [
+          "Retries with backoff",
+          "yellow"
+        ],
+        [
+          "Dead-letter queue",
+          "red"
+        ]
+      ],
+      "say": "For fault tolerance: use a transactional outbox to publish reliably, retry with backoff, and send poison messages to a dead-letter queue.",
+      "voice": "/audio/qa-exactly-once/fault.wav"
+    },
+    {
+      "id": "answer",
+      "min": 8,
+      "duration": 10.0,
+      "text": "The honest answer.",
+      "visual": "compare",
+      "left": {
+        "title": "Don't promise",
+        "color": "red",
+        "items": [
+          "Magic exactly-once",
+          "A global order"
+        ]
+      },
+      "right": {
+        "title": "Deliver",
+        "color": "green",
+        "items": [
+          "At-least-once + dedupe",
+          "Order per key",
+          "Outbox + DLQ"
+        ]
+      },
+      "say": "So the answer is: at-least-once delivery, idempotent consumers, ordering per key, and a dead-letter queue. Not magic exactly-once.",
+      "voice": "/audio/qa-exactly-once/answer.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 6.0,
+      "text": "Next: 50 MCP tools.",
+      "say": "Next interview question: an agent with fifty tools over M C P. Follow for more.",
+      "voice": "/audio/qa-exactly-once/close.wav"
+    }
+  ]
+}

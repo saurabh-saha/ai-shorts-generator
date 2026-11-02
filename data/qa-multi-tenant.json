@@ -1,0 +1,153 @@
+{
+  "title": "Interview Q: Multi-Tenant Agents",
+  "subtitle": "Agentic AI Interview Q&A",
+  "audio": null,
+  "beats": [
+    {
+      "id": "q",
+      "min": 6,
+      "duration": 10.5,
+      "text": "Shared infrastructure, many customers.",
+      "visual": "question",
+      "items": [
+        "Customers' agents share infrastructure. How do you prevent data leakage, enforce rate limits, and bill accurately?"
+      ],
+      "say": "Interview question. Multiple customers' agents run on shared infrastructure. How do you prevent data leakage, enforce rate limits, and bill accurately?",
+      "voice": "/audio/qa-multi-tenant/q.wav"
+    },
+    {
+      "id": "data",
+      "min": 8,
+      "duration": 10.0,
+      "text": "Isolate data below the prompt.",
+      "visual": "chips",
+      "items": [
+        [
+          "Tenant ID on everything",
+          "blue"
+        ],
+        [
+          "Row-level security",
+          "green"
+        ],
+        [
+          "Enforce below the prompt",
+          "red"
+        ]
+      ],
+      "say": "Data isolation comes first: a tenant I D on every record and every vector, enforced in one place with row-level security. Never rely on the prompt.",
+      "voice": "/audio/qa-multi-tenant/data.wav"
+    },
+    {
+      "id": "compute",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Isolate compute and secrets.",
+      "visual": "chips",
+      "items": [
+        [
+          "Sandboxed code execution",
+          "yellow"
+        ],
+        [
+          "Per-tenant queues",
+          "blue"
+        ],
+        [
+          "Secrets outside the prompt",
+          "green"
+        ]
+      ],
+      "say": "Isolate compute too: sandbox code execution, separate queues for large tenants, and per-tenant secrets that never enter the prompt.",
+      "voice": "/audio/qa-multi-tenant/compute.wav"
+    },
+    {
+      "id": "limits",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Fair limits per tenant.",
+      "visual": "flow",
+      "items": [
+        [
+          "Request arrives",
+          "yellow",
+          "tagged with a tenant ID"
+        ],
+        [
+          "Per-tenant token bucket",
+          "blue",
+          "requests + model tokens"
+        ],
+        [
+          "Allow or throttle",
+          "green",
+          ""
+        ]
+      ],
+      "say": "For fairness, use token buckets per tenant, for requests and for model tokens, so one noisy tenant can't starve everyone else.",
+      "voice": "/audio/qa-multi-tenant/limits.wav"
+    },
+    {
+      "id": "billing",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Meter everything per tenant.",
+      "visual": "stat",
+      "items": [
+        [
+          "Metered per",
+          "tenant",
+          "green"
+        ],
+        [
+          "Usage events",
+          "idempotent",
+          "yellow"
+        ],
+        [
+          "Reconcile with",
+          "provider bill",
+          "blue"
+        ],
+        [
+          "Audit trail",
+          "every call",
+          "red"
+        ]
+      ],
+      "say": "For billing, meter every model call and tool call per tenant, emit idempotent usage events, and reconcile them with the provider's invoice.",
+      "voice": "/audio/qa-multi-tenant/billing.wav"
+    },
+    {
+      "id": "prove",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Prove the isolation.",
+      "visual": "chips",
+      "items": [
+        [
+          "Cross-tenant attack tests",
+          "red"
+        ],
+        [
+          "Access logs",
+          "blue"
+        ],
+        [
+          "Customer audit export",
+          "green"
+        ]
+      ],
+      "say": "Then prove it: test isolation with cross-tenant attempts, log all access, and let customers export their own audit trail.",
+      "voice": "/audio/qa-multi-tenant/prove.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "That wraps up the interview Q&As!",
+      "say": "That wraps up the interview questions. Follow for more.",
+      "voice": "/audio/qa-multi-tenant/close.wav"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "title": "Interview Q: Planner + Workers",
+  "subtitle": "Agentic AI Interview Q&A",
+  "audio": null,
+  "beats": [
+    {
+      "id": "q",
+      "min": 6,
+      "duration": 9.5,
+      "text": "Design a planner with parallel workers.",
+      "visual": "question",
+      "items": [
+        "Design a planner agent that runs worker agents in parallel, aggregates their results, and handles failures and timeouts."
+      ],
+      "say": "Interview question. Design a planner agent that runs worker agents in parallel, aggregates their results, and handles failures and timeouts.",
+      "voice": "/audio/qa-planner-workers/q.wav"
+    },
+    {
+      "id": "shape",
+      "min": 7,
+      "duration": 9.0,
+      "text": "Fan out, then fan in.",
+      "visual": "flow",
+      "badge": "FAN OUT, THEN FAN IN",
+      "items": [
+        [
+          "Planner",
+          "yellow",
+          "splits the task"
+        ],
+        [
+          "Workers",
+          "blue",
+          "run in parallel"
+        ],
+        [
+          "Aggregator",
+          "green",
+          "merges results"
+        ],
+        [
+          "Final answer",
+          "text",
+          ""
+        ]
+      ],
+      "say": "Start with the shape. The planner splits the task, fans out to workers that run in parallel, and an aggregator merges what comes back.",
+      "voice": "/audio/qa-planner-workers/shape.wav"
+    },
+    {
+      "id": "worker",
+      "min": 7,
+      "duration": 11.0,
+      "text": "Make every worker call safe.",
+      "visual": "chips",
+      "items": [
+        [
+          "Timeout per worker",
+          "yellow"
+        ],
+        [
+          "Retries with backoff",
+          "blue"
+        ],
+        [
+          "Idempotent task IDs",
+          "green"
+        ]
+      ],
+      "say": "Make every worker call safe: a timeout so nothing hangs, a retry limit with backoff, and an idempotent task I D, so a retry never duplicates work.",
+      "voice": "/audio/qa-planner-workers/worker.wav"
+    },
+    {
+      "id": "policy",
+      "min": 7,
+      "duration": 10.0,
+      "text": "Pick a failure policy up front.",
+      "visual": "chips",
+      "items": [
+        [
+          "Fail fast",
+          "red"
+        ],
+        [
+          "Accept partial results",
+          "yellow"
+        ],
+        [
+          "Fall back to another worker",
+          "green"
+        ]
+      ],
+      "say": "Decide the failure policy up front: fail fast, accept partial results, or fall back to another worker. Say which you chose, and why.",
+      "voice": "/audio/qa-planner-workers/policy.wav"
+    },
+    {
+      "id": "state",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Keep the state explicit.",
+      "visual": "code",
+      "badge": "SO A CRASH CAN RESUME",
+      "items": [
+        [
+          "task = {",
+          "muted"
+        ],
+        [
+          "  id, worker, attempts,",
+          "text"
+        ],
+        [
+          "  status: pending | running",
+          "yellow"
+        ],
+        [
+          "          | done | failed",
+          "yellow"
+        ],
+        [
+          "}",
+          "muted"
+        ],
+        [
+          "save after every change",
+          "green"
+        ]
+      ],
+      "say": "Keep the state explicit. Store each task's status after every change, so a crashed planner can resume instead of starting over.",
+      "voice": "/audio/qa-planner-workers/state.wav"
+    },
+    {
+      "id": "observe",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Make it observable.",
+      "visual": "chips",
+      "items": [
+        [
+          "Trace every task",
+          "blue"
+        ],
+        [
+          "Alert on timeouts",
+          "yellow"
+        ],
+        [
+          "Watch cost and rate limits",
+          "red"
+        ]
+      ],
+      "say": "Then make it observable: trace every task, alert on timeouts, and watch cost and rate limits, because more parallelism means more spend.",
+      "voice": "/audio/qa-planner-workers/observe.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 6.0,
+      "text": "Next: 10K concurrent workflows.",
+      "say": "Next interview question: ten thousand concurrent workflows. Follow for more.",
+      "voice": "/audio/qa-planner-workers/close.wav"
+    }
+  ]
+}

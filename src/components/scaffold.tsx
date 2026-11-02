@@ -47,7 +47,7 @@ export function makeScaffold(
         <Rect ref={endCard} width={1080} height={1920} fill={colors.bg} opacity={0}>
           <Txt fontFamily={FONT} text={next === '' ? 'Series' : 'Next up'} fill={colors.muted} fontSize={56} y={-90} />
           <Txt fontFamily={FONT} text={next === '' ? 'Complete!' : next} fill={colors.token}
-            fontSize={opts.endSize ?? 92} fontWeight={800} />
+            fontSize={opts.endSize ?? Math.min(92, Math.floor(960 / (Math.max(next.length, 8) * 0.56)))} fontWeight={800} />
           <Txt fontFamily={FONT} text="Follow for more" fill={colors.text} fontSize={52} y={110} />
         </Rect>
       </>,

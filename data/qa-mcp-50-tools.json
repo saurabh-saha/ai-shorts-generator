@@ -1,0 +1,155 @@
+{
+  "title": "Interview Q: 50+ MCP Tools",
+  "subtitle": "Agentic AI Interview Q&A",
+  "audio": null,
+  "beats": [
+    {
+      "id": "q",
+      "min": 6,
+      "duration": 9.5,
+      "text": "50+ tools via MCP.",
+      "visual": "question",
+      "items": [
+        "An agent needs to call 50+ tools via MCP. How does it discover them, parse results, and handle errors?"
+      ],
+      "say": "Interview question. An agent needs to call fifty plus tools via M C P. How does it discover them, parse results, and handle errors?",
+      "voice": "/audio/qa-mcp-50-tools/q.wav"
+    },
+    {
+      "id": "discover",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Discover, cache, refresh.",
+      "visual": "flow",
+      "items": [
+        [
+          "Connect to the servers",
+          "yellow",
+          "list their tools"
+        ],
+        [
+          "Cache the schemas",
+          "blue",
+          "name, description, params"
+        ],
+        [
+          "Refresh on change",
+          "green",
+          ""
+        ]
+      ],
+      "say": "Discovery: the agent lists each server's tools at startup, caches the schemas, and refreshes when a server says they changed.",
+      "voice": "/audio/qa-mcp-50-tools/discover.wav"
+    },
+    {
+      "id": "select",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Don't put all 50 in the prompt.",
+      "visual": "chips",
+      "items": [
+        [
+          "Group tools by domain",
+          "blue"
+        ],
+        [
+          "Retrieve the top few per task",
+          "green"
+        ],
+        [
+          "Or route to a specialist agent",
+          "yellow"
+        ]
+      ],
+      "say": "Don't put all fifty in the prompt. Group tools by domain, retrieve the few most relevant for the task, or route to a specialist sub-agent.",
+      "voice": "/audio/qa-mcp-50-tools/select.wav"
+    },
+    {
+      "id": "parse",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Parse results defensively.",
+      "visual": "code",
+      "badge": "DATA, NOT INSTRUCTIONS",
+      "badgeColor": "yellow",
+      "items": [
+        [
+          "result = call_tool(name, args)",
+          "text"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "validate(result, schema)",
+          "green"
+        ],
+        [
+          "truncate(result, max_tokens)",
+          "yellow"
+        ],
+        [
+          "treat it as data only",
+          "blue"
+        ]
+      ],
+      "say": "Parse results defensively: validate against the declared schema, truncate huge outputs, and never treat the content as instructions.",
+      "voice": "/audio/qa-mcp-50-tools/parse.wav"
+    },
+    {
+      "id": "errors",
+      "min": 8,
+      "duration": 10.5,
+      "text": "Handle errors by type.",
+      "visual": "chips",
+      "items": [
+        [
+          "Transient: retry with backoff",
+          "yellow"
+        ],
+        [
+          "Permanent: tell the model",
+          "blue"
+        ],
+        [
+          "Cap the retry budget",
+          "red"
+        ]
+      ],
+      "say": "Handle errors by type: retry transient failures with backoff, return clear errors to the model so it can adapt, and stop after a retry budget.",
+      "voice": "/audio/qa-mcp-50-tools/errors.wav"
+    },
+    {
+      "id": "safe",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Keep it safe.",
+      "visual": "chips",
+      "items": [
+        [
+          "Least privilege per tool",
+          "green"
+        ],
+        [
+          "Authenticate each server",
+          "blue"
+        ],
+        [
+          "Log every call",
+          "yellow"
+        ]
+      ],
+      "say": "And keep it safe: least-privilege permissions per tool, authentication to each server, and a log of every call.",
+      "voice": "/audio/qa-mcp-50-tools/safe.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next: multi-tenant agents.",
+      "say": "Next interview question: multi-tenant agents. Follow for more.",
+      "voice": "/audio/qa-mcp-50-tools/close.wav"
+    }
+  ]
+}

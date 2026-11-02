@@ -1,0 +1,156 @@
+{
+  "title": "Interview Q: 10K Workflows",
+  "subtitle": "Agentic AI Interview Q&A",
+  "audio": null,
+  "beats": [
+    {
+      "id": "q",
+      "min": 6,
+      "duration": 10.0,
+      "text": "10,000 long-running agent workflows.",
+      "visual": "question",
+      "items": [
+        "Design a system to run 10,000 concurrent agent workflows, each 30+ minutes, calling 100+ tools."
+      ],
+      "say": "Interview question. Design a system that runs ten thousand concurrent agent workflows, each lasting thirty minutes or more, and calling over a hundred tools.",
+      "voice": "/audio/qa-10k-workflows/q.wav"
+    },
+    {
+      "id": "state",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Never keep state in memory.",
+      "visual": "flow",
+      "badge": "STATELESS WORKERS",
+      "items": [
+        [
+          "Workflow engine",
+          "yellow",
+          "runs one step"
+        ],
+        [
+          "Durable state store",
+          "blue",
+          "checkpoint every step"
+        ],
+        [
+          "Any worker",
+          "green",
+          "can resume it"
+        ]
+      ],
+      "say": "Never keep state in memory. Checkpoint after every step into a durable store, so any worker can pick the workflow back up after a crash.",
+      "voice": "/audio/qa-10k-workflows/state.wav"
+    },
+    {
+      "id": "queue",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Queue + worker pool.",
+      "visual": "chips",
+      "items": [
+        [
+          "Queue of steps",
+          "blue"
+        ],
+        [
+          "Stateless worker pool",
+          "green"
+        ],
+        [
+          "Autoscale on queue depth",
+          "yellow"
+        ]
+      ],
+      "say": "Distribute steps through a queue to a pool of stateless workers, and autoscale on queue depth, not on C P U.",
+      "voice": "/audio/qa-10k-workflows/queue.wav"
+    },
+    {
+      "id": "reliable",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Every tool call must be safe to retry.",
+      "visual": "chips",
+      "items": [
+        [
+          "Idempotent tool calls",
+          "green"
+        ],
+        [
+          "Timeouts + retries",
+          "yellow"
+        ],
+        [
+          "Dead-letter queue",
+          "red"
+        ]
+      ],
+      "say": "Make every tool call idempotent, with timeouts and retries, and send repeated failures to a dead-letter queue for a human to inspect.",
+      "voice": "/audio/qa-10k-workflows/reliable.wav"
+    },
+    {
+      "id": "protect",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Protect what you call.",
+      "visual": "chips",
+      "items": [
+        [
+          "Rate limit per tool",
+          "blue"
+        ],
+        [
+          "Rate limit per tenant",
+          "yellow"
+        ],
+        [
+          "Circuit breakers",
+          "red"
+        ]
+      ],
+      "say": "Protect the tools you call: rate limits per tool and per tenant, and circuit breakers when a dependency is unhealthy.",
+      "voice": "/audio/qa-10k-workflows/protect.wav"
+    },
+    {
+      "id": "cost",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Observe it. Cap the cost.",
+      "visual": "stat",
+      "badge": "MEASURE AND CAP COST",
+      "badgeColor": "yellow",
+      "items": [
+        [
+          "Workflows",
+          "10,000",
+          "green"
+        ],
+        [
+          "Steps per run",
+          "100+",
+          "blue"
+        ],
+        [
+          "Budget per run",
+          "capped",
+          "yellow"
+        ],
+        [
+          "Timeout",
+          "per step",
+          "red"
+        ]
+      ],
+      "say": "Finally, observability and cost. Trace every workflow, track tokens and spend per run, and set budgets that stop runaway loops.",
+      "voice": "/audio/qa-10k-workflows/cost.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 6.0,
+      "text": "Next: exactly-once events.",
+      "say": "Next interview question: exactly-once event processing. Follow for more.",
+      "voice": "/audio/qa-10k-workflows/close.wav"
+    }
+  ]
+}
