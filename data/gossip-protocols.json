@@ -1,0 +1,62 @@
+{
+  "title": "Gossip Protocols",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 4,
+      "duration": 8.0,
+      "text": "1,000 servers. No central boss. How do they share news?",
+      "say": "How does a cluster of a thousand servers share news, like who just joined or who just failed, without a central boss?",
+      "voice": "/audio/gossip-protocols/hook.wav"
+    },
+    {
+      "id": "central",
+      "min": 5,
+      "duration": 7.0,
+      "text": "One node tells everyone? Bottleneck. Single point of failure.",
+      "say": "One option is for a single node to tell everyone. But that's a bottleneck, and a single point of failure.",
+      "voice": "/audio/gossip-protocols/central.wav"
+    },
+    {
+      "id": "concept",
+      "min": 5,
+      "duration": 7.5,
+      "text": "Like office rumors: pick a random peer, share.",
+      "say": "Gossip works like office rumors. Every second, each node picks a random peer, and shares what it knows.",
+      "voice": "/audio/gossip-protocols/concept.wav"
+    },
+    {
+      "id": "spread",
+      "min": 8,
+      "duration": 8.5,
+      "text": "1, 2, 4, 8: the news spreads exponentially.",
+      "say": "The news spreads exponentially. One node tells one, then two tell two, then four tell four, and soon everyone knows.",
+      "voice": "/audio/gossip-protocols/spread.wav"
+    },
+    {
+      "id": "props",
+      "min": 6,
+      "duration": 10.0,
+      "text": "No coordinator. Fault tolerant. Eventually consistent.",
+      "say": "There is no central coordinator, it survives node failures, and it scales to thousands of nodes. The price is that nodes are only eventually consistent.",
+      "voice": "/audio/gossip-protocols/props.wav"
+    },
+    {
+      "id": "used",
+      "min": 4,
+      "duration": 6.0,
+      "text": "Used by Cassandra, Consul, and more.",
+      "say": "Cassandra, Consul, and many other systems use gossip to track which nodes are alive.",
+      "voice": "/audio/gossip-protocols/used.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: two-phase commit. Follow for more!",
+      "say": "Next up, two-phase commit. Follow for more system design.",
+      "voice": "/audio/gossip-protocols/close.wav"
+    }
+  ]
+}
