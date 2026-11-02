@@ -55,7 +55,7 @@ function buildChips(view: View2D, kit: Kit, beat: Any): Visual {
     show: function* (budget: number) {
       yield* showHead();
       kit.sfx('whoosh', 0.4);
-      const w = clamp((budget - 0.4) / n, 0.8, 2.6);
+      const w = clamp((budget - 0.3 * n) / n, 0.4, 2.6);
       yield* reveal(chips, kit.sfx, Array(n).fill(w));
     },
     hide: hider(els),
@@ -134,7 +134,7 @@ function buildCode(view: View2D, kit: Kit, beat: Any): Visual {
       yield* showHead();
       kit.sfx('whoosh', 0.4);
       yield* panel().opacity(1, 0.3);
-      const w = clamp((budget - 0.7) / n, 0.5, 2.2);
+      const w = clamp((budget - 0.3 - 0.25 * n) / n, 0.3, 2.2);
       for (let i = 0; i < n; i++) {
         kit.sfx(`plink${i % 5}`, 0.35);
         yield* txts[i].opacity(1, 0.25);
@@ -179,7 +179,7 @@ function buildCompare(view: View2D, kit: Kit, beat: Any): Visual {
     show: function* (budget: number) {
       yield* showHead();
       const total = groups[0].length + groups[1].length;
-      const w = clamp((budget - 1) / total, 0.5, 1.5);
+      const w = clamp((budget - 0.6 - 0.25 * total) / total, 0.3, 1.5);
       for (let k = 0; k < 2; k++) {
         kit.sfx('whoosh', 0.3);
         yield* panels[k].opacity(1, 0.3);
@@ -215,7 +215,7 @@ function buildStat(view: View2D, kit: Kit, beat: Any): Visual {
     show: function* (budget: number) {
       yield* showHead();
       kit.sfx('whoosh', 0.4);
-      const w = clamp((budget - 0.4) / cards.length, 0.6, 2);
+      const w = clamp((budget - 0.3 * cards.length) / cards.length, 0.4, 2);
       for (let i = 0; i < cards.length; i++) {
         kit.sfx(`plink${i % 5}`, 0.45);
         yield* all(cards[i].opacity(1, 0.3), chain(cards[i].scale(1.05, 0.12), cards[i].scale(1, 0.15)));

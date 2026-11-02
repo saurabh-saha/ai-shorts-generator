@@ -1,0 +1,196 @@
+{
+  "title": "React 14: memo & Memoization",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "start",
+      "min": 8,
+      "duration": 13.5,
+      "text": "Measure before you optimize.",
+      "visual": "chips",
+      "badge": "PROFILE FIRST",
+      "items": [
+        [
+          "Most re-renders are fine",
+          "green"
+        ],
+        [
+          "Rendering is usually cheap",
+          "blue"
+        ],
+        [
+          "Memoization has its own cost",
+          "yellow"
+        ],
+        [
+          "Optimize measured slowness only",
+          "red"
+        ]
+      ],
+      "say": "Before any optimization, remember that most re-renders are harmless, because rendering is cheap. Memoization has its own cost and complexity, so profile first, and only fix slowness you can measure.",
+      "voice": "/audio/react-14-memoization/start.wav"
+    },
+    {
+      "id": "memo",
+      "min": 9,
+      "duration": 11.0,
+      "text": "React.memo skips re-renders.",
+      "visual": "code",
+      "items": [
+        [
+          "const Row = memo(function Row({ item }) {",
+          "yellow"
+        ],
+        [
+          "  return <li>{item.name}</li>;",
+          "green"
+        ],
+        [
+          "});",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "// re-renders only if item changed",
+          "muted"
+        ],
+        [
+          "// (shallow comparison of props)",
+          "muted"
+        ]
+      ],
+      "say": "Wrap a component in memo, and React skips re-rendering it when its props are shallowly equal to last time. Great for expensive components that receive the same props often.",
+      "voice": "/audio/react-14-memoization/memo.wav"
+    },
+    {
+      "id": "useMemo",
+      "min": 9,
+      "duration": 13.5,
+      "text": "useMemo caches a value.",
+      "visual": "code",
+      "items": [
+        [
+          "const sorted = useMemo(() => {",
+          "yellow"
+        ],
+        [
+          "  return [...items].sort(byDate);",
+          "green"
+        ],
+        [
+          "}, [items]);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "// recomputed only when items change",
+          "muted"
+        ]
+      ],
+      "say": "use Memo caches the result of a calculation between renders, and recomputes it only when a dependency changes. It also keeps an object's identity stable, which matters when you pass it to a memoized child.",
+      "voice": "/audio/react-14-memoization/useMemo.wav"
+    },
+    {
+      "id": "useCallback",
+      "min": 9,
+      "duration": 13.0,
+      "text": "useCallback caches a function.",
+      "visual": "code",
+      "items": [
+        [
+          "const onSave = useCallback(() => {",
+          "yellow"
+        ],
+        [
+          "  save(draft);",
+          "green"
+        ],
+        [
+          "}, [draft]);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<Row onSave={onSave} />",
+          "blue"
+        ],
+        [
+          "// same function identity between renders",
+          "muted"
+        ]
+      ],
+      "say": "Functions are recreated on every render, so a memoized child that receives one would always see a new prop. use Callback returns the same function until its dependencies change, so the child can skip rendering.",
+      "voice": "/audio/react-14-memoization/useCallback.wav"
+    },
+    {
+      "id": "broken",
+      "min": 9,
+      "duration": 12.0,
+      "text": "memo is useless with unstable props.",
+      "visual": "compare",
+      "left": {
+        "title": "Breaks memo",
+        "color": "red",
+        "items": [
+          "style={{ color: 'red' }}",
+          "onClick={() => go()}"
+        ]
+      },
+      "right": {
+        "title": "Stable props",
+        "color": "green",
+        "items": [
+          "Stable object (module const)",
+          "useCallback / useMemo"
+        ]
+      },
+      "say": "Memo only helps when props are stable. An inline object or arrow function creates a new value every render, so the shallow check always fails. Stabilize them, or skip the memo.",
+      "voice": "/audio/react-14-memoization/broken.wav"
+    },
+    {
+      "id": "compiler",
+      "min": 8,
+      "duration": 13.5,
+      "text": "The React Compiler.",
+      "visual": "chips",
+      "items": [
+        [
+          "Memoizes automatically at build time",
+          "green"
+        ],
+        [
+          "Fewer manual memo calls",
+          "blue"
+        ],
+        [
+          "Still write clean, pure components",
+          "yellow"
+        ],
+        [
+          "Manual memo stays an escape hatch",
+          "pink"
+        ]
+      ],
+      "say": "The React Compiler can add this memoization for you at build time, so you write fewer manual memo calls. It still relies on clean, pure components, and the manual hooks stay available as an escape hatch.",
+      "voice": "/audio/react-14-memoization/compiler.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: component patterns.",
+      "say": "Next up, component patterns. Follow for more React.",
+      "voice": "/audio/react-14-memoization/close.wav"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "title": "React 15: Component Patterns",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "why",
+      "min": 8,
+      "duration": 13.0,
+      "text": "Patterns for reusable components.",
+      "visual": "chips",
+      "items": [
+        [
+          "Composition with children",
+          "green"
+        ],
+        [
+          "Render props",
+          "blue"
+        ],
+        [
+          "Higher-order components",
+          "yellow"
+        ],
+        [
+          "Compound components",
+          "pink"
+        ]
+      ],
+      "say": "As an app grows, you need ways to share behavior between components. React has a handful of patterns for this: composition, render props, higher-order components, and compound components.",
+      "voice": "/audio/react-15-patterns/why.wav"
+    },
+    {
+      "id": "renderprops",
+      "min": 9,
+      "duration": 11.0,
+      "text": "Render props.",
+      "visual": "code",
+      "items": [
+        [
+          "<MouseTracker>",
+          "yellow"
+        ],
+        [
+          "  {({ x, y }) => (",
+          "blue"
+        ],
+        [
+          "    <p>Mouse at {x}, {y}</p>",
+          "green"
+        ],
+        [
+          "  )}",
+          "blue"
+        ],
+        [
+          "</MouseTracker>",
+          "yellow"
+        ]
+      ],
+      "say": "A render prop is a function prop that a component calls to decide what to draw. The component owns the logic, like tracking the mouse, and the caller decides how to display the data.",
+      "voice": "/audio/react-15-patterns/renderprops.wav"
+    },
+    {
+      "id": "hoc",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Higher-order components.",
+      "visual": "code",
+      "items": [
+        [
+          "function withLogging(Component) {",
+          "yellow"
+        ],
+        [
+          "  return function Wrapped(props) {",
+          "blue"
+        ],
+        [
+          "    useEffect(() => log('shown'), []);",
+          "green"
+        ],
+        [
+          "    return <Component {...props} />;",
+          "green"
+        ],
+        [
+          "  };",
+          "blue"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "A higher-order component is a function that takes a component, and returns a new one with extra behavior, like logging. It was popular before hooks, and still appears in older code and libraries.",
+      "voice": "/audio/react-15-patterns/hoc.wav"
+    },
+    {
+      "id": "hooks",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Hooks replaced most of these.",
+      "visual": "compare",
+      "left": {
+        "title": "Before hooks",
+        "color": "yellow",
+        "items": [
+          "Render props",
+          "Higher-order components"
+        ]
+      },
+      "right": {
+        "title": "Today",
+        "color": "green",
+        "items": [
+          "Custom hooks",
+          "Plain composition"
+        ]
+      },
+      "say": "Custom hooks now cover most of what render props and higher-order components were used for, with less nesting and clearer code. Reach for a hook first.",
+      "voice": "/audio/react-15-patterns/hooks.wav"
+    },
+    {
+      "id": "compound",
+      "min": 10,
+      "duration": 13.5,
+      "text": "Compound components.",
+      "visual": "code",
+      "badge": "PARTS THAT SHARE HIDDEN STATE",
+      "items": [
+        [
+          "<Tabs>",
+          "yellow"
+        ],
+        [
+          "  <Tabs.List>",
+          "blue"
+        ],
+        [
+          "    <Tabs.Tab>One</Tabs.Tab>",
+          "green"
+        ],
+        [
+          "    <Tabs.Tab>Two</Tabs.Tab>",
+          "green"
+        ],
+        [
+          "  </Tabs.List>",
+          "blue"
+        ],
+        [
+          "  <Tabs.Panel>...</Tabs.Panel>",
+          "pink"
+        ],
+        [
+          "</Tabs>",
+          "yellow"
+        ]
+      ],
+      "say": "Compound components are a group of components that work together and share state through context, like tabs with a list, tabs, and panels. The user composes the parts freely, and the state stays hidden inside.",
+      "voice": "/audio/react-15-patterns/compound.wav"
+    },
+    {
+      "id": "choose",
+      "min": 8,
+      "duration": 14.0,
+      "text": "Choosing a pattern.",
+      "visual": "chips",
+      "items": [
+        [
+          "Reuse stateful logic: custom hook",
+          "green"
+        ],
+        [
+          "Flexible parts: compound components",
+          "blue"
+        ],
+        [
+          "Custom UI: children / render prop",
+          "yellow"
+        ],
+        [
+          "Wrap behavior: HOC (rarely)",
+          "pink"
+        ]
+      ],
+      "say": "To choose: reuse stateful logic with a custom hook, build flexible widgets with compound components, customize rendering with children or a render prop, and use a higher-order component only when a library requires it.",
+      "voice": "/audio/react-15-patterns/choose.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: portals and error boundaries.",
+      "say": "Next up, portals and error boundaries. Follow for more React.",
+      "voice": "/audio/react-15-patterns/close.wav"
+    }
+  ]
+}

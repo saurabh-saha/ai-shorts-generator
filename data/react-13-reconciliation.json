@@ -1,0 +1,179 @@
+{
+  "title": "React 13: Reconciliation",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "problem",
+      "min": 8,
+      "duration": 12.5,
+      "text": "Updating the DOM is expensive.",
+      "visual": "compare",
+      "left": {
+        "title": "Naive way",
+        "color": "red",
+        "items": [
+          "Rebuild the whole DOM",
+          "Slow, loses focus + scroll"
+        ]
+      },
+      "right": {
+        "title": "React's way",
+        "color": "green",
+        "items": [
+          "Compare old and new",
+          "Change only the difference"
+        ]
+      },
+      "say": "Rebuilding the whole page on every change would be slow, and would lose things like focus and scroll position. React instead compares what you rendered before with what you render now, and changes only the difference.",
+      "voice": "/audio/react-13-reconciliation/problem.wav"
+    },
+    {
+      "id": "virtual",
+      "min": 9,
+      "duration": 12.5,
+      "text": "The virtual DOM.",
+      "visual": "flow",
+      "badge": "DIFF, THEN PATCH",
+      "items": [
+        [
+          "Render",
+          "yellow",
+          "a tree of plain objects"
+        ],
+        [
+          "Diff",
+          "blue",
+          "compare with the last tree"
+        ],
+        [
+          "Commit",
+          "green",
+          "patch the real DOM"
+        ]
+      ],
+      "say": "Each render produces a tree of plain JavaScript objects, often called the virtual DOM. React diffs it against the previous tree, finds the minimal set of changes, and applies just those to the real DOM.",
+      "voice": "/audio/react-13-reconciliation/virtual.wav"
+    },
+    {
+      "id": "rules",
+      "min": 9,
+      "duration": 15.0,
+      "text": "The diffing rules.",
+      "visual": "chips",
+      "items": [
+        [
+          "New element type: rebuild it",
+          "red"
+        ],
+        [
+          "Same type: update props only",
+          "green"
+        ],
+        [
+          "Lists: match children by key",
+          "yellow"
+        ],
+        [
+          "Same position + type = same state",
+          "blue"
+        ]
+      ],
+      "say": "React uses simple heuristics. If the element type changes, it throws the old subtree away and builds a new one. If the type is the same, it updates the props. Lists are matched by key, and state belongs to a position in the tree.",
+      "voice": "/audio/react-13-reconciliation/rules.wav"
+    },
+    {
+      "id": "state",
+      "min": 9,
+      "duration": 12.0,
+      "text": "State is tied to position.",
+      "visual": "compare",
+      "left": {
+        "title": "Same spot + type",
+        "color": "yellow",
+        "items": [
+          "State is preserved",
+          "even if props change"
+        ]
+      },
+      "right": {
+        "title": "Type or key differs",
+        "color": "red",
+        "items": [
+          "State is destroyed",
+          "a fresh component starts"
+        ]
+      },
+      "say": "That is why state survives re-renders: the component is at the same spot with the same type. Change the type or the key, and React treats it as a brand new component, and its state is reset.",
+      "voice": "/audio/react-13-reconciliation/state.wav"
+    },
+    {
+      "id": "inline",
+      "min": 8,
+      "duration": 12.5,
+      "text": "A classic bug: components inside components.",
+      "visual": "code",
+      "badge": "DEFINE COMPONENTS AT THE TOP LEVEL",
+      "badgeColor": "red",
+      "items": [
+        [
+          "function Parent() {",
+          "yellow"
+        ],
+        [
+          "  // new function each render!",
+          "red"
+        ],
+        [
+          "  function Child() { ... }",
+          "red"
+        ],
+        [
+          "  return <Child />;",
+          "blue"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "A classic bug: defining a component inside another component. Every render creates a brand new function, so React sees a different type each time, and remounts the child, losing its state.",
+      "voice": "/audio/react-13-reconciliation/inline.wav"
+    },
+    {
+      "id": "fiber",
+      "min": 8,
+      "duration": 13.5,
+      "text": "Fiber: the engine behind it.",
+      "visual": "chips",
+      "items": [
+        [
+          "Work is split into small units",
+          "blue"
+        ],
+        [
+          "Rendering can pause and resume",
+          "green"
+        ],
+        [
+          "Urgent updates go first",
+          "yellow"
+        ],
+        [
+          "Enables concurrent features",
+          "pink"
+        ]
+      ],
+      "say": "Under the hood, React's Fiber architecture splits rendering into small units of work. That lets React pause, resume, and prioritize updates, which is what makes concurrent features like transitions possible.",
+      "voice": "/audio/react-13-reconciliation/fiber.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 6.0,
+      "text": "Next: memoization.",
+      "say": "Next up, memo, use Memo, and use Callback. Follow for more React.",
+      "voice": "/audio/react-13-reconciliation/close.wav"
+    }
+  ]
+}
