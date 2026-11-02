@@ -1,0 +1,62 @@
+{
+  "title": "Log Compaction",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 8.5,
+      "text": "A log grows forever. You want the latest value per key.",
+      "say": "A log keeps growing forever. But often you only care about the latest value for each key, like a user's current email address.",
+      "voice": "/audio/log-compaction/hook.wav"
+    },
+    {
+      "id": "retention",
+      "min": 7,
+      "duration": 8.5,
+      "text": "Retention deletes by age: a key can vanish.",
+      "say": "Normal retention deletes old data by age or size, even when it is the only record for a key. That erases the key completely.",
+      "voice": "/audio/log-compaction/retention.wav"
+    },
+    {
+      "id": "compaction",
+      "min": 7,
+      "duration": 8.5,
+      "text": "Compaction keeps the latest value per key.",
+      "say": "Log compaction works differently. It keeps at least the latest value for every key, and removes the older values of the same key.",
+      "voice": "/audio/log-compaction/compaction.wav"
+    },
+    {
+      "id": "tombstone",
+      "min": 8,
+      "duration": 8.5,
+      "text": "A tombstone (null) deletes a key.",
+      "say": "To delete a key, you write a tombstone, a message with a null value. After a while, compaction removes the key entirely.",
+      "voice": "/audio/log-compaction/tombstone.wav"
+    },
+    {
+      "id": "use",
+      "min": 8,
+      "duration": 10.5,
+      "text": "A compacted topic is a table you can rebuild.",
+      "say": "A compacted topic behaves like a table. A new consumer reads it from the start, and rebuilds the current state. Kafka does this for its own consumer offsets.",
+      "voice": "/audio/log-compaction/use.wav"
+    },
+    {
+      "id": "caveat",
+      "min": 7,
+      "duration": 9.0,
+      "text": "Offsets have gaps. It runs in the background.",
+      "say": "Offsets never change, so the log has gaps. And compaction runs in the background, so you may briefly still see old values.",
+      "voice": "/audio/log-compaction/caveat.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "That wraps up the stream series!",
+      "say": "That wraps up the stream series. Follow for more system design.",
+      "voice": "/audio/log-compaction/close.wav"
+    }
+  ]
+}
