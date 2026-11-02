@@ -1,0 +1,203 @@
+{
+  "title": "React 16: Portals & Error Boundaries",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "why",
+      "min": 8,
+      "duration": 15.5,
+      "text": "Why portals exist.",
+      "visual": "compare",
+      "left": {
+        "title": "Normal render",
+        "color": "red",
+        "items": [
+          "Inside the parent's DOM",
+          "Clipped by overflow or z-index"
+        ]
+      },
+      "right": {
+        "title": "Portal",
+        "color": "green",
+        "items": [
+          "Rendered elsewhere in the DOM",
+          "Still a React child"
+        ]
+      },
+      "say": "A modal rendered deep inside the tree can get clipped by a parent's overflow, or stuck under another element's z-index. A portal renders a component's output somewhere else in the DOM, usually at the end of the body, while it stays a normal React child.",
+      "voice": "/audio/react-16-portals-errors/why.wav"
+    },
+    {
+      "id": "code",
+      "min": 9,
+      "duration": 11.5,
+      "text": "createPortal.",
+      "visual": "code",
+      "items": [
+        [
+          "import { createPortal } from 'react-dom';",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "function Modal({ children }) {",
+          "yellow"
+        ],
+        [
+          "  return createPortal(",
+          "green"
+        ],
+        [
+          "    <div className=\"modal\">{children}</div>,",
+          "green"
+        ],
+        [
+          "    document.body",
+          "pink"
+        ],
+        [
+          "  );",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "You call create Portal with the content, and the DOM node to put it in. In the React tree nothing changes, so the modal still has its parent component, and reads the same context.",
+      "voice": "/audio/react-16-portals-errors/code.wav"
+    },
+    {
+      "id": "behavior",
+      "min": 8,
+      "duration": 14.5,
+      "text": "What portals keep and what they need.",
+      "visual": "chips",
+      "items": [
+        [
+          "Events bubble through the React tree",
+          "green"
+        ],
+        [
+          "Context still works",
+          "blue"
+        ],
+        [
+          "Great for modals, tooltips, toasts",
+          "yellow"
+        ],
+        [
+          "You handle focus and Escape",
+          "red"
+        ]
+      ],
+      "say": "Events from a portal still bubble up through the React tree, and context still works. They are great for modals, tooltips, and toasts, but you are responsible for accessibility, like trapping focus and closing on escape.",
+      "voice": "/audio/react-16-portals-errors/behavior.wav"
+    },
+    {
+      "id": "boundary",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Errors in rendering.",
+      "visual": "flow",
+      "badge": "ISOLATE THE FAILURE",
+      "items": [
+        [
+          "A component throws",
+          "red",
+          "during render"
+        ],
+        [
+          "No boundary",
+          "red",
+          "the whole app goes blank"
+        ],
+        [
+          "Error boundary",
+          "green",
+          "shows a fallback instead"
+        ]
+      ],
+      "say": "If a component throws an error while rendering, and nothing catches it, React unmounts the whole app, leaving a blank screen. An error boundary catches the error below it, and shows a fallback instead.",
+      "voice": "/audio/react-16-portals-errors/boundary.wav"
+    },
+    {
+      "id": "usage",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Using an error boundary.",
+      "visual": "code",
+      "items": [
+        [
+          "<ErrorBoundary",
+          "yellow"
+        ],
+        [
+          "  fallback={<p>Something broke</p>}",
+          "green"
+        ],
+        [
+          "  onError={logToServer}",
+          "blue"
+        ],
+        [
+          "  onReset={reload}",
+          "blue"
+        ],
+        [
+          ">",
+          "yellow"
+        ],
+        [
+          "  <Dashboard />",
+          "pink"
+        ],
+        [
+          "</ErrorBoundary>",
+          "yellow"
+        ]
+      ],
+      "say": "Error boundaries are still written as class components, so most teams use the react-error-boundary package. You give it a fallback, an error logger, and a reset handler, then wrap a feature with it.",
+      "voice": "/audio/react-16-portals-errors/usage.wav"
+    },
+    {
+      "id": "limits",
+      "min": 9,
+      "duration": 15.0,
+      "text": "What boundaries do and don't catch.",
+      "visual": "chips",
+      "items": [
+        [
+          "Catch: render and lifecycle errors",
+          "green"
+        ],
+        [
+          "Miss: event handlers",
+          "red"
+        ],
+        [
+          "Miss: async code and timers",
+          "red"
+        ],
+        [
+          "Wrap features, not the whole app",
+          "yellow"
+        ]
+      ],
+      "say": "Boundaries catch errors during rendering. They do not catch errors in event handlers, or in asynchronous code like timers and promises, so those need try and catch. Place several boundaries around features, instead of one around everything.",
+      "voice": "/audio/react-16-portals-errors/limits.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: Suspense and lazy loading.",
+      "say": "Next up, Suspense and lazy loading. Follow for more React.",
+      "voice": "/audio/react-16-portals-errors/close.wav"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "title": "React 17: Suspense & Lazy",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "bundle",
+      "min": 8,
+      "duration": 10.5,
+      "text": "Don't ship everything up front.",
+      "visual": "compare",
+      "left": {
+        "title": "One big bundle",
+        "color": "red",
+        "items": [
+          "Slow first load",
+          "Download code you may never use"
+        ]
+      },
+      "right": {
+        "title": "Code splitting",
+        "color": "green",
+        "items": [
+          "Load on demand",
+          "Small first load"
+        ]
+      },
+      "say": "If your whole app is one JavaScript bundle, users download every screen before seeing the first one. Code splitting breaks it into chunks, loaded only when they are needed.",
+      "voice": "/audio/react-17-suspense/bundle.wav"
+    },
+    {
+      "id": "lazy",
+      "min": 9,
+      "duration": 11.0,
+      "text": "lazy + Suspense.",
+      "visual": "code",
+      "items": [
+        [
+          "const Chart = lazy(() =>",
+          "yellow"
+        ],
+        [
+          "  import('./Chart'));",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<Suspense fallback={<Spinner />}>",
+          "blue"
+        ],
+        [
+          "  <Chart />",
+          "green"
+        ],
+        [
+          "</Suspense>",
+          "blue"
+        ]
+      ],
+      "say": "Wrap a dynamic import in lazy, and React loads that component's code only when it first renders. Suspense shows a fallback, like a spinner, until the code has arrived.",
+      "voice": "/audio/react-17-suspense/lazy.wav"
+    },
+    {
+      "id": "meaning",
+      "min": 9,
+      "duration": 14.5,
+      "text": "What Suspense really does.",
+      "visual": "flow",
+      "badge": "WAITING IS DECLARATIVE",
+      "items": [
+        [
+          "A component isn't ready",
+          "yellow",
+          "its code or its data"
+        ],
+        [
+          "Nearest Suspense",
+          "blue",
+          "shows the fallback"
+        ],
+        [
+          "Ready",
+          "green",
+          "the real UI replaces it"
+        ]
+      ],
+      "say": "Suspense is more general than lazy loading. When a component isn't ready, because its code or data is still loading, React looks for the nearest Suspense boundary above, shows its fallback, and swaps in the real UI when it is ready.",
+      "voice": "/audio/react-17-suspense/meaning.wav"
+    },
+    {
+      "id": "nested",
+      "min": 9,
+      "duration": 10.5,
+      "text": "Use several boundaries.",
+      "visual": "compare",
+      "left": {
+        "title": "One boundary",
+        "color": "red",
+        "items": [
+          "Whole page is a spinner",
+          "Nothing shows until all is ready"
+        ]
+      },
+      "right": {
+        "title": "Nested",
+        "color": "green",
+        "items": [
+          "Header appears right away",
+          "Feed loads on its own"
+        ]
+      },
+      "say": "One boundary at the top means a whole-page spinner. Nested boundaries let the parts that are ready appear right away, while slower sections show their own small fallbacks.",
+      "voice": "/audio/react-17-suspense/nested.wav"
+    },
+    {
+      "id": "data",
+      "min": 9,
+      "duration": 14.5,
+      "text": "Suspense for data.",
+      "visual": "chips",
+      "items": [
+        [
+          "Works with data libraries",
+          "green"
+        ],
+        [
+          "TanStack Query, Relay, use()",
+          "blue"
+        ],
+        [
+          "Server Components stream with it",
+          "yellow"
+        ],
+        [
+          "Not a bare useEffect fetch",
+          "red"
+        ]
+      ],
+      "say": "Suspense also works for data, but only with sources that integrate with it, like TanStack Query, Relay, the use hook, and Server Components, which stream in pieces. A plain fetch inside use Effect doesn't suspend.",
+      "voice": "/audio/react-17-suspense/data.wav"
+    },
+    {
+      "id": "tips",
+      "min": 8,
+      "duration": 12.0,
+      "text": "Splitting tips.",
+      "visual": "chips",
+      "items": [
+        [
+          "Split by route first",
+          "green"
+        ],
+        [
+          "Then heavy widgets",
+          "blue"
+        ],
+        [
+          "Use skeleton fallbacks",
+          "yellow"
+        ],
+        [
+          "Reserve space: no layout shift",
+          "pink"
+        ]
+      ],
+      "say": "Start by splitting per route, then heavy widgets like charts and editors. Use skeleton fallbacks that match the final layout, and reserve space, so the page doesn't jump when content arrives.",
+      "voice": "/audio/react-17-suspense/tips.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4,
+      "text": "Next: routing.",
+      "say": "Next up, routing. Follow for more React.",
+      "voice": "/audio/react-17-suspense/close.wav"
+    }
+  ]
+}

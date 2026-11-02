@@ -1,0 +1,186 @@
+{
+  "title": "React 18: Routing",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "spa",
+      "min": 9,
+      "duration": 13.5,
+      "text": "How client-side routing works.",
+      "visual": "flow",
+      "badge": "NO FULL PAGE RELOAD",
+      "items": [
+        [
+          "Click a link",
+          "yellow",
+          "the browser doesn't navigate"
+        ],
+        [
+          "Router updates the URL",
+          "blue",
+          "using the History API"
+        ],
+        [
+          "Matches a route",
+          "green",
+          "renders its component"
+        ]
+      ],
+      "say": "In a single page app, clicking a link doesn't ask the server for a new page. The router updates the URL with the History A P I, matches it to a route, and renders that route's component, with no full page reload.",
+      "voice": "/audio/react-18-routing/spa.wav"
+    },
+    {
+      "id": "routes",
+      "min": 9,
+      "duration": 11.5,
+      "text": "Defining routes.",
+      "visual": "code",
+      "items": [
+        [
+          "<Routes>",
+          "yellow"
+        ],
+        [
+          "  <Route path=\"/\" element={<Home />} />",
+          "green"
+        ],
+        [
+          "  <Route path=\"/users/:id\"",
+          "green"
+        ],
+        [
+          "         element={<User />} />",
+          "green"
+        ],
+        [
+          "  <Route path=\"*\" element={<NotFound />} />",
+          "red"
+        ],
+        [
+          "</Routes>",
+          "yellow"
+        ]
+      ],
+      "say": "Each route pairs a path with an element. A colon makes a segment dynamic, like a user I D, and a star at the end catches everything else, which is where your not found page goes.",
+      "voice": "/audio/react-18-routing/routes.wav"
+    },
+    {
+      "id": "params",
+      "min": 8,
+      "duration": 12.0,
+      "text": "Params and navigation.",
+      "visual": "code",
+      "items": [
+        [
+          "const { id } = useParams();",
+          "yellow"
+        ],
+        [
+          "const navigate = useNavigate();",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<Link to=\"/users/42\">Profile</Link>",
+          "blue"
+        ],
+        [
+          "navigate('/login');",
+          "green"
+        ]
+      ],
+      "say": "Read dynamic segments with use Params. Use the Link component for navigation, since it avoids a page reload, and call navigate from use Navigate when you need to redirect after an action.",
+      "voice": "/audio/react-18-routing/params.wav"
+    },
+    {
+      "id": "nested",
+      "min": 9,
+      "duration": 11.5,
+      "text": "Nested routes and layouts.",
+      "visual": "flow",
+      "items": [
+        [
+          "Layout route",
+          "yellow",
+          "shared nav and sidebar"
+        ],
+        [
+          "<Outlet />",
+          "blue",
+          "where the child renders"
+        ],
+        [
+          "Child route",
+          "green",
+          "swaps without remounting layout"
+        ]
+      ],
+      "say": "Nested routes let a layout, like a nav bar and sidebar, stay mounted while only the inner part changes. The layout renders an Outlet, and the matching child route appears inside it.",
+      "voice": "/audio/react-18-routing/nested.wav"
+    },
+    {
+      "id": "data",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Data routers.",
+      "visual": "chips",
+      "items": [
+        [
+          "Loaders fetch before rendering",
+          "green"
+        ],
+        [
+          "Actions handle form submits",
+          "blue"
+        ],
+        [
+          "Route-level error elements",
+          "yellow"
+        ],
+        [
+          "Pending UI during navigation",
+          "pink"
+        ]
+      ],
+      "say": "Modern React Router lets each route declare a loader that fetches its data before rendering, an action that handles form submissions, and an error element. That removes most loading spinners and effect-based fetching.",
+      "voice": "/audio/react-18-routing/data.wav"
+    },
+    {
+      "id": "choose",
+      "min": 8,
+      "duration": 12.5,
+      "text": "React Router or TanStack Router?",
+      "visual": "compare",
+      "left": {
+        "title": "React Router",
+        "color": "blue",
+        "items": [
+          "Most widely used",
+          "Also a full framework in v7"
+        ]
+      },
+      "right": {
+        "title": "TanStack Router",
+        "color": "green",
+        "items": [
+          "Fully type-safe routes",
+          "Built-in search params"
+        ]
+      },
+      "say": "React Router is the most widely used, and now doubles as a full framework. TanStack Router focuses on end-to-end type safety, including search parameters. Both are solid choices.",
+      "voice": "/audio/react-18-routing/choose.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: state management.",
+      "say": "Next up, state management. Follow for more React.",
+      "voice": "/audio/react-18-routing/close.wav"
+    }
+  ]
+}
