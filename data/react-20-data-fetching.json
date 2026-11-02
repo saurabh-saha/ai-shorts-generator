@@ -1,0 +1,192 @@
+{
+  "title": "React 20: Data Fetching",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "problem",
+      "min": 9,
+      "duration": 15.5,
+      "text": "Why not just fetch in an effect?",
+      "visual": "chips",
+      "items": [
+        [
+          "Loading and error states",
+          "blue"
+        ],
+        [
+          "Caching and deduping requests",
+          "green"
+        ],
+        [
+          "Race conditions",
+          "red"
+        ],
+        [
+          "Refetching, retries, pagination",
+          "yellow"
+        ]
+      ],
+      "say": "Fetching in use Effect works, until you need loading and error states, caching so two components don't request the same thing, protection from race conditions, retries, refetching, and pagination. A data library handles all of it.",
+      "voice": "/audio/react-20-data-fetching/problem.wav"
+    },
+    {
+      "id": "compare",
+      "min": 8,
+      "duration": 13.0,
+      "text": "Hand-rolled vs a library.",
+      "visual": "compare",
+      "left": {
+        "title": "useEffect fetch",
+        "color": "red",
+        "items": [
+          "Write all states yourself",
+          "No shared cache"
+        ]
+      },
+      "right": {
+        "title": "TanStack Query",
+        "color": "green",
+        "items": [
+          "Cache, retries, dedupe built in",
+          "Devtools included"
+        ]
+      },
+      "say": "With an effect, you write every state by hand and each component fetches on its own. TanStack Query gives you a shared cache, retries, deduplication, and devtools, for a few lines of code.",
+      "voice": "/audio/react-20-data-fetching/compare.wav"
+    },
+    {
+      "id": "usequery",
+      "min": 9,
+      "duration": 13.5,
+      "text": "useQuery.",
+      "visual": "code",
+      "items": [
+        [
+          "const { data, isPending, error } =",
+          "yellow"
+        ],
+        [
+          "  useQuery({",
+          "blue"
+        ],
+        [
+          "    queryKey: ['user', id],",
+          "green"
+        ],
+        [
+          "    queryFn: () => fetchUser(id),",
+          "green"
+        ],
+        [
+          "  });",
+          "blue"
+        ]
+      ],
+      "say": "You give use Query a key that identifies the data, and a function that fetches it. It returns the data, plus loading and error flags. The key is also the cache address, so changing the I D fetches a different entry.",
+      "voice": "/audio/react-20-data-fetching/usequery.wav"
+    },
+    {
+      "id": "cache",
+      "min": 10,
+      "duration": 13.0,
+      "text": "Stale while revalidate.",
+      "visual": "flow",
+      "badge": "FAST NOW, FRESH SOON",
+      "items": [
+        [
+          "Key requested",
+          "yellow",
+          "same key, any component"
+        ],
+        [
+          "Cache hit",
+          "blue",
+          "shows the cached data instantly"
+        ],
+        [
+          "Background refetch",
+          "yellow",
+          "if the data is stale"
+        ],
+        [
+          "Fresh data swaps in",
+          "green",
+          ""
+        ]
+      ],
+      "say": "The cache works on a stale-while-revalidate idea. If the key is cached, you see the data instantly. If it is stale, a background refetch runs, and when the fresh data arrives, the screen updates quietly.",
+      "voice": "/audio/react-20-data-fetching/cache.wav"
+    },
+    {
+      "id": "mutation",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Changing data: mutations.",
+      "visual": "code",
+      "items": [
+        [
+          "const save = useMutation({",
+          "yellow"
+        ],
+        [
+          "  mutationFn: saveTodo,",
+          "blue"
+        ],
+        [
+          "  onSuccess: () =>",
+          "green"
+        ],
+        [
+          "    queryClient.invalidateQueries({",
+          "green"
+        ],
+        [
+          "      queryKey: ['todos'] }),",
+          "green"
+        ],
+        [
+          "});",
+          "yellow"
+        ]
+      ],
+      "say": "For writes, use Mutation runs your save function. On success, you invalidate the related queries, which marks them stale and refetches them, so every screen showing that data stays in sync.",
+      "voice": "/audio/react-20-data-fetching/mutation.wav"
+    },
+    {
+      "id": "tips",
+      "min": 9,
+      "duration": 14.5,
+      "text": "Practical tips.",
+      "visual": "chips",
+      "items": [
+        [
+          "Query keys describe the data",
+          "green"
+        ],
+        [
+          "Set a sensible staleTime",
+          "blue"
+        ],
+        [
+          "Prefetch likely next pages",
+          "yellow"
+        ],
+        [
+          "Use SWR if you want it tiny",
+          "pink"
+        ]
+      ],
+      "say": "Make query keys describe the data, like the resource and its parameters. Set a stale time that fits how fast the data changes, prefetch what the user will likely open next, and consider SWR if you want something smaller.",
+      "voice": "/audio/react-20-data-fetching/tips.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: GraphQL clients.",
+      "say": "Next up, GraphQL clients. Follow for more React.",
+      "voice": "/audio/react-20-data-fetching/close.wav"
+    }
+  ]
+}

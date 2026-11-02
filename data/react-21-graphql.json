@@ -1,0 +1,191 @@
+{
+  "title": "React 21: GraphQL Clients",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "what",
+      "min": 9,
+      "duration": 15.0,
+      "text": "REST vs GraphQL.",
+      "visual": "compare",
+      "left": {
+        "title": "REST",
+        "color": "blue",
+        "items": [
+          "Many endpoints",
+          "Over- and under-fetching"
+        ]
+      },
+      "right": {
+        "title": "GraphQL",
+        "color": "green",
+        "items": [
+          "One endpoint",
+          "Ask for the exact fields"
+        ]
+      },
+      "say": "With REST, each resource has its own endpoint, and you often get more or less data than a screen needs. With GraphQL there is one endpoint, and the client asks for exactly the fields it wants, across related data, in one request.",
+      "voice": "/audio/react-21-graphql/what.wav"
+    },
+    {
+      "id": "query",
+      "min": 8,
+      "duration": 11.0,
+      "text": "A query.",
+      "visual": "code",
+      "items": [
+        [
+          "query {",
+          "yellow"
+        ],
+        [
+          "  user(id: 42) {",
+          "blue"
+        ],
+        [
+          "    name",
+          "green"
+        ],
+        [
+          "    posts { title }",
+          "green"
+        ],
+        [
+          "  }",
+          "blue"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "A query describes the shape of the data you want. The response mirrors it exactly: the user's name, and the titles of their posts, nothing more, in a single round trip.",
+      "voice": "/audio/react-21-graphql/query.wav"
+    },
+    {
+      "id": "hook",
+      "min": 9,
+      "duration": 12.0,
+      "text": "Using it in a component.",
+      "visual": "code",
+      "items": [
+        [
+          "const { data, loading, error } =",
+          "yellow"
+        ],
+        [
+          "  useQuery(GET_USER, {",
+          "blue"
+        ],
+        [
+          "    variables: { id },",
+          "green"
+        ],
+        [
+          "  });",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "if (loading) return <Spinner />;",
+          "pink"
+        ]
+      ],
+      "say": "In React, a client library like Apollo gives you a use Query hook. You pass the query and its variables, and get back data, loading, and error, much like with TanStack Query.",
+      "voice": "/audio/react-21-graphql/hook.wav"
+    },
+    {
+      "id": "clients",
+      "min": 9,
+      "duration": 14.0,
+      "text": "Choosing a client.",
+      "visual": "chips",
+      "items": [
+        [
+          "Apollo Client: full-featured",
+          "blue"
+        ],
+        [
+          "urql: lightweight, extensible",
+          "green"
+        ],
+        [
+          "Relay: fragments, scale",
+          "yellow"
+        ],
+        [
+          "TanStack Query + graphql-request",
+          "pink"
+        ]
+      ],
+      "say": "Apollo Client is the most feature-rich. urql is lighter and extensible. Relay is built for very large apps with fragments and strict conventions. And you can also use TanStack Query with a plain GraphQL request library.",
+      "voice": "/audio/react-21-graphql/clients.wav"
+    },
+    {
+      "id": "cache",
+      "min": 10,
+      "duration": 14.0,
+      "text": "The normalized cache.",
+      "visual": "flow",
+      "badge": "UPDATE ONCE, EVERYWHERE",
+      "items": [
+        [
+          "Response arrives",
+          "yellow",
+          "User 42, Post 7, Post 9"
+        ],
+        [
+          "Normalize",
+          "blue",
+          "store by type and id"
+        ],
+        [
+          "Cache entry User:42",
+          "green",
+          "shared by every query"
+        ]
+      ],
+      "say": "GraphQL clients usually keep a normalized cache. Every object is stored once, by its type and I D. So when one query or mutation updates user forty-two, every screen showing that user updates automatically.",
+      "voice": "/audio/react-21-graphql/cache.wav"
+    },
+    {
+      "id": "tips",
+      "min": 9,
+      "duration": 13.5,
+      "text": "Good habits.",
+      "visual": "chips",
+      "items": [
+        [
+          "Colocate queries with components",
+          "green"
+        ],
+        [
+          "Use fragments per component",
+          "blue"
+        ],
+        [
+          "Generate types from the schema",
+          "yellow"
+        ],
+        [
+          "Watch for N+1 on the server",
+          "red"
+        ]
+      ],
+      "say": "Keep each component's data needs next to it, with fragments. Generate TypeScript types from the schema so queries are checked, and remember the server side: naive resolvers can cause N plus one database queries.",
+      "voice": "/audio/react-21-graphql/tips.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: forms at scale.",
+      "say": "Next up, forms at scale. Follow for more React.",
+      "voice": "/audio/react-21-graphql/close.wav"
+    }
+  ]
+}

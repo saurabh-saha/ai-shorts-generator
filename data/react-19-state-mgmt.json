@@ -1,0 +1,208 @@
+{
+  "title": "React 19: State Management",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "ladder",
+      "min": 9,
+      "duration": 14.5,
+      "text": "Climb the ladder only when needed.",
+      "visual": "chips",
+      "items": [
+        [
+          "useState: local UI state",
+          "green"
+        ],
+        [
+          "Lift state to a shared parent",
+          "blue"
+        ],
+        [
+          "Context: rarely changing values",
+          "yellow"
+        ],
+        [
+          "External store: app-wide, frequent",
+          "pink"
+        ]
+      ],
+      "say": "State management is a ladder. Start with use State. If two components need it, lift it to their parent. Use context for rarely changing values, and reach for an external store only when state is shared widely and changes often.",
+      "voice": "/audio/react-19-state-mgmt/ladder.wav"
+    },
+    {
+      "id": "kinds",
+      "min": 9,
+      "duration": 13.0,
+      "text": "Client state vs server state.",
+      "visual": "compare",
+      "left": {
+        "title": "Client state",
+        "color": "blue",
+        "items": [
+          "Modal open, filters, drafts",
+          "Zustand, Jotai, Redux"
+        ]
+      },
+      "right": {
+        "title": "Server state",
+        "color": "green",
+        "items": [
+          "Data that lives on an API",
+          "TanStack Query, SWR"
+        ]
+      },
+      "say": "Two very different kinds of state hide under one name. Client state is things like whether a modal is open. Server state is a cached copy of remote data, and deserves a data-fetching library, not a global store.",
+      "voice": "/audio/react-19-state-mgmt/kinds.wav"
+    },
+    {
+      "id": "zustand",
+      "min": 10,
+      "duration": 12.0,
+      "text": "Zustand: a tiny store.",
+      "visual": "code",
+      "items": [
+        [
+          "const useCart = create(set => ({",
+          "yellow"
+        ],
+        [
+          "  items: [],",
+          "blue"
+        ],
+        [
+          "  add: item => set(s => ({",
+          "green"
+        ],
+        [
+          "    items: [...s.items, item],",
+          "green"
+        ],
+        [
+          "  })),",
+          "green"
+        ],
+        [
+          "}));",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "const items = useCart(s => s.items);",
+          "pink"
+        ]
+      ],
+      "say": "Zustand is a tiny store with almost no boilerplate. You create it with state and actions, then components subscribe to just the slice they select, and re-render only when that slice changes.",
+      "voice": "/audio/react-19-state-mgmt/zustand.wav"
+    },
+    {
+      "id": "jotai",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Jotai: atoms.",
+      "visual": "code",
+      "items": [
+        [
+          "const countAtom = atom(0);",
+          "yellow"
+        ],
+        [
+          "const doubleAtom = atom(get =>",
+          "blue"
+        ],
+        [
+          "  get(countAtom) * 2);",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "const [n, setN] = useAtom(countAtom);",
+          "green"
+        ]
+      ],
+      "say": "Jotai takes a bottom-up approach: state is split into small atoms, and derived atoms compute from others. Components subscribe to exactly the atoms they use, which keeps re-renders precise.",
+      "voice": "/audio/react-19-state-mgmt/jotai.wav"
+    },
+    {
+      "id": "redux",
+      "min": 10,
+      "duration": 17.0,
+      "text": "Redux Toolkit.",
+      "visual": "code",
+      "badge": "IMMER LETS YOU WRITE 'MUTATIONS'",
+      "items": [
+        [
+          "const todos = createSlice({",
+          "yellow"
+        ],
+        [
+          "  name: 'todos',",
+          "blue"
+        ],
+        [
+          "  initialState: [],",
+          "blue"
+        ],
+        [
+          "  reducers: {",
+          "blue"
+        ],
+        [
+          "    added: (s, a) => { s.push(a.payload); },",
+          "green"
+        ],
+        [
+          "  },",
+          "blue"
+        ],
+        [
+          "});",
+          "yellow"
+        ]
+      ],
+      "say": "Redux Toolkit is the modern way to use Redux. A slice bundles state, reducers, and actions, and uses Immer so you can write update code that looks like mutation, but produces immutable updates. It shines in large apps that want strict structure and great devtools.",
+      "voice": "/audio/react-19-state-mgmt/redux.wav"
+    },
+    {
+      "id": "choose",
+      "min": 9,
+      "duration": 14.0,
+      "text": "Choosing a tool.",
+      "visual": "chips",
+      "items": [
+        [
+          "Small app: useState + context",
+          "green"
+        ],
+        [
+          "Medium: Zustand or Jotai",
+          "blue"
+        ],
+        [
+          "Large, strict: Redux Toolkit",
+          "yellow"
+        ],
+        [
+          "Server data: TanStack Query",
+          "pink"
+        ]
+      ],
+      "say": "A practical guide: small apps are fine with state and context, medium apps do well with Zustand or Jotai, large teams that want strict conventions pick Redux Toolkit, and server data belongs in TanStack Query.",
+      "voice": "/audio/react-19-state-mgmt/choose.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: data fetching.",
+      "say": "Next up, data fetching and caching. Follow for more React.",
+      "voice": "/audio/react-19-state-mgmt/close.wav"
+    }
+  ]
+}
