@@ -1,0 +1,62 @@
+{
+  "title": "Bloom Filter",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 4,
+      "duration": 6.5,
+      "text": "Is this username already taken?",
+      "say": "Is this username already taken? Checking billions of names in a database is slow and expensive.",
+      "voice": "/audio/bloom-filter/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 4,
+      "duration": 7.0,
+      "text": "A tiny bit array: definitely not, or maybe.",
+      "say": "A Bloom filter is a tiny array of bits that answers one question: definitely not here, or maybe here.",
+      "voice": "/audio/bloom-filter/concept.wav"
+    },
+    {
+      "id": "add",
+      "min": 5,
+      "duration": 7.5,
+      "text": "Add: hash it, set those bits to 1.",
+      "say": "To add an item, run it through several hash functions. Each one picks a position, and we set those bits to one.",
+      "voice": "/audio/bloom-filter/add.wav"
+    },
+    {
+      "id": "no",
+      "min": 4,
+      "duration": 7.0,
+      "text": "Any bit is 0? Definitely not in the set.",
+      "say": "To check an item, hash it the same way. If any bit is zero, the item is definitely not in the set.",
+      "voice": "/audio/bloom-filter/no.wav"
+    },
+    {
+      "id": "maybe",
+      "min": 7,
+      "duration": 8.5,
+      "text": "All bits 1? Maybe. It can be a false positive.",
+      "say": "If all the bits are one, the item is probably there. But it could be a false positive, because other items may have set those bits.",
+      "voice": "/audio/bloom-filter/maybe.wav"
+    },
+    {
+      "id": "tradeoff",
+      "min": 4,
+      "duration": 10.5,
+      "text": "No false negatives. Tiny memory.",
+      "say": "So a Bloom filter never has false negatives, only false positives, and it uses a tiny fraction of the memory. Perfect for skipping expensive lookups.",
+      "voice": "/audio/bloom-filter/tradeoff.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: gossip protocols. Follow for more!",
+      "say": "Next up, gossip protocols. Follow for more system design.",
+      "voice": "/audio/bloom-filter/close.wav"
+    }
+  ]
+}
