@@ -4,7 +4,7 @@
 set -euo pipefail
 for f in "$@"; do
   tmp="${f%.mp4}.mastered.mp4"
-  ffmpeg -v error -y -i "$f" -c:v copy -af "alimiter=limit=0.89:level=false" -c:a aac -b:a 192k "$tmp"
+  ffmpeg -v error -y -i "$f" -c:v copy -af "volume=0.5,alimiter=limit=0.7:level=false" -c:a aac -b:a 192k "$tmp"
   mv "$tmp" "$f"
   echo "mastered $f"
 done

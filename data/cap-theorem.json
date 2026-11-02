@@ -1,0 +1,62 @@
+{
+  "title": "CAP Theorem",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 8,
+      "duration": 8,
+      "text": "The network between your machines breaks...",
+      "say": "Your database runs on many machines. What happens when the network between them breaks?",
+      "voice": "/audio/cap-theorem/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 10,
+      "duration": 13.5,
+      "text": "Pick two: Consistency, Availability, Partition tolerance.",
+      "say": "The CAP theorem says a distributed system can guarantee only two of three: consistency, availability, and partition tolerance. And since networks do fail, partition tolerance is not optional.",
+      "voice": "/audio/cap-theorem/concept.wav"
+    },
+    {
+      "id": "setup",
+      "min": 8,
+      "duration": 8.5,
+      "text": "A write lands on A. Then the link breaks.",
+      "say": "Say a write lands on node A, and then the link breaks. Node B never gets the update, so it still holds the old value.",
+      "voice": "/audio/cap-theorem/setup.wav"
+    },
+    {
+      "id": "cp",
+      "min": 7,
+      "duration": 8.5,
+      "text": "CP: refuse to answer. Consistent, not available.",
+      "say": "A C P system refuses to answer on node B, to avoid serving stale data. It stays consistent, but unavailable.",
+      "voice": "/audio/cap-theorem/cp.wav"
+    },
+    {
+      "id": "ap",
+      "min": 7,
+      "duration": 7.5,
+      "text": "AP: answer anyway. Available, maybe stale.",
+      "say": "An A P system answers anyway, with the old value. It stays available, but may be inconsistent.",
+      "voice": "/audio/cap-theorem/ap.wav"
+    },
+    {
+      "id": "choose",
+      "min": 7,
+      "duration": 7,
+      "text": "It's a tradeoff. Pick for your use case.",
+      "say": "Banks choose consistency. Social feeds choose availability. It's always a tradeoff.",
+      "voice": "/audio/cap-theorem/choose.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: database indexes. Follow for more!",
+      "say": "Next up, database indexes. Follow for more system design.",
+      "voice": "/audio/cap-theorem/close.wav"
+    }
+  ]
+}
