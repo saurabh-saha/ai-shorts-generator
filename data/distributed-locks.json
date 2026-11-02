@@ -1,0 +1,70 @@
+{
+  "title": "Distributed Locks",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 6.5,
+      "text": "Two servers update the same record at once.",
+      "say": "Two servers try to update the same record at the same moment. Both read the value, ten.",
+      "voice": "/audio/distributed-locks/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Last write wins: one update is lost.",
+      "say": "Server A adds five, server B adds two. Whoever writes last wins, so one update is silently lost.",
+      "voice": "/audio/distributed-locks/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 5,
+      "duration": 6.0,
+      "text": "A lock: one worker at a time.",
+      "say": "A distributed lock makes sure only one worker can enter the critical section at a time.",
+      "voice": "/audio/distributed-locks/concept.wav"
+    },
+    {
+      "id": "acquire",
+      "min": 6,
+      "duration": 6,
+      "text": "A gets the lock. B has to wait.",
+      "say": "A asks the lock service for the lock, and gets it. B asks, and has to wait.",
+      "voice": "/audio/distributed-locks/acquire.wav"
+    },
+    {
+      "id": "release",
+      "min": 7,
+      "duration": 7,
+      "text": "A releases. B goes. The result is correct.",
+      "say": "When A finishes, it releases the lock. Now B goes, and the final result is correct.",
+      "voice": "/audio/distributed-locks/release.wav"
+    },
+    {
+      "id": "ttl",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Locks expire. A slow worker can lose its lock.",
+      "say": "Locks need an expiry, so a crashed worker can't hold one forever. But a slow worker can lose its lock while still working.",
+      "voice": "/audio/distributed-locks/ttl.wav"
+    },
+    {
+      "id": "fence",
+      "min": 7,
+      "duration": 8.0,
+      "text": "Fencing tokens reject stale writes.",
+      "say": "The fix is a fencing token. Every lock grant gets a bigger number, and the database rejects writes with an old token.",
+      "voice": "/audio/distributed-locks/fence.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: Bloom filters. Follow for more!",
+      "say": "Next up, bloom filters. Follow for more system design.",
+      "voice": "/audio/distributed-locks/close.wav"
+    }
+  ]
+}
