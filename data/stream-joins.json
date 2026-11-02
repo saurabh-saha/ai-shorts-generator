@@ -1,0 +1,54 @@
+{
+  "title": "Stream Joins",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 10.5,
+      "text": "Joining streams: the other side isn't here yet.",
+      "say": "In a database, joining two tables is easy, because all the data is already there. In streams, the two sides arrive at different times, and never finish.",
+      "voice": "/audio/stream-joins/hook.wav"
+    },
+    {
+      "id": "join",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Stream-stream join: match by key, within a window.",
+      "say": "A stream-stream join matches events from two streams by key, but only within a time window. The processor buffers each side while it waits for a match.",
+      "voice": "/audio/stream-joins/join.wav"
+    },
+    {
+      "id": "expire",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Too late? No join. The window bounds the state.",
+      "say": "If the match arrives too late, outside the window, there is no join, and the buffered event is dropped. The window bounds how much state you have to keep.",
+      "voice": "/audio/stream-joins/expire.wav"
+    },
+    {
+      "id": "table",
+      "min": 7,
+      "duration": 8.5,
+      "text": "Stream-table join: look up the latest value.",
+      "say": "A stream-table join is simpler. Each event looks up the latest value in a table, like enriching an order with the customer's profile.",
+      "voice": "/audio/stream-joins/table.wav"
+    },
+    {
+      "id": "gotchas",
+      "min": 8,
+      "duration": 9.5,
+      "text": "State, late events, skewed keys.",
+      "say": "Joins need state, state needs memory, and events can arrive late or out of order. So choose windows carefully, and keep your keys evenly spread.",
+      "voice": "/audio/stream-joins/gotchas.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: log compaction. Follow for more!",
+      "say": "Next up, log compaction. Follow for more system design.",
+      "voice": "/audio/stream-joins/close.wav"
+    }
+  ]
+}
