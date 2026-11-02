@@ -1,0 +1,63 @@
+{
+  "title": "Agent Memory",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 7.5,
+      "text": "A model forgets everything between calls.",
+      "say": "A language model forgets everything between calls. All an agent remembers is whatever you put in its context window.",
+      "voice": "/audio/agent-memory/hook.wav"
+    },
+    {
+      "id": "short",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Short-term memory: the context window.",
+      "say": "Short-term memory is the context window: the instructions, the conversation, and the tool results. It is fast, but limited in size.",
+      "voice": "/audio/agent-memory/short.wav"
+    },
+    {
+      "id": "overflow",
+      "min": 7,
+      "duration": 8.0,
+      "text": "Full? Summarize or trim.",
+      "say": "When it fills up, you have to trim, or summarize the older messages, or the agent loses the start of its task.",
+      "voice": "/audio/agent-memory/overflow.wav"
+    },
+    {
+      "id": "long",
+      "min": 9,
+      "duration": 9.5,
+      "text": "Long-term memory lives outside the model.",
+      "say": "Long-term memory lives outside the model, in a database or vector store. The agent saves facts there, and retrieves the relevant ones when needed.",
+      "voice": "/audio/agent-memory/long.wav"
+    },
+    {
+      "id": "types",
+      "min": 7,
+      "duration": 8.0,
+      "text": "Facts, episodes, procedures.",
+      "say": "Useful kinds of memory: facts about the user, past episodes of what worked, and procedures for how to do tasks.",
+      "voice": "/audio/agent-memory/types.wav"
+    },
+    {
+      "id": "careful",
+      "min": 8,
+      "duration": 8.5,
+      "text": "More memory isn't always better.",
+      "say": "But more memory isn't always better. Wrong or stale memories can mislead the agent. Decide what to save, and when to forget.",
+      "voice": "/audio/agent-memory/careful.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next up: planning. Follow for more!",
+      "say": "Next up, planning. Follow for more agentic AI.",
+      "voice": "/audio/agent-memory/close.wav"
+    }
+  ]
+}
