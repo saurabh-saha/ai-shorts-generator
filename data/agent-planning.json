@@ -1,0 +1,55 @@
+{
+  "title": "Planning",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 8.0,
+      "text": "A big goal can't be done in one step.",
+      "say": "A big goal can't be done in one step. So agents plan: they break the goal into smaller tasks, and work through them.",
+      "voice": "/audio/agent-planning/hook.wav"
+    },
+    {
+      "id": "decompose",
+      "min": 7,
+      "duration": 7,
+      "text": "Steps, order, dependencies.",
+      "say": "Planning means splitting the goal into steps, putting them in order, and noting which steps depend on which.",
+      "voice": "/audio/agent-planning/decompose.wav"
+    },
+    {
+      "id": "styles",
+      "min": 8,
+      "duration": 11.0,
+      "text": "Plan first, or plan, act, replan.",
+      "say": "One style is plan first, then execute: predictable, and easy to inspect. Another is to plan a little, act, and replan as new information arrives.",
+      "voice": "/audio/agent-planning/styles.wav"
+    },
+    {
+      "id": "replan",
+      "min": 8,
+      "duration": 8.5,
+      "text": "A step fails: revise the plan.",
+      "say": "When a step fails, or the world changes, the agent revises its plan, instead of blindly following the old one.",
+      "voice": "/audio/agent-planning/replan.wav"
+    },
+    {
+      "id": "pitfalls",
+      "min": 8,
+      "duration": 10.0,
+      "text": "Plans can be rigid, long, or wrong.",
+      "say": "Plans can be too rigid, too long, or simply wrong. Keep them short, check progress after each step, and have a human approve risky plans.",
+      "voice": "/audio/agent-planning/pitfalls.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: multi-agent systems. Follow for more!",
+      "say": "Next up, multi-agent systems. Follow for more agentic AI.",
+      "voice": "/audio/agent-planning/close.wav"
+    }
+  ]
+}
