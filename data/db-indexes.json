@@ -1,0 +1,62 @@
+{
+  "title": "DB Indexes",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 7,
+      "text": "Why is this query so slow?",
+      "say": "Why is this query so slow, on a table with ten million rows?",
+      "voice": "/audio/db-indexes/hook.wav"
+    },
+    {
+      "id": "scan",
+      "min": 8,
+      "duration": 8.5,
+      "text": "No index: a full table scan, row by row.",
+      "say": "Without an index, the database does a full table scan. It reads every row, one by one, until it finds a match.",
+      "voice": "/audio/db-indexes/scan.wav"
+    },
+    {
+      "id": "concept",
+      "min": 8,
+      "duration": 8,
+      "text": "An index is a sorted lookup tree (B-tree).",
+      "say": "An index is a sorted lookup structure, like the index at the back of a book. Most databases use a B-tree.",
+      "voice": "/audio/db-indexes/concept.wav"
+    },
+    {
+      "id": "lookup",
+      "min": 9,
+      "duration": 9,
+      "text": "A few hops: root, branch, leaf.",
+      "say": "Now a lookup takes just a few hops: root, branch, leaf. Even with millions of rows, that's only a handful of steps.",
+      "voice": "/audio/db-indexes/lookup.wav"
+    },
+    {
+      "id": "cost",
+      "min": 10,
+      "duration": 10,
+      "text": "But indexes cost space and slow down writes.",
+      "say": "But indexes aren't free. They take extra space, and every insert or update has to change the index too, so writes get slower.",
+      "voice": "/audio/db-indexes/cost.wav"
+    },
+    {
+      "id": "rule",
+      "min": 6,
+      "duration": 6,
+      "text": "Index what you filter and join on.",
+      "say": "So index the columns you filter and join on, and skip the rest.",
+      "voice": "/audio/db-indexes/rule.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 6.0,
+      "text": "Next up: SQL vs NoSQL. Follow for more!",
+      "say": "Next up, SQL versus NoSQL. Follow for more system design.",
+      "voice": "/audio/db-indexes/close.wav"
+    }
+  ]
+}
