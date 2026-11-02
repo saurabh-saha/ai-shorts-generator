@@ -1,0 +1,54 @@
+{
+  "title": "Idempotency",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 8,
+      "duration": 8,
+      "text": "Timeout, retry... charged twice?",
+      "say": "You tap pay, the network times out, so your app retries. Did the customer just get charged twice?",
+      "voice": "/audio/idempotency/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Any request might arrive more than once.",
+      "say": "Retries happen everywhere, in clients, load balancers, and message queues. So any request might arrive more than once.",
+      "voice": "/audio/idempotency/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 9,
+      "duration": 9,
+      "text": "Idempotent: many times = same effect as once.",
+      "say": "An operation is idempotent if doing it many times has the same effect as doing it once. Setting a status is safe. Adding money is not.",
+      "voice": "/audio/idempotency/concept.wav"
+    },
+    {
+      "id": "key",
+      "min": 7,
+      "duration": 7,
+      "text": "Attach a unique idempotency key to each request.",
+      "say": "The fix: the client attaches a unique idempotency key to every request.",
+      "voice": "/audio/idempotency/key.wav"
+    },
+    {
+      "id": "dedupe",
+      "min": 12,
+      "duration": 12,
+      "text": "Same key = saved response. Charged exactly once.",
+      "say": "The server remembers the keys it has seen. The first request is processed. A retry with the same key just gets the saved response, so the customer is charged exactly once.",
+      "voice": "/audio/idempotency/dedupe.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: the CAP theorem. Follow for more!",
+      "say": "Next up, the CAP theorem. Follow for more system design.",
+      "voice": "/audio/idempotency/close.wav"
+    }
+  ]
+}
