@@ -1,0 +1,846 @@
+{
+  "title": "Node 3: The Event Loop",
+  "subtitle": "Node.js Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "model",
+      "min": 10,
+      "duration": 17.0,
+      "text": "How Node stays non-blocking.",
+      "visual": "stage",
+      "badge": "ONE THREAD, NEVER WAITING",
+      "actors": [
+        {
+          "id": "stack",
+          "kind": "cells",
+          "x": -330,
+          "y": -60,
+          "values": [
+            "",
+            "",
+            ""
+          ],
+          "dir": "v",
+          "size": 96,
+          "gap": 8,
+          "color": "yellow",
+          "title": "Call stack",
+          "fs": 26
+        },
+        {
+          "id": "api",
+          "kind": "box",
+          "x": 0,
+          "y": -290,
+          "w": 360,
+          "h": 140,
+          "text": "libuv + OS",
+          "sub": "files, network, timers",
+          "color": "blue"
+        },
+        {
+          "id": "queue",
+          "kind": "cells",
+          "x": 330,
+          "y": -60,
+          "values": [
+            "",
+            "",
+            ""
+          ],
+          "dir": "v",
+          "size": 96,
+          "gap": 8,
+          "color": "green",
+          "title": "Callback queue",
+          "fs": 26
+        },
+        {
+          "id": "loop",
+          "kind": "box",
+          "x": 0,
+          "y": 230,
+          "w": 440,
+          "h": 120,
+          "text": "Event loop",
+          "sub": "is the stack empty?",
+          "color": "pink"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "stack",
+            "api",
+            "queue",
+            "loop"
+          ]
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": "main()"
+        },
+        {
+          "do": "flash",
+          "id": "stack:2",
+          "color": "yellow"
+        },
+        {
+          "do": "text",
+          "id": "stack:1",
+          "text": "readFile"
+        },
+        {
+          "do": "flash",
+          "id": "stack:1",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "stack:1",
+          "to": "api",
+          "color": "yellow"
+        },
+        {
+          "do": "text",
+          "id": "stack:1",
+          "text": ""
+        },
+        {
+          "do": "sub",
+          "id": "api",
+          "text": "reading the file..."
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": ""
+        },
+        {
+          "do": "sub",
+          "id": "api",
+          "text": "file is ready!"
+        },
+        {
+          "do": "send",
+          "from": "api",
+          "to": "queue:2",
+          "color": "green"
+        },
+        {
+          "do": "text",
+          "id": "queue:2",
+          "text": "onRead"
+        },
+        {
+          "do": "flash",
+          "id": "queue:2",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "loop",
+          "color": "pink"
+        },
+        {
+          "do": "send",
+          "from": "queue:2",
+          "to": "stack:2",
+          "color": "pink"
+        },
+        {
+          "do": "text",
+          "id": "queue:2",
+          "text": ""
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": "onRead()"
+        },
+        {
+          "do": "flash",
+          "id": "stack:2",
+          "color": "yellow"
+        }
+      ],
+      "say": "Your code runs on the call stack. When it starts something slow, like reading a file, Node hands it to libuv and the operating system, and moves on. When the work finishes, its callback waits in a queue, and the event loop moves it onto the stack, once the stack is empty.",
+      "voice": "/audio/node-03-event-loop/model.wav",
+      "zoom": 1.2
+    },
+    {
+      "id": "phases",
+      "min": 10,
+      "duration": 15.0,
+      "text": "The loop has phases.",
+      "visual": "stage",
+      "actors": [
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "t",
+          "to": "p",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l2",
+          "kind": "link",
+          "from": "p",
+          "to": "c",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l3",
+          "kind": "link",
+          "from": "c",
+          "to": "x",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l4",
+          "kind": "link",
+          "from": "x",
+          "to": "t",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "t",
+          "kind": "node",
+          "x": 0,
+          "y": -330,
+          "r": 85,
+          "text": "timers",
+          "fs": 32,
+          "color": "yellow"
+        },
+        {
+          "id": "p",
+          "kind": "node",
+          "x": 270,
+          "y": -110,
+          "r": 85,
+          "text": "poll",
+          "fs": 32,
+          "color": "blue"
+        },
+        {
+          "id": "c",
+          "kind": "node",
+          "x": 0,
+          "y": 110,
+          "r": 85,
+          "text": "check",
+          "fs": 32,
+          "color": "green"
+        },
+        {
+          "id": "x",
+          "kind": "node",
+          "x": -270,
+          "y": -110,
+          "r": 85,
+          "text": "close",
+          "fs": 32,
+          "color": "pink"
+        },
+        {
+          "id": "lt",
+          "kind": "label",
+          "x": 0,
+          "y": -450,
+          "text": "setTimeout, setInterval",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "lp",
+          "kind": "label",
+          "x": 270,
+          "y": 10,
+          "text": "finished I/O",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "lc",
+          "kind": "label",
+          "x": 0,
+          "y": 235,
+          "text": "setImmediate",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "lx",
+          "kind": "label",
+          "x": -270,
+          "y": 10,
+          "text": "close events",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "tok",
+          "kind": "node",
+          "x": 0,
+          "y": -330,
+          "r": 30,
+          "text": "",
+          "color": "pink"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "l1",
+            "l2",
+            "l3",
+            "l4",
+            "t",
+            "p",
+            "c",
+            "x",
+            "lt",
+            "lp",
+            "lc",
+            "lx",
+            "tok"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "t",
+          "color": "yellow"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 270,
+          "y": -110,
+          "t": 0.6
+        },
+        {
+          "do": "flash",
+          "id": "p",
+          "color": "blue"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 0,
+          "y": 110,
+          "t": 0.6
+        },
+        {
+          "do": "flash",
+          "id": "c",
+          "color": "green"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": -270,
+          "y": -110,
+          "t": 0.6
+        },
+        {
+          "do": "flash",
+          "id": "x",
+          "color": "pink"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 0,
+          "y": -330,
+          "t": 0.6
+        },
+        {
+          "do": "flash",
+          "id": "t",
+          "color": "yellow"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 270,
+          "y": -110,
+          "t": 0.6
+        },
+        {
+          "do": "flash",
+          "id": "p",
+          "color": "blue"
+        }
+      ],
+      "say": "Each turn of the loop goes through phases. Timers run expired timeouts and intervals. The poll phase handles finished input and output. The check phase runs set Immediate callbacks, and the close phase handles cleanup, like closed sockets.",
+      "voice": "/audio/node-03-event-loop/phases.wav",
+      "zoom": 1.2
+    },
+    {
+      "id": "micro",
+      "min": 9,
+      "duration": 13.0,
+      "text": "Microtasks jump the queue.",
+      "visual": "stage",
+      "badge": "MICROTASKS RUN BEFORE THE NEXT PHASE",
+      "badgeColor": "yellow",
+      "actors": [
+        {
+          "id": "b1",
+          "kind": "box",
+          "x": -322,
+          "y": 40,
+          "w": 200,
+          "h": 130,
+          "text": "nextTick",
+          "sub": "runs first",
+          "color": "red",
+          "fs": 34
+        },
+        {
+          "id": "b2",
+          "kind": "box",
+          "x": -107,
+          "y": 40,
+          "w": 200,
+          "h": 130,
+          "text": "promises",
+          "sub": "microtasks",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "b3",
+          "kind": "box",
+          "x": 107,
+          "y": 40,
+          "w": 200,
+          "h": 130,
+          "text": "timers",
+          "sub": "next phase",
+          "color": "yellow",
+          "fs": 34
+        },
+        {
+          "id": "b4",
+          "kind": "box",
+          "x": 322,
+          "y": 40,
+          "w": 200,
+          "h": 130,
+          "text": "I/O",
+          "sub": "poll phase",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "cap",
+          "kind": "label",
+          "x": 0,
+          "y": -230,
+          "text": "order of execution",
+          "fs": 38,
+          "color": "muted"
+        },
+        {
+          "id": "tok",
+          "kind": "node",
+          "x": -322,
+          "y": -130,
+          "r": 34,
+          "text": "1",
+          "color": "pink"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "b1",
+            "b2",
+            "b3",
+            "b4",
+            "cap",
+            "tok"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "b1",
+          "color": "red"
+        },
+        {
+          "do": "text",
+          "id": "tok",
+          "text": "1"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": -107,
+          "y": -130,
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "tok",
+          "text": "2"
+        },
+        {
+          "do": "flash",
+          "id": "b2",
+          "color": "blue"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 107,
+          "y": -130,
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "tok",
+          "text": "3"
+        },
+        {
+          "do": "flash",
+          "id": "b3",
+          "color": "yellow"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 322,
+          "y": -130,
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "tok",
+          "text": "4"
+        },
+        {
+          "do": "flash",
+          "id": "b4",
+          "color": "green"
+        }
+      ],
+      "say": "Between phases, Node drains two special queues. Next tick callbacks run first, then promise callbacks. They run before the loop moves on, so a runaway chain of them can starve everything else.",
+      "voice": "/audio/node-03-event-loop/micro.wav",
+      "zoom": 1.2
+    },
+    {
+      "id": "order",
+      "min": 10,
+      "duration": 14.5,
+      "text": "Predict the output.",
+      "visual": "stage",
+      "badge": "PRINTS 1, 4, 3, 2",
+      "actors": [
+        {
+          "id": "code",
+          "kind": "code",
+          "x": 0,
+          "y": -200,
+          "w": 960,
+          "lines": [
+            [
+              "console.log('1');",
+              "green"
+            ],
+            [
+              "setTimeout(() => log('2'), 0);",
+              "blue"
+            ],
+            [
+              "Promise.resolve().then(() =>",
+              "yellow"
+            ],
+            [
+              "  log('3'));",
+              "yellow"
+            ],
+            [
+              "console.log('4');",
+              "green"
+            ]
+          ]
+        },
+        {
+          "id": "out",
+          "kind": "console",
+          "x": 0,
+          "y": 190,
+          "w": 520,
+          "h": 300,
+          "title": "output",
+          "max": 4
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "code",
+            "out"
+          ]
+        },
+        {
+          "do": "line",
+          "id": "code",
+          "i": 0
+        },
+        {
+          "do": "log",
+          "id": "out",
+          "text": "1"
+        },
+        {
+          "do": "line",
+          "id": "code",
+          "i": 1
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "line",
+          "id": "code",
+          "i": 2
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "line",
+          "id": "code",
+          "i": 4
+        },
+        {
+          "do": "log",
+          "id": "out",
+          "text": "4"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "line",
+          "id": "code",
+          "i": 3
+        },
+        {
+          "do": "log",
+          "id": "out",
+          "text": "3",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "line",
+          "id": "code",
+          "i": 1
+        },
+        {
+          "do": "log",
+          "id": "out",
+          "text": "2",
+          "color": "blue"
+        }
+      ],
+      "say": "Here's a classic puzzle. The two synchronous logs run first, so one and four. Then the promise callback, a microtask, prints three. And the zero-millisecond timeout, which waits for the timers phase, prints two last.",
+      "voice": "/audio/node-03-event-loop/order.wav",
+      "zoom": 1.1
+    },
+    {
+      "id": "block",
+      "min": 9,
+      "duration": 12.0,
+      "text": "Blocking vs non-blocking.",
+      "visual": "stage",
+      "actors": [
+        {
+          "id": "q",
+          "kind": "cells",
+          "x": -300,
+          "y": -60,
+          "values": [
+            "req 1",
+            "req 2",
+            "req 3"
+          ],
+          "dir": "v",
+          "size": 96,
+          "gap": 8,
+          "color": "blue",
+          "title": "Requests",
+          "fs": 26
+        },
+        {
+          "id": "srv",
+          "kind": "box",
+          "x": 230,
+          "y": -60,
+          "w": 340,
+          "h": 160,
+          "text": "Server",
+          "sub": "idle",
+          "color": "muted"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "q",
+            "srv"
+          ]
+        },
+        {
+          "do": "stroke",
+          "id": "srv",
+          "color": "red"
+        },
+        {
+          "do": "sub",
+          "id": "srv",
+          "text": "readFileSync (busy!)"
+        },
+        {
+          "do": "send",
+          "from": "q:0",
+          "to": "srv",
+          "color": "red"
+        },
+        {
+          "do": "text",
+          "id": "q:0",
+          "text": ""
+        },
+        {
+          "do": "flash",
+          "id": "q:1",
+          "color": "red"
+        },
+        {
+          "do": "flash",
+          "id": "q:2",
+          "color": "red"
+        },
+        {
+          "do": "badge",
+          "text": "BLOCKED: REQ 2 AND 3 WAIT",
+          "color": "red"
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "stroke",
+          "id": "srv",
+          "color": "green"
+        },
+        {
+          "do": "sub",
+          "id": "srv",
+          "text": "await readFile (free)"
+        },
+        {
+          "do": "text",
+          "id": "q:0",
+          "text": "req 1"
+        },
+        {
+          "do": "send",
+          "from": "q:0",
+          "to": "srv",
+          "color": "green",
+          "t": 0.35
+        },
+        {
+          "do": "send",
+          "from": "q:1",
+          "to": "srv",
+          "color": "green",
+          "t": 0.35
+        },
+        {
+          "do": "send",
+          "from": "q:2",
+          "to": "srv",
+          "color": "green",
+          "t": 0.35
+        },
+        {
+          "do": "flash",
+          "id": "srv",
+          "color": "green"
+        },
+        {
+          "do": "badge",
+          "text": "NON-BLOCKING: ALL SERVED",
+          "color": "green"
+        }
+      ],
+      "say": "A synchronous call, like read file sync, blocks the only thread, so every other request waits. The asynchronous version hands the work off, and the server stays responsive.",
+      "voice": "/audio/node-03-event-loop/block.wav",
+      "zoom": 1.2
+    },
+    {
+      "id": "rules",
+      "min": 9,
+      "duration": 13.0,
+      "text": "Keep the loop free.",
+      "visual": "chips",
+      "items": [
+        [
+          "Never block the event loop",
+          "red"
+        ],
+        [
+          "Offload CPU work to workers",
+          "blue"
+        ],
+        [
+          "Chunk big loops with setImmediate",
+          "yellow"
+        ],
+        [
+          "Monitor event loop lag",
+          "green"
+        ]
+      ],
+      "say": "The golden rule is: never block the event loop. Move heavy computation to worker threads, split long loops into chunks, and watch event loop lag in production, because it tells you when the thread is overloaded.",
+      "voice": "/audio/node-03-event-loop/rules.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: timers and microtasks.",
+      "say": "Next up, timers and microtasks. Follow for more Node.",
+      "voice": "/audio/node-03-event-loop/close.wav"
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "title": "Node 2: Running Code & the REPL",
+  "subtitle": "Node.js Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "run",
+      "min": 8,
+      "duration": 10.5,
+      "text": "Running a file.",
+      "say": "Write JavaScript in a file, and run it with the node command followed by the file name. That's it: no browser, no build step. Output goes to your terminal.",
+      "voice": "/audio/node-02-running-code/run.wav",
+      "visual": "stage",
+      "zoom": 1.15,
+      "actors": [
+        {
+          "id": "f",
+          "kind": "code",
+          "x": 0,
+          "y": -250,
+          "w": 900,
+          "lines": [
+            [
+              "// hello.js",
+              "muted"
+            ],
+            [
+              "console.log('Hello, Node!');",
+              "green"
+            ]
+          ]
+        },
+        {
+          "id": "t",
+          "kind": "console",
+          "x": 0,
+          "y": 80,
+          "w": 760,
+          "h": 300,
+          "title": "terminal",
+          "max": 4
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "f",
+            "t"
+          ]
+        },
+        {
+          "do": "line",
+          "id": "f",
+          "i": 1
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "log",
+          "id": "t",
+          "text": "$ node hello.js",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "log",
+          "id": "t",
+          "text": "Hello, Node!",
+          "color": "green"
+        }
+      ]
+    },
+    {
+      "id": "repl",
+      "min": 9,
+      "duration": 13.5,
+      "text": "The REPL.",
+      "say": "Run node with no file and you get the REPL: a read, evaluate, print loop. It is perfect for trying out an expression, testing a library, or checking how a method behaves, with instant feedback.",
+      "voice": "/audio/node-02-running-code/repl.wav",
+      "visual": "stage",
+      "zoom": 1.15,
+      "actors": [
+        {
+          "id": "r",
+          "kind": "console",
+          "x": 0,
+          "y": -100,
+          "w": 820,
+          "h": 470,
+          "title": "node (REPL)",
+          "max": 8
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "r"
+          ]
+        },
+        {
+          "do": "log",
+          "id": "r",
+          "text": "$ node",
+          "color": "yellow"
+        },
+        {
+          "do": "log",
+          "id": "r",
+          "text": "> 2 + 2",
+          "color": "text"
+        },
+        {
+          "do": "log",
+          "id": "r",
+          "text": "4",
+          "color": "green"
+        },
+        {
+          "do": "log",
+          "id": "r",
+          "text": "> [1, 2, 3].map(x => x * 2)",
+          "color": "text"
+        },
+        {
+          "do": "log",
+          "id": "r",
+          "text": "[ 2, 4, 6 ]",
+          "color": "green"
+        },
+        {
+          "do": "log",
+          "id": "r",
+          "text": "> .exit",
+          "color": "red"
+        }
+      ]
+    },
+    {
+      "id": "globals",
+      "min": 9,
+      "duration": 16.0,
+      "text": "Globals you get for free.",
+      "visual": "chips",
+      "items": [
+        [
+          "process: info about this program",
+          "green"
+        ],
+        [
+          "__dirname and __filename (CJS)",
+          "blue"
+        ],
+        [
+          "globalThis: the global object",
+          "yellow"
+        ],
+        [
+          "console, timers, fetch built in",
+          "pink"
+        ]
+      ],
+      "say": "Node provides some globals out of the box. Process describes the running program. Dirname and filename give the current file's location in CommonJS modules. Global this is the global object, and console, timers, and fetch are all built in.",
+      "voice": "/audio/node-02-running-code/globals.wav"
+    },
+    {
+      "id": "process",
+      "min": 9,
+      "duration": 14.0,
+      "text": "The process object.",
+      "visual": "code",
+      "items": [
+        [
+          "process.argv      // command-line args",
+          "yellow"
+        ],
+        [
+          "process.env.PORT  // environment vars",
+          "green"
+        ],
+        [
+          "process.cwd()      // working folder",
+          "blue"
+        ],
+        [
+          "process.exit(1)    // stop, with a code",
+          "red"
+        ],
+        [
+          "process.on('SIGINT', fn)",
+          "pink"
+        ]
+      ],
+      "say": "The process object is your window into the running program. It holds the command line arguments, environment variables, the current folder, and methods to exit with a status code, or react to signals like control C.",
+      "voice": "/audio/node-02-running-code/process.wav"
+    },
+    {
+      "id": "flags",
+      "min": 8,
+      "duration": 14.5,
+      "text": "Useful flags.",
+      "visual": "chips",
+      "items": [
+        [
+          "--watch: restart on file changes",
+          "green"
+        ],
+        [
+          "--env-file=.env: load variables",
+          "blue"
+        ],
+        [
+          "--inspect: open a debugger",
+          "yellow"
+        ],
+        [
+          "--test: run the built-in tests",
+          "pink"
+        ]
+      ],
+      "say": "Modern Node has useful flags. Watch restarts your program when files change, which replaces tools like nodemon. Env file loads a dot env file, inspect opens the debugger, and test runs the built-in test runner.",
+      "voice": "/audio/node-02-running-code/flags.wav"
+    },
+    {
+      "id": "versions",
+      "min": 8,
+      "duration": 12.0,
+      "text": "Choosing a version.",
+      "visual": "chips",
+      "items": [
+        [
+          "Use an LTS version in production",
+          "green"
+        ],
+        [
+          "Even-numbered versions become LTS",
+          "blue"
+        ],
+        [
+          "nvm or fnm to switch versions",
+          "yellow"
+        ],
+        [
+          "Check yours with node -v",
+          "pink"
+        ]
+      ],
+      "say": "Use a long-term support version in production. Even-numbered releases become L T S. Tools like n v m or f n m let you switch versions per project, and node dash v tells you what you are running.",
+      "voice": "/audio/node-02-running-code/versions.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4,
+      "text": "Next: the event loop.",
+      "say": "Next up, the event loop. Follow for more Node.",
+      "voice": "/audio/node-02-running-code/close.wav"
+    }
+  ]
+}
