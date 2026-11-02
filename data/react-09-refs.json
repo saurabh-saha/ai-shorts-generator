@@ -1,0 +1,186 @@
+{
+  "title": "React 9: Refs & the DOM",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "basics",
+      "min": 8,
+      "duration": 13.0,
+      "text": "useRef gives you a reference.",
+      "visual": "code",
+      "items": [
+        [
+          "const inputRef = useRef(null);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<input ref={inputRef} />",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "inputRef.current.focus();",
+          "green"
+        ]
+      ],
+      "say": "use Ref creates an object with a current property. Attach it to an element with the ref prop, and after rendering, current points at the real DOM node, so you can focus it, scroll to it, or measure it.",
+      "voice": "/audio/react-09-refs/basics.wav"
+    },
+    {
+      "id": "two",
+      "min": 9,
+      "duration": 12.0,
+      "text": "Two uses for refs.",
+      "visual": "compare",
+      "left": {
+        "title": "DOM access",
+        "color": "blue",
+        "items": [
+          "Focus, scroll, measure",
+          "ref={ref} on an element"
+        ]
+      },
+      "right": {
+        "title": "A mutable box",
+        "color": "yellow",
+        "items": [
+          "Holds any value",
+          "Changing it does not re-render"
+        ]
+      },
+      "say": "A ref has two common uses. It can reach a DOM element. Or it can be a mutable box that holds any value between renders, and, unlike state, changing it does not cause a re-render.",
+      "voice": "/audio/react-09-refs/two.wav"
+    },
+    {
+      "id": "versus",
+      "min": 8,
+      "duration": 12.5,
+      "text": "Ref or state?",
+      "visual": "compare",
+      "left": {
+        "title": "useRef",
+        "color": "yellow",
+        "items": [
+          "Not shown on screen",
+          "Timer IDs, previous values"
+        ]
+      },
+      "right": {
+        "title": "useState",
+        "color": "green",
+        "items": [
+          "Shown on screen",
+          "Triggers a render"
+        ]
+      },
+      "say": "A simple rule: if the value affects what is on screen, use state. If it is just something to remember, like a timer I D or the previous value, and nothing displays it, a ref is the right tool.",
+      "voice": "/audio/react-09-refs/versus.wav"
+    },
+    {
+      "id": "react19",
+      "min": 8,
+      "duration": 11.0,
+      "text": "Passing refs to your own components.",
+      "visual": "code",
+      "badge": "REACT 19: ref IS A NORMAL PROP",
+      "items": [
+        [
+          "function Input({ ref, ...props }) {",
+          "yellow"
+        ],
+        [
+          "  return (",
+          "muted"
+        ],
+        [
+          "    <input ref={ref} {...props} />",
+          "green"
+        ],
+        [
+          "  );",
+          "muted"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "In React nineteen, a function component receives ref as a regular prop, so you can pass it down to an inner element. Older code used forward Ref for the same job.",
+      "voice": "/audio/react-09-refs/react19.wav"
+    },
+    {
+      "id": "handle",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Expose only what's needed.",
+      "visual": "code",
+      "items": [
+        [
+          "useImperativeHandle(ref, () => ({",
+          "yellow"
+        ],
+        [
+          "  focus() {",
+          "blue"
+        ],
+        [
+          "    inner.current.focus();",
+          "green"
+        ],
+        [
+          "  },",
+          "blue"
+        ],
+        [
+          "}));",
+          "yellow"
+        ]
+      ],
+      "say": "If a parent needs to control a child, expose a small set of methods with use Imperative Handle, instead of handing over the whole DOM node.",
+      "voice": "/audio/react-09-refs/handle.wav"
+    },
+    {
+      "id": "rules",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Rules for refs.",
+      "visual": "chips",
+      "items": [
+        [
+          "No ref.current reads in render",
+          "red"
+        ],
+        [
+          "Use it in handlers and effects",
+          "green"
+        ],
+        [
+          "Prefer props and state first",
+          "blue"
+        ],
+        [
+          "Don't edit DOM React manages",
+          "yellow"
+        ]
+      ],
+      "say": "Don't read or write a ref's current value during rendering. Use it in event handlers and effects. Prefer props and state wherever you can, and never edit DOM that React manages, or the two will fight.",
+      "voice": "/audio/react-09-refs/rules.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: useReducer.",
+      "say": "Next up, use Reducer. Follow for more React.",
+      "voice": "/audio/react-09-refs/close.wav"
+    }
+  ]
+}

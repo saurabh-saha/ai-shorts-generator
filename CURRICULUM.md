@@ -52,6 +52,15 @@ build an agent from scratch · frameworks (LangChain, LlamaIndex, CrewAI, AutoGe
 memory deep dive (episodic vs semantic) · human-in-the-loop · evaluation tooling (LangSmith, Ragas) · observability & tracing ·
 prompt injection & jailbreaks · sandboxing, PII & red teaming
 
+## LangGraph (20)
+Structure follows the LangGraph docs (overview, persistence, interrupts, streaming, subgraphs, testing, deployment).
+1 What is LangGraph · 2 Your first graph (StateGraph, START/END) · 3 State & reducers · 4 Nodes & edges (conditional routing) ·
+5 Thinking in LangGraph (design method) · 6 Workflows vs agents (chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer) ·
+7 Tools & the prebuilt ReAct agent · 8 Persistence & checkpointers (threads) · 9 Short-term memory · 10 Long-term memory (Stores) ·
+11 Interrupts & human-in-the-loop · 12 Time travel (replay, fork) · 13 Streaming modes · 14 Subgraphs · 15 Parallel execution & Send (map-reduce) ·
+16 Multi-agent: supervisor & handoffs · 17 Fault tolerance & retries · 18 Graph execution & the runtime (super-steps) · 19 Testing graphs ·
+20 Application structure, Studio, deployment & LangSmith
+
 ## Interview Q&A (5, done)
 Planner + workers · 10K workflows · exactly-once events · 50+ MCP tools · multi-tenant agents
 

@@ -1,0 +1,178 @@
+{
+  "title": "React 8: You Might Not Need an Effect",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "intro",
+      "min": 8,
+      "duration": 12.0,
+      "text": "Effects are an escape hatch.",
+      "visual": "chips",
+      "badge": "ASK: DO I REALLY NEED THIS?",
+      "items": [
+        [
+          "Effects: sync with outside systems",
+          "yellow"
+        ],
+        [
+          "Most bugs come from overusing them",
+          "red"
+        ],
+        [
+          "Prefer render and event handlers",
+          "green"
+        ]
+      ],
+      "say": "Effects are an escape hatch, meant for syncing with things outside React. Most effect bugs come from using them for things that need no effect at all, so ask first: do I really need this?",
+      "voice": "/audio/react-08-no-effect/intro.wav"
+    },
+    {
+      "id": "derive",
+      "min": 9,
+      "duration": 11.5,
+      "text": "Derive values during render.",
+      "visual": "compare",
+      "left": {
+        "title": "Effect + state",
+        "color": "red",
+        "items": [
+          "Effect sets fullName",
+          "Extra render, flicker"
+        ]
+      },
+      "right": {
+        "title": "In render",
+        "color": "green",
+        "items": [
+          "const full = first + last",
+          "No effect, no extra render"
+        ]
+      },
+      "say": "If a value can be calculated from props or state, calculate it during render. Copying it into state with an effect adds an extra render, and a moment where the screen shows stale data.",
+      "voice": "/audio/react-08-no-effect/derive.wav"
+    },
+    {
+      "id": "events",
+      "min": 9,
+      "duration": 10.5,
+      "text": "User actions belong in handlers.",
+      "visual": "compare",
+      "left": {
+        "title": "Effect",
+        "color": "red",
+        "items": [
+          "Watch a flag in state",
+          "then post the form"
+        ]
+      },
+      "right": {
+        "title": "Handler",
+        "color": "green",
+        "items": [
+          "Submit handler posts",
+          "right when it happens"
+        ]
+      },
+      "say": "If something happens because the user did something, do it in the event handler. Setting a flag and watching it in an effect makes the logic indirect, and easy to break.",
+      "voice": "/audio/react-08-no-effect/events.wav"
+    },
+    {
+      "id": "reset",
+      "min": 8,
+      "duration": 10.5,
+      "text": "Reset state with a key.",
+      "visual": "code",
+      "items": [
+        [
+          "// state resets when userId changes",
+          "muted"
+        ],
+        [
+          "<Profile",
+          "blue"
+        ],
+        [
+          "  userId={userId}",
+          "green"
+        ],
+        [
+          "  key={userId}",
+          "pink"
+        ],
+        [
+          "/>",
+          "blue"
+        ]
+      ],
+      "say": "To reset a component's state when a prop changes, don't write an effect. Give the component a key based on that prop. A new key makes React start with a fresh component.",
+      "voice": "/audio/react-08-no-effect/reset.wav"
+    },
+    {
+      "id": "memo",
+      "min": 8,
+      "duration": 12.5,
+      "text": "Slow calculation? Memoize it.",
+      "visual": "code",
+      "items": [
+        [
+          "const visible = useMemo(",
+          "yellow"
+        ],
+        [
+          "  () => filterTodos(todos, filter),",
+          "green"
+        ],
+        [
+          "  [todos, filter]",
+          "blue"
+        ],
+        [
+          ");",
+          "yellow"
+        ],
+        [
+          "// only if it is measurably slow",
+          "muted"
+        ]
+      ],
+      "say": "For an expensive calculation, cache it with use Memo, which recomputes only when its inputs change. Don't reach for it by default. Measure first, since most calculations are fast.",
+      "voice": "/audio/react-08-no-effect/memo.wav"
+    },
+    {
+      "id": "needed",
+      "min": 9,
+      "duration": 13.0,
+      "text": "When you do need an effect.",
+      "visual": "chips",
+      "items": [
+        [
+          "Subscribe to a store or socket",
+          "blue"
+        ],
+        [
+          "Control a non-React widget",
+          "yellow"
+        ],
+        [
+          "Log analytics when shown",
+          "green"
+        ],
+        [
+          "Fetch data (or use a library)",
+          "pink"
+        ]
+      ],
+      "say": "You do need effects to subscribe to an external store or socket, to control a non-React widget, to log analytics when a component appears, and to fetch data, though a data library often does that better.",
+      "voice": "/audio/react-08-no-effect/needed.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4,
+      "text": "Next: refs and the DOM.",
+      "say": "Next up, refs and the DOM. Follow for more React.",
+      "voice": "/audio/react-08-no-effect/close.wav"
+    }
+  ]
+}

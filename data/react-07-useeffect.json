@@ -1,0 +1,188 @@
+{
+  "title": "React 7: useEffect",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "what",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Effects sync with the outside world.",
+      "visual": "code",
+      "badge": "SETUP + CLEANUP",
+      "items": [
+        [
+          "useEffect(() => {",
+          "yellow"
+        ],
+        [
+          "  const id = setInterval(tick, 1000);",
+          "green"
+        ],
+        [
+          "  return () => clearInterval(id);",
+          "pink"
+        ],
+        [
+          "}, []);",
+          "yellow"
+        ]
+      ],
+      "say": "use Effect lets a component synchronize with something outside of React: a server, a browser A P I, a timer. You write the setup, and optionally return a cleanup function that undoes it.",
+      "voice": "/audio/react-07-useeffect/what.wav"
+    },
+    {
+      "id": "deps",
+      "min": 9,
+      "duration": 14.5,
+      "text": "The dependency array.",
+      "visual": "chips",
+      "items": [
+        [
+          "[]  runs after the first render",
+          "green"
+        ],
+        [
+          "[a, b]  reruns when a or b change",
+          "blue"
+        ],
+        [
+          "No array: after every render",
+          "yellow"
+        ],
+        [
+          "List every value the effect uses",
+          "red"
+        ]
+      ],
+      "say": "The dependency array decides when the effect runs. An empty array means once, after the first render. A list reruns it when any value changes. No array means after every render. And you must list every value the effect reads.",
+      "voice": "/audio/react-07-useeffect/deps.wav"
+    },
+    {
+      "id": "cleanup",
+      "min": 9,
+      "duration": 13.5,
+      "text": "The effect lifecycle.",
+      "visual": "flow",
+      "items": [
+        [
+          "Mount",
+          "yellow",
+          "run the setup"
+        ],
+        [
+          "Dependencies change",
+          "blue",
+          "cleanup, then setup again"
+        ],
+        [
+          "Unmount",
+          "green",
+          "run the cleanup"
+        ]
+      ],
+      "say": "Think of it as setup and cleanup pairs. On mount, setup runs. When a dependency changes, React runs the old cleanup first, then the new setup. And on unmount, the final cleanup runs.",
+      "voice": "/audio/react-07-useeffect/cleanup.wav"
+    },
+    {
+      "id": "race",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Avoid race conditions when fetching.",
+      "visual": "code",
+      "items": [
+        [
+          "useEffect(() => {",
+          "yellow"
+        ],
+        [
+          "  let ignore = false;",
+          "pink"
+        ],
+        [
+          "  fetchUser(id).then(u => {",
+          "blue"
+        ],
+        [
+          "    if (!ignore) setUser(u);",
+          "green"
+        ],
+        [
+          "  });",
+          "blue"
+        ],
+        [
+          "  return () => { ignore = true; };",
+          "pink"
+        ],
+        [
+          "}, [id]);",
+          "yellow"
+        ]
+      ],
+      "say": "When an effect fetches data, a slow earlier request can arrive after a newer one and overwrite it. A simple ignore flag, set in the cleanup, makes sure only the latest request updates state.",
+      "voice": "/audio/react-07-useeffect/race.wav"
+    },
+    {
+      "id": "strict",
+      "min": 8,
+      "duration": 12.0,
+      "text": "Why effects run twice in development.",
+      "visual": "compare",
+      "left": {
+        "title": "What happens",
+        "color": "blue",
+        "items": [
+          "StrictMode mounts, unmounts,",
+          "then mounts again",
+          "Development only"
+        ]
+      },
+      "right": {
+        "title": "What it tests",
+        "color": "green",
+        "items": [
+          "Is your cleanup correct?",
+          "Can the effect run twice safely?"
+        ]
+      },
+      "say": "In development, Strict Mode mounts, unmounts, and mounts your component again. It's not a bug. It is a test that your cleanup is correct, and that the effect is safe to run twice.",
+      "voice": "/audio/react-07-useeffect/strict.wav"
+    },
+    {
+      "id": "pitfalls",
+      "min": 8,
+      "duration": 13.5,
+      "text": "Common effect pitfalls.",
+      "visual": "chips",
+      "items": [
+        [
+          "Missing deps: stale values",
+          "red"
+        ],
+        [
+          "Object deps change every render",
+          "yellow"
+        ],
+        [
+          "Don't make the callback async",
+          "blue"
+        ],
+        [
+          "Not for derived data",
+          "green"
+        ]
+      ],
+      "say": "Common pitfalls: missing dependencies give you stale values, objects created during render change every time, the effect callback can't be async itself, and effects are not for computing values you can derive.",
+      "voice": "/audio/react-07-useeffect/pitfalls.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: you might not need an effect.",
+      "say": "Next up, you might not need an effect. Follow for more React.",
+      "voice": "/audio/react-07-useeffect/close.wav"
+    }
+  ]
+}
