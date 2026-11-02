@@ -1,0 +1,197 @@
+{
+  "title": "React 3: State with useState",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "why",
+      "min": 8,
+      "duration": 12.5,
+      "text": "Why a plain variable isn't enough.",
+      "visual": "compare",
+      "left": {
+        "title": "let count = 0",
+        "color": "red",
+        "items": [
+          "Changes don't re-render",
+          "Resets every render"
+        ]
+      },
+      "right": {
+        "title": "useState(0)",
+        "color": "green",
+        "items": [
+          "Survives re-renders",
+          "Setting it triggers a render"
+        ]
+      },
+      "say": "A normal variable can't hold a component's data. Changing it doesn't update the screen, and it resets on every render. State survives between renders, and setting it tells React to render again.",
+      "voice": "/audio/react-03-state/why.wav"
+    },
+    {
+      "id": "code",
+      "min": 8,
+      "duration": 8.5,
+      "text": "useState returns a value and a setter.",
+      "visual": "code",
+      "items": [
+        [
+          "const [count, setCount] = useState(0);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<button onClick={() =>",
+          "blue"
+        ],
+        [
+          "  setCount(count + 1)",
+          "green"
+        ],
+        [
+          "}>",
+          "blue"
+        ],
+        [
+          "  Clicked {count} times",
+          "pink"
+        ],
+        [
+          "</button>",
+          "blue"
+        ]
+      ],
+      "say": "The use State hook returns the current value and a setter function. Call the setter, and React re-renders the component with the new value.",
+      "voice": "/audio/react-03-state/code.wav"
+    },
+    {
+      "id": "snapshot",
+      "min": 8,
+      "duration": 10.5,
+      "text": "State is a snapshot.",
+      "visual": "flow",
+      "badge": "THE SETTER SCHEDULES A RENDER",
+      "items": [
+        [
+          "Render",
+          "yellow",
+          "count is 0 in this render"
+        ],
+        [
+          "Click: setCount(1)",
+          "blue",
+          "schedules an update"
+        ],
+        [
+          "Re-render",
+          "green",
+          "count is 1 now"
+        ]
+      ],
+      "say": "State behaves like a snapshot. Calling the setter doesn't change the variable you already have in this render. It schedules a new render, where the variable has the new value.",
+      "voice": "/audio/react-03-state/snapshot.wav"
+    },
+    {
+      "id": "updater",
+      "min": 9,
+      "duration": 12.0,
+      "text": "Use an updater when it depends on the last value.",
+      "visual": "code",
+      "items": [
+        [
+          "setCount(count + 1);",
+          "red"
+        ],
+        [
+          "setCount(count + 1);",
+          "red"
+        ],
+        [
+          "// still only +1",
+          "muted"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "setCount(c => c + 1);",
+          "green"
+        ],
+        [
+          "setCount(c => c + 1);",
+          "green"
+        ],
+        [
+          "// +2",
+          "muted"
+        ]
+      ],
+      "say": "Updates are batched, so reading the same old value twice only adds one. When the next state depends on the previous one, pass an updater function, and React chains them correctly.",
+      "voice": "/audio/react-03-state/updater.wav"
+    },
+    {
+      "id": "immutable",
+      "min": 8,
+      "duration": 10.0,
+      "text": "Replace, don't mutate.",
+      "visual": "compare",
+      "left": {
+        "title": "Mutating",
+        "color": "red",
+        "items": [
+          "user.name = \"Ana\"",
+          "list.push(item)"
+        ]
+      },
+      "right": {
+        "title": "Replacing",
+        "color": "green",
+        "items": [
+          "setUser({...user, name})",
+          "setList([...list, item])"
+        ]
+      },
+      "say": "Never mutate state in place. React compares old and new values to decide if anything changed, so always replace objects and arrays with new copies.",
+      "voice": "/audio/react-03-state/immutable.wav"
+    },
+    {
+      "id": "where",
+      "min": 8,
+      "duration": 12.0,
+      "text": "Where should state live?",
+      "visual": "chips",
+      "items": [
+        [
+          "Keep it minimal",
+          "blue"
+        ],
+        [
+          "Lift it to the nearest shared parent",
+          "yellow"
+        ],
+        [
+          "Derive values, don't store them",
+          "green"
+        ],
+        [
+          "Never duplicate the same state",
+          "red"
+        ]
+      ],
+      "say": "A few habits: keep state minimal, lift it up to the nearest common parent when two components need it, derive values instead of storing them, and never duplicate the same data in two places.",
+      "voice": "/audio/react-03-state/where.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: rendering and re-renders.",
+      "say": "Next up, rendering and re-renders. Follow for more React.",
+      "voice": "/audio/react-03-state/close.wav"
+    }
+  ]
+}

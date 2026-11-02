@@ -1,0 +1,159 @@
+{
+  "title": "React 1: What Is React?",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "declarative",
+      "min": 8,
+      "duration": 12.5,
+      "text": "Describe the UI. React updates the DOM.",
+      "visual": "compare",
+      "left": {
+        "title": "Imperative",
+        "color": "red",
+        "items": [
+          "Find the element",
+          "Change its text",
+          "Track every case"
+        ]
+      },
+      "right": {
+        "title": "Declarative",
+        "color": "green",
+        "items": [
+          "Describe the UI",
+          "for the current state",
+          "React updates the DOM"
+        ]
+      },
+      "say": "In plain JavaScript, you tell the browser how to change the page, step by step. React flips that: you describe what the screen should look like for the current data, and React does the updating.",
+      "voice": "/audio/react-01-what-is-react/declarative.wav"
+    },
+    {
+      "id": "tree",
+      "min": 8,
+      "duration": 10.5,
+      "text": "A React app is a tree of components.",
+      "visual": "flow",
+      "badge": "UI = A TREE OF COMPONENTS",
+      "items": [
+        [
+          "App",
+          "yellow",
+          "the whole page"
+        ],
+        [
+          "Feed",
+          "blue",
+          "a list of posts"
+        ],
+        [
+          "Post",
+          "green",
+          "one item"
+        ],
+        [
+          "LikeButton",
+          "text",
+          "a single button"
+        ]
+      ],
+      "say": "A React app is a tree of components. Each component is a function that takes some data and returns a piece of UI, and you build big screens by nesting small ones.",
+      "voice": "/audio/react-01-what-is-react/tree.wav"
+    },
+    {
+      "id": "jsx",
+      "min": 8,
+      "duration": 12.5,
+      "text": "JSX: markup inside JavaScript.",
+      "visual": "code",
+      "items": [
+        [
+          "function Greeting({ name }) {",
+          "yellow"
+        ],
+        [
+          "  return (",
+          "muted"
+        ],
+        [
+          "    <h1>Hello, {name}!</h1>",
+          "green"
+        ],
+        [
+          "  );",
+          "muted"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "Components return JSX, which looks like HTML inside JavaScript. Curly braces let you drop any JavaScript expression into it, and under the hood it compiles to plain function calls.",
+      "voice": "/audio/react-01-what-is-react/jsx.wav"
+    },
+    {
+      "id": "rules",
+      "min": 8,
+      "duration": 11.5,
+      "text": "The JSX rules.",
+      "visual": "chips",
+      "items": [
+        [
+          "One root element, or a fragment",
+          "blue"
+        ],
+        [
+          "Close every tag",
+          "green"
+        ],
+        [
+          "className, not class",
+          "yellow"
+        ],
+        [
+          "Components start with a capital",
+          "pink"
+        ]
+      ],
+      "say": "A few JSX rules to remember: return one root element or a fragment, close every tag, use class name instead of class, and start component names with a capital letter.",
+      "voice": "/audio/react-01-what-is-react/rules.wav"
+    },
+    {
+      "id": "why",
+      "min": 8,
+      "duration": 10.5,
+      "text": "Why teams pick React.",
+      "visual": "chips",
+      "items": [
+        [
+          "Reusable components",
+          "green"
+        ],
+        [
+          "Predictable one-way data flow",
+          "blue"
+        ],
+        [
+          "Huge ecosystem",
+          "yellow"
+        ],
+        [
+          "Web and native with one model",
+          "pink"
+        ]
+      ],
+      "say": "Teams pick React for reusable components, a predictable one-way data flow, a huge ecosystem, and a model that carries over to mobile with React Native.",
+      "voice": "/audio/react-01-what-is-react/why.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: props and composition.",
+      "say": "Next up, props and composition. Follow for more React.",
+      "voice": "/audio/react-01-what-is-react/close.wav"
+    }
+  ]
+}

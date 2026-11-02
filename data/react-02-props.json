@@ -1,0 +1,169 @@
+{
+  "title": "React 2: Props & Composition",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "props",
+      "min": 8,
+      "duration": 11.0,
+      "text": "Props are a component's inputs.",
+      "visual": "code",
+      "items": [
+        [
+          "function Price({ amount, currency }) {",
+          "yellow"
+        ],
+        [
+          "  return <b>{amount} {currency}</b>;",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<Price amount={9} currency=\"USD\" />",
+          "blue"
+        ]
+      ],
+      "say": "Props are the inputs to a component. You pass them like HTML attributes, and the component receives them as one object, usually destructured right in the parameters.",
+      "voice": "/audio/react-02-props/props.wav"
+    },
+    {
+      "id": "oneway",
+      "min": 8,
+      "duration": 13.5,
+      "text": "Data flows down, one way.",
+      "visual": "flow",
+      "badge": "NEVER MODIFY PROPS",
+      "items": [
+        [
+          "Parent",
+          "yellow",
+          "owns the data"
+        ],
+        [
+          "props flow down",
+          "blue",
+          ""
+        ],
+        [
+          "Child",
+          "green",
+          "read-only"
+        ]
+      ],
+      "say": "Data flows one way, from parent to child. A child must never modify its props. If something needs to change, the parent owns that data, and passes a function down so the child can ask for the change.",
+      "voice": "/audio/react-02-props/oneway.wav"
+    },
+    {
+      "id": "children",
+      "min": 9,
+      "duration": 11.0,
+      "text": "children: wrap anything.",
+      "visual": "code",
+      "items": [
+        [
+          "function Card({ title, children }) {",
+          "yellow"
+        ],
+        [
+          "  return (",
+          "muted"
+        ],
+        [
+          "    <div className=\"card\">",
+          "blue"
+        ],
+        [
+          "      <h2>{title}</h2>",
+          "green"
+        ],
+        [
+          "      {children}",
+          "pink"
+        ],
+        [
+          "    </div>",
+          "blue"
+        ],
+        [
+          "  );",
+          "muted"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "The special children prop is whatever you put between a component's tags. It lets you build wrapper components, like cards and layouts, without knowing their contents in advance.",
+      "voice": "/audio/react-02-props/children.wav"
+    },
+    {
+      "id": "tricks",
+      "min": 8,
+      "duration": 11.0,
+      "text": "Defaults, spreading, callbacks.",
+      "visual": "chips",
+      "items": [
+        [
+          "Default values: size = \"md\"",
+          "blue"
+        ],
+        [
+          "Forward the rest: {...rest}",
+          "yellow"
+        ],
+        [
+          "Pass functions as callbacks",
+          "green"
+        ],
+        [
+          "Any JavaScript value works",
+          "pink"
+        ]
+      ],
+      "say": "You can give props default values, forward the extra ones with the rest spread, and pass any value, including functions, which is how children talk back to their parents.",
+      "voice": "/audio/react-02-props/tricks.wav"
+    },
+    {
+      "id": "composition",
+      "min": 8,
+      "duration": 11.5,
+      "text": "Composition beats inheritance.",
+      "visual": "compare",
+      "left": {
+        "title": "Inheritance",
+        "color": "red",
+        "items": [
+          "Deep hierarchies",
+          "Hard to change"
+        ]
+      },
+      "right": {
+        "title": "Composition",
+        "color": "green",
+        "items": [
+          "Small components",
+          "Combine with children",
+          "Easy to reuse"
+        ]
+      },
+      "say": "React prefers composition over inheritance. Small, focused components, combined through props and children, are easier to reuse and to test than deep class hierarchies.",
+      "voice": "/audio/react-02-props/composition.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: state with useState.",
+      "say": "Next up, state with use State. Follow for more React.",
+      "voice": "/audio/react-02-props/close.wav"
+    }
+  ]
+}
