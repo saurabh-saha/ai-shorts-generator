@@ -1,0 +1,54 @@
+{
+  "title": "Consumer Groups",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 8.5,
+      "text": "One consumer can't keep up.",
+      "say": "One consumer can't keep up with a busy topic. How do you read in parallel, without processing the same event twice?",
+      "voice": "/audio/consumer-groups/hook.wav"
+    },
+    {
+      "id": "group",
+      "min": 8,
+      "duration": 8.5,
+      "text": "A group shares the work: one partition per consumer.",
+      "say": "A consumer group is a set of consumers that share the work. Kafka gives each partition to exactly one consumer in the group.",
+      "voice": "/audio/consumer-groups/group.wav"
+    },
+    {
+      "id": "scale",
+      "min": 6,
+      "duration": 7.5,
+      "text": "Scale up to the number of partitions.",
+      "say": "So adding consumers scales your reading, up to the number of partitions. A fourth consumer would just sit idle.",
+      "voice": "/audio/consumer-groups/scale.wav"
+    },
+    {
+      "id": "rebalance",
+      "min": 8,
+      "duration": 9.5,
+      "text": "A crash triggers a rebalance.",
+      "say": "If a consumer crashes, Kafka rebalances. Its partitions are handed to another consumer, which resumes from the last committed offset.",
+      "voice": "/audio/consumer-groups/rebalance.wav"
+    },
+    {
+      "id": "groups",
+      "min": 7,
+      "duration": 7,
+      "text": "Each group gets every event.",
+      "say": "Different groups are independent. A billing group and an analytics group each get every event, at their own pace.",
+      "voice": "/audio/consumer-groups/groups.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: delivery guarantees. Follow for more!",
+      "say": "Next up, delivery guarantees. Follow for more system design.",
+      "voice": "/audio/consumer-groups/close.wav"
+    }
+  ]
+}
