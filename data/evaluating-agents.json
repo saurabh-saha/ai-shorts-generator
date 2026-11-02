@@ -1,0 +1,63 @@
+{
+  "title": "Evaluating Agents",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 7.5,
+      "text": "One good demo proves very little.",
+      "say": "How do you know if your agent is any good? Its behavior varies, so one successful demo proves very little.",
+      "voice": "/audio/evaluating-agents/hook.wav"
+    },
+    {
+      "id": "testset",
+      "min": 6,
+      "duration": 6.5,
+      "text": "Start with a test set.",
+      "say": "Start with a test set: realistic tasks, each with a clear definition of success.",
+      "voice": "/audio/evaluating-agents/testset.wav"
+    },
+    {
+      "id": "metrics",
+      "min": 7,
+      "duration": 7,
+      "text": "Measure success, steps, cost, latency.",
+      "say": "Measure more than the final answer: success rate, number of steps, cost, and latency.",
+      "voice": "/audio/evaluating-agents/metrics.wav"
+    },
+    {
+      "id": "trajectory",
+      "min": 9,
+      "duration": 9,
+      "text": "Check the trajectory, not just the answer.",
+      "say": "Also check the trajectory: right tools, sensible order, correct arguments. A right answer reached the wrong way is fragile.",
+      "voice": "/audio/evaluating-agents/trajectory.wav"
+    },
+    {
+      "id": "judges",
+      "min": 7,
+      "duration": 7.5,
+      "text": "LLM judges need a rubric and spot-checks.",
+      "say": "For fuzzy outputs, use an LLM as a judge with a clear rubric, and spot-check it against human ratings.",
+      "voice": "/audio/evaluating-agents/judges.wav"
+    },
+    {
+      "id": "regression",
+      "min": 10,
+      "duration": 10,
+      "text": "Run on every change. Track the trend.",
+      "say": "Run the suite on every change, and run each task several times, since results vary. Track the trend, and add every real failure to the test set.",
+      "voice": "/audio/evaluating-agents/regression.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "That wraps up the agentic AI series!",
+      "say": "That wraps up the agentic AI series. Follow for more.",
+      "voice": "/audio/evaluating-agents/close.wav"
+    }
+  ]
+}
