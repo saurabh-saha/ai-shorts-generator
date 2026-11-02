@@ -1,0 +1,63 @@
+{
+  "title": "Tool Calling",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 6.5,
+      "text": "A model only produces text. So how does it act?",
+      "say": "A language model can only produce text. So how does an agent actually do things?",
+      "voice": "/audio/tool-calling/hook.wav"
+    },
+    {
+      "id": "define",
+      "min": 6,
+      "duration": 6.5,
+      "text": "Step 1: describe each tool to the model.",
+      "say": "First, you describe each tool to the model: its name, what it does, and its parameters.",
+      "voice": "/audio/tool-calling/define.wav"
+    },
+    {
+      "id": "call",
+      "min": 7,
+      "duration": 8.5,
+      "text": "Step 2: the model asks. It never runs the tool.",
+      "say": "When the model decides a tool is needed, it doesn't run it. It outputs a structured request: the tool name, and the arguments.",
+      "voice": "/audio/tool-calling/call.wav"
+    },
+    {
+      "id": "run",
+      "min": 7,
+      "duration": 7,
+      "text": "Step 3: your code runs it and returns the result.",
+      "say": "Your code runs the tool, and sends the result back to the model as a new message.",
+      "voice": "/audio/tool-calling/run.wav"
+    },
+    {
+      "id": "answer",
+      "min": 6,
+      "duration": 6.5,
+      "text": "Step 4: the model uses the result.",
+      "say": "The model then uses that result to write its final answer, or to decide on another tool call.",
+      "voice": "/audio/tool-calling/answer.wav"
+    },
+    {
+      "id": "design",
+      "min": 8,
+      "duration": 10.0,
+      "text": "Good tools: clear names, precise docs, validated args.",
+      "say": "Good tool design matters: clear names, precise descriptions, and validated arguments. The model can only be as careful as the tools you give it.",
+      "voice": "/audio/tool-calling/design.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: the ReAct loop. Follow for more!",
+      "say": "Next up, the ReAct loop. Follow for more agentic AI.",
+      "voice": "/audio/tool-calling/close.wav"
+    }
+  ]
+}
