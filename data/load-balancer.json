@@ -1,0 +1,62 @@
+{
+  "title": "Load Balancer",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 4,
+      "duration": 4.5,
+      "text": "What if one server can't handle all your users?",
+      "say": "What happens when one server can't handle all your users?",
+      "voice": "/audio/load-balancer/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 5,
+      "duration": 6.0,
+      "text": "One server = one limit, and one failure takes everything down.",
+      "say": "With a single server, you have one limit, and one failure takes everything down.",
+      "voice": "/audio/load-balancer/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 4,
+      "duration": 5.5,
+      "text": "A load balancer spreads traffic across many servers.",
+      "say": "A load balancer sits in front and spreads the traffic across many servers.",
+      "voice": "/audio/load-balancer/concept.wav"
+    },
+    {
+      "id": "roundrobin",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Round robin: A, B, C, then start over.",
+      "say": "The simplest strategy is round robin. Request one goes to server A, two to B, three to C, then it starts over.",
+      "voice": "/audio/load-balancer/roundrobin.wav"
+    },
+    {
+      "id": "leastconn",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Least connections: busy servers get a break.",
+      "say": "Smarter balancers send each request to the server with the fewest active connections, so busy servers get a break.",
+      "voice": "/audio/load-balancer/leastconn.wav"
+    },
+    {
+      "id": "health",
+      "min": 7,
+      "duration": 7,
+      "text": "Health checks: dead servers get no traffic.",
+      "say": "And if a server dies, health checks notice, and the load balancer stops sending it traffic.",
+      "voice": "/audio/load-balancer/health.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next up: caching. Follow for more!",
+      "say": "Next up, caching. Follow for more system design.",
+      "voice": "/audio/load-balancer/close.wav"
+    }
+  ]
+}

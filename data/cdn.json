@@ -1,0 +1,62 @@
+{
+  "title": "CDN",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 7,
+      "text": "Why is a faraway server so slow?",
+      "say": "Why does a website load slowly when its server is on the other side of the world?",
+      "voice": "/audio/cdn/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 6,
+      "duration": 6,
+      "text": "Every request travels all the way to the origin.",
+      "say": "Every request travels all the way to the origin, and the origin has to serve everyone.",
+      "voice": "/audio/cdn/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 5,
+      "duration": 5,
+      "text": "A CDN keeps copies on edge servers worldwide.",
+      "say": "A CDN keeps copies of your content on edge servers all around the world.",
+      "voice": "/audio/cdn/concept.wav"
+    },
+    {
+      "id": "miss",
+      "min": 7,
+      "duration": 7.5,
+      "text": "First request: cache miss. The edge fetches and keeps a copy.",
+      "say": "The first user near an edge causes a cache miss. The edge fetches the file from the origin, and keeps a copy.",
+      "voice": "/audio/cdn/miss.wav"
+    },
+    {
+      "id": "hit",
+      "min": 7,
+      "duration": 7,
+      "text": "After that: served from the edge in milliseconds.",
+      "say": "After that, everyone nearby gets the copy straight from the edge, in a few milliseconds.",
+      "voice": "/audio/cdn/hit.wav"
+    },
+    {
+      "id": "spike",
+      "min": 6,
+      "duration": 6,
+      "text": "Spikes hit the edges. The origin stays calm.",
+      "say": "Edges also absorb traffic spikes, so your origin stays calm.",
+      "voice": "/audio/cdn/spike.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: API gateways. Follow for more!",
+      "say": "Next up, A P I gateways. Follow for more system design.",
+      "voice": "/audio/cdn/close.wav"
+    }
+  ]
+}

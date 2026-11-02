@@ -1,0 +1,62 @@
+{
+  "title": "Caching",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 4,
+      "duration": 6.5,
+      "text": "Why is your app slow?",
+      "say": "Why is your app slow? Often, it keeps asking the database the exact same question.",
+      "voice": "/audio/caching/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 5,
+      "duration": 5.5,
+      "text": "Every request hits the slow database.",
+      "say": "Every request goes to the database, which is slow, and easy to overload.",
+      "voice": "/audio/caching/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 4,
+      "duration": 4.5,
+      "text": "A cache is fast memory in front of the database.",
+      "say": "A cache is fast memory placed in front of the database.",
+      "voice": "/audio/caching/concept.wav"
+    },
+    {
+      "id": "miss",
+      "min": 6,
+      "duration": 7.0,
+      "text": "Cache miss: fetch from the database, then store it.",
+      "say": "First request: a cache miss. We fetch the answer from the database, then store it in the cache.",
+      "voice": "/audio/caching/miss.wav"
+    },
+    {
+      "id": "hit",
+      "min": 8,
+      "duration": 8,
+      "text": "Cache hit: instant answer. The database is never touched.",
+      "say": "Next time, it's a cache hit. The answer comes back instantly, and the database is never touched.",
+      "voice": "/audio/caching/hit.wav"
+    },
+    {
+      "id": "evict",
+      "min": 10,
+      "duration": 10,
+      "text": "Memory is limited: evict the oldest, expire with a TTL.",
+      "say": "But memory is limited. When the cache fills up, it evicts the least recently used item. And every entry has a time to live, after which it expires.",
+      "voice": "/audio/caching/evict.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: message queues. Follow for more!",
+      "say": "Next up, message queues. Follow for more system design.",
+      "voice": "/audio/caching/close.wav"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "title": "DB Sharding",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 5,
+      "duration": 5,
+      "text": "What if your database outgrows one machine?",
+      "say": "What happens when your database grows too big for a single machine?",
+      "voice": "/audio/sharding/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 5,
+      "duration": 7.0,
+      "text": "One machine = one limit. Bigger ones get very expensive.",
+      "say": "One database has a limit on storage and on traffic, and bigger machines get expensive, fast.",
+      "voice": "/audio/sharding/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 6,
+      "duration": 7.5,
+      "text": "Sharding splits the data across many databases.",
+      "say": "Sharding splits the data across several databases, called shards. Each shard holds only a part of it.",
+      "voice": "/audio/sharding/concept.wav"
+    },
+    {
+      "id": "shardkey",
+      "min": 8,
+      "duration": 8,
+      "text": "The shard key picks the shard: user ID % 3.",
+      "say": "A shard key decides where each row lives. For example, user I D, modulo three.",
+      "voice": "/audio/sharding/shardkey.wav"
+    },
+    {
+      "id": "hotspot",
+      "min": 7,
+      "duration": 7,
+      "text": "A bad shard key creates a hot shard.",
+      "say": "But a bad shard key creates a hot shard, where one server gets most of the traffic.",
+      "voice": "/audio/sharding/hotspot.wav"
+    },
+    {
+      "id": "tradeoff",
+      "min": 8,
+      "duration": 8,
+      "text": "Cross-shard queries are slow. Choose your key carefully.",
+      "say": "Queries that span shards get slower, and resharding later is painful. So choose your key carefully.",
+      "voice": "/audio/sharding/tradeoff.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: consistent hashing. Follow for more!",
+      "say": "Next up, consistent hashing. Follow for more system design.",
+      "voice": "/audio/sharding/close.wav"
+    }
+  ]
+}

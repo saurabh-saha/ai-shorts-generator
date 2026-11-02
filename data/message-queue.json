@@ -1,0 +1,62 @@
+{
+  "title": "Message Queue",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 4,
+      "duration": 5.0,
+      "text": "A traffic spike hits your service.",
+      "say": "What happens when requests arrive faster than your service can handle them?",
+      "voice": "/audio/message-queue/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 5,
+      "duration": 7.0,
+      "text": "Overloaded, blocked, and requests get lost.",
+      "say": "The service gets overloaded, slow jobs block the caller, and when it crashes, requests are lost.",
+      "voice": "/audio/message-queue/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 4,
+      "duration": 7.0,
+      "text": "A queue sits in between: producers drop messages, consumers pick them up.",
+      "say": "A message queue sits in between. Producers drop messages in, and consumers pick them up when they're ready.",
+      "voice": "/audio/message-queue/concept.wav"
+    },
+    {
+      "id": "produce",
+      "min": 5,
+      "duration": 6.5,
+      "text": "The producer never waits.",
+      "say": "The producer never waits. It hands off the message and moves on, even during a huge spike.",
+      "voice": "/audio/message-queue/produce.wav"
+    },
+    {
+      "id": "consume",
+      "min": 10,
+      "duration": 10,
+      "text": "Consumers pull at their own pace. Need speed? Add consumers.",
+      "say": "Consumers pull messages at their own pace, which smooths out the spike. Need more speed? Just add more consumers.",
+      "voice": "/audio/message-queue/consume.wav"
+    },
+    {
+      "id": "retry",
+      "min": 9,
+      "duration": 9,
+      "text": "A crash doesn't lose the message: it's retried.",
+      "say": "And if a consumer crashes mid-job, the message isn't lost. It goes back in the queue, and another consumer retries it.",
+      "voice": "/audio/message-queue/retry.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: database sharding. Follow for more!",
+      "say": "Next up, database sharding. Follow for more system design.",
+      "voice": "/audio/message-queue/close.wav"
+    }
+  ]
+}

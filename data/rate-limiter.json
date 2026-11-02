@@ -1,0 +1,54 @@
+{
+  "title": "Rate Limiter",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 4,
+      "duration": 4.5,
+      "text": "How does an API survive 10,000 requests a second?",
+      "say": "How does an API survive ten thousand requests a second?",
+      "voice": "/audio/rate-limiter/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 4,
+      "duration": 7.5,
+      "text": "Without limits, one user can hog the whole server.",
+      "say": "Without limits, a single user, or one buggy script, can hog the whole server and crash it for everyone.",
+      "voice": "/audio/rate-limiter/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 5,
+      "duration": 6.0,
+      "text": "A rate limiter is a bouncer for your API.",
+      "say": "The fix is a rate limiter. Think of it as a bouncer standing in front of your API.",
+      "voice": "/audio/rate-limiter/concept.wav"
+    },
+    {
+      "id": "bucket",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Token bucket: the bucket refills 5 tokens every second.",
+      "say": "The most popular version is the token bucket. Each user gets a bucket of tokens, and it refills at a steady rate, say five tokens every second.",
+      "voice": "/audio/rate-limiter/bucket.wav"
+    },
+    {
+      "id": "decide",
+      "min": 10,
+      "duration": 10.5,
+      "text": "Token available? Request passes. Bucket empty? Error 429.",
+      "say": "Every request needs a token. Token available? The request passes through. Bucket empty? It's rejected with a four twenty nine, too many requests.",
+      "voice": "/audio/rate-limiter/decide.wav"
+    },
+    {
+      "id": "close",
+      "min": 5,
+      "duration": 5.5,
+      "text": "Next up: sliding window. Follow for more!",
+      "say": "Next up, the sliding window algorithm. Follow for more system design.",
+      "voice": "/audio/rate-limiter/close.wav"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "title": "Consistent Hashing",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 6,
+      "text": "Add a server to a modulo-hashed cluster...",
+      "say": "What happens when you add a server to a cluster that picks servers using simple modulo hashing?",
+      "voice": "/audio/consistent-hashing/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 8,
+      "duration": 8,
+      "text": "Almost every key moves. Your cache is wiped.",
+      "say": "Almost every key moves to a different server. Your cache is wiped out, and the database gets hammered.",
+      "voice": "/audio/consistent-hashing/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 5,
+      "duration": 5,
+      "text": "Consistent hashing puts servers and keys on one ring.",
+      "say": "Consistent hashing places both the servers and the keys on the same ring.",
+      "voice": "/audio/consistent-hashing/concept.wav"
+    },
+    {
+      "id": "lookup",
+      "min": 9,
+      "duration": 9,
+      "text": "A key belongs to the first server clockwise.",
+      "say": "Each key belongs to the first server it meets going clockwise.",
+      "voice": "/audio/consistent-hashing/lookup.wav"
+    },
+    {
+      "id": "add",
+      "min": 8,
+      "duration": 8,
+      "text": "Add a server: only a few keys move.",
+      "say": "Add a new server, and it only takes over a few keys from its neighbor. Everything else stays put.",
+      "voice": "/audio/consistent-hashing/add.wav"
+    },
+    {
+      "id": "vnodes",
+      "min": 7,
+      "duration": 7,
+      "text": "Virtual nodes keep the load even.",
+      "say": "To balance the load, each server appears many times on the ring, as virtual nodes.",
+      "voice": "/audio/consistent-hashing/vnodes.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: CDNs. Follow for more!",
+      "say": "Next up, C D Ns. Follow for more system design.",
+      "voice": "/audio/consistent-hashing/close.wav"
+    }
+  ]
+}
