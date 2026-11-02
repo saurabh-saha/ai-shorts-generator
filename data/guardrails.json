@@ -1,0 +1,63 @@
+{
+  "title": "Guardrails",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 9.5,
+      "text": "An agent that can act can do damage.",
+      "say": "An agent that can act can also do damage: delete data, leak secrets, or spend real money. Guardrails limit what it is able to do.",
+      "voice": "/audio/guardrails/hook.wav"
+    },
+    {
+      "id": "input",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Input guardrails: block prompt injection.",
+      "say": "Input guardrails check what goes in: block prompt injection hidden in web pages or documents, and refuse out-of-scope requests.",
+      "voice": "/audio/guardrails/input.wav"
+    },
+    {
+      "id": "permissions",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Least privilege for tools.",
+      "say": "Give tools the least privilege: read-only by default, scoped credentials, and an allowlist of actions.",
+      "voice": "/audio/guardrails/permissions.wav"
+    },
+    {
+      "id": "approval",
+      "min": 6,
+      "duration": 6,
+      "text": "Risky action? Ask a human first.",
+      "say": "For risky actions, like payments or deletions, pause and ask a human first.",
+      "voice": "/audio/guardrails/approval.wav"
+    },
+    {
+      "id": "output",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Output guardrails: redact and validate.",
+      "say": "Output guardrails check what comes out: validate formats, redact private data, and block unsafe content before the user sees it.",
+      "voice": "/audio/guardrails/output.wav"
+    },
+    {
+      "id": "limits",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Hard limits, and log everything.",
+      "say": "Add hard limits too: maximum steps, a budget, and a time limit. And log everything, so you can audit what the agent did.",
+      "voice": "/audio/guardrails/limits.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next up: evaluating agents. Follow for more!",
+      "say": "Next up, evaluating agents. Follow for more agentic AI.",
+      "voice": "/audio/guardrails/close.wav"
+    }
+  ]
+}
