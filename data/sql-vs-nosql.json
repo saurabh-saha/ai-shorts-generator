@@ -1,0 +1,62 @@
+{
+  "title": "SQL vs NoSQL",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 6,
+      "text": "SQL or NoSQL for your next project?",
+      "say": "SQL or NoSQL? Which one should you pick for your next project?",
+      "voice": "/audio/sql-vs-nosql/hook.wav"
+    },
+    {
+      "id": "sql",
+      "min": 9,
+      "duration": 9,
+      "text": "SQL: tables, fixed schema, JOINs.",
+      "say": "SQL databases store data in tables with a fixed schema. Related data lives in separate tables, and you join it together when you query.",
+      "voice": "/audio/sql-vs-nosql/sql.wav"
+    },
+    {
+      "id": "nosql",
+      "min": 9,
+      "duration": 9,
+      "text": "NoSQL: flexible documents, no fixed schema.",
+      "say": "NoSQL databases store flexible documents, with no fixed schema. Everything about a user can live together in one document.",
+      "voice": "/audio/sql-vs-nosql/nosql.wav"
+    },
+    {
+      "id": "sqlpros",
+      "min": 6,
+      "duration": 6,
+      "text": "SQL: consistency, transactions, joins.",
+      "say": "SQL gives you strong consistency, transactions, and powerful joins.",
+      "voice": "/audio/sql-vs-nosql/sqlpros.wav"
+    },
+    {
+      "id": "nosqlpros",
+      "min": 7,
+      "duration": 7,
+      "text": "NoSQL: scale out, flexible shape.",
+      "say": "NoSQL gives you easy horizontal scaling and a flexible shape, great for huge or fast-changing data.",
+      "voice": "/audio/sql-vs-nosql/nosqlpros.wav"
+    },
+    {
+      "id": "choose",
+      "min": 9,
+      "duration": 9,
+      "text": "Money and relationships: SQL. Scale and flexibility: NoSQL.",
+      "say": "So pick SQL for money and relationships. Pick NoSQL for scale and flexibility. And plenty of real systems use both.",
+      "voice": "/audio/sql-vs-nosql/choose.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: replication. Follow for more!",
+      "say": "Next up, replication. Follow for more system design.",
+      "voice": "/audio/sql-vs-nosql/close.wav"
+    }
+  ]
+}
