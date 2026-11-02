@@ -1,0 +1,199 @@
+{
+  "title": "React 10: useReducer",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "when",
+      "min": 8,
+      "duration": 11.5,
+      "text": "useState or useReducer?",
+      "visual": "compare",
+      "left": {
+        "title": "useState",
+        "color": "blue",
+        "items": [
+          "Simple, independent values",
+          "A few setters"
+        ]
+      },
+      "right": {
+        "title": "useReducer",
+        "color": "green",
+        "items": [
+          "Related state together",
+          "Many ways to update it"
+        ]
+      },
+      "say": "Use State is perfect for simple values. When several pieces of state change together, or there are many different ways to update them, use Reducer keeps all that logic in one place.",
+      "voice": "/audio/react-10-usereducer/when.wav"
+    },
+    {
+      "id": "reducer",
+      "min": 9,
+      "duration": 11.0,
+      "text": "A reducer is a pure function.",
+      "visual": "code",
+      "items": [
+        [
+          "function reducer(state, action) {",
+          "yellow"
+        ],
+        [
+          "  switch (action.type) {",
+          "blue"
+        ],
+        [
+          "    case 'add':",
+          "green"
+        ],
+        [
+          "      return [...state, action.todo];",
+          "green"
+        ],
+        [
+          "    case 'remove':",
+          "green"
+        ],
+        [
+          "      return state.filter(t =>",
+          "green"
+        ],
+        [
+          "        t.id !== action.id);",
+          "green"
+        ],
+        [
+          "  }",
+          "blue"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "A reducer takes the current state and an action, and returns the next state. It is a pure function, with a switch on the action type, and it never mutates the state it was given.",
+      "voice": "/audio/react-10-usereducer/reducer.wav"
+    },
+    {
+      "id": "use",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Dispatch actions.",
+      "visual": "code",
+      "items": [
+        [
+          "const [todos, dispatch] =",
+          "yellow"
+        ],
+        [
+          "  useReducer(reducer, []);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "dispatch({ type: 'add', todo });",
+          "green"
+        ],
+        [
+          "dispatch({ type: 'remove', id });",
+          "green"
+        ]
+      ],
+      "say": "The hook gives you the state, and a dispatch function. Instead of calling setters, components dispatch small action objects that describe what happened.",
+      "voice": "/audio/react-10-usereducer/use.wav"
+    },
+    {
+      "id": "flow",
+      "min": 8,
+      "duration": 11.5,
+      "text": "The reducer loop.",
+      "visual": "flow",
+      "badge": "EVENTS DESCRIBED, NOT PERFORMED",
+      "items": [
+        [
+          "dispatch(action)",
+          "yellow",
+          "describes what happened"
+        ],
+        [
+          "reducer(state, action)",
+          "blue",
+          "a pure function"
+        ],
+        [
+          "New state",
+          "green",
+          "the component re-renders"
+        ]
+      ],
+      "say": "The flow is simple. An event dispatches an action. React calls your reducer with the old state and that action. The returned value becomes the new state, and the component re-renders.",
+      "voice": "/audio/react-10-usereducer/flow.wav"
+    },
+    {
+      "id": "benefits",
+      "min": 8,
+      "duration": 11.5,
+      "text": "Why teams like reducers.",
+      "visual": "chips",
+      "items": [
+        [
+          "All update logic in one place",
+          "green"
+        ],
+        [
+          "Easy to test: just a function",
+          "blue"
+        ],
+        [
+          "Predictable and traceable",
+          "yellow"
+        ],
+        [
+          "Pairs well with context",
+          "pink"
+        ]
+      ],
+      "say": "Reducers put all update logic in one place, they are easy to test because they are just functions, every change is traceable, and they pair nicely with context for app-wide state.",
+      "voice": "/audio/react-10-usereducer/benefits.wav"
+    },
+    {
+      "id": "rules",
+      "min": 8,
+      "duration": 12.5,
+      "text": "Reducer rules.",
+      "visual": "chips",
+      "items": [
+        [
+          "Reducers must be pure",
+          "red"
+        ],
+        [
+          "Never mutate state",
+          "red"
+        ],
+        [
+          "Return a new state object",
+          "green"
+        ],
+        [
+          "Handle unknown actions",
+          "yellow"
+        ]
+      ],
+      "say": "Keep reducers pure: no side effects, no random values, and no mutation. Always return new objects, and decide what to do with unknown actions, usually by throwing an error.",
+      "voice": "/audio/react-10-usereducer/rules.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: useContext.",
+      "say": "Next up, use Context. Follow for more React.",
+      "voice": "/audio/react-10-usereducer/close.wav"
+    }
+  ]
+}

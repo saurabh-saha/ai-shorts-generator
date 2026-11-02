@@ -61,6 +61,23 @@ Structure follows the LangGraph docs (overview, persistence, interrupts, streami
 16 Multi-agent: supervisor & handoffs · 17 Fault tolerance & retries · 18 Graph execution & the runtime (super-steps) · 19 Testing graphs ·
 20 Application structure, Studio, deployment & LangSmith
 
+## DSA in JavaScript (about 80)
+**Complexity (4):** 1 What is Big O · 2 O(1), O(log n), O(n) · 3 O(n log n), O(n^2), O(2^n), O(n!) · 4 Space complexity, best/average/worst, amortized
+**Arrays (8):** 1 Declare, index, traverse · 2 Insert & delete · 3 Min, max, reverse · 4 Sorting arrays · 5 Remove duplicates, merge · 6 Missing & duplicate numbers · 7 2D arrays & matrices · 8 Array interview patterns
+**Strings (6):** 1 Traversal, reverse, palindrome · 2 Anagrams & character frequency · 3 Duplicates & first non-repeating · 4 Substring search · 5 Compression & cleaning · 6 Longest-substring problems
+**Hash maps (5):** 1 Map vs object, key-value storage · 2 Frequency counters · 3 Detect duplicates & O(1) lookup · 4 Pairs with a target sum · 5 Grouping elements
+**Sets (3):** 1 Set basics & dedupe · 2 Union, intersection, difference · 3 Common elements between arrays
+**Stacks (4):** 1 Push, pop, peek & implementing a stack · 2 Balanced parentheses · 3 Reversing with a stack · 4 Next greater element & monotonic stack
+**Queues (5):** 1 Enqueue, dequeue & implementing a queue · 2 Circular queue · 3 Queue with two stacks (and back) · 4 BFS with a queue · 5 Priority queue basics
+**Linked lists (6):** 1 Singly linked list · 2 Doubly linked list · 3 Insert, delete, traverse · 4 Reverse a list · 5 Cycle detection & middle node · 6 Merge sorted lists
+**Trees (7):** 1 Binary tree · 2 Binary search tree · 3 DFS traversals (in/pre/post-order) · 4 Level-order · 5 Height & depth · 6 BST search, min, max · 7 Lowest common ancestor
+**Heaps (3):** 1 Min & max heap · 2 Insert & delete · 3 K largest / K smallest
+**Graphs (6):** 1 Representations (adjacency list/matrix) · 2 Directed vs undirected · 3 BFS · 4 DFS · 5 Cycle detection & connected components · 6 Shortest path basics
+**Advanced (5):** 1 Trie · 2 Union-Find · 3 Segment tree · 4 Fenwick tree · 5 LRU cache
+**Algorithms (about 18):** linear search · binary search · simple sorts · merge sort · quicksort · two pointers · sliding window · prefix sum ·
+frequency counter · recursion · backtracking · greedy · BFS vs DFS · dynamic programming (memoization) · dynamic programming (tabulation) ·
+divide and conquer · bit manipulation
+
 ## Interview Q&A (5, done)
 Planner + workers · 10K workflows · exactly-once events · 50+ MCP tools · multi-tenant agents
 

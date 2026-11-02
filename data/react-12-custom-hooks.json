@@ -1,0 +1,199 @@
+{
+  "title": "React 12: Custom Hooks",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "why",
+      "min": 8,
+      "duration": 11.5,
+      "text": "Reuse logic, not markup.",
+      "visual": "compare",
+      "left": {
+        "title": "Copy-paste",
+        "color": "red",
+        "items": [
+          "Same effect in 5 components",
+          "Bugs fixed in 5 places"
+        ]
+      },
+      "right": {
+        "title": "Custom hook",
+        "color": "green",
+        "items": [
+          "One function",
+          "Reused everywhere"
+        ]
+      },
+      "say": "When several components need the same stateful logic, don't copy it. Extract it into a custom hook, a function that uses other hooks, and call it from every component that needs it.",
+      "voice": "/audio/react-12-custom-hooks/why.wav"
+    },
+    {
+      "id": "code",
+      "min": 10,
+      "duration": 12.0,
+      "text": "A custom hook is just a function.",
+      "visual": "code",
+      "items": [
+        [
+          "function useWindowWidth() {",
+          "yellow"
+        ],
+        [
+          "  const [w, setW] = useState(innerWidth);",
+          "blue"
+        ],
+        [
+          "  useEffect(() => {",
+          "blue"
+        ],
+        [
+          "    const on = () => setW(innerWidth);",
+          "green"
+        ],
+        [
+          "    addEventListener('resize', on);",
+          "green"
+        ],
+        [
+          "    return () =>",
+          "pink"
+        ],
+        [
+          "      removeEventListener('resize', on);",
+          "pink"
+        ],
+        [
+          "  }, []);",
+          "blue"
+        ],
+        [
+          "  return w;",
+          "yellow"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "Here is a hook that tracks the window width. It uses state and an effect with cleanup, and returns the value. Any component can now call use Window Width, and re-render when the window resizes.",
+      "voice": "/audio/react-12-custom-hooks/code.wav"
+    },
+    {
+      "id": "naming",
+      "min": 8,
+      "duration": 12.5,
+      "text": "What makes it a hook.",
+      "visual": "chips",
+      "items": [
+        [
+          "Name starts with use",
+          "yellow"
+        ],
+        [
+          "Calls other hooks inside",
+          "blue"
+        ],
+        [
+          "Each call gets its own state",
+          "green"
+        ],
+        [
+          "Shares logic, never state",
+          "pink"
+        ]
+      ],
+      "say": "A custom hook must start with use, so React and the linter recognize it. It calls other hooks. Each component that calls it gets its own separate state, because it shares logic, not state.",
+      "voice": "/audio/react-12-custom-hooks/naming.wav"
+    },
+    {
+      "id": "rules",
+      "min": 9,
+      "duration": 12.5,
+      "text": "The rules of hooks.",
+      "visual": "chips",
+      "items": [
+        [
+          "Call hooks at the top level only",
+          "green"
+        ],
+        [
+          "Never in loops or conditions",
+          "red"
+        ],
+        [
+          "Only in components or hooks",
+          "blue"
+        ],
+        [
+          "The linter enforces all of this",
+          "yellow"
+        ]
+      ],
+      "say": "The rules of hooks: only call them at the top level, never inside loops, conditions, or nested functions, and only from components or other hooks. The ESLint plugin checks all of this for you.",
+      "voice": "/audio/react-12-custom-hooks/rules.wav"
+    },
+    {
+      "id": "order",
+      "min": 9,
+      "duration": 11.5,
+      "text": "Why the rules exist.",
+      "visual": "flow",
+      "badge": "SAME ORDER, EVERY RENDER",
+      "items": [
+        [
+          "Render 1",
+          "yellow",
+          "slot 1: state, slot 2: effect"
+        ],
+        [
+          "Render 2",
+          "blue",
+          "same hooks, same order"
+        ],
+        [
+          "A hook skipped?",
+          "red",
+          "state lands in the wrong slot"
+        ]
+      ],
+      "say": "React identifies hooks by the order they are called, not by name. If a condition skips a hook on one render, every hook after it shifts, and state ends up in the wrong slot.",
+      "voice": "/audio/react-12-custom-hooks/order.wav"
+    },
+    {
+      "id": "examples",
+      "min": 8,
+      "duration": 11.5,
+      "text": "Hooks worth writing.",
+      "visual": "chips",
+      "items": [
+        [
+          "useFetch(url)",
+          "blue"
+        ],
+        [
+          "useLocalStorage(key)",
+          "green"
+        ],
+        [
+          "useDebounce(value, ms)",
+          "yellow"
+        ],
+        [
+          "useOnClickOutside(ref)",
+          "pink"
+        ]
+      ],
+      "say": "Good candidates: fetching data, syncing with local storage, debouncing a value, or detecting a click outside an element. Anything where the logic is stateful and reused.",
+      "voice": "/audio/react-12-custom-hooks/examples.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next: reconciliation.",
+      "say": "Next up, reconciliation and the virtual DOM. Follow for more React.",
+      "voice": "/audio/react-12-custom-hooks/close.wav"
+    }
+  ]
+}

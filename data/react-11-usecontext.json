@@ -1,0 +1,204 @@
+{
+  "title": "React 11: useContext",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "problem",
+      "min": 8,
+      "duration": 12.0,
+      "text": "The problem: prop drilling.",
+      "visual": "flow",
+      "badge": "PROP DRILLING",
+      "badgeColor": "red",
+      "items": [
+        [
+          "App",
+          "yellow",
+          "owns the theme"
+        ],
+        [
+          "Layout",
+          "muted",
+          "just passes it on"
+        ],
+        [
+          "Sidebar",
+          "muted",
+          "just passes it on"
+        ],
+        [
+          "Button",
+          "green",
+          "finally uses it"
+        ]
+      ],
+      "say": "Sometimes data is needed deep in the tree: a theme, a language, the current user. Passing it as a prop through every layer in between is called prop drilling, and it gets painful fast.",
+      "voice": "/audio/react-11-usecontext/problem.wav"
+    },
+    {
+      "id": "solution",
+      "min": 9,
+      "duration": 12.0,
+      "text": "Context skips the middle.",
+      "visual": "code",
+      "items": [
+        [
+          "const ThemeContext = createContext('light');",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<ThemeContext value=\"dark\">",
+          "blue"
+        ],
+        [
+          "  <App />",
+          "blue"
+        ],
+        [
+          "</ThemeContext>",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "const theme = useContext(ThemeContext);",
+          "green"
+        ]
+      ],
+      "say": "Context lets a parent provide a value to its whole subtree. You create a context, wrap part of your tree in its provider with a value, and any descendant can read it with use Context.",
+      "voice": "/audio/react-11-usecontext/solution.wav"
+    },
+    {
+      "id": "how",
+      "min": 8,
+      "duration": 10.5,
+      "text": "How it flows.",
+      "visual": "flow",
+      "items": [
+        [
+          "Provider",
+          "yellow",
+          "sets the value"
+        ],
+        [
+          "Any descendant",
+          "blue",
+          "reads with useContext"
+        ],
+        [
+          "Value changes",
+          "green",
+          "all readers re-render"
+        ]
+      ],
+      "say": "The nearest provider above a component wins. When the provided value changes, every component that reads that context re-renders, no matter how deep it is.",
+      "voice": "/audio/react-11-usecontext/how.wav"
+    },
+    {
+      "id": "perf",
+      "min": 9,
+      "duration": 11.5,
+      "text": "Mind the re-renders.",
+      "visual": "compare",
+      "left": {
+        "title": "One big context",
+        "color": "red",
+        "items": [
+          "Any change re-renders",
+          "every consumer"
+        ]
+      },
+      "right": {
+        "title": "Split contexts",
+        "color": "green",
+        "items": [
+          "Small focused contexts",
+          "Memoize the value object"
+        ]
+      },
+      "say": "Because every consumer re-renders when the value changes, don't put everything into one context. Split it into small, focused ones, and memoize the value if it is an object.",
+      "voice": "/audio/react-11-usecontext/perf.wav"
+    },
+    {
+      "id": "when",
+      "min": 8,
+      "duration": 13.0,
+      "text": "When context fits.",
+      "visual": "chips",
+      "items": [
+        [
+          "Theme, locale, current user",
+          "green"
+        ],
+        [
+          "Not for fast-changing state",
+          "red"
+        ],
+        [
+          "Not a full state manager",
+          "yellow"
+        ],
+        [
+          "Pair it with useReducer",
+          "blue"
+        ]
+      ],
+      "say": "Context is great for slow-changing, widely needed data, like theme, language, or the current user. It is not built for rapidly changing state, and it is not a complete state management library.",
+      "voice": "/audio/react-11-usecontext/when.wav"
+    },
+    {
+      "id": "hook",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Wrap it in a custom hook.",
+      "visual": "code",
+      "items": [
+        [
+          "function useTheme() {",
+          "yellow"
+        ],
+        [
+          "  const ctx = useContext(ThemeContext);",
+          "blue"
+        ],
+        [
+          "  if (!ctx) {",
+          "red"
+        ],
+        [
+          "    throw new Error('no ThemeContext');",
+          "red"
+        ],
+        [
+          "  }",
+          "red"
+        ],
+        [
+          "  return ctx;",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "A good habit: wrap the context in a custom hook, which also throws a helpful error if a component is used outside its provider.",
+      "voice": "/audio/react-11-usecontext/hook.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: custom hooks.",
+      "say": "Next up, custom hooks. Follow for more React.",
+      "voice": "/audio/react-11-usecontext/close.wav"
+    }
+  ]
+}
