@@ -1,0 +1,195 @@
+{
+  "title": "React 29: Testing React",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "pyramid",
+      "min": 9,
+      "duration": 14.0,
+      "text": "What to test, and where.",
+      "visual": "chips",
+      "items": [
+        [
+          "Unit: hooks and utilities",
+          "blue"
+        ],
+        [
+          "Component: behavior with RTL",
+          "green"
+        ],
+        [
+          "Integration: flows and routing",
+          "yellow"
+        ],
+        [
+          "E2E: a few critical paths",
+          "pink"
+        ]
+      ],
+      "say": "Test at several levels. Unit tests for hooks and utility functions, component tests for behavior, integration tests for flows across components and routes, and a small number of end-to-end tests for the critical journeys.",
+      "voice": "/audio/react-29-testing/pyramid.wav"
+    },
+    {
+      "id": "philosophy",
+      "min": 9,
+      "duration": 13.5,
+      "text": "Test behavior, not implementation.",
+      "visual": "compare",
+      "left": {
+        "title": "Implementation",
+        "color": "red",
+        "items": [
+          "Check state and internals",
+          "Breaks on every refactor"
+        ]
+      },
+      "right": {
+        "title": "Behavior",
+        "color": "green",
+        "items": [
+          "What the user sees and does",
+          "Survives refactors"
+        ]
+      },
+      "say": "React Testing Library pushes you to test like a user. Don't assert on state or internal functions. Render the component, interact with it, and check what appears on screen. Those tests survive refactoring.",
+      "voice": "/audio/react-29-testing/philosophy.wav"
+    },
+    {
+      "id": "rtl",
+      "min": 10,
+      "duration": 11.5,
+      "text": "A component test.",
+      "visual": "code",
+      "items": [
+        [
+          "render(<Counter />);",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "await user.click(",
+          "blue"
+        ],
+        [
+          "  screen.getByRole('button', {",
+          "blue"
+        ],
+        [
+          "    name: /add/i }));",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "expect(screen.getByText('1'))",
+          "green"
+        ],
+        [
+          "  .toBeInTheDocument();",
+          "green"
+        ]
+      ],
+      "say": "You render the component, find elements the way a user would, by their role and name, simulate a click, and assert on the result. No knowledge of how the component is built is needed.",
+      "voice": "/audio/react-29-testing/rtl.wav"
+    },
+    {
+      "id": "queries",
+      "min": 8,
+      "duration": 14.5,
+      "text": "Choosing queries.",
+      "visual": "chips",
+      "items": [
+        [
+          "getByRole first",
+          "green"
+        ],
+        [
+          "getByLabelText for forms",
+          "blue"
+        ],
+        [
+          "getByText for content",
+          "yellow"
+        ],
+        [
+          "data-testid as a last resort",
+          "red"
+        ]
+      ],
+      "say": "Prefer queries that mirror how people and screen readers find things: by role first, by label for form fields, and by text for content. Use a test I D only as a last resort. Good queries double as accessibility checks.",
+      "voice": "/audio/react-29-testing/queries.wav"
+    },
+    {
+      "id": "network",
+      "min": 9,
+      "duration": 11.5,
+      "text": "Mock the network, not your code.",
+      "visual": "code",
+      "items": [
+        [
+          "http.get('/api/user', () =>",
+          "yellow"
+        ],
+        [
+          "  HttpResponse.json({ name: 'Ana' })",
+          "green"
+        ],
+        [
+          ")",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "server.listen();  // in test setup",
+          "muted"
+        ]
+      ],
+      "say": "For components that fetch data, use Mock Service Worker. It intercepts real requests at the network level, so your components run unchanged, and you control what the server returns.",
+      "voice": "/audio/react-29-testing/network.wav"
+    },
+    {
+      "id": "tools",
+      "min": 9,
+      "duration": 11.5,
+      "text": "The toolkit.",
+      "visual": "chips",
+      "items": [
+        [
+          "Vitest or Jest as the runner",
+          "blue"
+        ],
+        [
+          "Testing Library for components",
+          "green"
+        ],
+        [
+          "MSW to mock the network",
+          "yellow"
+        ],
+        [
+          "Playwright for end-to-end",
+          "pink"
+        ]
+      ],
+      "say": "A typical stack: Vitest or Jest to run tests, React Testing Library for components, Mock Service Worker for the network, and Playwright for end-to-end tests in a real browser.",
+      "voice": "/audio/react-29-testing/tools.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 6.0,
+      "text": "Next: React Native.",
+      "say": "Next up, React Native, and what to learn next. Follow for more React.",
+      "voice": "/audio/react-29-testing/close.wav"
+    }
+  ]
+}

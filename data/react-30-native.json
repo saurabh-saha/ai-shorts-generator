@@ -1,0 +1,188 @@
+{
+  "title": "React 30: React Native",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "what",
+      "min": 9,
+      "duration": 14.5,
+      "text": "React, but for mobile.",
+      "visual": "compare",
+      "left": {
+        "title": "React (web)",
+        "color": "blue",
+        "items": [
+          "div, span, CSS",
+          "Renders to the DOM"
+        ]
+      },
+      "right": {
+        "title": "React Native",
+        "color": "green",
+        "items": [
+          "View, Text, StyleSheet",
+          "Renders native views"
+        ]
+      },
+      "say": "React Native uses the same ideas, components, props, state, and hooks, but renders real native views on iOS and Android, instead of the DOM. The building blocks are different: view and text instead of div and span.",
+      "voice": "/audio/react-30-native/what.wav"
+    },
+    {
+      "id": "code",
+      "min": 9,
+      "duration": 11.5,
+      "text": "What it looks like.",
+      "visual": "code",
+      "items": [
+        [
+          "import { View, Text, Pressable }",
+          "yellow"
+        ],
+        [
+          "  from 'react-native';",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<View style={styles.box}>",
+          "blue"
+        ],
+        [
+          "  <Text>Hello</Text>",
+          "green"
+        ],
+        [
+          "  <Pressable onPress={go} />",
+          "green"
+        ],
+        [
+          "</View>",
+          "blue"
+        ]
+      ],
+      "say": "The code is very familiar. You compose views and text, handle presses instead of clicks, and style with a JavaScript style sheet. Layout uses flexbox by default.",
+      "voice": "/audio/react-30-native/code.wav"
+    },
+    {
+      "id": "how",
+      "min": 9,
+      "duration": 12.0,
+      "text": "How it runs.",
+      "visual": "flow",
+      "items": [
+        [
+          "Your JavaScript",
+          "yellow",
+          "components, state, hooks"
+        ],
+        [
+          "React Native renderer",
+          "blue",
+          "turns elements into native calls"
+        ],
+        [
+          "Native views",
+          "green",
+          "real iOS and Android UI"
+        ]
+      ],
+      "say": "Your JavaScript runs in the React Native runtime. Its renderer translates your elements into real native views, so the result looks and feels like a native app, not a web page in a wrapper.",
+      "voice": "/audio/react-30-native/how.wav"
+    },
+    {
+      "id": "expo",
+      "min": 9,
+      "duration": 15.0,
+      "text": "Getting started with Expo.",
+      "visual": "chips",
+      "items": [
+        [
+          "Expo: the easiest way to start",
+          "green"
+        ],
+        [
+          "Same hooks and state tools",
+          "blue"
+        ],
+        [
+          "Native modules when you need them",
+          "yellow"
+        ],
+        [
+          "One codebase, two app stores",
+          "pink"
+        ]
+      ],
+      "say": "Expo is the easiest way to start. Your hooks, state libraries, and data fetching all carry over, and when you need something native, like a camera or notifications, there are modules for it. One codebase ships to both stores.",
+      "voice": "/audio/react-30-native/expo.wav"
+    },
+    {
+      "id": "next",
+      "min": 9,
+      "duration": 13.5,
+      "text": "What to learn next.",
+      "visual": "chips",
+      "items": [
+        [
+          "A framework: Next.js or Remix",
+          "green"
+        ],
+        [
+          "TypeScript everywhere",
+          "blue"
+        ],
+        [
+          "Testing and accessibility",
+          "yellow"
+        ],
+        [
+          "Performance and profiling",
+          "pink"
+        ]
+      ],
+      "say": "From here: learn a framework like Next J S, use TypeScript everywhere, make testing and accessibility habits, and get comfortable profiling performance. These turn a React developer into a strong one.",
+      "voice": "/audio/react-30-native/next.wav"
+    },
+    {
+      "id": "recap",
+      "min": 9,
+      "duration": 15.5,
+      "text": "The whole journey.",
+      "visual": "chips",
+      "badge": "THIRTY LESSONS, ONE MODEL",
+      "badgeColor": "yellow",
+      "items": [
+        [
+          "Components, props, state",
+          "green"
+        ],
+        [
+          "Effects, refs, hooks",
+          "blue"
+        ],
+        [
+          "Performance and patterns",
+          "yellow"
+        ],
+        [
+          "Data, routing, forms, servers",
+          "pink"
+        ]
+      ],
+      "say": "You've now covered the whole path: components, props and state, effects, refs and custom hooks, performance and patterns, then data, routing, forms, and server components. Thirty lessons, built on one simple model.",
+      "voice": "/audio/react-30-native/recap.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4,
+      "text": "That completes the React series!",
+      "say": "That completes the React series. Follow for more.",
+      "voice": "/audio/react-30-native/close.wav"
+    }
+  ]
+}

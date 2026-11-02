@@ -1,0 +1,197 @@
+{
+  "title": "React 28: Server Components",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "why",
+      "min": 9,
+      "duration": 15.0,
+      "text": "Why Server Components?",
+      "visual": "compare",
+      "left": {
+        "title": "Client-only SPA",
+        "color": "red",
+        "items": [
+          "Ship all JS to the browser",
+          "Fetch data after load"
+        ]
+      },
+      "right": {
+        "title": "Server Components",
+        "color": "green",
+        "items": [
+          "Render on the server",
+          "Ship far less JavaScript"
+        ]
+      },
+      "say": "In a client-only app, the browser downloads all the JavaScript, runs it, and only then fetches data. Server Components render on the server, close to your data, and send the result, so far less JavaScript reaches the browser.",
+      "voice": "/audio/react-28-server-components/why.wav"
+    },
+    {
+      "id": "server",
+      "min": 9,
+      "duration": 12.5,
+      "text": "A Server Component.",
+      "visual": "code",
+      "items": [
+        [
+          "// app/page.tsx  (a Server Component)",
+          "muted"
+        ],
+        [
+          "export default async function Page() {",
+          "yellow"
+        ],
+        [
+          "  const posts = await db.posts.all();",
+          "green"
+        ],
+        [
+          "  return <PostList posts={posts} />;",
+          "blue"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "A Server Component can be async, and talk to your database directly. It runs once on the server, and its code and dependencies never reach the browser. This is the default in the Next J S app router.",
+      "voice": "/audio/react-28-server-components/server.wav"
+    },
+    {
+      "id": "client",
+      "min": 9,
+      "duration": 12.5,
+      "text": "Client Components.",
+      "visual": "code",
+      "items": [
+        [
+          "'use client';",
+          "red"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "export function LikeButton() {",
+          "yellow"
+        ],
+        [
+          "  const [n, setN] = useState(0);",
+          "blue"
+        ],
+        [
+          "  return (",
+          "muted"
+        ],
+        [
+          "    <button onClick={() => setN(n + 1)}>",
+          "green"
+        ],
+        [
+          "      {n}",
+          "green"
+        ],
+        [
+          "    </button>);",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "When you need state, effects, or event handlers, add the use client directive at the top of the file. That marks a boundary: that component and everything it imports runs in the browser as well.",
+      "voice": "/audio/react-28-server-components/client.wav"
+    },
+    {
+      "id": "rules",
+      "min": 9,
+      "duration": 16.0,
+      "text": "What each can do.",
+      "visual": "compare",
+      "left": {
+        "title": "Server",
+        "color": "green",
+        "items": [
+          "async, direct DB access",
+          "No state, effects, events"
+        ]
+      },
+      "right": {
+        "title": "Client",
+        "color": "blue",
+        "items": [
+          "useState, effects, events",
+          "Also rendered on the server"
+        ]
+      },
+      "say": "Server Components can be async and reach your data directly, but they have no state, effects, or event handlers. Client Components have all of those. You compose them together: a server component can render a client component, and pass it props.",
+      "voice": "/audio/react-28-server-components/rules.wav"
+    },
+    {
+      "id": "next",
+      "min": 9,
+      "duration": 14.0,
+      "text": "Next.js features.",
+      "visual": "chips",
+      "items": [
+        [
+          "File-based routing (app router)",
+          "green"
+        ],
+        [
+          "Layouts and nested routes",
+          "blue"
+        ],
+        [
+          "Streaming with Suspense",
+          "yellow"
+        ],
+        [
+          "Server Actions for mutations",
+          "pink"
+        ]
+      ],
+      "say": "Next J S builds on this with file-based routing, nested layouts, streaming responses with Suspense, so slow parts don't block the page, and server actions, which let a form call a server function directly.",
+      "voice": "/audio/react-28-server-components/next.wav"
+    },
+    {
+      "id": "modes",
+      "min": 9,
+      "duration": 13.5,
+      "text": "Rendering modes.",
+      "visual": "chips",
+      "items": [
+        [
+          "Static: built once",
+          "green"
+        ],
+        [
+          "Dynamic: per request",
+          "blue"
+        ],
+        [
+          "ISR: revalidate on a timer",
+          "yellow"
+        ],
+        [
+          "Choose per route",
+          "pink"
+        ]
+      ],
+      "say": "Each route can be static, built once at deploy time, dynamic, rendered for every request, or incremental, rebuilt in the background on a timer. You choose per route, based on how fresh the data must be.",
+      "voice": "/audio/react-28-server-components/modes.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: testing React.",
+      "say": "Next up, testing React. Follow for more React.",
+      "voice": "/audio/react-28-server-components/close.wav"
+    }
+  ]
+}

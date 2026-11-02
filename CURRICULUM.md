@@ -4,9 +4,9 @@ Sources: roadmap.sh topic maps (React, Node.js, TypeScript, AI Agents), the offi
 syllabi of popular long courses (React: The Complete Guide, Complete Node.js bootcamps, NestJS Zero to Hero / Deep Dive,
 LangGraph agent courses). Each entry is one Short; order is teaching order. `(done)` = built.
 
-## React (30)
-1 What is React (done) · 2 Props & composition (done) · 3 State with useState (done) · 4 Rendering & re-renders (done) ·
-5 Events & controlled inputs (done) · 6 Lists, keys & conditionals (done) · 7 useEffect · 8 You might not need an effect ·
+## React (30, all built)
+1 What is React · 2 Props & composition · 3 State with useState · 4 Rendering & re-renders ·
+5 Events & controlled inputs · 6 Lists, keys & conditionals · 7 useEffect · 8 You might not need an effect ·
 9 Refs & the DOM · 10 useReducer · 11 useContext · 12 Custom hooks & rules of hooks · 13 Reconciliation & the virtual DOM ·
 14 memo, useMemo, useCallback · 15 Component patterns (render props, HOCs, compound) · 16 Portals & error boundaries ·
 17 Suspense & lazy loading · 18 Routing (React Router, TanStack Router) · 19 State management (Zustand, Jotai, Redux Toolkit) ·
