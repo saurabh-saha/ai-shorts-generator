@@ -1,0 +1,54 @@
+{
+  "title": "Windowing Types",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 7.5,
+      "text": "Streams never end: cut them into windows.",
+      "say": "Streams never end, so to count or sum anything, you have to cut them into windows. There are three main kinds.",
+      "voice": "/audio/windowing-types/hook.wav"
+    },
+    {
+      "id": "tumbling",
+      "min": 6,
+      "duration": 6.5,
+      "text": "Tumbling: fixed size, no overlap.",
+      "say": "Tumbling windows are fixed-size and never overlap. Every event belongs to exactly one window.",
+      "voice": "/audio/windowing-types/tumbling.wav"
+    },
+    {
+      "id": "sliding",
+      "min": 8,
+      "duration": 9.5,
+      "text": "Sliding: fixed size, overlapping.",
+      "say": "Sliding windows are also fixed-size, but they overlap, moving forward in smaller steps. So one event can be counted in several windows.",
+      "voice": "/audio/windowing-types/sliding.wav"
+    },
+    {
+      "id": "session",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Session: open while events keep coming.",
+      "say": "Session windows follow activity. A window stays open as long as events keep coming, and closes after a gap of inactivity.",
+      "voice": "/audio/windowing-types/session.wav"
+    },
+    {
+      "id": "choose",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Reports, moving averages, user behavior.",
+      "say": "Use tumbling for simple reports, sliding for moving averages, and session windows for user behavior.",
+      "voice": "/audio/windowing-types/choose.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: stream joins. Follow for more!",
+      "say": "Next up, stream joins. Follow for more system design.",
+      "voice": "/audio/windowing-types/close.wav"
+    }
+  ]
+}
