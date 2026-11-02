@@ -1,0 +1,62 @@
+{
+  "title": "Stream Processing",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Batch: wait for midnight. Some answers can't wait.",
+      "say": "Batch processing waits until the end of the day, then crunches all the data at once. But some answers can't wait.",
+      "voice": "/audio/stream-processing/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 5,
+      "duration": 6.5,
+      "text": "Stream: handle each event as it arrives.",
+      "say": "Stream processing handles each event as it arrives, continuously, in near real time.",
+      "voice": "/audio/stream-processing/concept.wav"
+    },
+    {
+      "id": "windows",
+      "min": 6,
+      "duration": 6.5,
+      "text": "Windows: clicks per minute.",
+      "say": "To count things over time, it groups events into windows, like the number of clicks per minute.",
+      "voice": "/audio/stream-processing/windows.wav"
+    },
+    {
+      "id": "late",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Late events: event time and watermarks.",
+      "say": "Events can arrive late or out of order. So the processor tracks event time, and uses watermarks to decide when a window is complete.",
+      "voice": "/audio/stream-processing/late.wav"
+    },
+    {
+      "id": "state",
+      "min": 9,
+      "duration": 9,
+      "text": "State + checkpoints: no loss, no double counting.",
+      "say": "It also keeps state, like running counts, and checkpoints it, so after a crash it resumes without losing or double counting events.",
+      "voice": "/audio/stream-processing/state.wav"
+    },
+    {
+      "id": "tools",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Kafka Streams, Flink, Spark Streaming.",
+      "say": "Popular tools include Kafka Streams, Flink, and Spark Streaming.",
+      "voice": "/audio/stream-processing/tools.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: back pressure. Follow for more!",
+      "say": "Next up, back pressure. Follow for more system design.",
+      "voice": "/audio/stream-processing/close.wav"
+    }
+  ]
+}
