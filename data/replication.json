@@ -1,0 +1,62 @@
+{
+  "title": "Replication",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 8,
+      "duration": 8,
+      "text": "What if your only database dies?",
+      "say": "What happens if your only database server dies? Or if a million people try to read from it at once?",
+      "voice": "/audio/replication/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 6,
+      "duration": 6,
+      "text": "Replication keeps copies on several servers.",
+      "say": "Replication keeps copies of your data on several servers.",
+      "voice": "/audio/replication/concept.wav"
+    },
+    {
+      "id": "writes",
+      "min": 8,
+      "duration": 8,
+      "text": "Writes go to the leader, then to followers.",
+      "say": "All writes go to the leader. It then sends every change to its followers.",
+      "voice": "/audio/replication/writes.wav"
+    },
+    {
+      "id": "reads",
+      "min": 7,
+      "duration": 7,
+      "text": "Reads spread across the followers.",
+      "say": "Reads can be spread across the followers, so you can handle far more traffic.",
+      "voice": "/audio/replication/reads.wav"
+    },
+    {
+      "id": "lag",
+      "min": 9,
+      "duration": 9,
+      "text": "Replication lag: a read can be stale.",
+      "say": "But replication takes time. A follower can lag behind, so a read may return stale data.",
+      "voice": "/audio/replication/lag.wav"
+    },
+    {
+      "id": "failover",
+      "min": 9,
+      "duration": 9,
+      "text": "Leader fails? A follower is promoted.",
+      "say": "And if the leader fails, a follower is promoted to take over, so your app keeps running.",
+      "voice": "/audio/replication/failover.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: leader election. Follow for more!",
+      "say": "Next up, leader election. Follow for more system design.",
+      "voice": "/audio/replication/close.wav"
+    }
+  ]
+}
