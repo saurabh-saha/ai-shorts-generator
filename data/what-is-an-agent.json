@@ -1,0 +1,55 @@
+{
+  "title": "What Is an AI Agent?",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 8,
+      "duration": 8,
+      "text": "A chatbot answers. An agent acts.",
+      "say": "A chatbot answers. An agent acts. Ask both to book the cheapest flight, and only one of them will actually book it.",
+      "voice": "/audio/what-is-an-agent/hook.wav"
+    },
+    {
+      "id": "loop",
+      "min": 9,
+      "duration": 10.5,
+      "text": "An agent is an LLM in a loop.",
+      "say": "An AI agent is a language model in a loop. It looks at the goal, decides on an action, uses a tool, observes the result, and repeats until the job is done.",
+      "voice": "/audio/what-is-an-agent/loop.wav"
+    },
+    {
+      "id": "tools",
+      "min": 7,
+      "duration": 8.5,
+      "text": "Tools: how an agent touches the world.",
+      "say": "Tools are how an agent touches the real world: searching the web, running code, calling an API, reading and writing files.",
+      "voice": "/audio/what-is-an-agent/tools.wav"
+    },
+    {
+      "id": "example",
+      "min": 9,
+      "duration": 9.5,
+      "text": "Each step is guided by what it just learned.",
+      "say": "Ask it for the cheapest flight. It searches, compares the results, picks one, and books it, with each step guided by what it just learned.",
+      "voice": "/audio/what-is-an-agent/example.wav"
+    },
+    {
+      "id": "limits",
+      "min": 9,
+      "duration": 10.5,
+      "text": "Agents need limits, logs, and human approval.",
+      "say": "But agents can loop forever, pick the wrong tool, or make mistakes that compound. So they need limits, logging, and human approval for risky actions.",
+      "voice": "/audio/what-is-an-agent/limits.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: tool calling. Follow for more!",
+      "say": "Next up, tool calling. Follow for more agentic AI.",
+      "voice": "/audio/what-is-an-agent/close.wav"
+    }
+  ]
+}
