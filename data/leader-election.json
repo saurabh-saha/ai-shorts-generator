@@ -1,0 +1,62 @@
+{
+  "title": "Leader Election",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 8,
+      "duration": 8,
+      "text": "Who's the boss when the boss dies?",
+      "say": "In a cluster, one node has to be the boss. But who decides, and what happens when the boss dies?",
+      "voice": "/audio/leader-election/hook.wav"
+    },
+    {
+      "id": "heartbeat",
+      "min": 7,
+      "duration": 7,
+      "text": "The leader sends heartbeats.",
+      "say": "The leader sends regular heartbeats to prove it's alive.",
+      "voice": "/audio/leader-election/heartbeat.wav"
+    },
+    {
+      "id": "failure",
+      "min": 9,
+      "duration": 9,
+      "text": "No heartbeat? A follower's timer runs out.",
+      "say": "If the leader crashes, the heartbeats stop. Each follower has a timer, and the first one to run out takes action.",
+      "voice": "/audio/leader-election/failure.wav"
+    },
+    {
+      "id": "vote",
+      "min": 8,
+      "duration": 8,
+      "text": "It becomes a candidate and asks for votes.",
+      "say": "That follower becomes a candidate, and asks everyone else for their vote.",
+      "voice": "/audio/leader-election/vote.wav"
+    },
+    {
+      "id": "majority",
+      "min": 9,
+      "duration": 9,
+      "text": "A majority wins: only one leader, ever.",
+      "say": "Whoever gets a majority of votes becomes the new leader. A majority guarantees there can only ever be one.",
+      "voice": "/audio/leader-election/majority.wav"
+    },
+    {
+      "id": "term",
+      "min": 9,
+      "duration": 9,
+      "text": "Terms stop an old leader from taking over.",
+      "say": "Each election has a term number. So if the old leader comes back, it sees a newer term, and steps down.",
+      "voice": "/audio/leader-election/term.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: distributed locks. Follow for more!",
+      "say": "Next up, distributed locks. Follow for more system design.",
+      "voice": "/audio/leader-election/close.wav"
+    }
+  ]
+}
