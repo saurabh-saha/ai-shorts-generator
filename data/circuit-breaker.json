@@ -1,0 +1,54 @@
+{
+  "title": "Circuit Breaker",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 6,
+      "text": "What if a service you depend on starts failing?",
+      "say": "What happens when a service you depend on starts failing?",
+      "voice": "/audio/circuit-breaker/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 8,
+      "duration": 8,
+      "text": "Requests pile up waiting. The failure spreads.",
+      "say": "Your requests keep piling up, waiting on timeouts. Threads run out, and the failure spreads to everything.",
+      "voice": "/audio/circuit-breaker/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 6,
+      "duration": 7.0,
+      "text": "A circuit breaker counts failures.",
+      "say": "A circuit breaker sits in front of the dependency, like the one in your home. It counts the failures.",
+      "voice": "/audio/circuit-breaker/concept.wav"
+    },
+    {
+      "id": "open",
+      "min": 10,
+      "duration": 10,
+      "text": "Too many failures: it trips OPEN and fails fast.",
+      "say": "After too many failures, it trips open. Now calls fail instantly, and you can return a fallback, like cached data.",
+      "voice": "/audio/circuit-breaker/open.wav"
+    },
+    {
+      "id": "halfopen",
+      "min": 10,
+      "duration": 10,
+      "text": "Half-open: one test request. Success closes it.",
+      "say": "After a cool-down, it lets one test request through. If it succeeds, the circuit closes, and traffic flows again.",
+      "voice": "/audio/circuit-breaker/halfopen.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: idempotency. Follow for more!",
+      "say": "Next up, idempotency. Follow for more system design.",
+      "voice": "/audio/circuit-breaker/close.wav"
+    }
+  ]
+}

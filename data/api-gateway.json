@@ -1,0 +1,62 @@
+{
+  "title": "API Gateway",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 6,
+      "duration": 6,
+      "text": "Dozens of services. Which one does the client call?",
+      "say": "In a microservices app, how does a client know which of the dozens of services to call?",
+      "voice": "/audio/api-gateway/hook.wav"
+    },
+    {
+      "id": "problem",
+      "min": 6,
+      "duration": 7.0,
+      "text": "Every client must know every service.",
+      "say": "Every client has to know every service, handle login for each one, and keep up with every change.",
+      "voice": "/audio/api-gateway/problem.wav"
+    },
+    {
+      "id": "concept",
+      "min": 6,
+      "duration": 7.5,
+      "text": "One front door: the API gateway.",
+      "say": "An A P I gateway is the single front door. Clients only talk to it, and it routes each request to the right service.",
+      "voice": "/audio/api-gateway/concept.wav"
+    },
+    {
+      "id": "routing",
+      "min": 8,
+      "duration": 8,
+      "text": "It routes by path: /users, /orders, /pay.",
+      "say": "It looks at the request, like slash users or slash orders, and forwards it to the matching service.",
+      "voice": "/audio/api-gateway/routing.wav"
+    },
+    {
+      "id": "auth",
+      "min": 8,
+      "duration": 9.0,
+      "text": "Auth, rate limits, and logging in one place.",
+      "say": "It also handles the shared work in one place: authentication, rate limiting, and logging. Bad requests never reach your services.",
+      "voice": "/audio/api-gateway/auth.wav"
+    },
+    {
+      "id": "aggregate",
+      "min": 8,
+      "duration": 8,
+      "text": "One call in, many services behind it.",
+      "say": "It can even combine several responses into one, so the client makes just a single call.",
+      "voice": "/audio/api-gateway/aggregate.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: circuit breakers. Follow for more!",
+      "say": "Next up, circuit breakers. Follow for more system design.",
+      "voice": "/audio/api-gateway/close.wav"
+    }
+  ]
+}
