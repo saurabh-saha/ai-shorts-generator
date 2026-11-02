@@ -1,0 +1,62 @@
+{
+  "title": "Two-Phase Commit",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 5,
+      "duration": 8.5,
+      "text": "One order, three databases. One fails halfway...",
+      "say": "Placing one order has to update three databases: orders, payments, and inventory. What if one of them fails halfway?",
+      "voice": "/audio/two-phase-commit/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 4,
+      "duration": 6.0,
+      "text": "All succeed, or all fail: with a coordinator.",
+      "say": "Two-phase commit makes them all succeed, or all fail, using a coordinator.",
+      "voice": "/audio/two-phase-commit/concept.wav"
+    },
+    {
+      "id": "prepare",
+      "min": 6,
+      "duration": 9.5,
+      "text": "Phase 1: prepare. Can you commit? Vote yes or no.",
+      "say": "Phase one: prepare. The coordinator asks every participant, can you commit? Each one saves the change safely, and votes yes or no.",
+      "voice": "/audio/two-phase-commit/prepare.wav"
+    },
+    {
+      "id": "commit",
+      "min": 4,
+      "duration": 6.5,
+      "text": "All yes? Phase 2: everyone commits.",
+      "say": "If everyone votes yes, phase two begins. The coordinator tells all of them to commit.",
+      "voice": "/audio/two-phase-commit/commit.wav"
+    },
+    {
+      "id": "abort",
+      "min": 7,
+      "duration": 7,
+      "text": "One no? Everyone rolls back. All or nothing.",
+      "say": "But if even one votes no, the coordinator tells everyone to roll back. All or nothing.",
+      "voice": "/audio/two-phase-commit/abort.wav"
+    },
+    {
+      "id": "block",
+      "min": 6,
+      "duration": 10.0,
+      "text": "The catch: if the coordinator dies, everyone blocks.",
+      "say": "The catch: if the coordinator crashes after the votes, participants are stuck waiting, holding their locks. That's why two-phase commit can block.",
+      "voice": "/audio/two-phase-commit/block.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: the saga pattern. Follow for more!",
+      "say": "Next up, the saga pattern. Follow for more system design.",
+      "voice": "/audio/two-phase-commit/close.wav"
+    }
+  ]
+}
