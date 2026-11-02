@@ -1,0 +1,54 @@
+{
+  "title": "Saga Pattern",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 5,
+      "duration": 7.5,
+      "text": "2PC locks everything. Microservices need another way.",
+      "say": "Two-phase commit locks everything, and it can block. Microservices need a different way to stay consistent.",
+      "voice": "/audio/saga-pattern/hook.wav"
+    },
+    {
+      "id": "concept",
+      "min": 8,
+      "duration": 8,
+      "text": "A saga: local steps, each triggers the next.",
+      "say": "A saga is a sequence of local transactions. Each service does its own step, then triggers the next one.",
+      "voice": "/audio/saga-pattern/concept.wav"
+    },
+    {
+      "id": "fail",
+      "min": 5,
+      "duration": 5.5,
+      "text": "The last step fails. No global rollback!",
+      "say": "But what if the last step fails? There is no global rollback to save you.",
+      "voice": "/audio/saga-pattern/fail.wav"
+    },
+    {
+      "id": "comp",
+      "min": 9,
+      "duration": 9,
+      "text": "Undo each step with a compensating action, in reverse.",
+      "say": "So every step has a compensating action that undoes it. Release the stock, refund the card, cancel the order, in reverse order.",
+      "voice": "/audio/saga-pattern/comp.wav"
+    },
+    {
+      "id": "tradeoff",
+      "min": 10,
+      "duration": 13.5,
+      "text": "No locks, scales well. Eventually consistent.",
+      "say": "Sagas avoid distributed locks, so they scale. But for a moment the system is inconsistent, so you get eventual consistency. Services coordinate either by events, or through a central orchestrator.",
+      "voice": "/audio/saga-pattern/tradeoff.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.0,
+      "text": "Next up: event sourcing. Follow for more!",
+      "say": "Next up, event sourcing. Follow for more system design.",
+      "voice": "/audio/saga-pattern/close.wav"
+    }
+  ]
+}
