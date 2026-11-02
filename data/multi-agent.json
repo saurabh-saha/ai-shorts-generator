@@ -1,0 +1,63 @@
+{
+  "title": "Multi-Agent Systems",
+  "subtitle": "Agentic AI Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 7,
+      "duration": 8.5,
+      "text": "One overloaded agent gets confused.",
+      "say": "One agent with fifty tools and a giant prompt gets confused. Splitting the work across specialized agents often works better.",
+      "voice": "/audio/multi-agent/hook.wav"
+    },
+    {
+      "id": "orchestrator",
+      "min": 8,
+      "duration": 8.5,
+      "text": "Orchestrator-worker: split, delegate, combine.",
+      "say": "In the orchestrator-worker pattern, a planner agent splits the task, sends subtasks to workers, and combines their results.",
+      "voice": "/audio/multi-agent/orchestrator.wav"
+    },
+    {
+      "id": "parallel",
+      "min": 8,
+      "duration": 8,
+      "text": "Workers run in parallel.",
+      "say": "Workers run in parallel, which saves time. The planner waits for all of them, or takes the first good answer.",
+      "voice": "/audio/multi-agent/parallel.wav"
+    },
+    {
+      "id": "failure",
+      "min": 9,
+      "duration": 9.5,
+      "text": "Timeouts, retries, fallbacks.",
+      "say": "But workers fail and time out. So the planner needs timeouts, retries, and a fallback, so one stuck worker doesn't block everything.",
+      "voice": "/audio/multi-agent/failure.wav"
+    },
+    {
+      "id": "state",
+      "min": 7,
+      "duration": 7.5,
+      "text": "Small, explicit hand-offs. Log every message.",
+      "say": "Agents share state through messages or a shared store. Keep hand-offs small and explicit, and log every message.",
+      "voice": "/audio/multi-agent/state.wav"
+    },
+    {
+      "id": "cost",
+      "min": 8,
+      "duration": 9.5,
+      "text": "More agents = more tokens, latency, failures.",
+      "say": "The cost: more agents means more tokens, more latency, and more ways to fail. Start with one agent, and split only when you must.",
+      "voice": "/audio/multi-agent/cost.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next up: MCP. Follow for more!",
+      "say": "Next up, M C P. Follow for more agentic AI.",
+      "voice": "/audio/multi-agent/close.wav"
+    }
+  ]
+}
