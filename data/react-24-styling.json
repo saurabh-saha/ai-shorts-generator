@@ -1,0 +1,184 @@
+{
+  "title": "React 24: Styling",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "options",
+      "min": 9,
+      "duration": 14.0,
+      "text": "The styling landscape.",
+      "visual": "chips",
+      "items": [
+        [
+          "CSS Modules: scoped files",
+          "blue"
+        ],
+        [
+          "Tailwind: utility classes",
+          "green"
+        ],
+        [
+          "CSS-in-JS: styled, emotion",
+          "yellow"
+        ],
+        [
+          "Libraries: MUI, Chakra, shadcn",
+          "pink"
+        ]
+      ],
+      "say": "React doesn't choose for you. You can use scoped CSS files, utility classes with Tailwind, CSS-in-JS libraries, or whole component libraries like Material U I, Chakra, and shadcn.",
+      "voice": "/audio/react-24-styling/options.wav"
+    },
+    {
+      "id": "modules",
+      "min": 9,
+      "duration": 12.5,
+      "text": "CSS Modules.",
+      "visual": "code",
+      "items": [
+        [
+          "/* Button.module.css */",
+          "muted"
+        ],
+        [
+          ".primary { background: royalblue; }",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "import s from './Button.module.css';",
+          "yellow"
+        ],
+        [
+          "<button className={s.primary}>",
+          "green"
+        ]
+      ],
+      "say": "CSS Modules are plain CSS files whose class names are made unique at build time. You import them as an object, so styles never leak between components, with zero runtime cost.",
+      "voice": "/audio/react-24-styling/modules.wav"
+    },
+    {
+      "id": "tailwind",
+      "min": 9,
+      "duration": 11.5,
+      "text": "Tailwind CSS.",
+      "visual": "code",
+      "items": [
+        [
+          "<button className=\"rounded-lg bg-blue-600",
+          "yellow"
+        ],
+        [
+          "  px-4 py-2 text-white",
+          "yellow"
+        ],
+        [
+          "  hover:bg-blue-700\">",
+          "yellow"
+        ],
+        [
+          "  Save",
+          "green"
+        ],
+        [
+          "</button>",
+          "yellow"
+        ]
+      ],
+      "say": "Tailwind gives you small utility classes that you compose right in your markup. It is fast to write, keeps a consistent design scale, and only ships the classes you actually use.",
+      "voice": "/audio/react-24-styling/tailwind.wav"
+    },
+    {
+      "id": "headless",
+      "min": 9,
+      "duration": 14.0,
+      "text": "Styled vs headless libraries.",
+      "visual": "compare",
+      "left": {
+        "title": "Styled",
+        "color": "yellow",
+        "items": [
+          "Ready-made look (MUI)",
+          "Harder to restyle"
+        ]
+      },
+      "right": {
+        "title": "Headless",
+        "color": "green",
+        "items": [
+          "Behavior + a11y only (Radix)",
+          "You bring the styles"
+        ]
+      },
+      "say": "Styled libraries give you a finished look quickly, but are harder to restyle. Headless libraries, like Radix, provide behavior and accessibility, such as dialogs and menus, and leave all the styling to you.",
+      "voice": "/audio/react-24-styling/headless.wav"
+    },
+    {
+      "id": "shadcn",
+      "min": 9,
+      "duration": 13.0,
+      "text": "shadcn/ui.",
+      "visual": "chips",
+      "badge": "COPY, DON'T INSTALL",
+      "items": [
+        [
+          "Components are copied into your repo",
+          "green"
+        ],
+        [
+          "Built on Radix + Tailwind",
+          "blue"
+        ],
+        [
+          "You own and edit the code",
+          "yellow"
+        ],
+        [
+          "Great base for a design system",
+          "pink"
+        ]
+      ],
+      "say": "shadcn U I isn't an installed package. You copy its components into your repo, built on Radix and Tailwind, so you own the code and can edit anything. It's a popular base for custom design systems.",
+      "voice": "/audio/react-24-styling/shadcn.wav"
+    },
+    {
+      "id": "choose",
+      "min": 9,
+      "duration": 15.5,
+      "text": "Choosing.",
+      "visual": "chips",
+      "items": [
+        [
+          "Ship fast: Tailwind + shadcn",
+          "green"
+        ],
+        [
+          "Design system team: tokens",
+          "blue"
+        ],
+        [
+          "Avoid runtime CSS-in-JS in RSC",
+          "red"
+        ],
+        [
+          "Always check accessibility",
+          "yellow"
+        ]
+      ],
+      "say": "To ship fast, Tailwind plus shadcn is a strong default. A design system team may prefer CSS Modules and design tokens. Runtime CSS-in-JS doesn't fit server components well. And whatever you pick, check accessibility.",
+      "voice": "/audio/react-24-styling/choose.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: animation.",
+      "say": "Next up, animation. Follow for more React.",
+      "voice": "/audio/react-24-styling/close.wav"
+    }
+  ]
+}

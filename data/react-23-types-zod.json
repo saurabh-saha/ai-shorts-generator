@@ -1,0 +1,215 @@
+{
+  "title": "React 23: Types & Zod",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "props",
+      "min": 9,
+      "duration": 13.0,
+      "text": "Typing props.",
+      "visual": "code",
+      "items": [
+        [
+          "type ButtonProps = {",
+          "yellow"
+        ],
+        [
+          "  label: string;",
+          "green"
+        ],
+        [
+          "  variant?: 'primary' | 'ghost';",
+          "green"
+        ],
+        [
+          "  onClick: () => void;",
+          "green"
+        ],
+        [
+          "};",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "function Button(p: ButtonProps) { ... }",
+          "blue"
+        ]
+      ],
+      "say": "In TypeScript, you describe a component's props with a type. Optional props get a question mark, string unions restrict the allowed values, and the compiler checks every place the component is used.",
+      "voice": "/audio/react-23-types-zod/props.wav"
+    },
+    {
+      "id": "hooks",
+      "min": 9,
+      "duration": 11.0,
+      "text": "Typing hooks.",
+      "visual": "code",
+      "items": [
+        [
+          "const [user, setUser] =",
+          "yellow"
+        ],
+        [
+          "  useState<User | null>(null);",
+          "green"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "const ref = useRef<HTMLInputElement>(null);",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "const [state, dispatch] =",
+          "yellow"
+        ],
+        [
+          "  useReducer(reducer, initial);",
+          "green"
+        ]
+      ],
+      "say": "Hooks infer a lot, but when the initial value doesn't show the real type, you pass it as a generic. For example a user that starts as null, or a ref to a specific element.",
+      "voice": "/audio/react-23-types-zod/hooks.wav"
+    },
+    {
+      "id": "events",
+      "min": 8,
+      "duration": 11.0,
+      "text": "Typing events.",
+      "visual": "code",
+      "items": [
+        [
+          "function onChange(",
+          "yellow"
+        ],
+        [
+          "  e: React.ChangeEvent<HTMLInputElement>",
+          "blue"
+        ],
+        [
+          ") {",
+          "yellow"
+        ],
+        [
+          "  setName(e.target.value);",
+          "green"
+        ],
+        [
+          "}",
+          "yellow"
+        ]
+      ],
+      "say": "Event handlers use React's event types, parameterized by the element. That gives you correct types for the event's target, so reading the value of an input is fully checked.",
+      "voice": "/audio/react-23-types-zod/events.wav"
+    },
+    {
+      "id": "gap",
+      "min": 9,
+      "duration": 11.5,
+      "text": "TypeScript can't see runtime data.",
+      "visual": "compare",
+      "left": {
+        "title": "TypeScript",
+        "color": "yellow",
+        "items": [
+          "Checks at build time",
+          "Types vanish at runtime"
+        ]
+      },
+      "right": {
+        "title": "Zod",
+        "color": "green",
+        "items": [
+          "Checks real data at runtime",
+          "Infers the TS type"
+        ]
+      },
+      "say": "Types disappear when your code runs, so they can't check what an API actually returns. Zod validates real data at runtime, and gives you the TypeScript type from the same schema.",
+      "voice": "/audio/react-23-types-zod/gap.wav"
+    },
+    {
+      "id": "zod",
+      "min": 10,
+      "duration": 12.0,
+      "text": "Zod in practice.",
+      "visual": "code",
+      "items": [
+        [
+          "const User = z.object({",
+          "yellow"
+        ],
+        [
+          "  id: z.number(),",
+          "green"
+        ],
+        [
+          "  email: z.string().email(),",
+          "green"
+        ],
+        [
+          "});",
+          "yellow"
+        ],
+        [
+          "type User = z.infer<typeof User>;",
+          "blue"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "const user = User.parse(apiResponse);",
+          "pink"
+        ]
+      ],
+      "say": "You describe the shape once. Infer gives you the TypeScript type, and parse checks real data, throwing a clear error if the response is wrong, so bad data is stopped at the edge of your app.",
+      "voice": "/audio/react-23-types-zod/zod.wav"
+    },
+    {
+      "id": "tips",
+      "min": 9,
+      "duration": 13.0,
+      "text": "Typing habits.",
+      "visual": "chips",
+      "items": [
+        [
+          "Validate API responses at the edge",
+          "green"
+        ],
+        [
+          "Share schemas with the backend",
+          "blue"
+        ],
+        [
+          "Use unknown, then parse",
+          "yellow"
+        ],
+        [
+          "Generics for reusable components",
+          "pink"
+        ]
+      ],
+      "say": "Validate responses at the edge of your app, share schemas with the backend, prefer unknown plus a parse over any, and use generics to build reusable components, like a table that knows its row type.",
+      "voice": "/audio/react-23-types-zod/tips.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 4.5,
+      "text": "Next: styling.",
+      "say": "Next up, styling in React. Follow for more React.",
+      "voice": "/audio/react-23-types-zod/close.wav"
+    }
+  ]
+}

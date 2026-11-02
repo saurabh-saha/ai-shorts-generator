@@ -1,0 +1,202 @@
+{
+  "title": "React 22: Forms at Scale",
+  "subtitle": "React Explained",
+  "audio": null,
+  "beats": [
+    {
+      "id": "pain",
+      "min": 9,
+      "duration": 14.5,
+      "text": "Why big forms hurt.",
+      "visual": "chips",
+      "items": [
+        [
+          "Re-render on every keystroke",
+          "red"
+        ],
+        [
+          "Validation rules everywhere",
+          "yellow"
+        ],
+        [
+          "Touched, dirty, error state",
+          "blue"
+        ],
+        [
+          "Submit and server errors",
+          "pink"
+        ]
+      ],
+      "say": "Hand-written controlled forms get painful at scale. Every keystroke re-renders the form, validation rules end up scattered, you track touched, dirty and error state for every field, and you still have to handle submitting and server errors.",
+      "voice": "/audio/react-22-forms/pain.wav"
+    },
+    {
+      "id": "rhf",
+      "min": 10,
+      "duration": 12.0,
+      "text": "React Hook Form.",
+      "visual": "code",
+      "items": [
+        [
+          "const { register, handleSubmit,",
+          "yellow"
+        ],
+        [
+          "  formState: { errors } } = useForm();",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "<input {...register('email', {",
+          "green"
+        ],
+        [
+          "  required: 'Email is required',",
+          "green"
+        ],
+        [
+          "}) />",
+          "green"
+        ],
+        [
+          "<p>{errors.email?.message}</p>",
+          "red"
+        ]
+      ],
+      "say": "React Hook Form registers each input, and keeps values in refs, instead of state. You declare rules next to the field, handle submit with its wrapper, and read errors from the form state.",
+      "voice": "/audio/react-22-forms/rhf.wav"
+    },
+    {
+      "id": "why",
+      "min": 8,
+      "duration": 11.5,
+      "text": "Why it's fast.",
+      "visual": "compare",
+      "left": {
+        "title": "Controlled form",
+        "color": "red",
+        "items": [
+          "Re-render each key",
+          "You wire every field"
+        ]
+      },
+      "right": {
+        "title": "React Hook Form",
+        "color": "green",
+        "items": [
+          "Uncontrolled inputs + refs",
+          "Few re-renders"
+        ]
+      },
+      "say": "Because inputs stay uncontrolled, typing doesn't re-render the form. Only the components that actually subscribe to a value or an error update, which keeps even large forms smooth.",
+      "voice": "/audio/react-22-forms/why.wav"
+    },
+    {
+      "id": "schema",
+      "min": 10,
+      "duration": 11.5,
+      "text": "Validate with a schema.",
+      "visual": "code",
+      "badge": "ONE SCHEMA, ONE SOURCE OF TRUTH",
+      "items": [
+        [
+          "const schema = z.object({",
+          "yellow"
+        ],
+        [
+          "  email: z.string().email(),",
+          "green"
+        ],
+        [
+          "  age: z.number().min(18),",
+          "green"
+        ],
+        [
+          "});",
+          "yellow"
+        ],
+        [
+          "",
+          "text"
+        ],
+        [
+          "useForm({",
+          "blue"
+        ],
+        [
+          "  resolver: zodResolver(schema),",
+          "pink"
+        ],
+        [
+          "});",
+          "blue"
+        ]
+      ],
+      "say": "Instead of rules on each field, define a Zod schema once, and plug it in with a resolver. The same schema can validate on the server too, so client and server never disagree.",
+      "voice": "/audio/react-22-forms/schema.wav"
+    },
+    {
+      "id": "ux",
+      "min": 9,
+      "duration": 13.0,
+      "text": "Form UX rules.",
+      "visual": "chips",
+      "items": [
+        [
+          "Validate on blur, then on change",
+          "green"
+        ],
+        [
+          "Show errors next to the field",
+          "blue"
+        ],
+        [
+          "Disable submit while sending",
+          "yellow"
+        ],
+        [
+          "Keep the input on errors",
+          "pink"
+        ]
+      ],
+      "say": "Good forms validate when a field loses focus, then live once it has an error. They show messages next to the field, disable the submit button while sending, and never wipe what the user typed when something fails.",
+      "voice": "/audio/react-22-forms/ux.wav"
+    },
+    {
+      "id": "formik",
+      "min": 8,
+      "duration": 10.0,
+      "text": "React Hook Form or Formik?",
+      "visual": "compare",
+      "left": {
+        "title": "React Hook Form",
+        "color": "green",
+        "items": [
+          "Performance first",
+          "Smaller bundle"
+        ]
+      },
+      "right": {
+        "title": "Formik",
+        "color": "blue",
+        "items": [
+          "Controlled, familiar API",
+          "Less active today"
+        ]
+      },
+      "say": "Formik is controlled and familiar, but less actively developed now. React Hook Form is faster, smaller, and the common choice for new projects.",
+      "voice": "/audio/react-22-forms/formik.wav"
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "duration": 5.5,
+      "text": "Next: types and Zod.",
+      "say": "Next up, TypeScript and Zod in React. Follow for more React.",
+      "voice": "/audio/react-22-forms/close.wav"
+    }
+  ]
+}
