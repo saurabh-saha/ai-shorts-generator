@@ -1,41 +1,520 @@
 {
-  "title": "React 1: The Screen Is Your Data",
+  "title": "React 1: The screen is your data",
   "subtitle": "React, Explained Visually",
   "audio": null,
   "beats": [
-    {"id": "picture", "min": 14, "text": "The screen is a picture of your data.", "visual": "stage", "zoom": 1.1,
-     "actors": [
-       {"id": "l1", "kind": "link", "from": "data", "to": "machine", "color": "muted"},
-       {"id": "l2", "kind": "link", "from": "machine", "to": "phone", "color": "muted"},
-       {"id": "data", "kind": "box", "x": -340, "y": -80, "w": 220, "h": 190, "text": "Data", "sub": "likes: 12", "color": "yellow", "fs": 46},
-       {"id": "dlab", "kind": "label", "x": -340, "y": 70, "text": "what you know", "fs": 28, "color": "muted"},
-       {"id": "machine", "kind": "node", "x": 0, "y": -80, "r": 95, "text": "React", "fs": 46, "color": "blue"},
-       {"id": "mlab", "kind": "label", "x": 0, "y": 70, "text": "draws the screen", "fs": 28, "color": "muted"},
-       {"id": "phone", "kind": "box", "x": 340, "y": -80, "w": 250, "h": 330, "text": "", "color": "green"},
-       {"id": "heart", "kind": "label", "x": 340, "y": -140, "text": "♥", "fs": 120, "color": "red"},
-       {"id": "count", "kind": "label", "x": 340, "y": -10, "text": "12", "fs": 90, "color": "text"},
-       {"id": "slab", "kind": "label", "x": 340, "y": 110, "text": "what people see", "fs": 28, "color": "muted"}
-     ],
-     "steps": [
-       {"do": "show", "ids": ["data", "dlab"]},
-       {"do": "wait", "t": 1.0},
-       {"do": "show", "ids": ["l1", "l2", "machine", "mlab"]},
-       {"do": "wait", "t": 1.0},
-       {"do": "show", "ids": ["phone", "slab"]},
-       {"do": "send", "from": "data", "to": "machine", "color": "yellow"}, {"do": "flash", "id": "machine", "color": "blue"},
-       {"do": "send", "from": "machine", "to": "phone", "color": "blue"},
-       {"do": "show", "ids": ["heart", "count"]}, {"do": "flash", "id": "phone", "color": "green"},
-       {"do": "wait", "t": 1.2},
-       {"do": "sub", "id": "data", "text": "likes: 13"}, {"do": "flash", "id": "data", "color": "yellow"},
-       {"do": "send", "from": "data", "to": "machine", "color": "yellow"}, {"do": "flash", "id": "machine", "color": "blue"},
-       {"do": "send", "from": "machine", "to": "phone", "color": "blue"},
-       {"do": "text", "id": "count", "text": "13"}, {"do": "flash", "id": "phone", "color": "green"},
-       {"do": "wait", "t": 1.0},
-       {"do": "sub", "id": "data", "text": "likes: 14"}, {"do": "flash", "id": "data", "color": "yellow"},
-       {"do": "send", "from": "data", "to": "machine", "color": "yellow"}, {"do": "flash", "id": "machine", "color": "blue"},
-       {"do": "send", "from": "machine", "to": "phone", "color": "blue"},
-       {"do": "text", "id": "count", "text": "14"}, {"do": "flash", "id": "phone", "color": "green"}
-     ],
-     "say": "Think of your screen as a picture of your data. React is the machine in the middle. Give it the data, and it draws the screen. When the data changes, from twelve likes to thirteen, it draws a new picture. You never touch the screen yourself."}
+    {
+      "id": "hook",
+      "min": 10,
+      "text": "Who changed that number?",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Beach day",
+          "sub": "12 likes",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "bt",
+          "kind": "btn",
+          "x": 0,
+          "y": 330,
+          "w": 220,
+          "h": 70,
+          "text": "Like",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 200,
+          "y": 620,
+          "r": 30
+        },
+        {
+          "id": "q",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "who changed this number?",
+          "fs": 36,
+          "color": "yellow"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph",
+            "cd",
+            "bt",
+            "fg"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": 60,
+          "y": 330,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "bt",
+          "color": "pink"
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "13 likes"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "q"
+          ]
+        }
+      ],
+      "say": "You tap Like, and the number goes up. Quick question. Who changed that number on the screen? In React, nobody does.",
+      "voice": "/audio/rx-01-screen-is-data/hook.wav",
+      "duration": 10
+    },
+    {
+      "id": "picture",
+      "min": 11,
+      "text": "The screen is a picture.",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "d",
+          "kind": "box",
+          "x": 0,
+          "y": -470,
+          "w": 520,
+          "h": 130,
+          "text": "data",
+          "color": "blue",
+          "fs": 40,
+          "sub": "likes = 12"
+        },
+        {
+          "id": "rc",
+          "kind": "box",
+          "x": 0,
+          "y": -310,
+          "w": 360,
+          "h": 90,
+          "text": "React",
+          "color": "green",
+          "fs": 40
+        },
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Beach day",
+          "sub": "12 likes",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "bt",
+          "kind": "btn",
+          "x": 0,
+          "y": 330,
+          "w": 220,
+          "h": 70,
+          "text": "Like",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "d",
+          "to": "rc",
+          "color": "muted"
+        },
+        {
+          "id": "l2",
+          "kind": "link",
+          "from": "rc",
+          "to": "cd",
+          "color": "muted"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "d"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "rc",
+            "l1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.3
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l2",
+            "ph",
+            "cd",
+            "bt"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "d",
+          "to": "rc",
+          "color": "blue",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "rc",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "rc",
+          "to": "cd",
+          "color": "green",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "green"
+        }
+      ],
+      "say": "Here is the big idea. Your screen is just a picture of your data. React takes the data, and draws the screen from it.",
+      "voice": "/audio/rx-01-screen-is-data/picture.wav",
+      "duration": 11
+    },
+    {
+      "id": "change",
+      "min": 11,
+      "text": "Change data, screen follows.",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "d",
+          "kind": "box",
+          "x": 0,
+          "y": -470,
+          "w": 520,
+          "h": 130,
+          "text": "data",
+          "color": "blue",
+          "fs": 40,
+          "sub": "likes = 12"
+        },
+        {
+          "id": "rc",
+          "kind": "box",
+          "x": 0,
+          "y": -310,
+          "w": 360,
+          "h": 90,
+          "text": "React",
+          "color": "green",
+          "fs": 40
+        },
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Beach day",
+          "sub": "12 likes",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "bt",
+          "kind": "btn",
+          "x": 0,
+          "y": 330,
+          "w": 220,
+          "h": 70,
+          "text": "Like",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 200,
+          "y": 620,
+          "r": 30
+        },
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "d",
+          "to": "rc",
+          "color": "muted"
+        },
+        {
+          "id": "l2",
+          "kind": "link",
+          "from": "rc",
+          "to": "cd",
+          "color": "muted"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "d",
+            "rc",
+            "l1",
+            "l2",
+            "ph",
+            "cd",
+            "bt",
+            "fg"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": 60,
+          "y": 330,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "bt",
+          "color": "pink"
+        },
+        {
+          "do": "sub",
+          "id": "d",
+          "text": "likes = 13"
+        },
+        {
+          "do": "flash",
+          "id": "d",
+          "color": "blue"
+        },
+        {
+          "do": "send",
+          "from": "d",
+          "to": "rc",
+          "color": "blue",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "rc",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "rc",
+          "to": "cd",
+          "color": "green",
+          "t": 0.7
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "13 likes"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "green"
+        }
+      ],
+      "say": "Tap Like, and only the data changes. Likes becomes thirteen. React redraws the screen to match. You never touch the screen yourself.",
+      "voice": "/audio/rx-01-screen-is-data/change.wav",
+      "duration": 11
+    },
+    {
+      "id": "old",
+      "min": 11,
+      "text": "Old way vs React way.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "o",
+          "kind": "box",
+          "x": -250,
+          "y": -120,
+          "w": 420,
+          "h": 260,
+          "text": "Old way",
+          "color": "red",
+          "fs": 44,
+          "sub": "edit the screen by hand"
+        },
+        {
+          "id": "n",
+          "kind": "box",
+          "x": 250,
+          "y": -120,
+          "w": 420,
+          "h": 260,
+          "text": "React way",
+          "color": "green",
+          "fs": 44,
+          "sub": "edit the data only"
+        },
+        {
+          "id": "o2",
+          "kind": "label",
+          "x": -250,
+          "y": 100,
+          "text": "easy to get out of sync",
+          "fs": 28,
+          "color": "red"
+        },
+        {
+          "id": "n2",
+          "kind": "label",
+          "x": 250,
+          "y": 100,
+          "text": "always matches",
+          "fs": 32,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "o"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "o2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "n"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "n2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        }
+      ],
+      "say": "The old way, you hunt down the number on the screen, and edit it by hand. With React, you only change the data. The screen always follows.",
+      "voice": "/audio/rx-01-screen-is-data/old.wav",
+      "duration": 11
+    },
+    {
+      "id": "close",
+      "min": 3,
+      "text": "Next: components as a tree.",
+      "say": "Change the data, and React updates the screen. Next up, components as a tree. Follow for more.",
+      "voice": "/audio/rx-01-screen-is-data/close.wav",
+      "duration": 7.5
+    }
   ]
 }
