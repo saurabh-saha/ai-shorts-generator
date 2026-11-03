@@ -1,0 +1,538 @@
+{
+  "title": "React 3: State",
+  "subtitle": "React, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 10,
+      "text": "How does it remember?",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Beach day",
+          "sub": "12 likes",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "bt",
+          "kind": "btn",
+          "x": 0,
+          "y": 330,
+          "w": 220,
+          "h": 70,
+          "text": "Like",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 200,
+          "y": 620,
+          "r": 30
+        },
+        {
+          "id": "q",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "how does it remember 13?",
+          "fs": 36,
+          "color": "yellow"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph",
+            "cd",
+            "bt",
+            "fg"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": 60,
+          "y": 330,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "bt",
+          "color": "pink"
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "13 likes"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "q"
+          ]
+        }
+      ],
+      "say": "You tap Like, and the count goes to thirteen. Then the screen redraws, and it is still thirteen. How does it remember?",
+      "voice": "/audio/rx-03-state/hook.wav",
+      "duration": 10
+    },
+    {
+      "id": "memory",
+      "min": 11,
+      "text": "State is a component's memory.",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Beach day",
+          "sub": "12 likes",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "bt",
+          "kind": "btn",
+          "x": 0,
+          "y": 330,
+          "w": 220,
+          "h": 70,
+          "text": "Like",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "mem",
+          "kind": "box",
+          "x": 0,
+          "y": -470,
+          "w": 520,
+          "h": 130,
+          "text": "state",
+          "color": "yellow",
+          "fs": 40,
+          "sub": "likes = 12"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph",
+            "cd",
+            "bt"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "mem"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "mem",
+          "to": "cd",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "flash",
+          "id": "mem",
+          "color": "yellow"
+        }
+      ],
+      "say": "The answer is state. State is a small memory that belongs to a component. The post keeps its likes in that memory, and draws the screen from it.",
+      "voice": "/audio/rx-03-state/memory.wav",
+      "duration": 11
+    },
+    {
+      "id": "redraw",
+      "min": 12,
+      "text": "Update memory, screen redraws.",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Beach day",
+          "sub": "12 likes",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "bt",
+          "kind": "btn",
+          "x": 0,
+          "y": 330,
+          "w": 220,
+          "h": 70,
+          "text": "Like",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "mem",
+          "kind": "box",
+          "x": 0,
+          "y": -470,
+          "w": 520,
+          "h": 130,
+          "text": "state",
+          "color": "yellow",
+          "fs": 40,
+          "sub": "likes = 12"
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 200,
+          "y": 620,
+          "r": 30
+        },
+        {
+          "id": "lp",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "tap  \u2192  update  \u2192  redraw",
+          "fs": 36,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph",
+            "cd",
+            "bt",
+            "mem",
+            "fg"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": 60,
+          "y": 330,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "bt",
+          "color": "pink"
+        },
+        {
+          "do": "sub",
+          "id": "mem",
+          "text": "likes = 13"
+        },
+        {
+          "do": "flash",
+          "id": "mem",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "mem",
+          "to": "cd",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "13 likes"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "green"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "lp"
+          ]
+        }
+      ],
+      "say": "When you tap Like, you update the memory. React sees that it changed, and redraws the post. That is the loop. Tap, update, redraw.",
+      "voice": "/audio/rx-03-state/redraw.wav",
+      "duration": 12
+    },
+    {
+      "id": "trap",
+      "min": 14,
+      "text": "Why not a normal variable?",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Beach day",
+          "sub": "12 likes",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "bt",
+          "kind": "btn",
+          "x": 0,
+          "y": 330,
+          "w": 220,
+          "h": 70,
+          "text": "Like",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "mem",
+          "kind": "box",
+          "x": 0,
+          "y": -470,
+          "w": 520,
+          "h": 130,
+          "text": "normal variable",
+          "color": "red",
+          "fs": 40,
+          "sub": "likes = 12"
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 200,
+          "y": 620,
+          "r": 30
+        },
+        {
+          "id": "nx",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "screen does not change",
+          "fs": 36,
+          "color": "red"
+        },
+        {
+          "id": "cb",
+          "kind": "code",
+          "x": 0,
+          "y": 640,
+          "w": 640,
+          "lines": [
+            [
+              "const [likes, setLikes] = useState(12)",
+              "yellow"
+            ]
+          ],
+          "fs": 26
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph",
+            "cd",
+            "bt",
+            "mem",
+            "fg"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": 60,
+          "y": 330,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "bt",
+          "color": "pink"
+        },
+        {
+          "do": "sub",
+          "id": "mem",
+          "text": "likes = 13"
+        },
+        {
+          "do": "stroke",
+          "id": "mem",
+          "color": "red"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "nx"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "hide",
+          "ids": [
+            "nx"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "cb"
+          ]
+        },
+        {
+          "do": "line",
+          "id": "cb",
+          "i": 0
+        },
+        {
+          "do": "text",
+          "id": "mem",
+          "text": "state",
+          "color": "yellow"
+        },
+        {
+          "do": "stroke",
+          "id": "mem",
+          "color": "yellow"
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "13 likes"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "green"
+        }
+      ],
+      "say": "A normal variable will not work. You can change it, but React is not watching, so the screen stays the same. State is special. Changing it tells React to redraw. In code, it is one line.",
+      "voice": "/audio/rx-03-state/trap.wav",
+      "duration": 14
+    },
+    {
+      "id": "close",
+      "min": 3,
+      "text": "Next: how React draws.",
+      "say": "State is memory that redraws the screen. Next up, how React draws it. Follow for more.",
+      "voice": "/audio/rx-03-state/close.wav",
+      "duration": 7.0
+    }
+  ]
+}
