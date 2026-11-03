@@ -1,0 +1,790 @@
+{
+  "title": "React 2: Components are a tree",
+  "subtitle": "React, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 11,
+      "text": "One screen, many pieces.",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 60,
+          "w": 440,
+          "h": 900,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "r0",
+          "kind": "row",
+          "x": 0,
+          "y": -150,
+          "w": 400,
+          "h": 110,
+          "text": "Ana",
+          "sub": "Beach day",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": -20,
+          "w": 400,
+          "h": 110,
+          "text": "Ben",
+          "sub": "Beach day",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 110,
+          "w": 400,
+          "h": 110,
+          "text": "Cara",
+          "sub": "Beach day",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "b0",
+          "kind": "btn",
+          "x": 115,
+          "y": -150,
+          "w": 110,
+          "h": 48,
+          "text": "Like",
+          "color": "pink",
+          "fs": 26
+        },
+        {
+          "id": "b1",
+          "kind": "btn",
+          "x": 115,
+          "y": -20,
+          "w": 110,
+          "h": 48,
+          "text": "Like",
+          "color": "pink",
+          "fs": 26
+        },
+        {
+          "id": "b2",
+          "kind": "btn",
+          "x": 115,
+          "y": 110,
+          "w": 110,
+          "h": 48,
+          "text": "Like",
+          "color": "pink",
+          "fs": 26
+        },
+        {
+          "id": "hd",
+          "kind": "label",
+          "x": -330,
+          "y": -301,
+          "text": "Header",
+          "fs": 32,
+          "color": "yellow"
+        },
+        {
+          "id": "po",
+          "kind": "label",
+          "x": 335,
+          "y": -150,
+          "text": "Post",
+          "fs": 32,
+          "color": "yellow"
+        },
+        {
+          "id": "lb",
+          "kind": "label",
+          "x": 335,
+          "y": -20,
+          "text": "Like",
+          "fs": 32,
+          "color": "yellow"
+        },
+        {
+          "id": "cp",
+          "kind": "label",
+          "x": 0,
+          "y": -470,
+          "text": "components",
+          "fs": 48,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r0",
+            "r1",
+            "r2",
+            "b0",
+            "b1",
+            "b2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "hd"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.3
+        },
+        {
+          "do": "show",
+          "ids": [
+            "po"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "r0",
+          "color": "yellow"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "lb"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "b1",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "cp"
+          ]
+        }
+      ],
+      "say": "That one screen is not one thing. It is a pile of small pieces. React calls each piece a component.",
+      "voice": "/audio/rx-02-components-tree/hook.wav",
+      "duration": 11
+    },
+    {
+      "id": "tree",
+      "min": 14,
+      "text": "Pieces inside pieces.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "s",
+          "kind": "box",
+          "x": 0,
+          "y": -430,
+          "w": 230,
+          "h": 86,
+          "text": "Screen",
+          "color": "blue",
+          "fs": 30
+        },
+        {
+          "id": "h",
+          "kind": "box",
+          "x": -220,
+          "y": -290,
+          "w": 170,
+          "h": 86,
+          "text": "Header",
+          "color": "muted",
+          "fs": 30
+        },
+        {
+          "id": "f",
+          "kind": "box",
+          "x": 220,
+          "y": -290,
+          "w": 170,
+          "h": 86,
+          "text": "Feed",
+          "color": "green",
+          "fs": 30
+        },
+        {
+          "id": "p1",
+          "kind": "box",
+          "x": 20,
+          "y": -130,
+          "w": 150,
+          "h": 86,
+          "text": "Post",
+          "color": "pink",
+          "fs": 30
+        },
+        {
+          "id": "p2",
+          "kind": "box",
+          "x": 200,
+          "y": -130,
+          "w": 150,
+          "h": 86,
+          "text": "Post",
+          "color": "pink",
+          "fs": 30
+        },
+        {
+          "id": "p3",
+          "kind": "box",
+          "x": 380,
+          "y": -130,
+          "w": 150,
+          "h": 86,
+          "text": "Post",
+          "color": "pink",
+          "fs": 30
+        },
+        {
+          "id": "av",
+          "kind": "box",
+          "x": -90,
+          "y": 30,
+          "w": 150,
+          "h": 86,
+          "text": "Avatar",
+          "color": "yellow",
+          "fs": 30
+        },
+        {
+          "id": "lk",
+          "kind": "box",
+          "x": 110,
+          "y": 30,
+          "w": 150,
+          "h": 86,
+          "text": "Like",
+          "color": "yellow",
+          "fs": 30
+        },
+        {
+          "id": "k0",
+          "kind": "link",
+          "from": "s",
+          "to": "h",
+          "color": "muted"
+        },
+        {
+          "id": "k1",
+          "kind": "link",
+          "from": "s",
+          "to": "f",
+          "color": "muted"
+        },
+        {
+          "id": "k2",
+          "kind": "link",
+          "from": "f",
+          "to": "p1",
+          "color": "muted"
+        },
+        {
+          "id": "k3",
+          "kind": "link",
+          "from": "f",
+          "to": "p2",
+          "color": "muted"
+        },
+        {
+          "id": "k4",
+          "kind": "link",
+          "from": "f",
+          "to": "p3",
+          "color": "muted"
+        },
+        {
+          "id": "k5",
+          "kind": "link",
+          "from": "p1",
+          "to": "av",
+          "color": "muted"
+        },
+        {
+          "id": "k6",
+          "kind": "link",
+          "from": "p1",
+          "to": "lk",
+          "color": "muted"
+        },
+        {
+          "id": "tl",
+          "kind": "label",
+          "x": 0,
+          "y": 150,
+          "text": "a tree of components",
+          "fs": 40,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "s"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "h",
+            "f",
+            "k0",
+            "k1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.7
+        },
+        {
+          "do": "show",
+          "ids": [
+            "p1",
+            "p2",
+            "p3",
+            "k2",
+            "k3",
+            "k4"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.7
+        },
+        {
+          "do": "show",
+          "ids": [
+            "av",
+            "lk",
+            "k5",
+            "k6"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.7
+        },
+        {
+          "do": "show",
+          "ids": [
+            "tl"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "s",
+          "color": "blue"
+        },
+        {
+          "do": "flash",
+          "id": "f",
+          "color": "green"
+        }
+      ],
+      "say": "Zoom out. The screen holds a header and a feed. The feed holds posts. Each post holds an avatar and a Like button. Pieces inside pieces. Draw that, and you get a tree.",
+      "voice": "/audio/rx-02-components-tree/tree.wav",
+      "duration": 14
+    },
+    {
+      "id": "reuse",
+      "min": 11,
+      "text": "Build once, use many times.",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "bp",
+          "kind": "box",
+          "x": 0,
+          "y": -470,
+          "w": 300,
+          "h": 100,
+          "text": "Post",
+          "color": "pink",
+          "fs": 44,
+          "sub": "written once"
+        },
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 60,
+          "w": 440,
+          "h": 900,
+          "title": "Feed",
+          "color": "blue"
+        },
+        {
+          "id": "r0",
+          "kind": "row",
+          "x": 0,
+          "y": -150,
+          "w": 400,
+          "h": 110,
+          "text": "Ana",
+          "sub": "Beach day",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": -20,
+          "w": 400,
+          "h": 110,
+          "text": "Ben",
+          "sub": "Beach day",
+          "color": "pink",
+          "fs": 34
+        },
+        {
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 110,
+          "w": 400,
+          "h": 110,
+          "text": "Cara",
+          "sub": "Beach day",
+          "color": "green",
+          "fs": 34
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "bp",
+            "ph"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r0"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "bp",
+          "to": "r0",
+          "color": "pink",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "r0",
+          "color": "pink"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r1"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "bp",
+          "to": "r1",
+          "color": "pink",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "r1",
+          "color": "pink"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r2"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "bp",
+          "to": "r2",
+          "color": "pink",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "r2",
+          "color": "pink"
+        }
+      ],
+      "say": "Each piece is built once. Write one Post, and use it three times, with different data. Ana, Ben, and Cara.",
+      "voice": "/audio/rx-02-components-tree/reuse.wav",
+      "duration": 11
+    },
+    {
+      "id": "why",
+      "min": 11,
+      "text": "Only one branch changes.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "s",
+          "kind": "box",
+          "x": 0,
+          "y": -430,
+          "w": 230,
+          "h": 86,
+          "text": "Screen",
+          "color": "blue",
+          "fs": 30
+        },
+        {
+          "id": "h",
+          "kind": "box",
+          "x": -220,
+          "y": -290,
+          "w": 170,
+          "h": 86,
+          "text": "Header",
+          "color": "muted",
+          "fs": 30
+        },
+        {
+          "id": "f",
+          "kind": "box",
+          "x": 220,
+          "y": -290,
+          "w": 170,
+          "h": 86,
+          "text": "Feed",
+          "color": "green",
+          "fs": 30
+        },
+        {
+          "id": "p1",
+          "kind": "box",
+          "x": 20,
+          "y": -130,
+          "w": 150,
+          "h": 86,
+          "text": "Post",
+          "color": "pink",
+          "fs": 30
+        },
+        {
+          "id": "p2",
+          "kind": "box",
+          "x": 200,
+          "y": -130,
+          "w": 150,
+          "h": 86,
+          "text": "Post",
+          "color": "pink",
+          "fs": 30
+        },
+        {
+          "id": "p3",
+          "kind": "box",
+          "x": 380,
+          "y": -130,
+          "w": 150,
+          "h": 86,
+          "text": "Post",
+          "color": "pink",
+          "fs": 30
+        },
+        {
+          "id": "av",
+          "kind": "box",
+          "x": -90,
+          "y": 30,
+          "w": 150,
+          "h": 86,
+          "text": "Avatar",
+          "color": "yellow",
+          "fs": 30
+        },
+        {
+          "id": "lk",
+          "kind": "box",
+          "x": 110,
+          "y": 30,
+          "w": 150,
+          "h": 86,
+          "text": "Like",
+          "color": "yellow",
+          "fs": 30
+        },
+        {
+          "id": "k0",
+          "kind": "link",
+          "from": "s",
+          "to": "h",
+          "color": "muted"
+        },
+        {
+          "id": "k1",
+          "kind": "link",
+          "from": "s",
+          "to": "f",
+          "color": "muted"
+        },
+        {
+          "id": "k2",
+          "kind": "link",
+          "from": "f",
+          "to": "p1",
+          "color": "muted"
+        },
+        {
+          "id": "k3",
+          "kind": "link",
+          "from": "f",
+          "to": "p2",
+          "color": "muted"
+        },
+        {
+          "id": "k4",
+          "kind": "link",
+          "from": "f",
+          "to": "p3",
+          "color": "muted"
+        },
+        {
+          "id": "k5",
+          "kind": "link",
+          "from": "p1",
+          "to": "av",
+          "color": "muted"
+        },
+        {
+          "id": "k6",
+          "kind": "link",
+          "from": "p1",
+          "to": "lk",
+          "color": "muted"
+        },
+        {
+          "id": "wl",
+          "kind": "label",
+          "x": 0,
+          "y": 150,
+          "text": "only this branch updates",
+          "fs": 40,
+          "color": "yellow"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "s",
+            "h",
+            "f",
+            "p1",
+            "p2",
+            "p3",
+            "av",
+            "lk"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "k0",
+            "k1",
+            "k2",
+            "k3",
+            "k4",
+            "k5",
+            "k6"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "stroke",
+          "id": "p2",
+          "color": "yellow"
+        },
+        {
+          "do": "flash",
+          "id": "p2",
+          "color": "yellow"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "wl"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "flash",
+          "id": "f",
+          "color": "yellow"
+        },
+        {
+          "do": "flash",
+          "id": "s",
+          "color": "yellow"
+        }
+      ],
+      "say": "And when one like changes, React only has to look at that branch of the tree. Everything else stays just as it is.",
+      "voice": "/audio/rx-02-components-tree/why.wav",
+      "duration": 11
+    },
+    {
+      "id": "close",
+      "min": 3,
+      "text": "Next: state.",
+      "say": "Small pieces, one tree. Next up, state. Follow for more.",
+      "voice": "/audio/rx-02-components-tree/close.wav",
+      "duration": 5.0
+    }
+  ]
+}
