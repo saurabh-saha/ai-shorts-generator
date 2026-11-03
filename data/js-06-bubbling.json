@@ -188,16 +188,6 @@
           "r": 34
         },
         {
-          "id": "tk",
-          "kind": "node",
-          "x": 0,
-          "y": 190,
-          "r": 44,
-          "text": "tap",
-          "fs": 22,
-          "color": "yellow"
-        },
-        {
           "id": "a1",
           "kind": "label",
           "x": 250,
@@ -267,12 +257,6 @@
           ]
         },
         {
-          "do": "show",
-          "ids": [
-            "tk"
-          ]
-        },
-        {
           "do": "flash",
           "id": "bt",
           "color": "pink"
@@ -284,11 +268,8 @@
           ]
         },
         {
-          "do": "move",
-          "id": "tk",
-          "x": 0,
-          "y": -30,
-          "t": 0.7
+          "do": "wait",
+          "t": 0.5
         },
         {
           "do": "show",
@@ -308,11 +289,8 @@
           ]
         },
         {
-          "do": "move",
-          "id": "tk",
-          "x": 230,
-          "y": -421,
-          "t": 0.8
+          "do": "wait",
+          "t": 0.5
         },
         {
           "do": "show",
@@ -370,26 +348,6 @@
           "text": "Like",
           "color": "pink",
           "fs": 38
-        },
-        {
-          "id": "td",
-          "kind": "node",
-          "x": -230,
-          "y": -421,
-          "r": 44,
-          "text": "down",
-          "fs": 22,
-          "color": "blue"
-        },
-        {
-          "id": "tu",
-          "kind": "node",
-          "x": 230,
-          "y": 190,
-          "r": 44,
-          "text": "up",
-          "fs": 22,
-          "color": "yellow"
         },
         {
           "id": "d1",
@@ -458,29 +416,8 @@
         {
           "do": "show",
           "ids": [
-            "n1",
-            "td"
+            "n1"
           ]
-        },
-        {
-          "do": "move",
-          "id": "td",
-          "x": -230,
-          "y": -30,
-          "t": 0.8
-        },
-        {
-          "do": "show",
-          "ids": [
-            "d1"
-          ]
-        },
-        {
-          "do": "move",
-          "id": "td",
-          "x": -230,
-          "y": 190,
-          "t": 0.8
         },
         {
           "do": "show",
@@ -489,23 +426,29 @@
           ]
         },
         {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "d1"
+          ]
+        },
+        {
           "do": "flash",
           "id": "bt",
           "color": "blue"
         },
         {
-          "do": "show",
-          "ids": [
-            "n2",
-            "tu"
-          ]
+          "do": "wait",
+          "t": 0.4
         },
         {
-          "do": "move",
-          "id": "tu",
-          "x": 250,
-          "y": -30,
-          "t": 0.8
+          "do": "show",
+          "ids": [
+            "n2"
+          ]
         },
         {
           "do": "show",
@@ -514,11 +457,8 @@
           ]
         },
         {
-          "do": "move",
-          "id": "tu",
-          "x": 250,
-          "y": -421,
-          "t": 0.8
+          "do": "wait",
+          "t": 0.4
         },
         {
           "do": "show",
@@ -538,7 +478,7 @@
     },
     {
       "id": "stop",
-      "min": 12,
+      "min": 14,
       "text": "Stop the tap at the button.",
       "visual": "stage",
       "zoom": 0.85,
@@ -580,9 +520,9 @@
           "id": "ts",
           "kind": "btn",
           "x": 0,
-          "y": 500,
+          "y": 548,
           "w": 520,
-          "h": 84,
+          "h": 64,
           "text": "",
           "color": "green",
           "fs": 34
@@ -593,16 +533,6 @@
           "x": 250,
           "y": 700,
           "r": 34
-        },
-        {
-          "id": "tk",
-          "kind": "node",
-          "x": 0,
-          "y": 190,
-          "r": 44,
-          "text": "tap",
-          "fs": 22,
-          "color": "yellow"
         },
         {
           "id": "sp",
@@ -617,15 +547,23 @@
           "id": "cb",
           "kind": "code",
           "x": 0,
-          "y": 330,
+          "y": 368,
           "w": 580,
           "lines": [
+            [
+              "// the Like button's handler",
+              "muted"
+            ],
+            [
+              "addLike()",
+              "text"
+            ],
             [
               "e.stopPropagation()",
               "yellow"
             ]
           ],
-          "fs": 36
+          "fs": 32
         }
       ],
       "steps": [
@@ -645,12 +583,25 @@
         },
         {
           "do": "wait",
-          "t": 0.4
+          "t": 0.5
         },
         {
           "do": "line",
           "id": "cb",
-          "i": 0
+          "i": 1
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "line",
+          "id": "cb",
+          "i": 2
+        },
+        {
+          "do": "wait",
+          "t": 0.8
         },
         {
           "do": "show",
@@ -672,22 +623,9 @@
           ]
         },
         {
-          "do": "show",
-          "ids": [
-            "tk"
-          ]
-        },
-        {
           "do": "flash",
           "id": "bt",
           "color": "pink"
-        },
-        {
-          "do": "move",
-          "id": "tk",
-          "x": 0,
-          "y": 120,
-          "t": 0.5
         },
         {
           "do": "show",
@@ -710,11 +648,16 @@
           "ids": [
             "ts"
           ]
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "stays closed"
         }
       ],
-      "say": "Do not want the post to open? In the Like handler, add this one line. Stop propagation. Now the tap stops at the button, and only Like happens.",
+      "say": "Say Like should work, but the post should stay closed. Open the Like button's own tap handler. Do the like. Then add stop propagation on the event. The tap ends right there, and the post never hears it.",
       "voice": "/audio/js-06-bubbling/stop.wav",
-      "duration": 12
+      "duration": 14
     },
     {
       "id": "close",
