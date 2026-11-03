@@ -1,0 +1,1276 @@
+{
+  "title": "JavaScript 7: Event delegation",
+  "subtitle": "JavaScript, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "many",
+      "min": 16,
+      "text": "Every item needs a listener?",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "ls",
+          "kind": "box",
+          "x": 0,
+          "y": 110,
+          "w": 820,
+          "h": 700,
+          "text": "",
+          "color": "blue",
+          "fs": 1
+        },
+        {
+          "id": "lt",
+          "kind": "label",
+          "x": 0,
+          "y": -200,
+          "text": "List",
+          "fs": 44,
+          "color": "blue"
+        },
+        {
+          "id": "i0",
+          "kind": "box",
+          "x": -190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 1",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i1",
+          "kind": "box",
+          "x": 190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 2",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i2",
+          "kind": "box",
+          "x": -190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 3",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i3",
+          "kind": "box",
+          "x": 190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 4",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i4",
+          "kind": "box",
+          "x": -190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 5",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i5",
+          "kind": "box",
+          "x": 190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 6",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "cnt",
+          "kind": "label",
+          "x": 0,
+          "y": 510,
+          "text": "6 items = 6 listeners",
+          "fs": 40,
+          "color": "red"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ls",
+            "lt"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i0"
+          ]
+        },
+        {
+          "do": "sub",
+          "id": "i0",
+          "text": "listener"
+        },
+        {
+          "do": "flash",
+          "id": "i0",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i1"
+          ]
+        },
+        {
+          "do": "sub",
+          "id": "i1",
+          "text": "listener"
+        },
+        {
+          "do": "flash",
+          "id": "i1",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i2"
+          ]
+        },
+        {
+          "do": "sub",
+          "id": "i2",
+          "text": "listener"
+        },
+        {
+          "do": "flash",
+          "id": "i2",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i3"
+          ]
+        },
+        {
+          "do": "sub",
+          "id": "i3",
+          "text": "listener"
+        },
+        {
+          "do": "flash",
+          "id": "i3",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i4"
+          ]
+        },
+        {
+          "do": "sub",
+          "id": "i4",
+          "text": "listener"
+        },
+        {
+          "do": "flash",
+          "id": "i4",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i5"
+          ]
+        },
+        {
+          "do": "sub",
+          "id": "i5",
+          "text": "listener"
+        },
+        {
+          "do": "flash",
+          "id": "i5",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "cnt"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "text",
+          "id": "cnt",
+          "text": "600 items = 600 listeners!"
+        }
+      ],
+      "say": "Say you have a list, and every item must react to a click. The obvious way is a listener on every single item. That works. But with six hundred items, that is six hundred listeners.",
+      "voice": "/audio/js-07-delegation/many.wav",
+      "duration": 16
+    },
+    {
+      "id": "new",
+      "min": 14,
+      "text": "New items break it.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "ls",
+          "kind": "box",
+          "x": 0,
+          "y": 110,
+          "w": 820,
+          "h": 700,
+          "text": "",
+          "color": "blue",
+          "fs": 1
+        },
+        {
+          "id": "lt",
+          "kind": "label",
+          "x": 0,
+          "y": -200,
+          "text": "List",
+          "fs": 44,
+          "color": "blue"
+        },
+        {
+          "id": "i0",
+          "kind": "box",
+          "x": -190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 1",
+          "color": "blue",
+          "fs": 40,
+          "sub": "listener"
+        },
+        {
+          "id": "i1",
+          "kind": "box",
+          "x": 190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 2",
+          "color": "blue",
+          "fs": 40,
+          "sub": "listener"
+        },
+        {
+          "id": "i2",
+          "kind": "box",
+          "x": -190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 3",
+          "color": "blue",
+          "fs": 40,
+          "sub": "listener"
+        },
+        {
+          "id": "i3",
+          "kind": "box",
+          "x": 190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 4",
+          "color": "blue",
+          "fs": 40,
+          "sub": "listener"
+        },
+        {
+          "id": "i4",
+          "kind": "box",
+          "x": -190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 5",
+          "color": "blue",
+          "fs": 40,
+          "sub": "listener"
+        },
+        {
+          "id": "i5",
+          "kind": "box",
+          "x": 190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 6",
+          "color": "blue",
+          "fs": 40,
+          "sub": "listener"
+        },
+        {
+          "id": "nw",
+          "kind": "box",
+          "x": 0,
+          "y": 340,
+          "w": 320,
+          "h": 110,
+          "text": "New item",
+          "color": "pink",
+          "fs": 40,
+          "sub": "no listener"
+        },
+        {
+          "id": "you",
+          "kind": "node",
+          "x": 0,
+          "y": 610,
+          "r": 65,
+          "text": "You",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "bad",
+          "kind": "label",
+          "x": 0,
+          "y": 510,
+          "text": "nothing happens",
+          "fs": 44,
+          "color": "red"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ls",
+            "lt"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i0",
+            "i1",
+            "i2",
+            "i3",
+            "i4",
+            "i5"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "nw"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "you"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "you",
+          "to": "nw",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "stroke",
+          "id": "nw",
+          "color": "red"
+        },
+        {
+          "do": "flash",
+          "id": "nw",
+          "color": "red"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "bad"
+          ]
+        }
+      ],
+      "say": "And it gets worse. When a new item is added later, it has no listener. You click it, and nothing happens. You must remember to wire up every new item.",
+      "voice": "/audio/js-07-delegation/new.wav",
+      "duration": 14
+    },
+    {
+      "id": "trick",
+      "min": 16,
+      "text": "The trick: listen on the parent.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "li",
+          "kind": "box",
+          "x": 0,
+          "y": -420,
+          "w": 640,
+          "h": 130,
+          "text": "one listener",
+          "color": "yellow",
+          "fs": 44,
+          "sub": "on the list"
+        },
+        {
+          "id": "ls",
+          "kind": "box",
+          "x": 0,
+          "y": 110,
+          "w": 820,
+          "h": 700,
+          "text": "",
+          "color": "blue",
+          "fs": 1
+        },
+        {
+          "id": "lt",
+          "kind": "label",
+          "x": 0,
+          "y": -200,
+          "text": "List",
+          "fs": 44,
+          "color": "blue"
+        },
+        {
+          "id": "i0",
+          "kind": "box",
+          "x": -190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 1",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i1",
+          "kind": "box",
+          "x": 190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 2",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i2",
+          "kind": "box",
+          "x": -190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 3",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i3",
+          "kind": "box",
+          "x": 190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 4",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i4",
+          "kind": "box",
+          "x": -190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 5",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i5",
+          "kind": "box",
+          "x": 190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 6",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "tk",
+          "kind": "node",
+          "x": 190,
+          "y": 60,
+          "r": 48,
+          "text": "click",
+          "fs": 24,
+          "color": "yellow"
+        },
+        {
+          "id": "you",
+          "kind": "node",
+          "x": 0,
+          "y": 610,
+          "r": 65,
+          "text": "You",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "up",
+          "kind": "label",
+          "x": 0,
+          "y": -300,
+          "text": "\u25b2",
+          "fs": 90,
+          "color": "yellow"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "li"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "ls",
+            "lt"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i0",
+            "i1",
+            "i2",
+            "i3",
+            "i4",
+            "i5"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "you"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "you",
+          "to": "i3",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "show",
+          "ids": [
+            "tk"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "i3",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "move",
+          "id": "tk",
+          "x": 190,
+          "y": -130,
+          "t": 0.7
+        },
+        {
+          "do": "move",
+          "id": "tk",
+          "x": 0,
+          "y": -300,
+          "t": 0.7
+        },
+        {
+          "do": "show",
+          "ids": [
+            "up"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "tk",
+          "x": 0,
+          "y": -420,
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "li",
+          "color": "green"
+        }
+      ],
+      "say": "Here is the trick, and it uses bubbling. Put just one listener on the list itself. When you click any item, the click bubbles up, and the list hears it.",
+      "voice": "/audio/js-07-delegation/trick.wav",
+      "duration": 16
+    },
+    {
+      "id": "target",
+      "min": 16,
+      "text": "Which item was clicked?",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "li",
+          "kind": "box",
+          "x": 0,
+          "y": -420,
+          "w": 640,
+          "h": 130,
+          "text": "one listener",
+          "color": "yellow",
+          "fs": 44,
+          "sub": "waiting..."
+        },
+        {
+          "id": "ls",
+          "kind": "box",
+          "x": 0,
+          "y": 110,
+          "w": 820,
+          "h": 700,
+          "text": "",
+          "color": "blue",
+          "fs": 1
+        },
+        {
+          "id": "lt",
+          "kind": "label",
+          "x": 0,
+          "y": -200,
+          "text": "List",
+          "fs": 44,
+          "color": "blue"
+        },
+        {
+          "id": "i0",
+          "kind": "box",
+          "x": -190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 1",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i1",
+          "kind": "box",
+          "x": 190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 2",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i2",
+          "kind": "box",
+          "x": -190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 3",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i3",
+          "kind": "box",
+          "x": 190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 4",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i4",
+          "kind": "box",
+          "x": -190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 5",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i5",
+          "kind": "box",
+          "x": 190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 6",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "tk",
+          "kind": "node",
+          "x": -190,
+          "y": -100,
+          "r": 48,
+          "text": "click",
+          "fs": 24,
+          "color": "yellow"
+        },
+        {
+          "id": "you",
+          "kind": "node",
+          "x": 0,
+          "y": 610,
+          "r": 65,
+          "text": "You",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "job",
+          "kind": "label",
+          "x": 0,
+          "y": -300,
+          "text": "then do that item's job",
+          "fs": 34,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "li",
+            "ls",
+            "lt"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i0",
+            "i1",
+            "i2",
+            "i3",
+            "i4",
+            "i5"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "you"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "you",
+          "to": "i3",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "i3",
+          "color": "yellow"
+        },
+        {
+          "do": "sub",
+          "id": "li",
+          "text": "target: Item 4"
+        },
+        {
+          "do": "flash",
+          "id": "li",
+          "color": "green"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "job"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.4
+        },
+        {
+          "do": "send",
+          "from": "you",
+          "to": "i0",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "i0",
+          "color": "yellow"
+        },
+        {
+          "do": "sub",
+          "id": "li",
+          "text": "target: Item 1"
+        },
+        {
+          "do": "flash",
+          "id": "li",
+          "color": "green"
+        }
+      ],
+      "say": "But how does the list know which item was clicked? The click carries the answer. It tells you the target, the exact item that was clicked. So one listener can handle every item.",
+      "voice": "/audio/js-07-delegation/target.wav",
+      "duration": 16
+    },
+    {
+      "id": "works",
+      "min": 16,
+      "text": "New items just work.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "li",
+          "kind": "box",
+          "x": 0,
+          "y": -420,
+          "w": 640,
+          "h": 130,
+          "text": "one listener",
+          "color": "yellow",
+          "fs": 44,
+          "sub": "on the list"
+        },
+        {
+          "id": "ls",
+          "kind": "box",
+          "x": 0,
+          "y": 110,
+          "w": 820,
+          "h": 700,
+          "text": "",
+          "color": "blue",
+          "fs": 1
+        },
+        {
+          "id": "lt",
+          "kind": "label",
+          "x": 0,
+          "y": -200,
+          "text": "List",
+          "fs": 44,
+          "color": "blue"
+        },
+        {
+          "id": "i0",
+          "kind": "box",
+          "x": -190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 1",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i1",
+          "kind": "box",
+          "x": 190,
+          "y": -100,
+          "w": 320,
+          "h": 110,
+          "text": "Item 2",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i2",
+          "kind": "box",
+          "x": -190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 3",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i3",
+          "kind": "box",
+          "x": 190,
+          "y": 60,
+          "w": 320,
+          "h": 110,
+          "text": "Item 4",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i4",
+          "kind": "box",
+          "x": -190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 5",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "i5",
+          "kind": "box",
+          "x": 190,
+          "y": 220,
+          "w": 320,
+          "h": 110,
+          "text": "Item 6",
+          "color": "blue",
+          "fs": 40,
+          "sub": " "
+        },
+        {
+          "id": "nw",
+          "kind": "box",
+          "x": 0,
+          "y": 340,
+          "w": 320,
+          "h": 110,
+          "text": "New item",
+          "color": "green",
+          "fs": 40
+        },
+        {
+          "id": "you",
+          "kind": "node",
+          "x": 0,
+          "y": 610,
+          "r": 65,
+          "text": "You",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "ok",
+          "kind": "label",
+          "x": 0,
+          "y": 510,
+          "text": "works, no extra setup",
+          "fs": 40,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "li",
+            "ls",
+            "lt"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "i0",
+            "i1",
+            "i2",
+            "i3",
+            "i4",
+            "i5"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "nw"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "nw",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "you"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "you",
+          "to": "nw",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "nw",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.3
+        },
+        {
+          "do": "send",
+          "from": "nw",
+          "to": "li",
+          "color": "yellow",
+          "t": 1.2
+        },
+        {
+          "do": "sub",
+          "id": "li",
+          "text": "target: New item"
+        },
+        {
+          "do": "flash",
+          "id": "li",
+          "color": "green"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "ok"
+          ]
+        }
+      ],
+      "say": "Now new items just work. Add one later, click it, and the click bubbles up to the same listener. No extra setup. This is event delegation. The parent does the work for its children.",
+      "voice": "/audio/js-07-delegation/works.wav",
+      "duration": 16
+    },
+    {
+      "id": "recap",
+      "min": 14,
+      "text": "The whole picture.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "c1",
+          "kind": "box",
+          "x": 0,
+          "y": -290,
+          "w": 560,
+          "h": 120,
+          "text": "bubbling",
+          "color": "blue",
+          "fs": 44,
+          "sub": "clicks rise to parents"
+        },
+        {
+          "id": "c2",
+          "kind": "box",
+          "x": 0,
+          "y": -140,
+          "w": 560,
+          "h": 120,
+          "text": "one listener",
+          "color": "yellow",
+          "fs": 44,
+          "sub": "on the parent"
+        },
+        {
+          "id": "c3",
+          "kind": "box",
+          "x": 0,
+          "y": 10,
+          "w": 560,
+          "h": 120,
+          "text": "target",
+          "color": "pink",
+          "fs": 44,
+          "sub": "which child was clicked"
+        },
+        {
+          "id": "c4",
+          "kind": "box",
+          "x": 0,
+          "y": 160,
+          "w": 560,
+          "h": 120,
+          "text": "new items",
+          "color": "green",
+          "fs": 44,
+          "sub": "work automatically"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "c1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c3"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c4"
+          ]
+        }
+      ],
+      "say": "To remember it. Click events bubble up. So one listener on the parent can handle all its children. The target tells you which child was clicked. And new children work automatically.",
+      "voice": "/audio/js-07-delegation/recap.wav",
+      "duration": 14
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "text": "Next: React, the screen is your data.",
+      "say": "Next up, React. The screen is your data. Follow for more.",
+      "voice": "/audio/js-07-delegation/close.wav",
+      "duration": 5.5
+    }
+  ]
+}
