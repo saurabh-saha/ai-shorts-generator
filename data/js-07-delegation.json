@@ -5,7 +5,7 @@
   "beats": [
     {
       "id": "hook",
-      "min": 9,
+      "min": 11,
       "text": "600 contacts, 600 handlers?",
       "visual": "stage",
       "zoom": 0.85,
@@ -149,9 +149,9 @@
           "color": "red"
         }
       ],
-      "say": "Six hundred contacts. Six hundred tap handlers? There is a much smarter way. Let's see it.",
+      "say": "You know the contacts app on your phone? Tap a name, and it calls. Now imagine six hundred contacts, and a tap handler on every row. There is a much smarter way.",
       "voice": "/audio/js-07-delegation/hook.wav",
-      "duration": 9
+      "duration": 11.5
     },
     {
       "id": "problem",
