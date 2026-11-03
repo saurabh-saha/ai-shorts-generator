@@ -1,0 +1,966 @@
+{
+  "title": "JavaScript 3: async & await",
+  "subtitle": "JavaScript, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "nicer",
+      "min": 14,
+      "text": "Same promises, easier to read.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "ll",
+          "kind": "link",
+          "from": "a1",
+          "to": "a2",
+          "color": "muted"
+        },
+        {
+          "id": "ll2",
+          "kind": "link",
+          "from": "a2",
+          "to": "a3",
+          "color": "muted"
+        },
+        {
+          "id": "rl",
+          "kind": "link",
+          "from": "b1",
+          "to": "b2",
+          "color": "muted"
+        },
+        {
+          "id": "rl2",
+          "kind": "link",
+          "from": "b2",
+          "to": "b3",
+          "color": "muted"
+        },
+        {
+          "id": "lt",
+          "kind": "label",
+          "x": -230,
+          "y": -340,
+          "text": "then chains",
+          "fs": 40,
+          "color": "yellow"
+        },
+        {
+          "id": "a1",
+          "kind": "box",
+          "x": -340,
+          "y": -230,
+          "w": 190,
+          "h": 100,
+          "text": "get user",
+          "color": "blue",
+          "fs": 28
+        },
+        {
+          "id": "a2",
+          "kind": "box",
+          "x": -230,
+          "y": -100,
+          "w": 190,
+          "h": 100,
+          "text": "get posts",
+          "color": "blue",
+          "fs": 28
+        },
+        {
+          "id": "a3",
+          "kind": "box",
+          "x": -120,
+          "y": 30,
+          "w": 190,
+          "h": 100,
+          "text": "show them",
+          "color": "blue",
+          "fs": 28
+        },
+        {
+          "id": "la",
+          "kind": "label",
+          "x": -230,
+          "y": 130,
+          "text": "hops around",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "rt",
+          "kind": "label",
+          "x": 270,
+          "y": -340,
+          "text": "async / await",
+          "fs": 40,
+          "color": "green"
+        },
+        {
+          "id": "b1",
+          "kind": "box",
+          "x": 270,
+          "y": -230,
+          "w": 240,
+          "h": 100,
+          "text": "get user",
+          "color": "green",
+          "fs": 28
+        },
+        {
+          "id": "b2",
+          "kind": "box",
+          "x": 270,
+          "y": -100,
+          "w": 240,
+          "h": 100,
+          "text": "get posts",
+          "color": "green",
+          "fs": 28
+        },
+        {
+          "id": "b3",
+          "kind": "box",
+          "x": 270,
+          "y": 30,
+          "w": 240,
+          "h": 100,
+          "text": "show them",
+          "color": "green",
+          "fs": 28
+        },
+        {
+          "id": "rb",
+          "kind": "label",
+          "x": 270,
+          "y": 130,
+          "text": "reads top to bottom",
+          "fs": 28,
+          "color": "muted"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "lt",
+            "a1",
+            "a2",
+            "a3",
+            "ll",
+            "ll2",
+            "la"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "a1",
+          "to": "a2",
+          "color": "yellow",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "a2",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "a2",
+          "to": "a3",
+          "color": "yellow",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "a3",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "rt",
+            "b1",
+            "b2",
+            "b3",
+            "rl",
+            "rl2",
+            "rb"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "b1",
+          "to": "b2",
+          "color": "green",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "b2",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "b2",
+          "to": "b3",
+          "color": "green",
+          "t": 0.7
+        },
+        {
+          "do": "flash",
+          "id": "b3",
+          "color": "green"
+        }
+      ],
+      "say": "Promises work, but long chains of then can get hard to read. Async and await is a nicer way to write the very same thing. Your steps read straight down the page, like ordinary code, even though the work still happens later.",
+      "voice": "/audio/js-03-async-await/nicer.wav",
+      "duration": 15.0
+    },
+    {
+      "id": "async",
+      "min": 14,
+      "text": "async always returns a promise.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "fn",
+          "kind": "box",
+          "x": -290,
+          "y": -100,
+          "w": 300,
+          "h": 190,
+          "text": "async function",
+          "sub": "does some work",
+          "color": "yellow",
+          "fs": 34
+        },
+        {
+          "id": "l1",
+          "kind": "label",
+          "x": 0,
+          "y": -290,
+          "text": "returns 42",
+          "fs": 30,
+          "color": "green"
+        },
+        {
+          "id": "p1",
+          "kind": "box",
+          "x": 320,
+          "y": -230,
+          "w": 300,
+          "h": 130,
+          "text": "Promise",
+          "sub": "fulfilled: 42",
+          "color": "green",
+          "fs": 40
+        },
+        {
+          "id": "l2",
+          "kind": "label",
+          "x": 0,
+          "y": 0,
+          "text": "throws an error",
+          "fs": 30,
+          "color": "red"
+        },
+        {
+          "id": "p2",
+          "kind": "box",
+          "x": 320,
+          "y": 50,
+          "w": 300,
+          "h": 130,
+          "text": "Promise",
+          "sub": "rejected: error",
+          "color": "red",
+          "fs": 40
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "fn"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l1"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "fn",
+          "to": "p1",
+          "color": "green",
+          "t": 0.9
+        },
+        {
+          "do": "show",
+          "ids": [
+            "p1"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "p1",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 1.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l2"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "fn",
+          "to": "p2",
+          "color": "red",
+          "t": 0.9
+        },
+        {
+          "do": "show",
+          "ids": [
+            "p2"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "p2",
+          "color": "red"
+        }
+      ],
+      "say": "Put the word async in front of a function, and it always hands back a promise. Whatever you return gets wrapped into a fulfilled promise for you. And if the function throws an error, you get a rejected promise instead.",
+      "voice": "/audio/js-03-async-await/async.wav",
+      "duration": 14
+    },
+    {
+      "id": "await",
+      "min": 18,
+      "text": "await pauses only your function.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "badge": "THE PAGE KEEPS RUNNING",
+      "badgeColor": "green",
+      "actors": [
+        {
+          "id": "fn",
+          "kind": "cells",
+          "x": -300,
+          "y": -90,
+          "values": [
+            "step 1",
+            "await",
+            "step 3"
+          ],
+          "dir": "v",
+          "size": 115,
+          "gap": 8,
+          "color": "blue",
+          "title": "Your function",
+          "fs": 26
+        },
+        {
+          "id": "tk",
+          "kind": "box",
+          "x": 40,
+          "y": -90,
+          "w": 240,
+          "h": 150,
+          "text": "Promise",
+          "sub": "pending",
+          "color": "yellow",
+          "fs": 38
+        },
+        {
+          "id": "rest",
+          "kind": "box",
+          "x": 345,
+          "y": -90,
+          "w": 260,
+          "h": 200,
+          "text": "Everything else",
+          "sub": "tasks done: 0",
+          "color": "green",
+          "fs": 30
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "fn"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "fn:0",
+          "color": "blue"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "flash",
+          "id": "fn:1",
+          "color": "yellow"
+        },
+        {
+          "do": "stroke",
+          "id": "fn:1",
+          "color": "yellow"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "tk"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "rest"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "sub",
+          "id": "rest",
+          "text": "tasks done: 1"
+        },
+        {
+          "do": "flash",
+          "id": "rest",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "rest",
+          "text": "tasks done: 2"
+        },
+        {
+          "do": "flash",
+          "id": "rest",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "rest",
+          "text": "tasks done: 3"
+        },
+        {
+          "do": "flash",
+          "id": "rest",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "tk",
+          "text": "fulfilled: data"
+        },
+        {
+          "do": "stroke",
+          "id": "tk",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "tk",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "tk",
+          "to": "fn:1",
+          "color": "green",
+          "t": 0.8
+        },
+        {
+          "do": "stroke",
+          "id": "fn:1",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "fn:2",
+          "color": "green"
+        }
+      ],
+      "say": "The await keyword pauses your function, right at that line, until the promise settles. But only your function pauses. The rest of the page keeps running, because JavaScript sets your function aside, and the event loop carries on. When the promise settles, your function picks up exactly where it stopped, with the result in hand.",
+      "voice": "/audio/js-03-async-await/await.wav",
+      "duration": 21.5
+    },
+    {
+      "id": "errors",
+      "min": 14,
+      "text": "Errors: try and catch.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "steps",
+          "kind": "cells",
+          "x": -250,
+          "y": -90,
+          "values": [
+            "await a",
+            "await b",
+            "await c"
+          ],
+          "dir": "v",
+          "size": 115,
+          "gap": 8,
+          "color": "blue",
+          "title": "try",
+          "fs": 26
+        },
+        {
+          "id": "c",
+          "kind": "box",
+          "x": 290,
+          "y": -90,
+          "w": 300,
+          "h": 200,
+          "text": "catch",
+          "sub": "handles the error",
+          "color": "red",
+          "fs": 42
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "steps"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "steps:0",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "flash",
+          "id": "steps:1",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "flash",
+          "id": "steps:2",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "flash",
+          "id": "steps:0",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "stroke",
+          "id": "steps:1",
+          "color": "red"
+        },
+        {
+          "do": "flash",
+          "id": "steps:1",
+          "color": "red"
+        },
+        {
+          "do": "send",
+          "from": "steps:1",
+          "to": "c",
+          "color": "red",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "c",
+          "color": "red"
+        },
+        {
+          "do": "stroke",
+          "id": "steps:2",
+          "color": "muted"
+        }
+      ],
+      "say": "Errors work like ordinary code. Wrap your awaits in try and catch. If a promise is rejected, await throws that error right at that line, and the program jumps to the catch block. The steps after it are skipped. No special promise syntax is needed.",
+      "voice": "/audio/js-03-async-await/errors.wav",
+      "duration": 17.0
+    },
+    {
+      "id": "parallel",
+      "min": 18,
+      "text": "The slow trap.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "la",
+          "kind": "label",
+          "x": 0,
+          "y": -390,
+          "text": "one after another",
+          "fs": 36,
+          "color": "yellow"
+        },
+        {
+          "id": "ra",
+          "kind": "cells",
+          "x": 0,
+          "y": -290,
+          "values": [
+            "job 1",
+            "job 2",
+            "job 3"
+          ],
+          "dir": "h",
+          "size": 130,
+          "gap": 14,
+          "color": "blue",
+          "fs": 28
+        },
+        {
+          "id": "ca",
+          "kind": "label",
+          "x": 0,
+          "y": -170,
+          "text": "0 s",
+          "fs": 56,
+          "color": "red"
+        },
+        {
+          "id": "lb",
+          "kind": "label",
+          "x": 0,
+          "y": -60,
+          "text": "all at once",
+          "fs": 36,
+          "color": "green"
+        },
+        {
+          "id": "rb",
+          "kind": "cells",
+          "x": 0,
+          "y": 40,
+          "values": [
+            "job 1",
+            "job 2",
+            "job 3"
+          ],
+          "dir": "h",
+          "size": 130,
+          "gap": 14,
+          "color": "blue",
+          "fs": 28
+        },
+        {
+          "id": "cb",
+          "kind": "label",
+          "x": 0,
+          "y": 160,
+          "text": "0 s",
+          "fs": 56,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "la",
+            "ra",
+            "ca"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "ra:0",
+          "color": "yellow"
+        },
+        {
+          "do": "text",
+          "id": "ca",
+          "text": "1 s"
+        },
+        {
+          "do": "wait",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "ra:1",
+          "color": "yellow"
+        },
+        {
+          "do": "text",
+          "id": "ca",
+          "text": "2 s"
+        },
+        {
+          "do": "wait",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "ra:2",
+          "color": "yellow"
+        },
+        {
+          "do": "text",
+          "id": "ca",
+          "text": "3 s"
+        },
+        {
+          "do": "wait",
+          "t": 1.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "lb",
+            "rb",
+            "cb"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "rb:0",
+            "rb:1",
+            "rb:2"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "rb:0",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "rb:1",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "rb:2",
+          "color": "green"
+        },
+        {
+          "do": "text",
+          "id": "cb",
+          "text": "1 s"
+        }
+      ],
+      "say": "One trap: awaiting things one after another makes them run one after another. Three one-second jobs take three seconds. If the jobs don't depend on each other, start them all first, then await them together, with Promise all. Now they take one second in total.",
+      "voice": "/audio/js-03-async-await/parallel.wav",
+      "duration": 18
+    },
+    {
+      "id": "recap",
+      "min": 15,
+      "text": "The whole picture.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "a",
+          "kind": "box",
+          "x": -250,
+          "y": -230,
+          "w": 300,
+          "h": 130,
+          "text": "async",
+          "sub": "returns a promise",
+          "color": "yellow",
+          "fs": 40
+        },
+        {
+          "id": "b",
+          "kind": "box",
+          "x": 250,
+          "y": -230,
+          "w": 300,
+          "h": 130,
+          "text": "await",
+          "sub": "pause this function",
+          "color": "blue",
+          "fs": 40
+        },
+        {
+          "id": "c",
+          "kind": "box",
+          "x": -250,
+          "y": 10,
+          "w": 300,
+          "h": 130,
+          "text": "try / catch",
+          "sub": "handle the errors",
+          "color": "red",
+          "fs": 38
+        },
+        {
+          "id": "d",
+          "kind": "box",
+          "x": 250,
+          "y": 10,
+          "w": 300,
+          "h": 130,
+          "text": "Promise.all",
+          "sub": "run things together",
+          "color": "green",
+          "fs": 38
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "a"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "b"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "d"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "say": "So: async makes a function return a promise. Await pauses just that function until the promise settles. Try and catch handle the errors. And Promise all lets independent jobs run together. Next, we will look at the this keyword, one of the most confusing parts of JavaScript.",
+      "voice": "/audio/js-03-async-await/recap.wav",
+      "duration": 19.0
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "text": "Next: the this keyword.",
+      "say": "Next up, the this keyword. Follow for more.",
+      "voice": "/audio/js-03-async-await/close.wav",
+      "duration": 4.5
+    }
+  ]
+}
