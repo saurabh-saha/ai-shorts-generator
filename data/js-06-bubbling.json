@@ -538,7 +538,7 @@
     },
     {
       "id": "stop",
-      "min": 11,
+      "min": 12,
       "text": "Stop the tap at the button.",
       "visual": "stage",
       "zoom": 0.85,
@@ -612,6 +612,20 @@
           "text": "STOP",
           "fs": 80,
           "color": "red"
+        },
+        {
+          "id": "cb",
+          "kind": "code",
+          "x": 0,
+          "y": 330,
+          "w": 580,
+          "lines": [
+            [
+              "e.stopPropagation()",
+              "yellow"
+            ]
+          ],
+          "fs": 36
         }
       ],
       "steps": [
@@ -620,7 +634,27 @@
           "ids": [
             "ph",
             "cd",
-            "bt",
+            "bt"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "cb"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "line",
+          "id": "cb",
+          "i": 0
+        },
+        {
+          "do": "show",
+          "ids": [
             "fg"
           ]
         },
@@ -678,9 +712,9 @@
           ]
         }
       ],
-      "say": "Do not want the post to open? Stop the tap at the button. Now only Like happens. The card and screen never find out.",
+      "say": "Do not want the post to open? In the Like handler, add this one line. Stop propagation. Now the tap stops at the button, and only Like happens.",
       "voice": "/audio/js-06-bubbling/stop.wav",
-      "duration": 11
+      "duration": 12
     },
     {
       "id": "close",
