@@ -1,0 +1,741 @@
+{
+  "title": "JavaScript 5: Normal vs arrow",
+  "subtitle": "JavaScript, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "two",
+      "min": 14,
+      "text": "Two ways to write a function.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "t1",
+          "kind": "label",
+          "x": -250,
+          "y": -330,
+          "text": "normal",
+          "fs": 40,
+          "color": "blue"
+        },
+        {
+          "id": "n",
+          "kind": "box",
+          "x": -250,
+          "y": -150,
+          "w": 300,
+          "h": 160,
+          "text": "function",
+          "color": "blue",
+          "fs": 38,
+          "sub": "longer to write"
+        },
+        {
+          "id": "t2",
+          "kind": "label",
+          "x": 250,
+          "y": -330,
+          "text": "arrow",
+          "fs": 40,
+          "color": "green"
+        },
+        {
+          "id": "a",
+          "kind": "box",
+          "x": 250,
+          "y": -150,
+          "w": 300,
+          "h": 160,
+          "text": "=>",
+          "color": "green",
+          "fs": 60,
+          "sub": "short and neat"
+        },
+        {
+          "id": "in",
+          "kind": "node",
+          "x": -250,
+          "y": 150,
+          "r": 60,
+          "text": "in",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "in2",
+          "kind": "node",
+          "x": 250,
+          "y": 150,
+          "r": 60,
+          "text": "in",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "o1",
+          "kind": "label",
+          "x": -250,
+          "y": 300,
+          "text": "out",
+          "fs": 32,
+          "color": "muted"
+        },
+        {
+          "id": "o2",
+          "kind": "label",
+          "x": 250,
+          "y": 300,
+          "text": "out",
+          "fs": 32,
+          "color": "muted"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "t1",
+            "n",
+            "in",
+            "o1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "in",
+          "to": "n",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "n",
+          "color": "blue"
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "t2",
+            "a",
+            "in2",
+            "o2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "in2",
+          "to": "a",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "a",
+          "color": "green"
+        }
+      ],
+      "say": "There are two ways to write a function. The normal way, and the arrow way. Both take something in, do some work, and give something back. The arrow way is just shorter.",
+      "voice": "/audio/js-05-arrow/two.wav",
+      "duration": 14
+    },
+    {
+      "id": "mine",
+      "min": 14,
+      "text": "Who owns this?",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "n",
+          "kind": "box",
+          "x": -250,
+          "y": -170,
+          "w": 300,
+          "h": 170,
+          "text": "normal",
+          "color": "blue",
+          "fs": 38,
+          "sub": "own this"
+        },
+        {
+          "id": "nl",
+          "kind": "label",
+          "x": -250,
+          "y": -30,
+          "text": "decided by the caller",
+          "fs": 28,
+          "color": "blue"
+        },
+        {
+          "id": "a",
+          "kind": "box",
+          "x": 250,
+          "y": -170,
+          "w": 300,
+          "h": 170,
+          "text": "arrow",
+          "color": "green",
+          "fs": 38,
+          "sub": "no this"
+        },
+        {
+          "id": "al",
+          "kind": "label",
+          "x": 250,
+          "y": -30,
+          "text": "uses the outside one",
+          "fs": 28,
+          "color": "green"
+        },
+        {
+          "id": "caller",
+          "kind": "node",
+          "x": -250,
+          "y": 170,
+          "r": 75,
+          "text": "Caller",
+          "fs": 30,
+          "color": "yellow"
+        },
+        {
+          "id": "place",
+          "kind": "box",
+          "x": 250,
+          "y": 170,
+          "w": 260,
+          "h": 110,
+          "text": "where written",
+          "color": "pink",
+          "fs": 30
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "n",
+            "nl",
+            "caller"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "caller",
+          "to": "n",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "n",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "a",
+            "al",
+            "place"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "place",
+          "to": "a",
+          "color": "pink",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "a",
+          "color": "green"
+        }
+      ],
+      "say": "The big difference is the word this. A normal function gets its own this, decided by whoever calls it. An arrow function has none. It simply uses the this from the place where it was written.",
+      "voice": "/audio/js-05-arrow/mine.wav",
+      "duration": 14
+    },
+    {
+      "id": "callback",
+      "min": 14,
+      "text": "The callback trap.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "ana",
+          "kind": "box",
+          "x": 0,
+          "y": -290,
+          "w": 320,
+          "h": 110,
+          "text": "Ana",
+          "color": "yellow",
+          "fs": 40,
+          "sub": "this = Ana"
+        },
+        {
+          "id": "tm",
+          "kind": "node",
+          "x": 0,
+          "y": -110,
+          "r": 70,
+          "text": "Timer",
+          "fs": 30,
+          "color": "muted"
+        },
+        {
+          "id": "nf",
+          "kind": "box",
+          "x": -250,
+          "y": 130,
+          "w": 300,
+          "h": 120,
+          "text": "normal",
+          "color": "blue",
+          "fs": 36,
+          "sub": "called by timer"
+        },
+        {
+          "id": "af",
+          "kind": "box",
+          "x": 250,
+          "y": 130,
+          "w": 300,
+          "h": 120,
+          "text": "arrow",
+          "color": "green",
+          "fs": 36,
+          "sub": "born inside Ana"
+        },
+        {
+          "id": "r1",
+          "kind": "label",
+          "x": -250,
+          "y": 250,
+          "text": "this = timer? lost",
+          "fs": 30,
+          "color": "red"
+        },
+        {
+          "id": "r2",
+          "kind": "label",
+          "x": 250,
+          "y": 250,
+          "text": "this = Ana",
+          "fs": 34,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ana",
+            "tm"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "ana",
+          "to": "tm",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "nf",
+            "af"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "tm",
+          "to": "nf",
+          "color": "muted",
+          "t": 0.9
+        },
+        {
+          "do": "stroke",
+          "id": "nf",
+          "color": "red"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "send",
+          "from": "ana",
+          "to": "af",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "stroke",
+          "id": "af",
+          "color": "green"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r2"
+          ]
+        }
+      ],
+      "say": "This matters most in callbacks. Say Ana asks for a timer, and the timer calls you back later. A normal function is called by the timer, so this is no longer Ana. An arrow function remembers where it was born, so this is still Ana.",
+      "voice": "/audio/js-05-arrow/callback.wav",
+      "duration": 16.0
+    },
+    {
+      "id": "build",
+      "min": 14,
+      "text": "Only normal functions can build.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "n",
+          "kind": "box",
+          "x": -250,
+          "y": -150,
+          "w": 300,
+          "h": 150,
+          "text": "normal",
+          "color": "blue",
+          "fs": 38,
+          "sub": "a blueprint"
+        },
+        {
+          "id": "o",
+          "kind": "box",
+          "x": -250,
+          "y": 130,
+          "w": 260,
+          "h": 110,
+          "text": "new object",
+          "color": "yellow",
+          "fs": 32
+        },
+        {
+          "id": "a",
+          "kind": "box",
+          "x": 250,
+          "y": -150,
+          "w": 300,
+          "h": 150,
+          "text": "arrow",
+          "color": "green",
+          "fs": 38,
+          "sub": "no blueprint"
+        },
+        {
+          "id": "no",
+          "kind": "label",
+          "x": 250,
+          "y": 100,
+          "text": "refused",
+          "fs": 44,
+          "color": "red"
+        },
+        {
+          "id": "nw",
+          "kind": "label",
+          "x": 0,
+          "y": -300,
+          "text": "new ...",
+          "fs": 44,
+          "color": "text"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "nw",
+            "n"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "n",
+          "to": "o",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "show",
+          "ids": [
+            "o"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "o",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "a"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "stroke",
+          "id": "a",
+          "color": "red"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "no"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "a",
+          "color": "red"
+        }
+      ],
+      "say": "One more difference. A normal function can be used as a blueprint, to build new objects with the new keyword. An arrow function cannot. If you try, JavaScript simply refuses.",
+      "voice": "/audio/js-05-arrow/build.wav",
+      "duration": 14
+    },
+    {
+      "id": "pick",
+      "min": 14,
+      "text": "Which one to use?",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "a",
+          "kind": "box",
+          "x": -250,
+          "y": -130,
+          "w": 330,
+          "h": 300,
+          "text": "arrow",
+          "color": "green",
+          "fs": 44,
+          "sub": "small callbacks"
+        },
+        {
+          "id": "n",
+          "kind": "box",
+          "x": 250,
+          "y": -130,
+          "w": 330,
+          "h": 300,
+          "text": "normal",
+          "color": "blue",
+          "fs": 44,
+          "sub": "methods, blueprints"
+        },
+        {
+          "id": "l1",
+          "kind": "label",
+          "x": -250,
+          "y": 90,
+          "text": "keeps outside this",
+          "fs": 28,
+          "color": "green"
+        },
+        {
+          "id": "l2",
+          "kind": "label",
+          "x": 250,
+          "y": 90,
+          "text": "caller decides this",
+          "fs": 28,
+          "color": "blue"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "a",
+            "l1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "n",
+            "l2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.5
+        }
+      ],
+      "say": "So which should you use? Arrow functions are great for small callbacks, where you want to keep the surrounding this. Normal functions are better for methods and for blueprints, where you want the caller to decide.",
+      "voice": "/audio/js-05-arrow/pick.wav",
+      "duration": 14
+    },
+    {
+      "id": "recap",
+      "min": 14,
+      "text": "The whole picture.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "c1",
+          "kind": "box",
+          "x": 0,
+          "y": -290,
+          "w": 520,
+          "h": 110,
+          "text": "normal",
+          "color": "blue",
+          "fs": 40,
+          "sub": "own this, can build"
+        },
+        {
+          "id": "c2",
+          "kind": "box",
+          "x": 0,
+          "y": -150,
+          "w": 520,
+          "h": 110,
+          "text": "arrow",
+          "color": "green",
+          "fs": 40,
+          "sub": "borrows this, short"
+        },
+        {
+          "id": "c3",
+          "kind": "box",
+          "x": 0,
+          "y": -10,
+          "w": 520,
+          "h": 110,
+          "text": "callbacks",
+          "color": "yellow",
+          "fs": 36,
+          "sub": "use arrow"
+        },
+        {
+          "id": "c4",
+          "kind": "box",
+          "x": 0,
+          "y": 130,
+          "w": 520,
+          "h": 110,
+          "text": "methods",
+          "color": "pink",
+          "fs": 36,
+          "sub": "use normal"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "c1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c3"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c4"
+          ]
+        }
+      ],
+      "say": "To remember it. Normal functions get their own this, and can build objects. Arrow functions borrow this, and are short. Use arrows for callbacks, and normal functions for methods.",
+      "voice": "/audio/js-05-arrow/recap.wav",
+      "duration": 14
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "text": "Next: event bubbling.",
+      "say": "Next up, event bubbling. Follow for more.",
+      "voice": "/audio/js-05-arrow/close.wav",
+      "duration": 4.5
+    }
+  ]
+}
