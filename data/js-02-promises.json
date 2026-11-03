@@ -1,0 +1,1042 @@
+{
+  "title": "JavaScript 2: Promises",
+  "subtitle": "JavaScript, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "ticket",
+      "min": 14,
+      "text": "A promise is a ticket.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "you",
+          "kind": "node",
+          "x": -330,
+          "y": -170,
+          "r": 75,
+          "text": "You",
+          "fs": 44,
+          "color": "yellow"
+        },
+        {
+          "id": "free",
+          "kind": "label",
+          "x": -330,
+          "y": -55,
+          "text": "free to do other things",
+          "fs": 26,
+          "color": "muted"
+        },
+        {
+          "id": "kit",
+          "kind": "box",
+          "x": 330,
+          "y": -170,
+          "w": 260,
+          "h": 180,
+          "text": "Kitchen",
+          "sub": "idle",
+          "color": "blue",
+          "fs": 40
+        },
+        {
+          "id": "order",
+          "kind": "label",
+          "x": 0,
+          "y": -235,
+          "text": "order a pizza",
+          "fs": 30,
+          "color": "yellow"
+        },
+        {
+          "id": "tk",
+          "kind": "box",
+          "x": -330,
+          "y": 110,
+          "w": 270,
+          "h": 150,
+          "text": "Promise",
+          "sub": "pending",
+          "color": "yellow",
+          "fs": 40
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "you",
+            "kit"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "order"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "you",
+          "to": "kit",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "sub",
+          "id": "kit",
+          "text": "cooking..."
+        },
+        {
+          "do": "flash",
+          "id": "kit",
+          "color": "blue"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "kit",
+          "to": "tk",
+          "color": "yellow",
+          "t": 1.0
+        },
+        {
+          "do": "show",
+          "ids": [
+            "tk"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "tk",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "free"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 2.0
+        },
+        {
+          "do": "sub",
+          "id": "kit",
+          "text": "pizza is ready!"
+        },
+        {
+          "do": "flash",
+          "id": "kit",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "kit",
+          "to": "tk",
+          "color": "green",
+          "t": 0.9
+        },
+        {
+          "do": "sub",
+          "id": "tk",
+          "text": "ready: pizza"
+        },
+        {
+          "do": "stroke",
+          "id": "tk",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "tk",
+          "color": "green"
+        }
+      ],
+      "say": "A promise is like the ticket you get when you order food. The food is not ready yet, but you hold a ticket that stands for it. You are free to do other things, and when the kitchen is done, the ticket tells you.",
+      "voice": "/audio/js-02-promises/ticket.wav",
+      "duration": 14
+    },
+    {
+      "id": "states",
+      "min": 14,
+      "text": "Three states.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "p",
+          "to": "f",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l2",
+          "kind": "link",
+          "from": "p",
+          "to": "r",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "p",
+          "kind": "box",
+          "x": 0,
+          "y": -260,
+          "w": 320,
+          "h": 130,
+          "text": "Promise",
+          "sub": "pending",
+          "color": "yellow",
+          "fs": 42
+        },
+        {
+          "id": "f",
+          "kind": "box",
+          "x": -250,
+          "y": 0,
+          "w": 360,
+          "h": 170,
+          "text": "Fulfilled",
+          "sub": "holds the result: pizza",
+          "color": "green",
+          "fs": 42
+        },
+        {
+          "id": "r",
+          "kind": "box",
+          "x": 250,
+          "y": 0,
+          "w": 360,
+          "h": 170,
+          "text": "Rejected",
+          "sub": "holds the reason: sold out",
+          "color": "red",
+          "fs": 42
+        },
+        {
+          "id": "lock",
+          "kind": "label",
+          "x": 0,
+          "y": 190,
+          "text": "once settled, it never changes",
+          "fs": 30,
+          "color": "muted"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "p"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l1",
+            "f"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "p",
+          "to": "f",
+          "color": "green",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "f",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 1.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l2",
+            "r"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "p",
+          "to": "r",
+          "color": "red",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "r",
+          "color": "red"
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "lock"
+          ]
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "f",
+            "r"
+          ]
+        }
+      ],
+      "say": "A promise is always in one of three states. Pending, while it is still working. Fulfilled, when it succeeds, and then it holds the result. Or rejected, when something goes wrong, and then it holds the reason. Once a promise has settled, it can never change again.",
+      "voice": "/audio/js-02-promises/states.wav",
+      "duration": 18.0
+    },
+    {
+      "id": "then",
+      "min": 14,
+      "text": "then: leave instructions.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "p",
+          "to": "t",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "p",
+          "kind": "box",
+          "x": -300,
+          "y": -150,
+          "w": 280,
+          "h": 160,
+          "text": "Promise",
+          "sub": "pending",
+          "color": "yellow",
+          "fs": 40
+        },
+        {
+          "id": "t",
+          "kind": "box",
+          "x": 300,
+          "y": -150,
+          "w": 300,
+          "h": 160,
+          "text": "then",
+          "sub": "instructions: eat it",
+          "color": "blue",
+          "fs": 40
+        },
+        {
+          "id": "tl",
+          "kind": "label",
+          "x": 300,
+          "y": -40,
+          "text": "runs when it is fulfilled",
+          "fs": 26,
+          "color": "muted"
+        },
+        {
+          "id": "out",
+          "kind": "box",
+          "x": 0,
+          "y": 150,
+          "w": 520,
+          "h": 130,
+          "text": "Output",
+          "sub": "nothing yet",
+          "color": "green",
+          "fs": 38
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "p"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l1",
+            "t",
+            "tl"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "out"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "p",
+          "text": "fulfilled: pizza"
+        },
+        {
+          "do": "stroke",
+          "id": "p",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "p",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "p",
+          "to": "t",
+          "color": "green",
+          "t": 0.9
+        },
+        {
+          "do": "sub",
+          "id": "t",
+          "text": "eating the pizza!"
+        },
+        {
+          "do": "flash",
+          "id": "t",
+          "color": "blue"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "t",
+          "to": "out",
+          "color": "blue",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "out",
+          "text": "ate: pizza"
+        },
+        {
+          "do": "flash",
+          "id": "out",
+          "color": "green"
+        }
+      ],
+      "say": "You attach instructions to the ticket with then. They say what to do when the food arrives. When the promise is fulfilled, your instructions run, and they receive the result. You do not stand and wait. You just leave instructions, and carry on.",
+      "voice": "/audio/js-02-promises/then.wav",
+      "duration": 16.5
+    },
+    {
+      "id": "chain",
+      "min": 16,
+      "text": "Chaining and errors.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "s1",
+          "to": "s2",
+          "color": "muted"
+        },
+        {
+          "id": "l2",
+          "kind": "link",
+          "from": "s2",
+          "to": "s3",
+          "color": "muted"
+        },
+        {
+          "id": "s1",
+          "kind": "box",
+          "x": -340,
+          "y": -150,
+          "w": 230,
+          "h": 140,
+          "text": "get user",
+          "sub": "step 1",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "s2",
+          "kind": "box",
+          "x": 0,
+          "y": -150,
+          "w": 230,
+          "h": 140,
+          "text": "get posts",
+          "sub": "step 2",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "s3",
+          "kind": "box",
+          "x": 340,
+          "y": -150,
+          "w": 230,
+          "h": 140,
+          "text": "show them",
+          "sub": "step 3",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "c",
+          "kind": "box",
+          "x": 0,
+          "y": 150,
+          "w": 380,
+          "h": 140,
+          "text": "catch",
+          "sub": "handles any error",
+          "color": "red",
+          "fs": 38
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "s1",
+            "s2",
+            "s3",
+            "l1",
+            "l2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "send",
+          "from": "s1",
+          "to": "s2",
+          "color": "green",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "s2",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "s2",
+          "to": "s3",
+          "color": "green",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "s3",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "send",
+          "from": "s1",
+          "to": "s2",
+          "color": "green",
+          "t": 0.8
+        },
+        {
+          "do": "stroke",
+          "id": "s2",
+          "color": "red"
+        },
+        {
+          "do": "flash",
+          "id": "s2",
+          "color": "red"
+        },
+        {
+          "do": "send",
+          "from": "s2",
+          "to": "c",
+          "color": "red",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "c",
+          "color": "red"
+        },
+        {
+          "do": "sub",
+          "id": "s3",
+          "text": "skipped"
+        },
+        {
+          "do": "stroke",
+          "id": "s3",
+          "color": "muted"
+        }
+      ],
+      "say": "Each then hands back a new promise, so you can chain steps in a line. The result of one step flows into the next. And if any step fails, the failure skips straight past the remaining steps, to a single catch at the end, that handles the error.",
+      "voice": "/audio/js-02-promises/chain.wav",
+      "duration": 17.0
+    },
+    {
+      "id": "parallel",
+      "min": 16,
+      "text": "Doing things at once.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "badge": "TOTAL TIME = THE SLOWEST JOB",
+      "badgeColor": "green",
+      "actors": [
+        {
+          "id": "go",
+          "kind": "node",
+          "x": -380,
+          "y": -60,
+          "r": 55,
+          "text": "go",
+          "fs": 36,
+          "color": "yellow"
+        },
+        {
+          "id": "t1",
+          "kind": "box",
+          "x": -80,
+          "y": -230,
+          "w": 230,
+          "h": 100,
+          "text": "job 1",
+          "sub": "fast",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "t2",
+          "kind": "box",
+          "x": -80,
+          "y": -60,
+          "w": 230,
+          "h": 100,
+          "text": "job 2",
+          "sub": "slow",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "t3",
+          "kind": "box",
+          "x": -80,
+          "y": 110,
+          "w": 230,
+          "h": 100,
+          "text": "job 3",
+          "sub": "medium",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "all",
+          "kind": "box",
+          "x": 330,
+          "y": -60,
+          "w": 270,
+          "h": 200,
+          "text": "Promise.all",
+          "sub": "0 of 3 done",
+          "color": "green",
+          "fs": 34
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "go"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "t1",
+            "t2",
+            "t3"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "all"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "go",
+          "to": "t1",
+          "color": "yellow",
+          "t": 0.5
+        },
+        {
+          "do": "send",
+          "from": "go",
+          "to": "t2",
+          "color": "yellow",
+          "t": 0.5
+        },
+        {
+          "do": "send",
+          "from": "go",
+          "to": "t3",
+          "color": "yellow",
+          "t": 0.5
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "t1",
+          "to": "all",
+          "color": "green",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "all",
+          "text": "1 of 3 done"
+        },
+        {
+          "do": "flash",
+          "id": "t1",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "t3",
+          "to": "all",
+          "color": "green",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "all",
+          "text": "2 of 3 done"
+        },
+        {
+          "do": "flash",
+          "id": "t3",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "t2",
+          "to": "all",
+          "color": "green",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "all",
+          "text": "all done!"
+        },
+        {
+          "do": "flash",
+          "id": "t2",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "all",
+          "color": "green"
+        }
+      ],
+      "say": "Sometimes you want several things at once. Promise all starts them together, and waits for every one to finish. So three jobs that each take half a second, finish in half a second, not a second and a half. If one fails, the whole thing fails, and there are other helpers, like all settled and race, for different rules.",
+      "voice": "/audio/js-02-promises/parallel.wav",
+      "duration": 21.5
+    },
+    {
+      "id": "recap",
+      "min": 15,
+      "text": "The whole picture.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "p",
+          "to": "s",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l2",
+          "kind": "link",
+          "from": "s",
+          "to": "v",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l3",
+          "kind": "link",
+          "from": "v",
+          "to": "st",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l4",
+          "kind": "link",
+          "from": "st",
+          "to": "p",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "p",
+          "kind": "box",
+          "x": -250,
+          "y": -230,
+          "w": 300,
+          "h": 130,
+          "text": "Promise",
+          "sub": "starts pending",
+          "color": "yellow",
+          "fs": 38
+        },
+        {
+          "id": "s",
+          "kind": "box",
+          "x": 250,
+          "y": -230,
+          "w": 300,
+          "h": 130,
+          "text": "Settled",
+          "sub": "result or error",
+          "color": "green",
+          "fs": 38
+        },
+        {
+          "id": "v",
+          "kind": "box",
+          "x": 250,
+          "y": 10,
+          "w": 300,
+          "h": 130,
+          "text": "VIP line",
+          "sub": "then and catch wait",
+          "color": "pink",
+          "fs": 38
+        },
+        {
+          "id": "st",
+          "kind": "box",
+          "x": -250,
+          "y": 10,
+          "w": 300,
+          "h": 130,
+          "text": "Call stack",
+          "sub": "runs your instructions",
+          "color": "blue",
+          "fs": 36
+        },
+        {
+          "id": "tok",
+          "kind": "node",
+          "x": -250,
+          "y": -230,
+          "r": 26,
+          "text": "",
+          "color": "text"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "p"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "s",
+            "l1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "v",
+            "l2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "st",
+            "l3",
+            "l4"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "tok"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 250,
+          "y": -230,
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "s",
+          "color": "green"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 250,
+          "y": 10,
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "v",
+          "color": "pink"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": -250,
+          "y": 10,
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "st",
+          "color": "blue"
+        }
+      ],
+      "say": "So, a promise starts pending, and settles with a result or an error. Your then and catch instructions wait in the VIP line we saw in the event loop, and run on the stack when it is free. Next, we will see async and await, which make all of this read like normal, top to bottom code.",
+      "voice": "/audio/js-02-promises/recap.wav",
+      "duration": 19.0
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "text": "Next: async and await.",
+      "say": "Next up, async and await. Follow for more.",
+      "voice": "/audio/js-02-promises/close.wav",
+      "duration": 4.5
+    }
+  ]
+}
