@@ -1,0 +1,547 @@
+{
+  "title": "React 6: Effects",
+  "subtitle": "React, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 10,
+      "text": "Where did 28\u00b0 come from?",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Weather",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Mumbai",
+          "sub": "loading...",
+          "color": "blue",
+          "fs": 40
+        },
+        {
+          "id": "q",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "where did 28\u00b0 come from?",
+          "fs": 36,
+          "color": "yellow"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph",
+            "cd"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.5
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "28\u00b0C"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "q"
+          ]
+        }
+      ],
+      "say": "You open the weather app. It says loading, then twenty eight degrees. Where did that number come from?",
+      "voice": "/audio/rx-06-effects/hook.wav",
+      "duration": 10
+    },
+    {
+      "id": "simple",
+      "min": 11,
+      "text": "Drawing must stay simple.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "dw",
+          "kind": "box",
+          "x": -230,
+          "y": -200,
+          "w": 300,
+          "h": 140,
+          "text": "Drawing",
+          "color": "yellow",
+          "fs": 40,
+          "sub": "runs on every redraw"
+        },
+        {
+          "id": "sv",
+          "kind": "box",
+          "x": 230,
+          "y": -200,
+          "w": 260,
+          "h": 140,
+          "text": "Server",
+          "color": "blue",
+          "fs": 40,
+          "sub": "has the weather"
+        },
+        {
+          "id": "kx",
+          "kind": "link",
+          "from": "dw",
+          "to": "sv",
+          "color": "red",
+          "dashed": true
+        },
+        {
+          "id": "x",
+          "kind": "label",
+          "x": 0,
+          "y": 40,
+          "text": "too many requests",
+          "fs": 44,
+          "color": "red"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "dw",
+            "sv"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "kx"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "dw",
+          "to": "sv",
+          "color": "red",
+          "t": 0.5
+        },
+        {
+          "do": "send",
+          "from": "dw",
+          "to": "sv",
+          "color": "red",
+          "t": 0.5
+        },
+        {
+          "do": "send",
+          "from": "dw",
+          "to": "sv",
+          "color": "red",
+          "t": 0.5
+        },
+        {
+          "do": "send",
+          "from": "dw",
+          "to": "sv",
+          "color": "red",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "x"
+          ]
+        },
+        {
+          "do": "stroke",
+          "id": "sv",
+          "color": "red"
+        }
+      ],
+      "say": "Drawing the screen has to stay simple. It should only draw what it is given. If it also asked a server for data, it would ask again on every single redraw. Far too many requests.",
+      "voice": "/audio/rx-06-effects/simple.wav",
+      "duration": 12.5
+    },
+    {
+      "id": "effect",
+      "min": 13,
+      "text": "Draw first, then the effect.",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "sv",
+          "kind": "box",
+          "x": 0,
+          "y": -470,
+          "w": 300,
+          "h": 100,
+          "text": "Server",
+          "color": "blue",
+          "fs": 40,
+          "sub": "has the weather"
+        },
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Weather",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Mumbai",
+          "sub": "loading...",
+          "color": "blue",
+          "fs": 40
+        },
+        {
+          "id": "lp",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "1  draw: loading...",
+          "fs": 36,
+          "color": "yellow"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "sv",
+            "ph",
+            "cd"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "lp",
+          "text": "2  effect: ask the server",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "cd",
+          "to": "sv",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "sv",
+          "color": "blue"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "text",
+          "id": "lp",
+          "text": "3  answer saved in state",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "sv",
+          "to": "cd",
+          "color": "blue",
+          "t": 0.9
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "text",
+          "id": "lp",
+          "text": "4  redraw: 28\u00b0C",
+          "color": "green"
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "28\u00b0C"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "green"
+        }
+      ],
+      "say": "So React draws first. The screen says loading. Then an effect runs, after the draw, and asks the server. The answer goes into state, and React redraws, with the weather.",
+      "voice": "/audio/rx-06-effects/effect.wav",
+      "duration": 13
+    },
+    {
+      "id": "deps",
+      "min": 14,
+      "text": "Run again only when it changes.",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "sv",
+          "kind": "box",
+          "x": 0,
+          "y": -470,
+          "w": 300,
+          "h": 100,
+          "text": "Server",
+          "color": "blue",
+          "fs": 40,
+          "sub": "has the weather"
+        },
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Weather",
+          "color": "blue"
+        },
+        {
+          "id": "cd",
+          "kind": "card",
+          "x": 0,
+          "y": 130,
+          "w": 380,
+          "h": 330,
+          "text": "Mumbai",
+          "sub": "28\u00b0C",
+          "color": "blue",
+          "fs": 40
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 230,
+          "y": 620,
+          "r": 30
+        },
+        {
+          "id": "c1",
+          "kind": "btn",
+          "x": -100,
+          "y": 330,
+          "w": 170,
+          "h": 64,
+          "text": "Delhi",
+          "color": "green",
+          "fs": 30
+        },
+        {
+          "id": "c2",
+          "kind": "btn",
+          "x": 110,
+          "y": 330,
+          "w": 170,
+          "h": 64,
+          "text": "Fahrenheit",
+          "color": "pink",
+          "fs": 24
+        },
+        {
+          "id": "l1",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "city changed: ask again",
+          "fs": 34,
+          "color": "green"
+        },
+        {
+          "id": "l2",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "same city: no new request",
+          "fs": 34,
+          "color": "green"
+        },
+        {
+          "id": "cb",
+          "kind": "code",
+          "x": 0,
+          "y": 690,
+          "w": 760,
+          "lines": [
+            [
+              "useEffect(() => fetchWeather(city), [city])",
+              "yellow"
+            ]
+          ],
+          "fs": 26
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "sv",
+            "ph",
+            "cd",
+            "c1",
+            "c2",
+            "cb",
+            "fg"
+          ]
+        },
+        {
+          "do": "line",
+          "id": "cb",
+          "i": 0
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": -100,
+          "y": 330,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "c1",
+          "color": "green"
+        },
+        {
+          "do": "text",
+          "id": "cd",
+          "text": "Delhi"
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "loading..."
+        },
+        {
+          "do": "send",
+          "from": "cd",
+          "to": "sv",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "31\u00b0C"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "green"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "hide",
+          "ids": [
+            "l1"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": 110,
+          "y": 330,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "c2",
+          "color": "pink"
+        },
+        {
+          "do": "sub",
+          "id": "cd",
+          "text": "88\u00b0F"
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "yellow"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l2"
+          ]
+        }
+      ],
+      "say": "Switch to Delhi, and the effect runs again, because the city changed. Tap something unrelated, like Fahrenheit, and it redraws, but does not ask again. That list at the end says, only run when the city changes.",
+      "voice": "/audio/rx-06-effects/deps.wav",
+      "duration": 14
+    },
+    {
+      "id": "close",
+      "min": 3,
+      "text": "Next: reconciliation.",
+      "say": "Draw first, then do the extra work. Next up, how React updates only what changed. Follow for more.",
+      "voice": "/audio/rx-06-effects/close.wav",
+      "duration": 8.0
+    }
+  ]
+}
