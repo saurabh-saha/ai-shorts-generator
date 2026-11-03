@@ -6,108 +6,86 @@
     {
       "id": "many",
       "min": 16,
-      "text": "Every item needs a listener?",
+      "text": "Every contact needs a listener?",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
-          "id": "ls",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": 110,
-          "w": 820,
-          "h": 700,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "lt",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "List",
-          "fs": 44,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Contacts",
           "color": "blue"
         },
         {
-          "id": "i0",
-          "kind": "box",
-          "x": -190,
-          "y": -100,
-          "w": 320,
+          "id": "r0",
+          "kind": "row",
+          "x": 0,
+          "y": -250,
+          "w": 560,
           "h": 110,
-          "text": "Item 1",
+          "text": "Ana",
+          "sub": "tap to call",
           "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "fs": 38
         },
         {
-          "id": "i1",
-          "kind": "box",
-          "x": 190,
-          "y": -100,
-          "w": 320,
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": -120,
+          "w": 560,
           "h": 110,
-          "text": "Item 2",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "text": "Ben",
+          "sub": "tap to call",
+          "color": "pink",
+          "fs": 38
         },
         {
-          "id": "i2",
-          "kind": "box",
-          "x": -190,
-          "y": 60,
-          "w": 320,
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 10,
+          "w": 560,
           "h": 110,
-          "text": "Item 3",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "text": "Cara",
+          "sub": "tap to call",
+          "color": "green",
+          "fs": 38
         },
         {
-          "id": "i3",
-          "kind": "box",
-          "x": 190,
-          "y": 60,
-          "w": 320,
+          "id": "r3",
+          "kind": "row",
+          "x": 0,
+          "y": 140,
+          "w": 560,
           "h": 110,
-          "text": "Item 4",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "text": "Dev",
+          "sub": "tap to call",
+          "color": "yellow",
+          "fs": 38
         },
         {
-          "id": "i4",
-          "kind": "box",
-          "x": -190,
-          "y": 220,
-          "w": 320,
+          "id": "r4",
+          "kind": "row",
+          "x": 0,
+          "y": 270,
+          "w": 560,
           "h": 110,
-          "text": "Item 5",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i5",
-          "kind": "box",
-          "x": 190,
-          "y": 220,
-          "w": 320,
-          "h": 110,
-          "text": "Item 6",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "text": "Eli",
+          "sub": "tap to call",
+          "color": "red",
+          "fs": 38
         },
         {
           "id": "cnt",
           "kind": "label",
           "x": 0,
-          "y": 510,
-          "text": "6 items = 6 listeners",
+          "y": 690,
+          "text": "5 contacts = 5 listeners",
           "fs": 40,
           "color": "red"
         }
@@ -116,8 +94,7 @@
         {
           "do": "show",
           "ids": [
-            "ls",
-            "lt"
+            "ph"
           ]
         },
         {
@@ -127,17 +104,17 @@
         {
           "do": "show",
           "ids": [
-            "i0"
+            "r0"
           ]
         },
         {
           "do": "sub",
-          "id": "i0",
-          "text": "listener"
+          "id": "r0",
+          "text": "has a listener"
         },
         {
           "do": "flash",
-          "id": "i0",
+          "id": "r0",
           "color": "yellow"
         },
         {
@@ -147,17 +124,17 @@
         {
           "do": "show",
           "ids": [
-            "i1"
+            "r1"
           ]
         },
         {
           "do": "sub",
-          "id": "i1",
-          "text": "listener"
+          "id": "r1",
+          "text": "has a listener"
         },
         {
           "do": "flash",
-          "id": "i1",
+          "id": "r1",
           "color": "yellow"
         },
         {
@@ -167,17 +144,17 @@
         {
           "do": "show",
           "ids": [
-            "i2"
+            "r2"
           ]
         },
         {
           "do": "sub",
-          "id": "i2",
-          "text": "listener"
+          "id": "r2",
+          "text": "has a listener"
         },
         {
           "do": "flash",
-          "id": "i2",
+          "id": "r2",
           "color": "yellow"
         },
         {
@@ -187,17 +164,17 @@
         {
           "do": "show",
           "ids": [
-            "i3"
+            "r3"
           ]
         },
         {
           "do": "sub",
-          "id": "i3",
-          "text": "listener"
+          "id": "r3",
+          "text": "has a listener"
         },
         {
           "do": "flash",
-          "id": "i3",
+          "id": "r3",
           "color": "yellow"
         },
         {
@@ -207,37 +184,17 @@
         {
           "do": "show",
           "ids": [
-            "i4"
+            "r4"
           ]
         },
         {
           "do": "sub",
-          "id": "i4",
-          "text": "listener"
+          "id": "r4",
+          "text": "has a listener"
         },
         {
           "do": "flash",
-          "id": "i4",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "show",
-          "ids": [
-            "i5"
-          ]
-        },
-        {
-          "do": "sub",
-          "id": "i5",
-          "text": "listener"
-        },
-        {
-          "do": "flash",
-          "id": "i5",
+          "id": "r4",
           "color": "yellow"
         },
         {
@@ -257,161 +214,136 @@
         {
           "do": "text",
           "id": "cnt",
-          "text": "600 items = 600 listeners!"
+          "text": "600 contacts = 600 listeners!"
         }
       ],
-      "say": "Say you have a list, and every item must react to a click. The obvious way is a listener on every single item. That works. But with six hundred items, that is six hundred listeners.",
+      "say": "Say you have a contacts list, and tapping a name should call that person. The obvious way is a listener on every single row. That works. But with six hundred contacts, that is six hundred listeners.",
       "voice": "/audio/js-07-delegation/many.wav",
       "duration": 16
     },
     {
       "id": "new",
       "min": 14,
-      "text": "New items break it.",
+      "text": "New contacts break it.",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
-          "id": "ls",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": 110,
-          "w": 820,
-          "h": 700,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "lt",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "List",
-          "fs": 44,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Contacts",
           "color": "blue"
         },
         {
-          "id": "i0",
-          "kind": "box",
-          "x": -190,
-          "y": -100,
-          "w": 320,
-          "h": 110,
-          "text": "Item 1",
-          "color": "blue",
-          "fs": 40,
-          "sub": "listener"
-        },
-        {
-          "id": "i1",
-          "kind": "box",
-          "x": 190,
-          "y": -100,
-          "w": 320,
-          "h": 110,
-          "text": "Item 2",
-          "color": "blue",
-          "fs": 40,
-          "sub": "listener"
-        },
-        {
-          "id": "i2",
-          "kind": "box",
-          "x": -190,
-          "y": 60,
-          "w": 320,
-          "h": 110,
-          "text": "Item 3",
-          "color": "blue",
-          "fs": 40,
-          "sub": "listener"
-        },
-        {
-          "id": "i3",
-          "kind": "box",
-          "x": 190,
-          "y": 60,
-          "w": 320,
-          "h": 110,
-          "text": "Item 4",
-          "color": "blue",
-          "fs": 40,
-          "sub": "listener"
-        },
-        {
-          "id": "i4",
-          "kind": "box",
-          "x": -190,
-          "y": 220,
-          "w": 320,
-          "h": 110,
-          "text": "Item 5",
-          "color": "blue",
-          "fs": 40,
-          "sub": "listener"
-        },
-        {
-          "id": "i5",
-          "kind": "box",
-          "x": 190,
-          "y": 220,
-          "w": 320,
-          "h": 110,
-          "text": "Item 6",
-          "color": "blue",
-          "fs": 40,
-          "sub": "listener"
-        },
-        {
-          "id": "nw",
-          "kind": "box",
+          "id": "r0",
+          "kind": "row",
           "x": 0,
-          "y": 340,
-          "w": 320,
+          "y": -250,
+          "w": 560,
           "h": 110,
-          "text": "New item",
+          "text": "Ana",
+          "sub": "has a listener",
+          "color": "blue",
+          "fs": 38
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": -120,
+          "w": 560,
+          "h": 110,
+          "text": "Ben",
+          "sub": "has a listener",
           "color": "pink",
-          "fs": 40,
-          "sub": "no listener"
+          "fs": 38
         },
         {
-          "id": "you",
-          "kind": "node",
+          "id": "r2",
+          "kind": "row",
           "x": 0,
-          "y": 610,
-          "r": 65,
-          "text": "You",
-          "fs": 34,
-          "color": "yellow"
+          "y": 10,
+          "w": 560,
+          "h": 110,
+          "text": "Cara",
+          "sub": "has a listener",
+          "color": "green",
+          "fs": 38
         },
         {
-          "id": "bad",
-          "kind": "label",
+          "id": "r3",
+          "kind": "row",
           "x": 0,
-          "y": 510,
-          "text": "nothing happens",
-          "fs": 44,
-          "color": "red"
+          "y": 140,
+          "w": 560,
+          "h": 110,
+          "text": "Dev",
+          "sub": "has a listener",
+          "color": "yellow",
+          "fs": 38
+        },
+        {
+          "id": "r4",
+          "kind": "row",
+          "x": 0,
+          "y": 270,
+          "w": 560,
+          "h": 110,
+          "text": "Eli",
+          "sub": "has a listener",
+          "color": "red",
+          "fs": 38
+        },
+        {
+          "id": "rz",
+          "kind": "row",
+          "x": 0,
+          "y": 400,
+          "w": 560,
+          "h": 110,
+          "text": "Zoe",
+          "sub": "tap to call",
+          "color": "pink",
+          "fs": 38
+        },
+        {
+          "id": "ts",
+          "kind": "btn",
+          "x": 0,
+          "y": 500,
+          "w": 520,
+          "h": 84,
+          "text": "",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 240,
+          "y": 700,
+          "r": 34
         }
       ],
       "steps": [
         {
           "do": "show",
           "ids": [
-            "ls",
-            "lt"
+            "ph"
           ]
         },
         {
           "do": "show",
           "ids": [
-            "i0",
-            "i1",
-            "i2",
-            "i3",
-            "i4",
-            "i5"
+            "r0",
+            "r1",
+            "r2",
+            "r3",
+            "r4"
           ]
         },
         {
@@ -421,8 +353,13 @@
         {
           "do": "show",
           "ids": [
-            "nw"
+            "rz"
           ]
+        },
+        {
+          "do": "sub",
+          "id": "rz",
+          "text": "no listener"
         },
         {
           "do": "wait",
@@ -431,38 +368,45 @@
         {
           "do": "show",
           "ids": [
-            "you"
+            "fg"
           ]
         },
         {
-          "do": "send",
-          "from": "you",
-          "to": "nw",
-          "color": "yellow",
-          "t": 0.9
+          "do": "move",
+          "id": "fg",
+          "x": 140,
+          "y": 400,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
         },
         {
           "do": "stroke",
-          "id": "nw",
+          "id": "rz",
           "color": "red"
         },
         {
-          "do": "flash",
-          "id": "nw",
-          "color": "red"
+          "do": "text",
+          "id": "ts",
+          "text": "Nothing happens"
         },
         {
-          "do": "wait",
-          "t": 0.6
+          "do": "fill",
+          "id": "ts",
+          "color": "red"
         },
         {
           "do": "show",
           "ids": [
-            "bad"
+            "ts"
           ]
         }
       ],
-      "say": "And it gets worse. When a new item is added later, it has no listener. You click it, and nothing happens. You must remember to wire up every new item.",
+      "say": "And it gets worse. When a new contact is added later, that row has no listener. You tap it, and nothing happens. You must remember to wire up every new row.",
       "voice": "/audio/js-07-delegation/new.wav",
       "duration": 14
     },
@@ -471,137 +415,123 @@
       "min": 16,
       "text": "The trick: listen on the parent.",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
           "id": "li",
           "kind": "box",
           "x": 0,
-          "y": -420,
+          "y": -610,
           "w": 640,
-          "h": 130,
+          "h": 120,
           "text": "one listener",
           "color": "yellow",
-          "fs": 44,
-          "sub": "on the list"
+          "fs": 42,
+          "sub": "on the whole list"
         },
         {
-          "id": "ls",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": 110,
-          "w": 820,
-          "h": 700,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "lt",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "List",
-          "fs": 44,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Contacts",
           "color": "blue"
         },
         {
-          "id": "i0",
-          "kind": "box",
-          "x": -190,
-          "y": -100,
-          "w": 320,
+          "id": "r0",
+          "kind": "row",
+          "x": 0,
+          "y": -250,
+          "w": 560,
           "h": 110,
-          "text": "Item 1",
+          "text": "Ana",
+          "sub": "tap to call",
           "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "fs": 38
         },
         {
-          "id": "i1",
-          "kind": "box",
-          "x": 190,
-          "y": -100,
-          "w": 320,
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": -120,
+          "w": 560,
           "h": 110,
-          "text": "Item 2",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "text": "Ben",
+          "sub": "tap to call",
+          "color": "pink",
+          "fs": 38
         },
         {
-          "id": "i2",
-          "kind": "box",
-          "x": -190,
-          "y": 60,
-          "w": 320,
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 10,
+          "w": 560,
           "h": 110,
-          "text": "Item 3",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "text": "Cara",
+          "sub": "tap to call",
+          "color": "green",
+          "fs": 38
         },
         {
-          "id": "i3",
-          "kind": "box",
-          "x": 190,
-          "y": 60,
-          "w": 320,
+          "id": "r3",
+          "kind": "row",
+          "x": 0,
+          "y": 140,
+          "w": 560,
           "h": 110,
-          "text": "Item 4",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "text": "Dev",
+          "sub": "tap to call",
+          "color": "yellow",
+          "fs": 38
         },
         {
-          "id": "i4",
-          "kind": "box",
-          "x": -190,
-          "y": 220,
-          "w": 320,
+          "id": "r4",
+          "kind": "row",
+          "x": 0,
+          "y": 270,
+          "w": 560,
           "h": 110,
-          "text": "Item 5",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "text": "Eli",
+          "sub": "tap to call",
+          "color": "red",
+          "fs": 38
         },
         {
-          "id": "i5",
-          "kind": "box",
-          "x": 190,
-          "y": 220,
-          "w": 320,
-          "h": 110,
-          "text": "Item 6",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
+          "id": "ts",
+          "kind": "btn",
+          "x": 0,
+          "y": 500,
+          "w": 520,
+          "h": 84,
+          "text": "",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 240,
+          "y": 700,
+          "r": 34
         },
         {
           "id": "tk",
           "kind": "node",
-          "x": 190,
-          "y": 60,
-          "r": 48,
-          "text": "click",
-          "fs": 24,
-          "color": "yellow"
-        },
-        {
-          "id": "you",
-          "kind": "node",
           "x": 0,
-          "y": 610,
-          "r": 65,
-          "text": "You",
-          "fs": 34,
+          "y": 10,
+          "r": 44,
+          "text": "tap",
+          "fs": 22,
           "color": "yellow"
         },
         {
           "id": "up",
           "kind": "label",
           "x": 0,
-          "y": -300,
+          "y": -440,
           "text": "\u25b2",
           "fs": 90,
           "color": "yellow"
@@ -621,19 +551,17 @@
         {
           "do": "show",
           "ids": [
-            "ls",
-            "lt"
+            "ph"
           ]
         },
         {
           "do": "show",
           "ids": [
-            "i0",
-            "i1",
-            "i2",
-            "i3",
-            "i4",
-            "i5"
+            "r0",
+            "r1",
+            "r2",
+            "r3",
+            "r4"
           ]
         },
         {
@@ -643,15 +571,21 @@
         {
           "do": "show",
           "ids": [
-            "you"
+            "fg"
           ]
         },
         {
-          "do": "send",
-          "from": "you",
-          "to": "i3",
-          "color": "yellow",
-          "t": 0.9
+          "do": "move",
+          "id": "fg",
+          "x": 140,
+          "y": 10,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
         },
         {
           "do": "show",
@@ -661,7 +595,7 @@
         },
         {
           "do": "flash",
-          "id": "i3",
+          "id": "r2",
           "color": "yellow"
         },
         {
@@ -671,16 +605,9 @@
         {
           "do": "move",
           "id": "tk",
-          "x": 190,
-          "y": -130,
-          "t": 0.7
-        },
-        {
-          "do": "move",
-          "id": "tk",
           "x": 0,
-          "y": -300,
-          "t": 0.7
+          "y": -440,
+          "t": 0.9
         },
         {
           "do": "show",
@@ -692,158 +619,136 @@
           "do": "move",
           "id": "tk",
           "x": 0,
-          "y": -420,
-          "t": 0.7
+          "y": -610,
+          "t": 0.6
         },
         {
           "do": "flash",
           "id": "li",
           "color": "green"
+        },
+        {
+          "do": "text",
+          "id": "ts",
+          "text": "Calling Cara..."
+        },
+        {
+          "do": "show",
+          "ids": [
+            "ts"
+          ]
         }
       ],
-      "say": "Here is the trick, and it uses bubbling. Put just one listener on the list itself. When you click any item, the click bubbles up, and the list hears it.",
+      "say": "Here is the trick, and it uses bubbling. Put just one listener on the list itself. When you tap any contact, the tap bubbles up, and the list hears it.",
       "voice": "/audio/js-07-delegation/trick.wav",
       "duration": 16
     },
     {
       "id": "target",
       "min": 16,
-      "text": "Which item was clicked?",
+      "text": "Which contact was tapped?",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
           "id": "li",
           "kind": "box",
           "x": 0,
-          "y": -420,
+          "y": -610,
           "w": 640,
-          "h": 130,
+          "h": 120,
           "text": "one listener",
           "color": "yellow",
-          "fs": 44,
+          "fs": 42,
           "sub": "waiting..."
         },
         {
-          "id": "ls",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": 110,
-          "w": 820,
-          "h": 700,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "lt",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "List",
-          "fs": 44,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Contacts",
           "color": "blue"
         },
         {
-          "id": "i0",
-          "kind": "box",
-          "x": -190,
-          "y": -100,
-          "w": 320,
-          "h": 110,
-          "text": "Item 1",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i1",
-          "kind": "box",
-          "x": 190,
-          "y": -100,
-          "w": 320,
-          "h": 110,
-          "text": "Item 2",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i2",
-          "kind": "box",
-          "x": -190,
-          "y": 60,
-          "w": 320,
-          "h": 110,
-          "text": "Item 3",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i3",
-          "kind": "box",
-          "x": 190,
-          "y": 60,
-          "w": 320,
-          "h": 110,
-          "text": "Item 4",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i4",
-          "kind": "box",
-          "x": -190,
-          "y": 220,
-          "w": 320,
-          "h": 110,
-          "text": "Item 5",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i5",
-          "kind": "box",
-          "x": 190,
-          "y": 220,
-          "w": 320,
-          "h": 110,
-          "text": "Item 6",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "tk",
-          "kind": "node",
-          "x": -190,
-          "y": -100,
-          "r": 48,
-          "text": "click",
-          "fs": 24,
-          "color": "yellow"
-        },
-        {
-          "id": "you",
-          "kind": "node",
+          "id": "r0",
+          "kind": "row",
           "x": 0,
-          "y": 610,
-          "r": 65,
-          "text": "You",
-          "fs": 34,
-          "color": "yellow"
+          "y": -250,
+          "w": 560,
+          "h": 110,
+          "text": "Ana",
+          "sub": "tap to call",
+          "color": "blue",
+          "fs": 38
         },
         {
-          "id": "job",
-          "kind": "label",
+          "id": "r1",
+          "kind": "row",
           "x": 0,
-          "y": -300,
-          "text": "then do that item's job",
-          "fs": 34,
-          "color": "green"
+          "y": -120,
+          "w": 560,
+          "h": 110,
+          "text": "Ben",
+          "sub": "tap to call",
+          "color": "pink",
+          "fs": 38
+        },
+        {
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 10,
+          "w": 560,
+          "h": 110,
+          "text": "Cara",
+          "sub": "tap to call",
+          "color": "green",
+          "fs": 38
+        },
+        {
+          "id": "r3",
+          "kind": "row",
+          "x": 0,
+          "y": 140,
+          "w": 560,
+          "h": 110,
+          "text": "Dev",
+          "sub": "tap to call",
+          "color": "yellow",
+          "fs": 38
+        },
+        {
+          "id": "r4",
+          "kind": "row",
+          "x": 0,
+          "y": 270,
+          "w": 560,
+          "h": 110,
+          "text": "Eli",
+          "sub": "tap to call",
+          "color": "red",
+          "fs": 38
+        },
+        {
+          "id": "ts",
+          "kind": "btn",
+          "x": 0,
+          "y": 500,
+          "w": 520,
+          "h": 84,
+          "text": "",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 240,
+          "y": 700,
+          "r": 34
         }
       ],
       "steps": [
@@ -851,19 +756,17 @@
           "do": "show",
           "ids": [
             "li",
-            "ls",
-            "lt"
+            "ph"
           ]
         },
         {
           "do": "show",
           "ids": [
-            "i0",
-            "i1",
-            "i2",
-            "i3",
-            "i4",
-            "i5"
+            "r0",
+            "r1",
+            "r2",
+            "r3",
+            "r4"
           ]
         },
         {
@@ -873,208 +776,218 @@
         {
           "do": "show",
           "ids": [
-            "you"
+            "fg"
           ]
         },
         {
-          "do": "send",
-          "from": "you",
-          "to": "i3",
-          "color": "yellow",
-          "t": 0.9
+          "do": "move",
+          "id": "fg",
+          "x": 140,
+          "y": 10,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
         },
         {
           "do": "flash",
-          "id": "i3",
+          "id": "r2",
           "color": "yellow"
         },
         {
           "do": "sub",
           "id": "li",
-          "text": "target: Item 4"
+          "text": "target: Cara"
         },
         {
           "do": "flash",
           "id": "li",
           "color": "green"
+        },
+        {
+          "do": "text",
+          "id": "ts",
+          "text": "Calling Cara..."
         },
         {
           "do": "show",
           "ids": [
-            "job"
+            "ts"
           ]
         },
         {
           "do": "wait",
-          "t": 1.4
+          "t": 1.6
         },
         {
-          "do": "send",
-          "from": "you",
-          "to": "i0",
-          "color": "yellow",
-          "t": 0.9
+          "do": "move",
+          "id": "fg",
+          "x": 140,
+          "y": 270,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
         },
         {
           "do": "flash",
-          "id": "i0",
+          "id": "r4",
           "color": "yellow"
         },
         {
           "do": "sub",
           "id": "li",
-          "text": "target: Item 1"
+          "text": "target: Eli"
         },
         {
           "do": "flash",
           "id": "li",
           "color": "green"
+        },
+        {
+          "do": "text",
+          "id": "ts",
+          "text": "Calling Eli..."
         }
       ],
-      "say": "But how does the list know which item was clicked? The click carries the answer. It tells you the target, the exact item that was clicked. So one listener can handle every item.",
+      "say": "But how does the list know which contact was tapped? The event carries the answer. It tells you the target, the exact row that was tapped. So one listener can handle every contact.",
       "voice": "/audio/js-07-delegation/target.wav",
       "duration": 16
     },
     {
       "id": "works",
       "min": 16,
-      "text": "New items just work.",
+      "text": "New contacts just work.",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
           "id": "li",
           "kind": "box",
           "x": 0,
-          "y": -420,
+          "y": -610,
           "w": 640,
-          "h": 130,
+          "h": 120,
           "text": "one listener",
           "color": "yellow",
-          "fs": 44,
-          "sub": "on the list"
+          "fs": 42,
+          "sub": "on the whole list"
         },
         {
-          "id": "ls",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": 110,
-          "w": 820,
-          "h": 700,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "lt",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "List",
-          "fs": 44,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Contacts",
           "color": "blue"
         },
         {
-          "id": "i0",
-          "kind": "box",
-          "x": -190,
-          "y": -100,
-          "w": 320,
-          "h": 110,
-          "text": "Item 1",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i1",
-          "kind": "box",
-          "x": 190,
-          "y": -100,
-          "w": 320,
-          "h": 110,
-          "text": "Item 2",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i2",
-          "kind": "box",
-          "x": -190,
-          "y": 60,
-          "w": 320,
-          "h": 110,
-          "text": "Item 3",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i3",
-          "kind": "box",
-          "x": 190,
-          "y": 60,
-          "w": 320,
-          "h": 110,
-          "text": "Item 4",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i4",
-          "kind": "box",
-          "x": -190,
-          "y": 220,
-          "w": 320,
-          "h": 110,
-          "text": "Item 5",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "i5",
-          "kind": "box",
-          "x": 190,
-          "y": 220,
-          "w": 320,
-          "h": 110,
-          "text": "Item 6",
-          "color": "blue",
-          "fs": 40,
-          "sub": " "
-        },
-        {
-          "id": "nw",
-          "kind": "box",
+          "id": "r0",
+          "kind": "row",
           "x": 0,
-          "y": 340,
-          "w": 320,
+          "y": -250,
+          "w": 560,
           "h": 110,
-          "text": "New item",
-          "color": "green",
-          "fs": 40
+          "text": "Ana",
+          "sub": "tap to call",
+          "color": "blue",
+          "fs": 38
         },
         {
-          "id": "you",
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": -120,
+          "w": 560,
+          "h": 110,
+          "text": "Ben",
+          "sub": "tap to call",
+          "color": "pink",
+          "fs": 38
+        },
+        {
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 10,
+          "w": 560,
+          "h": 110,
+          "text": "Cara",
+          "sub": "tap to call",
+          "color": "green",
+          "fs": 38
+        },
+        {
+          "id": "r3",
+          "kind": "row",
+          "x": 0,
+          "y": 140,
+          "w": 560,
+          "h": 110,
+          "text": "Dev",
+          "sub": "tap to call",
+          "color": "yellow",
+          "fs": 38
+        },
+        {
+          "id": "r4",
+          "kind": "row",
+          "x": 0,
+          "y": 270,
+          "w": 560,
+          "h": 110,
+          "text": "Eli",
+          "sub": "tap to call",
+          "color": "red",
+          "fs": 38
+        },
+        {
+          "id": "rz",
+          "kind": "row",
+          "x": 0,
+          "y": 400,
+          "w": 560,
+          "h": 110,
+          "text": "Zoe",
+          "sub": "tap to call",
+          "color": "pink",
+          "fs": 38
+        },
+        {
+          "id": "ts",
+          "kind": "btn",
+          "x": 0,
+          "y": 500,
+          "w": 520,
+          "h": 84,
+          "text": "",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 240,
+          "y": 700,
+          "r": 34
+        },
+        {
+          "id": "tk",
           "kind": "node",
           "x": 0,
-          "y": 610,
-          "r": 65,
-          "text": "You",
-          "fs": 34,
+          "y": 400,
+          "r": 44,
+          "text": "tap",
+          "fs": 22,
           "color": "yellow"
-        },
-        {
-          "id": "ok",
-          "kind": "label",
-          "x": 0,
-          "y": 510,
-          "text": "works, no extra setup",
-          "fs": 40,
-          "color": "green"
         }
       ],
       "steps": [
@@ -1082,19 +995,17 @@
           "do": "show",
           "ids": [
             "li",
-            "ls",
-            "lt"
+            "ph"
           ]
         },
         {
           "do": "show",
           "ids": [
-            "i0",
-            "i1",
-            "i2",
-            "i3",
-            "i4",
-            "i5"
+            "r0",
+            "r1",
+            "r2",
+            "r3",
+            "r4"
           ]
         },
         {
@@ -1104,12 +1015,12 @@
         {
           "do": "show",
           "ids": [
-            "nw"
+            "rz"
           ]
         },
         {
           "do": "flash",
-          "id": "nw",
+          "id": "rz",
           "color": "green"
         },
         {
@@ -1119,36 +1030,51 @@
         {
           "do": "show",
           "ids": [
-            "you"
+            "fg"
           ]
         },
         {
-          "do": "send",
-          "from": "you",
-          "to": "nw",
-          "color": "yellow",
-          "t": 0.9
+          "do": "move",
+          "id": "fg",
+          "x": 140,
+          "y": 400,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "tk"
+          ]
         },
         {
           "do": "flash",
-          "id": "nw",
+          "id": "rz",
           "color": "yellow"
         },
         {
-          "do": "wait",
-          "t": 0.3
+          "do": "move",
+          "id": "tk",
+          "x": 0,
+          "y": -440,
+          "t": 1.0
         },
         {
-          "do": "send",
-          "from": "nw",
-          "to": "li",
-          "color": "yellow",
-          "t": 1.2
+          "do": "move",
+          "id": "tk",
+          "x": 0,
+          "y": -610,
+          "t": 0.6
         },
         {
           "do": "sub",
           "id": "li",
-          "text": "target: New item"
+          "text": "target: Zoe"
         },
         {
           "do": "flash",
@@ -1156,13 +1082,18 @@
           "color": "green"
         },
         {
+          "do": "text",
+          "id": "ts",
+          "text": "Calling Zoe..."
+        },
+        {
           "do": "show",
           "ids": [
-            "ok"
+            "ts"
           ]
         }
       ],
-      "say": "Now new items just work. Add one later, click it, and the click bubbles up to the same listener. No extra setup. This is event delegation. The parent does the work for its children.",
+      "say": "Now new contacts just work. Add one later, tap it, and the tap bubbles up to the same listener. No extra setup. This is event delegation. The parent does the work for its children.",
       "voice": "/audio/js-07-delegation/works.wav",
       "duration": 16
     },
@@ -1183,7 +1114,7 @@
           "text": "bubbling",
           "color": "blue",
           "fs": 44,
-          "sub": "clicks rise to parents"
+          "sub": "taps rise to parents"
         },
         {
           "id": "c2",
@@ -1207,7 +1138,7 @@
           "text": "target",
           "color": "pink",
           "fs": 44,
-          "sub": "which child was clicked"
+          "sub": "which child was tapped"
         },
         {
           "id": "c4",
@@ -1216,7 +1147,7 @@
           "y": 160,
           "w": 560,
           "h": 120,
-          "text": "new items",
+          "text": "new rows",
           "color": "green",
           "fs": 44,
           "sub": "work automatically"
@@ -1260,7 +1191,7 @@
           ]
         }
       ],
-      "say": "To remember it. Click events bubble up. So one listener on the parent can handle all its children. The target tells you which child was clicked. And new children work automatically.",
+      "say": "To remember it. Taps bubble up. So one listener on the parent can handle all its children. The target tells you which child was tapped. And new children work automatically.",
       "voice": "/audio/js-07-delegation/recap.wav",
       "duration": 14
     },
@@ -1270,7 +1201,7 @@
       "text": "Next: React, the screen is your data.",
       "say": "Next up, React. The screen is your data. Follow for more.",
       "voice": "/audio/js-07-delegation/close.wav",
-      "duration": 5.5
+      "duration": 4.5
     }
   ]
 }

@@ -231,9 +231,11 @@ function buildStat(view: View2D, kit: Kit, beat: Any): Visual {
 // beat.actors: boxes, nodes, labels, links, cell rows (arrays / stacks / queues), code panels, consoles.
 // beat.steps: show, hide, send, flash, text, stroke, fill, move, moveto, swap, line, log, badge, wait, pulse.
 // Targets are "id" or "id:index" (a single cell).
+const UI = {screen: '#eef1f7', card: '#ffffff', line: '#d5dbe8', ink: '#1b2233', sub: '#7a869c'};
+
 function buildStage(view: View2D, kit: Kit, beat: Any): Visual {
   type A = {kind: string; el: Any; w: number; h: number; box?: Any; txt?: Txt; sub?: Txt; cells: Rect[]; cellTxt: Txt[];
-    size: number; gap: number; dir: string; n: number; hl?: Rect; lines: Txt[]; lh: number; logs: Txt[]; logN: number};
+    size: number; gap: number; dir: string; n: number; hl?: Rect; lines: Txt[]; lh: number; logs: Txt[]; logN: number; base?: string};
   const Z: number = beat.zoom ?? 1.15;
   const rootRef = createRef<Node>();
   view.add(<Node ref={rootRef} scale={Z} />);
@@ -369,6 +371,67 @@ function buildStage(view: View2D, kit: Kit, beat: Any): Visual {
           </Rect>
         </Node>,
       );
+    } else if (kind === 'phone') {
+      // a phone: dark bezel, light screen, notch, status bar and an app bar (sp.title)
+      const sw = a.w - 28, sh = a.h - 28;
+      root.add(
+        <Node ref={nd} position={[x, y]} opacity={0}>
+          <Rect ref={bx} width={a.w} height={a.h} radius={78} fill={'#0b0f1a'} stroke={'#4a5470'} lineWidth={8}>
+            <Rect width={sw} height={sh} radius={64} fill={UI.screen} clip>
+              <Rect width={sw} height={150} y={-sh / 2 + 75} fill={c} />
+              <Txt fontFamily={FONT} text={sp.title ?? ''} fill={'#ffffff'} fontSize={44} fontWeight={800} y={-sh / 2 + 100} />
+              <Txt fontFamily={FONT} text="9:41" fill={'#ffffff'} fontSize={26} fontWeight={800} x={-sw / 2 + 70} y={-sh / 2 + 40} />
+            </Rect>
+            <Rect width={190} height={36} radius={18} fill={'#0b0f1a'} y={-a.h / 2 + 30} />
+          </Rect>
+        </Node>,
+      );
+    } else if (kind === 'row') {
+      // a list row: avatar circle, title and subtitle on a white card
+      const av = a.h * 0.58;
+      a.base = UI.card;
+      root.add(
+        <Node ref={nd} position={[x, y]} opacity={0}>
+          <Rect ref={bx} width={a.w} height={a.h} radius={20} fill={UI.card} stroke={UI.line} lineWidth={3}>
+            <Circle size={av} fill={c} x={-a.w / 2 + 24 + av / 2} />
+            <Txt ref={tx} fontFamily={FONT} text={sp.text ?? ''} fill={UI.ink} fontSize={sp.fs ?? 36} fontWeight={800}
+              offsetX={-1} x={-a.w / 2 + 48 + av} y={sp.sub ? -17 : 0} />
+            {sp.sub ? <Txt ref={sb} fontFamily={FONT} text={sp.sub} fill={UI.sub} fontSize={26} fontWeight={600}
+              offsetX={-1} x={-a.w / 2 + 48 + av} y={24} /> : null}
+          </Rect>
+        </Node>,
+      );
+    } else if (kind === 'btn') {
+      // a filled pill button
+      a.base = c;
+      root.add(
+        <Node ref={nd} position={[x, y]} opacity={0}>
+          <Rect ref={bx} width={a.w} height={a.h} radius={a.h / 2} fill={c}>
+            <Txt ref={tx} fontFamily={FONT} text={sp.text ?? ''} fill={'#ffffff'} fontSize={sp.fs ?? 36} fontWeight={800} />
+          </Rect>
+        </Node>,
+      );
+    } else if (kind === 'card') {
+      // a content card: picture block on top, title and subtitle below
+      a.base = UI.card;
+      root.add(
+        <Node ref={nd} position={[x, y]} opacity={0}>
+          <Rect ref={bx} width={a.w} height={a.h} radius={24} fill={UI.card} stroke={UI.line} lineWidth={3}>
+            <Rect width={a.w - 32} height={a.h * 0.5} radius={16} fill={c + '55'} y={-a.h / 2 + 16 + a.h * 0.25} />
+            <Txt ref={tx} fontFamily={FONT} text={sp.text ?? ''} fill={UI.ink} fontSize={sp.fs ?? 34} fontWeight={800}
+              y={a.h * 0.2} />
+            {sp.sub ? <Txt ref={sb} fontFamily={FONT} text={sp.sub} fill={UI.sub} fontSize={24} fontWeight={600}
+              y={a.h * 0.2 + 40} /> : null}
+          </Rect>
+        </Node>,
+      );
+    } else if (kind === 'tap') {
+      // a fingertip: translucent disc with a ring
+      root.add(
+        <Node ref={nd} position={[x, y]} opacity={0}>
+          <Circle ref={bx} size={(sp.r ?? 36) * 2} fill={'#ffffff66'} stroke={'#ffffff'} lineWidth={5} />
+        </Node>,
+      );
     }
     a.el = nd();
     a.box = bx();
@@ -423,7 +486,7 @@ function buildStage(view: View2D, kit: Kit, beat: Any): Visual {
         const sh = shape(st.id);
         kit.sfx('plink1', 0.35);
         const c = col(st.color ?? 'green');
-        yield* all(chain(sh.fill(c, 0.12), sh.fill(colors.panel, 0.25)), chain(sh.scale(1.1, 0.12), sh.scale(1, 0.15)));
+        yield* all(chain(sh.fill(c, 0.12), sh.fill(actors[st.id.split(':')[0]].base ?? colors.panel, 0.25)), chain(sh.scale(1.1, 0.12), sh.scale(1, 0.15)));
         break;
       }
       case 'pulse':
