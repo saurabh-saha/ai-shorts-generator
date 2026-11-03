@@ -1,3 +1,17 @@
+# Frontend course (current priority, visual style: one picture per slide, no code on screen; code goes in articles)
+
+**Module 1: JavaScript core (7):** event loop · promises · async/await · `this` · normal vs arrow functions · event bubbling · event delegation
+**Module 2: React core (11):** the screen is your data · components as a tree · state · how React draws · lifting state up · effects ·
+reconciliation · browser vs server · useRef · useReducer · React 19 hooks (use, useActionState, useOptimistic, useFormStatus)
+**Module 3: Performance & Fiber (4):** why the UI freezes (pre-16 sync pass) · Fiber: small chunks · priorities · transitions & suspending
+**Module 4: Frontend design problems (5):** component-driven architecture · component design patterns · design a search bar · design pagination · design a nav bar
+**Module 5: Code questions, visual walkthroughs (2):** fetch in useEffect then set state · rendering lists with map and keys
+
+Workflow: one slide at a time, preview shown to the user (`python3 scripts/preview-beat.py <topic> <beat>`), approved before the next. Voice rate 150.
+The earlier text-heavy React/Node/etc. Shorts are retired as raw material for articles; other series paused.
+
+---
+
 # Curriculum
 
 Sources: roadmap.sh topic maps (React, Node.js, TypeScript, AI Agents), the official NestJS docs outline, and the

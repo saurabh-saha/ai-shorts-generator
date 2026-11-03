@@ -1,0 +1,33 @@
+{
+  "title": "JavaScript 1: The Event Loop",
+  "subtitle": "JavaScript, Explained Visually",
+  "audio": null,
+  "beats": [
+    {"id": "one_worker", "min": 14, "text": "JavaScript has one worker.", "visual": "stage", "zoom": 1.1, "badge": "THE PAGE FREEZES", "badgeColor": "red",
+     "actors": [
+       {"id": "q", "kind": "cells", "x": -310, "y": -60, "values": ["click", "type", "big loop", "scroll"], "dir": "v", "size": 100, "gap": 8, "color": "blue", "title": "Waiting tasks", "fs": 24},
+       {"id": "w", "kind": "node", "x": 40, "y": -60, "r": 85, "text": "JS", "fs": 56, "color": "yellow"},
+       {"id": "wl", "kind": "label", "x": 40, "y": 70, "text": "one worker", "fs": 28, "color": "muted"},
+       {"id": "done", "kind": "box", "x": 340, "y": -60, "w": 190, "h": 150, "text": "Done", "sub": "0 tasks", "color": "green", "fs": 40}
+     ],
+     "steps": [
+       {"do": "show", "ids": ["q"]}, {"do": "wait", "t": 0.8},
+       {"do": "show", "ids": ["w", "wl"]}, {"do": "wait", "t": 0.8},
+       {"do": "show", "ids": ["done"]}, {"do": "wait", "t": 0.6},
+       {"do": "send", "from": "q:0", "to": "w", "color": "blue", "t": 0.7}, {"do": "text", "id": "q:0", "text": ""},
+       {"do": "flash", "id": "w", "color": "yellow"},
+       {"do": "send", "from": "w", "to": "done", "color": "green", "t": 0.5}, {"do": "sub", "id": "done", "text": "1 task"}, {"do": "flash", "id": "done", "color": "green"},
+       {"do": "wait", "t": 0.5},
+       {"do": "send", "from": "q:1", "to": "w", "color": "blue", "t": 0.7}, {"do": "text", "id": "q:1", "text": ""},
+       {"do": "flash", "id": "w", "color": "yellow"},
+       {"do": "send", "from": "w", "to": "done", "color": "green", "t": 0.5}, {"do": "sub", "id": "done", "text": "2 tasks"}, {"do": "flash", "id": "done", "color": "green"},
+       {"do": "wait", "t": 0.8},
+       {"do": "stroke", "id": "q:2", "color": "red"},
+       {"do": "send", "from": "q:2", "to": "w", "color": "red", "t": 0.7}, {"do": "text", "id": "q:2", "text": ""},
+       {"do": "stroke", "id": "w", "color": "red"}, {"do": "text", "id": "wl", "text": "busy for 3 seconds...", "color": "red"},
+       {"do": "wait", "t": 0.8},
+       {"do": "flash", "id": "q:3", "color": "red"}, {"do": "wait", "t": 0.4}, {"do": "flash", "id": "q:3", "color": "red"}
+     ],
+     "say": "JavaScript can only do one thing at a time. It has a single worker, and tasks wait in line. Most tasks finish in a blink. But when one task takes a long time, everything behind it just waits, and the page freezes. So how does a website wait for the internet without freezing? That is what the event loop solves."}
+  ]
+}
