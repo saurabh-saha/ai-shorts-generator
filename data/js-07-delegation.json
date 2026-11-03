@@ -4,6 +4,156 @@
   "audio": null,
   "beats": [
     {
+      "id": "hook",
+      "min": 9,
+      "text": "600 contacts, 600 handlers?",
+      "visual": "stage",
+      "zoom": 0.85,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Contacts",
+          "color": "blue"
+        },
+        {
+          "id": "r0",
+          "kind": "row",
+          "x": 0,
+          "y": -250,
+          "w": 560,
+          "h": 110,
+          "text": "Ana",
+          "sub": "tap to call",
+          "color": "blue",
+          "fs": 38
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": -120,
+          "w": 560,
+          "h": 110,
+          "text": "Ben",
+          "sub": "tap to call",
+          "color": "pink",
+          "fs": 38
+        },
+        {
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 10,
+          "w": 560,
+          "h": 110,
+          "text": "Cara",
+          "sub": "tap to call",
+          "color": "green",
+          "fs": 38
+        },
+        {
+          "id": "r3",
+          "kind": "row",
+          "x": 0,
+          "y": 140,
+          "w": 560,
+          "h": 110,
+          "text": "Dev",
+          "sub": "tap to call",
+          "color": "yellow",
+          "fs": 38
+        },
+        {
+          "id": "r4",
+          "kind": "row",
+          "x": 0,
+          "y": 270,
+          "w": 560,
+          "h": 110,
+          "text": "Eli",
+          "sub": "tap to call",
+          "color": "red",
+          "fs": 38
+        },
+        {
+          "id": "cnt",
+          "kind": "label",
+          "x": 0,
+          "y": 690,
+          "text": "600 contacts",
+          "fs": 44,
+          "color": "blue"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r0"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r1"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r2"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r3"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r4"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "cnt"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "cnt",
+          "text": "600 handlers?"
+        },
+        {
+          "do": "text",
+          "id": "cnt",
+          "text": "600 handlers?",
+          "color": "red"
+        }
+      ],
+      "say": "Six hundred contacts. Six hundred tap handlers? There is a much smarter way. Let's see it.",
+      "voice": "/audio/js-07-delegation/hook.wav",
+      "duration": 9
+    },
+    {
       "id": "problem",
       "min": 8,
       "text": "A listener on every row?",
@@ -215,7 +365,7 @@
       ],
       "say": "Tapping a contact should call them. So put a listener on every row. It works, until a new contact is added with none. Tap it, and nothing happens.",
       "voice": "/audio/js-07-delegation/problem.wav",
-      "duration": 11.0
+      "duration": 10.0
     },
     {
       "id": "trick",
@@ -876,7 +1026,7 @@
           ]
         }
       ],
-      "say": "And new contacts just work. This is event delegation. The parent handles its children.",
+      "say": "And new contacts just work, with no extra setup.",
       "voice": "/audio/js-07-delegation/works.wav",
       "duration": 10
     },
@@ -884,9 +1034,9 @@
       "id": "close",
       "min": 3,
       "text": "Next: React, the screen is your data.",
-      "say": "Next up, React. The screen is your data. Follow for more.",
+      "say": "One listener, every contact. That is event delegation. Next up, React. The screen is your data. Follow for more.",
       "voice": "/audio/js-07-delegation/close.wav",
-      "duration": 5.0
+      "duration": 8.5
     }
   ]
 }
