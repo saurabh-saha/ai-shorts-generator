@@ -473,18 +473,18 @@ function buildStage(view: View2D, kit: Kit, beat: Any): Visual {
   function* exec(st: Any): ThreadGenerator {
     switch (st.do) {
       case 'show': {
-        kit.sfx('whoosh', 0.3);
+        if (st.sfx) kit.sfx('whoosh', 0.15);
         yield* all(...st.ids.map((i: string) => actors[i].el.opacity(1, 0.4)));
         break;
       }
       case 'hide': yield* all(...st.ids.map((i: string) => actors[i].el.opacity(0, 0.35))); break;
       case 'send':
-        kit.sfx('blip', 0.3);
+        kit.sfx('blip', 0.12);
         yield* kit.dot([posOf(st.from), posOf(st.to)], col(st.color ?? 'blue'), st.t ?? 0.6);
         break;
       case 'flash': {
         const sh = shape(st.id);
-        kit.sfx('plink1', 0.35);
+        if (st.sfx) kit.sfx('plink1', 0.2);
         const c = col(st.color ?? 'green');
         yield* all(chain(sh.fill(c, 0.12), sh.fill(actors[st.id.split(':')[0]].base ?? colors.panel, 0.25)), chain(sh.scale(1.1, 0.12), sh.scale(1, 0.15)));
         break;

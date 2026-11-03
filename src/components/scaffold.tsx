@@ -53,7 +53,7 @@ export function makeScaffold(
       </>,
     );
     function* close(): ThreadGenerator {
-      kit.sfx('whoosh', 0.6);
+      kit.sfx('whoosh', 0.25);
       yield* endCard().opacity(1, 0.5);
     }
     for (const beat of script.beats) {
