@@ -1,0 +1,842 @@
+{
+  "title": "JavaScript 4: The this keyword",
+  "subtitle": "JavaScript, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "who",
+      "min": 14,
+      "text": "this means: who is calling.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "ana",
+          "kind": "node",
+          "x": -330,
+          "y": -230,
+          "r": 75,
+          "text": "Ana",
+          "fs": 40,
+          "color": "yellow"
+        },
+        {
+          "id": "ben",
+          "kind": "node",
+          "x": -330,
+          "y": 120,
+          "r": 75,
+          "text": "Ben",
+          "fs": 40,
+          "color": "pink"
+        },
+        {
+          "id": "fn",
+          "kind": "box",
+          "x": 250,
+          "y": -60,
+          "w": 340,
+          "h": 230,
+          "text": "greet",
+          "color": "blue",
+          "fs": 44,
+          "sub": "says hello"
+        },
+        {
+          "id": "q",
+          "kind": "label",
+          "x": 250,
+          "y": 150,
+          "text": "who is \"this\"?",
+          "fs": 30,
+          "color": "muted"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ana",
+            "ben",
+            "fn"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "ana",
+          "to": "fn",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "fn",
+          "text": "this = Ana"
+        },
+        {
+          "do": "flash",
+          "id": "fn",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 1.5
+        },
+        {
+          "do": "sub",
+          "id": "fn",
+          "text": "says hello"
+        },
+        {
+          "do": "send",
+          "from": "ben",
+          "to": "fn",
+          "color": "pink",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "fn",
+          "text": "this = Ben"
+        },
+        {
+          "do": "flash",
+          "id": "fn",
+          "color": "pink"
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "q"
+          ]
+        }
+      ],
+      "say": "The word this sounds strange, but the idea is simple. It means, who is calling this function right now. The same function can be called by different people, and each time, this points to a different caller.",
+      "voice": "/audio/js-04-this/who.wav",
+      "duration": 14
+    },
+    {
+      "id": "dot",
+      "min": 14,
+      "text": "The object before the dot.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "a",
+          "kind": "box",
+          "x": -290,
+          "y": -250,
+          "w": 230,
+          "h": 110,
+          "text": "ana",
+          "color": "yellow",
+          "fs": 36
+        },
+        {
+          "id": "d1",
+          "kind": "label",
+          "x": -110,
+          "y": -250,
+          "text": ".",
+          "fs": 70,
+          "color": "text"
+        },
+        {
+          "id": "g1",
+          "kind": "box",
+          "x": 100,
+          "y": -250,
+          "w": 260,
+          "h": 110,
+          "text": "greet()",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "r1",
+          "kind": "label",
+          "x": -40,
+          "y": -150,
+          "text": "this = ana",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "b",
+          "kind": "box",
+          "x": -290,
+          "y": 70,
+          "w": 230,
+          "h": 110,
+          "text": "ben",
+          "color": "pink",
+          "fs": 36
+        },
+        {
+          "id": "d2",
+          "kind": "label",
+          "x": -110,
+          "y": 70,
+          "text": ".",
+          "fs": 70,
+          "color": "text"
+        },
+        {
+          "id": "g2",
+          "kind": "box",
+          "x": 100,
+          "y": 70,
+          "w": 260,
+          "h": 110,
+          "text": "greet()",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "r2",
+          "kind": "label",
+          "x": -40,
+          "y": 170,
+          "text": "this = ben",
+          "fs": 34,
+          "color": "pink"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "a",
+            "d1",
+            "g1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "a",
+          "to": "g1",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "g1",
+          "color": "yellow"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "b",
+            "d2",
+            "g2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "b",
+          "to": "g2",
+          "color": "pink",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "g2",
+          "color": "pink"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r2"
+          ]
+        }
+      ],
+      "say": "How does JavaScript decide? It looks at what sits in front of the dot. If you write Ana dot greet, then this is Ana. If you write Ben dot greet, this is Ben. Whoever is on the left of the dot is this.",
+      "voice": "/audio/js-04-this/dot.wav",
+      "duration": 14
+    },
+    {
+      "id": "lost",
+      "min": 14,
+      "text": "Pull it out, and it forgets.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "own",
+          "kind": "box",
+          "x": -290,
+          "y": -230,
+          "w": 240,
+          "h": 110,
+          "text": "ana",
+          "color": "yellow",
+          "fs": 36
+        },
+        {
+          "id": "f1",
+          "kind": "box",
+          "x": 60,
+          "y": -230,
+          "w": 260,
+          "h": 110,
+          "text": "greet()",
+          "color": "blue",
+          "fs": 34
+        },
+        {
+          "id": "ok",
+          "kind": "label",
+          "x": -100,
+          "y": -130,
+          "text": "this = ana",
+          "fs": 32,
+          "color": "green"
+        },
+        {
+          "id": "pull",
+          "kind": "label",
+          "x": 0,
+          "y": -30,
+          "text": "take it out...",
+          "fs": 34,
+          "color": "muted"
+        },
+        {
+          "id": "f2",
+          "kind": "box",
+          "x": -100,
+          "y": 120,
+          "w": 300,
+          "h": 120,
+          "text": "greet()",
+          "color": "blue",
+          "fs": 34,
+          "sub": "alone"
+        },
+        {
+          "id": "bad",
+          "kind": "label",
+          "x": -100,
+          "y": 260,
+          "text": "this = ???",
+          "fs": 44,
+          "color": "red"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "own",
+            "f1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "own",
+          "to": "f1",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "ok"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "pull"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "f2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "stroke",
+          "id": "f2",
+          "color": "red"
+        },
+        {
+          "do": "sub",
+          "id": "f2",
+          "text": "no caller"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "bad"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "f2",
+          "color": "red"
+        }
+      ],
+      "say": "Here is the trap. If you take the function away from its owner, and call it on its own, there is no one in front of the dot. Now this has no caller to point at, and you get a nasty surprise. Your function suddenly forgets who it belonged to.",
+      "voice": "/audio/js-04-this/lost.wav",
+      "duration": 16.0
+    },
+    {
+      "id": "bind",
+      "min": 14,
+      "text": "bind: lock the caller in.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "fn",
+          "kind": "box",
+          "x": -60,
+          "y": -250,
+          "w": 320,
+          "h": 140,
+          "text": "greet()",
+          "color": "blue",
+          "fs": 38,
+          "sub": "bound to Ana"
+        },
+        {
+          "id": "lock",
+          "kind": "label",
+          "x": -60,
+          "y": -130,
+          "text": "bind(ana)",
+          "fs": 44,
+          "color": "yellow"
+        },
+        {
+          "id": "ben",
+          "kind": "node",
+          "x": -330,
+          "y": 60,
+          "r": 75,
+          "text": "Ben",
+          "fs": 40,
+          "color": "pink"
+        },
+        {
+          "id": "anyone",
+          "kind": "node",
+          "x": 330,
+          "y": 60,
+          "r": 75,
+          "text": "Anyone",
+          "fs": 40,
+          "color": "muted"
+        },
+        {
+          "id": "res",
+          "kind": "label",
+          "x": -60,
+          "y": 230,
+          "text": "this = Ana, always",
+          "fs": 40,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "fn"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "lock"
+          ]
+        },
+        {
+          "do": "stroke",
+          "id": "fn",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "ben",
+            "anyone"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "ben",
+          "to": "fn",
+          "color": "pink",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "fn",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "anyone",
+          "to": "fn",
+          "color": "muted",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "fn",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "res"
+          ]
+        }
+      ],
+      "say": "The fix is called bind. Bind glues a caller to the function for good. Now it does not matter who calls it, or from where. This stays Ana, every time.",
+      "voice": "/audio/js-04-this/bind.wav",
+      "duration": 14
+    },
+    {
+      "id": "arrow",
+      "min": 14,
+      "text": "Arrow functions borrow this.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "outer",
+          "kind": "box",
+          "x": 0,
+          "y": -190,
+          "w": 640,
+          "h": 200,
+          "text": "Ana's method",
+          "color": "yellow",
+          "fs": 36,
+          "sub": "this = Ana"
+        },
+        {
+          "id": "ar",
+          "kind": "box",
+          "x": -190,
+          "y": 150,
+          "w": 280,
+          "h": 130,
+          "text": "arrow",
+          "color": "green",
+          "fs": 36,
+          "sub": "borrows this"
+        },
+        {
+          "id": "nf",
+          "kind": "box",
+          "x": 190,
+          "y": 150,
+          "w": 280,
+          "h": 130,
+          "text": "normal",
+          "color": "red",
+          "fs": 36,
+          "sub": "its own this"
+        },
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "outer",
+          "to": "ar",
+          "color": "green"
+        },
+        {
+          "id": "l2",
+          "kind": "link",
+          "from": "outer",
+          "to": "nf",
+          "color": "red",
+          "dashed": true
+        },
+        {
+          "id": "r1",
+          "kind": "label",
+          "x": -190,
+          "y": 265,
+          "text": "still Ana",
+          "fs": 32,
+          "color": "green"
+        },
+        {
+          "id": "r2",
+          "kind": "label",
+          "x": 190,
+          "y": 265,
+          "text": "lost it",
+          "fs": 32,
+          "color": "red"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "outer"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l1",
+            "ar"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "outer",
+          "to": "ar",
+          "color": "green",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "ar",
+          "color": "green"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "l2",
+            "nf"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "outer",
+          "to": "nf",
+          "color": "red",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "nf",
+          "color": "red"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r2"
+          ]
+        }
+      ],
+      "say": "Arrow functions work differently. They have no this of their own. They borrow it from the place where they were written. So an arrow function inside Ana's method still sees Ana. A normal function inside gets a new caller, and loses her. We will look at this closely in the next video.",
+      "voice": "/audio/js-04-this/arrow.wav",
+      "duration": 18.0
+    },
+    {
+      "id": "recap",
+      "min": 14,
+      "text": "The whole picture.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "c1",
+          "kind": "box",
+          "x": 0,
+          "y": -290,
+          "w": 520,
+          "h": 110,
+          "text": "this",
+          "color": "blue",
+          "fs": 40,
+          "sub": "who is calling"
+        },
+        {
+          "id": "c2",
+          "kind": "box",
+          "x": 0,
+          "y": -150,
+          "w": 520,
+          "h": 110,
+          "text": "before the dot",
+          "color": "yellow",
+          "fs": 36,
+          "sub": "that object is this"
+        },
+        {
+          "id": "c3",
+          "kind": "box",
+          "x": 0,
+          "y": -10,
+          "w": 520,
+          "h": 110,
+          "text": "taken out",
+          "color": "red",
+          "fs": 36,
+          "sub": "caller forgotten"
+        },
+        {
+          "id": "c4",
+          "kind": "box",
+          "x": 0,
+          "y": 130,
+          "w": 520,
+          "h": 110,
+          "text": "bind",
+          "color": "green",
+          "fs": 36,
+          "sub": "locks the caller"
+        },
+        {
+          "id": "c5",
+          "kind": "box",
+          "x": 0,
+          "y": 270,
+          "w": 520,
+          "h": 110,
+          "text": "arrow",
+          "color": "pink",
+          "fs": 36,
+          "sub": "borrows from outside"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "c1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c3"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c4"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "c5"
+          ]
+        }
+      ],
+      "say": "To remember it. This is whoever is calling. The object before the dot decides it. Take the function out, and it forgets. Bind locks it in place. Arrow functions simply borrow it.",
+      "voice": "/audio/js-04-this/recap.wav",
+      "duration": 14
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "text": "Next: normal vs arrow functions.",
+      "say": "Next up, normal functions versus arrow functions. Follow for more.",
+      "voice": "/audio/js-04-this/close.wav",
+      "duration": 6.0
+    }
+  ]
+}
