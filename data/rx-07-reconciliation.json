@@ -1,0 +1,606 @@
+{
+  "title": "React 7: Reconciliation",
+  "subtitle": "React, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 10,
+      "text": "Does React redraw it all?",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Chat",
+          "color": "blue"
+        },
+        {
+          "id": "r0",
+          "kind": "row",
+          "x": 0,
+          "y": 20,
+          "w": 380,
+          "h": 88,
+          "text": "Ana",
+          "sub": "Hi!",
+          "color": "blue",
+          "fs": 30
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": 120,
+          "w": 380,
+          "h": 88,
+          "text": "Ben",
+          "sub": "Lunch?",
+          "color": "pink",
+          "fs": 30
+        },
+        {
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 220,
+          "w": 380,
+          "h": 88,
+          "text": "Cara",
+          "sub": "Sure",
+          "color": "green",
+          "fs": 30
+        },
+        {
+          "id": "r3",
+          "kind": "row",
+          "x": 0,
+          "y": 320,
+          "w": 380,
+          "h": 88,
+          "text": "Dev",
+          "sub": "On my way",
+          "color": "yellow",
+          "fs": 30
+        },
+        {
+          "id": "q",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "redraw the whole chat?",
+          "fs": 36,
+          "color": "yellow"
+        },
+        {
+          "id": "a",
+          "kind": "label",
+          "x": 0,
+          "y": 620,
+          "text": "only the new message is added",
+          "fs": 34,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph",
+            "r0",
+            "r1",
+            "r2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "q"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "hide",
+          "ids": [
+            "q"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "r3"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "r3",
+          "color": "yellow"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "a"
+          ]
+        }
+      ],
+      "say": "A new message arrives in the chat. Does React throw everything away, and redraw the whole chat? No. It only adds the new message.",
+      "voice": "/audio/rx-07-reconciliation/hook.wav",
+      "duration": 10
+    },
+    {
+      "id": "compare",
+      "min": 13,
+      "text": "Compare old and new.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "oc",
+          "kind": "box",
+          "x": -250,
+          "y": -380,
+          "w": 150,
+          "h": 80,
+          "text": "Chat",
+          "color": "blue",
+          "fs": 28
+        },
+        {
+          "id": "om0",
+          "kind": "box",
+          "x": -390,
+          "y": -220,
+          "w": 110,
+          "h": 80,
+          "text": "Ana",
+          "color": "blue",
+          "fs": 26
+        },
+        {
+          "id": "om1",
+          "kind": "box",
+          "x": -250,
+          "y": -220,
+          "w": 110,
+          "h": 80,
+          "text": "Ben",
+          "color": "pink",
+          "fs": 26
+        },
+        {
+          "id": "om2",
+          "kind": "box",
+          "x": -110,
+          "y": -220,
+          "w": 110,
+          "h": 80,
+          "text": "Cara",
+          "color": "green",
+          "fs": 26
+        },
+        {
+          "id": "nc",
+          "kind": "box",
+          "x": 280,
+          "y": -380,
+          "w": 150,
+          "h": 80,
+          "text": "Chat",
+          "color": "blue",
+          "fs": 28
+        },
+        {
+          "id": "nm0",
+          "kind": "box",
+          "x": 70,
+          "y": -220,
+          "w": 110,
+          "h": 80,
+          "text": "Ana",
+          "color": "blue",
+          "fs": 26
+        },
+        {
+          "id": "nm1",
+          "kind": "box",
+          "x": 190,
+          "y": -220,
+          "w": 110,
+          "h": 80,
+          "text": "Ben",
+          "color": "pink",
+          "fs": 26
+        },
+        {
+          "id": "nm2",
+          "kind": "box",
+          "x": 310,
+          "y": -220,
+          "w": 110,
+          "h": 80,
+          "text": "Cara",
+          "color": "green",
+          "fs": 26
+        },
+        {
+          "id": "nm3",
+          "kind": "box",
+          "x": 430,
+          "y": -220,
+          "w": 110,
+          "h": 80,
+          "text": "Dev",
+          "color": "yellow",
+          "fs": 26
+        },
+        {
+          "id": "ok0",
+          "kind": "link",
+          "from": "oc",
+          "to": "om0",
+          "color": "muted"
+        },
+        {
+          "id": "ok1",
+          "kind": "link",
+          "from": "oc",
+          "to": "om1",
+          "color": "muted"
+        },
+        {
+          "id": "ok2",
+          "kind": "link",
+          "from": "oc",
+          "to": "om2",
+          "color": "muted"
+        },
+        {
+          "id": "nk0",
+          "kind": "link",
+          "from": "nc",
+          "to": "nm0",
+          "color": "muted"
+        },
+        {
+          "id": "nk1",
+          "kind": "link",
+          "from": "nc",
+          "to": "nm1",
+          "color": "muted"
+        },
+        {
+          "id": "nk2",
+          "kind": "link",
+          "from": "nc",
+          "to": "nm2",
+          "color": "muted"
+        },
+        {
+          "id": "nk3",
+          "kind": "link",
+          "from": "nc",
+          "to": "nm3",
+          "color": "muted"
+        },
+        {
+          "id": "lo",
+          "kind": "label",
+          "x": -250,
+          "y": -480,
+          "text": "on screen now",
+          "fs": 32,
+          "color": "blue"
+        },
+        {
+          "id": "ln",
+          "kind": "label",
+          "x": 280,
+          "y": -480,
+          "text": "new draft",
+          "fs": 32,
+          "color": "yellow"
+        },
+        {
+          "id": "cmp",
+          "kind": "label",
+          "x": 0,
+          "y": -60,
+          "text": "same, same, same, new!",
+          "fs": 40,
+          "color": "green"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "oc",
+            "lo"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "om0",
+            "om1",
+            "om2",
+            "ok0",
+            "ok1",
+            "ok2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "nc",
+            "ln"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "nm0",
+            "nm1",
+            "nm2",
+            "nm3",
+            "nk0",
+            "nk1",
+            "nk2",
+            "nk3"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "nm0",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "nm1",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "nm2",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "nm3",
+          "color": "pink"
+        },
+        {
+          "do": "show",
+          "ids": [
+            "cmp"
+          ]
+        }
+      ],
+      "say": "React keeps two copies of the tree. What is on screen now, and the new draft. It walks down both together, piece by piece. Same, same, same. And one new one. So it changes only that.",
+      "voice": "/audio/rx-07-reconciliation/compare.wav",
+      "duration": 13
+    },
+    {
+      "id": "keys",
+      "min": 16,
+      "text": "Keys: name tags for lists.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "oc",
+          "kind": "cells",
+          "x": -250,
+          "y": -60,
+          "values": [
+            "Ana",
+            "Ben",
+            "Cara"
+          ],
+          "dir": "v",
+          "size": 90,
+          "gap": 10,
+          "color": "blue",
+          "title": "before",
+          "fs": 26
+        },
+        {
+          "id": "nc",
+          "kind": "cells",
+          "x": 250,
+          "y": -60,
+          "values": [
+            "Dev",
+            "Ana",
+            "Ben",
+            "Cara"
+          ],
+          "dir": "v",
+          "size": 90,
+          "gap": 10,
+          "color": "yellow",
+          "title": "after",
+          "fs": 26
+        },
+        {
+          "id": "p0",
+          "kind": "link",
+          "from": "oc:0",
+          "to": "nc:0",
+          "color": "red"
+        },
+        {
+          "id": "p1",
+          "kind": "link",
+          "from": "oc:1",
+          "to": "nc:1",
+          "color": "red"
+        },
+        {
+          "id": "p2",
+          "kind": "link",
+          "from": "oc:2",
+          "to": "nc:2",
+          "color": "red"
+        },
+        {
+          "id": "q0",
+          "kind": "link",
+          "from": "oc:0",
+          "to": "nc:1",
+          "color": "green"
+        },
+        {
+          "id": "q1",
+          "kind": "link",
+          "from": "oc:1",
+          "to": "nc:2",
+          "color": "green"
+        },
+        {
+          "id": "q2",
+          "kind": "link",
+          "from": "oc:2",
+          "to": "nc:3",
+          "color": "green"
+        },
+        {
+          "id": "bad",
+          "kind": "label",
+          "x": 0,
+          "y": 300,
+          "text": "no keys: matched by position, all look changed",
+          "fs": 28,
+          "color": "red"
+        },
+        {
+          "id": "good",
+          "kind": "label",
+          "x": 0,
+          "y": 300,
+          "text": "keys: matched by name, only Dev is new",
+          "fs": 30,
+          "color": "green"
+        },
+        {
+          "id": "cb",
+          "kind": "code",
+          "x": 0,
+          "y": 420,
+          "w": 600,
+          "lines": [
+            [
+              "messages.map(m =>",
+              "muted"
+            ],
+            [
+              "  <Message key={m.id} />",
+              "yellow"
+            ],
+            [
+              ")",
+              "muted"
+            ]
+          ],
+          "fs": 30
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "oc",
+            "nc"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "p0",
+            "p1",
+            "p2"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "bad"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 2.0
+        },
+        {
+          "do": "hide",
+          "ids": [
+            "p0",
+            "p1",
+            "p2",
+            "bad"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "cb"
+          ]
+        },
+        {
+          "do": "line",
+          "id": "cb",
+          "i": 1
+        },
+        {
+          "do": "show",
+          "ids": [
+            "q0",
+            "q1",
+            "q2"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "good"
+          ]
+        }
+      ],
+      "say": "Now a trap. Say the new message lands at the top. React matches by position, so Ana's slot now holds Dev, and it thinks everything changed. Give each message a key, like a name tag, and React matches Ana to Ana. Only Dev is new. That is why lists need keys.",
+      "voice": "/audio/rx-07-reconciliation/keys.wav",
+      "duration": 17.5
+    },
+    {
+      "id": "close",
+      "min": 3,
+      "text": "Next: browser vs server.",
+      "say": "Compare old and new, and change only the difference. Next up, browser versus server. Follow for more.",
+      "voice": "/audio/rx-07-reconciliation/close.wav",
+      "duration": 8.0
+    }
+  ]
+}
