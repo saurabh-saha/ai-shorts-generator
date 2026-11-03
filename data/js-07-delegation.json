@@ -4,9 +4,9 @@
   "audio": null,
   "beats": [
     {
-      "id": "many",
-      "min": 16,
-      "text": "Every contact needs a listener?",
+      "id": "problem",
+      "min": 8,
+      "text": "A listener on every row?",
       "visual": "stage",
       "zoom": 0.85,
       "actors": [
@@ -77,224 +77,6 @@
           "h": 110,
           "text": "Eli",
           "sub": "tap to call",
-          "color": "red",
-          "fs": 38
-        },
-        {
-          "id": "cnt",
-          "kind": "label",
-          "x": 0,
-          "y": 690,
-          "text": "5 contacts = 5 listeners",
-          "fs": 40,
-          "color": "red"
-        }
-      ],
-      "steps": [
-        {
-          "do": "show",
-          "ids": [
-            "ph"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 0.6
-        },
-        {
-          "do": "show",
-          "ids": [
-            "r0"
-          ]
-        },
-        {
-          "do": "sub",
-          "id": "r0",
-          "text": "has a listener"
-        },
-        {
-          "do": "flash",
-          "id": "r0",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "show",
-          "ids": [
-            "r1"
-          ]
-        },
-        {
-          "do": "sub",
-          "id": "r1",
-          "text": "has a listener"
-        },
-        {
-          "do": "flash",
-          "id": "r1",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "show",
-          "ids": [
-            "r2"
-          ]
-        },
-        {
-          "do": "sub",
-          "id": "r2",
-          "text": "has a listener"
-        },
-        {
-          "do": "flash",
-          "id": "r2",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "show",
-          "ids": [
-            "r3"
-          ]
-        },
-        {
-          "do": "sub",
-          "id": "r3",
-          "text": "has a listener"
-        },
-        {
-          "do": "flash",
-          "id": "r3",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "show",
-          "ids": [
-            "r4"
-          ]
-        },
-        {
-          "do": "sub",
-          "id": "r4",
-          "text": "has a listener"
-        },
-        {
-          "do": "flash",
-          "id": "r4",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "show",
-          "ids": [
-            "cnt"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 1.2
-        },
-        {
-          "do": "text",
-          "id": "cnt",
-          "text": "600 contacts = 600 listeners!"
-        }
-      ],
-      "say": "Say you have a contacts list, and tapping a name should call that person. The obvious way is a listener on every single row. That works. But with six hundred contacts, that is six hundred listeners.",
-      "voice": "/audio/js-07-delegation/many.wav",
-      "duration": 16
-    },
-    {
-      "id": "new",
-      "min": 14,
-      "text": "New contacts break it.",
-      "visual": "stage",
-      "zoom": 0.85,
-      "actors": [
-        {
-          "id": "ph",
-          "kind": "phone",
-          "x": 0,
-          "y": 40,
-          "w": 660,
-          "h": 1100,
-          "title": "Contacts",
-          "color": "blue"
-        },
-        {
-          "id": "r0",
-          "kind": "row",
-          "x": 0,
-          "y": -250,
-          "w": 560,
-          "h": 110,
-          "text": "Ana",
-          "sub": "has a listener",
-          "color": "blue",
-          "fs": 38
-        },
-        {
-          "id": "r1",
-          "kind": "row",
-          "x": 0,
-          "y": -120,
-          "w": 560,
-          "h": 110,
-          "text": "Ben",
-          "sub": "has a listener",
-          "color": "pink",
-          "fs": 38
-        },
-        {
-          "id": "r2",
-          "kind": "row",
-          "x": 0,
-          "y": 10,
-          "w": 560,
-          "h": 110,
-          "text": "Cara",
-          "sub": "has a listener",
-          "color": "green",
-          "fs": 38
-        },
-        {
-          "id": "r3",
-          "kind": "row",
-          "x": 0,
-          "y": 140,
-          "w": 560,
-          "h": 110,
-          "text": "Dev",
-          "sub": "has a listener",
-          "color": "yellow",
-          "fs": 38
-        },
-        {
-          "id": "r4",
-          "kind": "row",
-          "x": 0,
-          "y": 270,
-          "w": 560,
-          "h": 110,
-          "text": "Eli",
-          "sub": "has a listener",
           "color": "red",
           "fs": 38
         },
@@ -347,8 +129,33 @@
           ]
         },
         {
+          "do": "sub",
+          "id": "r0",
+          "text": "has a listener"
+        },
+        {
+          "do": "sub",
+          "id": "r1",
+          "text": "has a listener"
+        },
+        {
+          "do": "sub",
+          "id": "r2",
+          "text": "has a listener"
+        },
+        {
+          "do": "sub",
+          "id": "r3",
+          "text": "has a listener"
+        },
+        {
+          "do": "sub",
+          "id": "r4",
+          "text": "has a listener"
+        },
+        {
           "do": "wait",
-          "t": 0.8
+          "t": 0.5
         },
         {
           "do": "show",
@@ -363,7 +170,7 @@
         },
         {
           "do": "wait",
-          "t": 1
+          "t": 0.4
         },
         {
           "do": "show",
@@ -406,14 +213,14 @@
           ]
         }
       ],
-      "say": "And it gets worse. When a new contact is added later, that row has no listener. You tap it, and nothing happens. You must remember to wire up every new row.",
-      "voice": "/audio/js-07-delegation/new.wav",
-      "duration": 14
+      "say": "Tapping a contact should call them. So put a listener on every row. It works, until a new contact is added with none. Tap it, and nothing happens.",
+      "voice": "/audio/js-07-delegation/problem.wav",
+      "duration": 9.5
     },
     {
       "id": "trick",
-      "min": 16,
-      "text": "The trick: listen on the parent.",
+      "min": 10,
+      "text": "The fix: listen on the parent.",
       "visual": "stage",
       "zoom": 0.85,
       "actors": [
@@ -545,10 +352,6 @@
           ]
         },
         {
-          "do": "wait",
-          "t": 0.6
-        },
-        {
           "do": "show",
           "ids": [
             "ph"
@@ -563,10 +366,6 @@
             "r3",
             "r4"
           ]
-        },
-        {
-          "do": "wait",
-          "t": 0.8
         },
         {
           "do": "show",
@@ -599,15 +398,11 @@
           "color": "yellow"
         },
         {
-          "do": "wait",
-          "t": 0.4
-        },
-        {
           "do": "move",
           "id": "tk",
           "x": 0,
           "y": -440,
-          "t": 0.9
+          "t": 0.8
         },
         {
           "do": "show",
@@ -620,7 +415,7 @@
           "id": "tk",
           "x": 0,
           "y": -610,
-          "t": 0.6
+          "t": 0.5
         },
         {
           "do": "flash",
@@ -639,13 +434,13 @@
           ]
         }
       ],
-      "say": "Here is the trick, and it uses bubbling. Put just one listener on the list itself. When you tap any contact, the tap bubbles up, and the list hears it.",
+      "say": "The fix uses bubbling. Put one listener on the list. Tap any contact, and the tap bubbles up to it.",
       "voice": "/audio/js-07-delegation/trick.wav",
-      "duration": 16
+      "duration": 10
     },
     {
       "id": "target",
-      "min": 16,
+      "min": 10,
       "text": "Which contact was tapped?",
       "visual": "stage",
       "zoom": 0.85,
@@ -770,10 +565,6 @@
           ]
         },
         {
-          "do": "wait",
-          "t": 0.8
-        },
-        {
           "do": "show",
           "ids": [
             "fg"
@@ -820,7 +611,7 @@
         },
         {
           "do": "wait",
-          "t": 1.6
+          "t": 0.6
         },
         {
           "do": "move",
@@ -856,13 +647,13 @@
           "text": "Calling Eli..."
         }
       ],
-      "say": "But how does the list know which contact was tapped? The event carries the answer. It tells you the target, the exact row that was tapped. So one listener can handle every contact.",
+      "say": "The tap also says which row it came from. That is the target. So one listener can handle every contact.",
       "voice": "/audio/js-07-delegation/target.wav",
-      "duration": 16
+      "duration": 10
     },
     {
       "id": "works",
-      "min": 16,
+      "min": 10,
       "text": "New contacts just work.",
       "visual": "stage",
       "zoom": 0.85,
@@ -1009,10 +800,6 @@
           ]
         },
         {
-          "do": "wait",
-          "t": 0.8
-        },
-        {
           "do": "show",
           "ids": [
             "rz"
@@ -1022,10 +809,6 @@
           "do": "flash",
           "id": "rz",
           "color": "green"
-        },
-        {
-          "do": "wait",
-          "t": 1
         },
         {
           "do": "show",
@@ -1062,14 +845,14 @@
           "id": "tk",
           "x": 0,
           "y": -440,
-          "t": 1.0
+          "t": 0.9
         },
         {
           "do": "move",
           "id": "tk",
           "x": 0,
           "y": -610,
-          "t": 0.6
+          "t": 0.5
         },
         {
           "do": "sub",
@@ -1093,111 +876,13 @@
           ]
         }
       ],
-      "say": "Now new contacts just work. Add one later, tap it, and the tap bubbles up to the same listener. No extra setup. This is event delegation. The parent does the work for its children.",
+      "say": "And new contacts just work. This is event delegation. The parent handles its children.",
       "voice": "/audio/js-07-delegation/works.wav",
-      "duration": 16
-    },
-    {
-      "id": "recap",
-      "min": 14,
-      "text": "The whole picture.",
-      "visual": "stage",
-      "zoom": 1.0,
-      "actors": [
-        {
-          "id": "c1",
-          "kind": "box",
-          "x": 0,
-          "y": -290,
-          "w": 560,
-          "h": 120,
-          "text": "bubbling",
-          "color": "blue",
-          "fs": 44,
-          "sub": "taps rise to parents"
-        },
-        {
-          "id": "c2",
-          "kind": "box",
-          "x": 0,
-          "y": -140,
-          "w": 560,
-          "h": 120,
-          "text": "one listener",
-          "color": "yellow",
-          "fs": 44,
-          "sub": "on the parent"
-        },
-        {
-          "id": "c3",
-          "kind": "box",
-          "x": 0,
-          "y": 10,
-          "w": 560,
-          "h": 120,
-          "text": "target",
-          "color": "pink",
-          "fs": 44,
-          "sub": "which child was tapped"
-        },
-        {
-          "id": "c4",
-          "kind": "box",
-          "x": 0,
-          "y": 160,
-          "w": 560,
-          "h": 120,
-          "text": "new rows",
-          "color": "green",
-          "fs": 44,
-          "sub": "work automatically"
-        }
-      ],
-      "steps": [
-        {
-          "do": "show",
-          "ids": [
-            "c1"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 1
-        },
-        {
-          "do": "show",
-          "ids": [
-            "c2"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 1
-        },
-        {
-          "do": "show",
-          "ids": [
-            "c3"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 1
-        },
-        {
-          "do": "show",
-          "ids": [
-            "c4"
-          ]
-        }
-      ],
-      "say": "To remember it. Taps bubble up. So one listener on the parent can handle all its children. The target tells you which child was tapped. And new children work automatically.",
-      "voice": "/audio/js-07-delegation/recap.wav",
-      "duration": 14
+      "duration": 10
     },
     {
       "id": "close",
-      "min": 4,
+      "min": 3,
       "text": "Next: React, the screen is your data.",
       "say": "Next up, React. The screen is your data. Follow for more.",
       "voice": "/audio/js-07-delegation/close.wav",
