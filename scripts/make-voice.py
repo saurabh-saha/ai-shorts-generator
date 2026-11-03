@@ -33,6 +33,11 @@ for beat in data["beats"]:
             kv = os.environ.get("VOICE", "af_sky")
             subprocess.run([".venv-tts/bin/python", "scripts/kokoro-tts.py", str(wav), kv,
                             os.environ.get("SPEED", "0.95"), beat["say"]], check=True)
+            # breathing room before the words: longer at the very start of the video
+            lead = int(float(os.environ.get("LEAD", "0.5")) * 1000) + (700 if beat is data["beats"][0] else 0)
+            tmp = out / f"{beat['id']}.lead.wav"
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(wav), "-af", f"adelay={lead}:all=1", str(tmp)], check=True)
+            tmp.replace(wav)
         else:
             aiff = out / f"{beat['id']}.aiff"
             subprocess.run(["say", "-v", voice, "-r", rate, "-o", str(aiff), beat["say"]], check=True)

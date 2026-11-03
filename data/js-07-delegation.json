@@ -215,7 +215,7 @@
       ],
       "say": "Tapping a contact should call them. So put a listener on every row. It works, until a new contact is added with none. Tap it, and nothing happens.",
       "voice": "/audio/js-07-delegation/problem.wav",
-      "duration": 9.5
+      "duration": 11.0
     },
     {
       "id": "trick",
@@ -886,7 +886,7 @@
       "text": "Next: React, the screen is your data.",
       "say": "Next up, React. The screen is your data. Follow for more.",
       "voice": "/audio/js-07-delegation/close.wav",
-      "duration": 4.5
+      "duration": 5.0
     }
   ]
 }
