@@ -17,36 +17,60 @@
           "y": 170,
           "w": 440,
           "h": 760,
-          "title": "Feed",
+          "title": "Cart",
           "color": "blue"
         },
         {
-          "id": "cd",
-          "kind": "card",
+          "id": "r0",
+          "kind": "row",
           "x": 0,
-          "y": 130,
+          "y": 40,
           "w": 380,
-          "h": 330,
-          "text": "Beach day",
-          "sub": "12 likes",
-          "color": "pink",
-          "fs": 34
+          "h": 100,
+          "text": "Shoes",
+          "sub": "$40 x 1",
+          "color": "blue",
+          "fs": 32
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": 160,
+          "w": 380,
+          "h": 100,
+          "text": "Cap",
+          "sub": "$15 x 1",
+          "color": "yellow",
+          "fs": 32
+        },
+        {
+          "id": "tot",
+          "kind": "row",
+          "x": 0,
+          "y": 300,
+          "w": 380,
+          "h": 100,
+          "text": "Total",
+          "sub": "$55",
+          "color": "green",
+          "fs": 32
         },
         {
           "id": "bt",
           "kind": "btn",
-          "x": 0,
-          "y": 330,
-          "w": 220,
-          "h": 70,
-          "text": "Like",
-          "color": "pink",
-          "fs": 34
+          "x": 140,
+          "y": 40,
+          "w": 70,
+          "h": 56,
+          "text": "+",
+          "color": "green",
+          "fs": 40
         },
         {
           "id": "fg",
           "kind": "tap",
-          "x": 200,
+          "x": 230,
           "y": 620,
           "r": 30
         },
@@ -98,16 +122,23 @@
           "do": "show",
           "ids": [
             "ph",
-            "cd",
-            "bt",
+            "r0",
+            "r1",
+            "tot",
+            "bt"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
             "fg"
           ]
         },
         {
           "do": "move",
           "id": "fg",
-          "x": 60,
-          "y": 330,
+          "x": 140,
+          "y": 40,
           "t": 0.8
         },
         {
@@ -119,16 +150,26 @@
         {
           "do": "flash",
           "id": "bt",
-          "color": "pink"
+          "color": "green"
         },
         {
           "do": "sub",
-          "id": "cd",
-          "text": "13 likes"
+          "id": "r0",
+          "text": "$40 x 2"
+        },
+        {
+          "do": "sub",
+          "id": "tot",
+          "text": "$95"
         },
         {
           "do": "flash",
-          "id": "cd",
+          "id": "r0",
+          "color": "yellow"
+        },
+        {
+          "do": "flash",
+          "id": "tot",
           "color": "yellow"
         },
         {
@@ -164,7 +205,7 @@
           ]
         }
       ],
-      "say": "You tap Like, and the number changes instantly. But what happens in that split second? React does three things.",
+      "say": "You tap plus on the shoes, and the total jumps instantly. But what happens in that split second? React does three things.",
       "voice": "/audio/rx-04-how-react-draws/hook.wav",
       "duration": 10
     },
@@ -182,36 +223,60 @@
           "y": 170,
           "w": 440,
           "h": 760,
-          "title": "Feed",
+          "title": "Cart",
           "color": "blue"
         },
         {
-          "id": "cd",
-          "kind": "card",
+          "id": "r0",
+          "kind": "row",
           "x": 0,
-          "y": 130,
+          "y": 40,
           "w": 380,
-          "h": 330,
-          "text": "Beach day",
-          "sub": "12 likes",
-          "color": "pink",
-          "fs": 34
+          "h": 100,
+          "text": "Shoes",
+          "sub": "$40 x 1",
+          "color": "blue",
+          "fs": 32
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": 160,
+          "w": 380,
+          "h": 100,
+          "text": "Cap",
+          "sub": "$15 x 1",
+          "color": "yellow",
+          "fs": 32
+        },
+        {
+          "id": "tot",
+          "kind": "row",
+          "x": 0,
+          "y": 300,
+          "w": 380,
+          "h": 100,
+          "text": "Total",
+          "sub": "$55",
+          "color": "green",
+          "fs": 32
         },
         {
           "id": "bt",
           "kind": "btn",
-          "x": 0,
-          "y": 330,
-          "w": 220,
-          "h": 70,
-          "text": "Like",
-          "color": "pink",
-          "fs": 34
+          "x": 140,
+          "y": 40,
+          "w": 70,
+          "h": 56,
+          "text": "+",
+          "color": "green",
+          "fs": 40
         },
         {
           "id": "fg",
           "kind": "tap",
-          "x": 200,
+          "x": 230,
           "y": 620,
           "r": 30
         },
@@ -220,7 +285,7 @@
           "kind": "label",
           "x": 0,
           "y": 620,
-          "text": "marked for redraw",
+          "text": "cart marked for redraw",
           "fs": 36,
           "color": "yellow"
         },
@@ -229,7 +294,7 @@
           "kind": "label",
           "x": 0,
           "y": 670,
-          "text": "screen still says 12",
+          "text": "screen still says $55",
           "fs": 30,
           "color": "muted"
         },
@@ -272,7 +337,9 @@
           "do": "show",
           "ids": [
             "ph",
-            "cd",
+            "r0",
+            "r1",
+            "tot",
             "bt",
             "s1",
             "s2",
@@ -292,8 +359,8 @@
         {
           "do": "move",
           "id": "fg",
-          "x": 60,
-          "y": 330,
+          "x": 140,
+          "y": 40,
           "t": 0.8
         },
         {
@@ -305,12 +372,7 @@
         {
           "do": "flash",
           "id": "bt",
-          "color": "pink"
-        },
-        {
-          "do": "stroke",
-          "id": "cd",
-          "color": "yellow"
+          "color": "green"
         },
         {
           "do": "show",
@@ -329,7 +391,7 @@
           ]
         }
       ],
-      "say": "Step one, trigger. Something changes, like the state. React marks the post as needing a redraw. Nothing on screen has changed yet.",
+      "say": "Step one, trigger. You tap plus, so the quantity changes. React marks the cart as needing a redraw. Nothing on screen has changed yet.",
       "voice": "/audio/rx-04-how-react-draws/trigger.wav",
       "duration": 10
     },
@@ -347,31 +409,55 @@
           "y": 170,
           "w": 440,
           "h": 760,
-          "title": "Feed",
+          "title": "Cart",
           "color": "blue"
         },
         {
-          "id": "cd",
-          "kind": "card",
+          "id": "r0",
+          "kind": "row",
           "x": 0,
-          "y": 130,
+          "y": 40,
           "w": 380,
-          "h": 330,
-          "text": "Beach day",
-          "sub": "12 likes",
-          "color": "pink",
-          "fs": 34
+          "h": 100,
+          "text": "Shoes",
+          "sub": "$40 x 1",
+          "color": "blue",
+          "fs": 32
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": 160,
+          "w": 380,
+          "h": 100,
+          "text": "Cap",
+          "sub": "$15 x 1",
+          "color": "yellow",
+          "fs": 32
+        },
+        {
+          "id": "tot",
+          "kind": "row",
+          "x": 0,
+          "y": 300,
+          "w": 380,
+          "h": 100,
+          "text": "Total",
+          "sub": "$55",
+          "color": "green",
+          "fs": 32
         },
         {
           "id": "bt",
           "kind": "btn",
-          "x": 0,
-          "y": 330,
-          "w": 220,
-          "h": 70,
-          "text": "Like",
-          "color": "pink",
-          "fs": 34
+          "x": 140,
+          "y": 40,
+          "w": 70,
+          "h": 56,
+          "text": "+",
+          "color": "green",
+          "fs": 40
         },
         {
           "id": "s1",
@@ -410,11 +496,11 @@
           "id": "dr",
           "kind": "card",
           "x": 410,
-          "y": 130,
+          "y": 170,
           "w": 290,
-          "h": 270,
-          "text": "Beach day",
-          "sub": "13 likes",
+          "h": 300,
+          "text": "Shoes x 2",
+          "sub": "Total $95",
           "color": "yellow",
           "fs": 30
         },
@@ -422,7 +508,7 @@
           "id": "dl",
           "kind": "label",
           "x": 410,
-          "y": 310,
+          "y": 340,
           "text": "draft, not on screen",
           "fs": 28,
           "color": "yellow"
@@ -442,7 +528,9 @@
           "do": "show",
           "ids": [
             "ph",
-            "cd",
+            "r0",
+            "r1",
+            "tot",
             "bt",
             "s1",
             "s2",
@@ -486,13 +574,13 @@
           ]
         }
       ],
-      "say": "Step two, render. React runs the post again, to work out what the screen should look like now. It builds a draft, but the screen itself stays untouched.",
+      "say": "Step two, render. React runs the cart again, and writes a draft of the new cart. Shoes times two, and the new total. The real screen stays untouched.",
       "voice": "/audio/rx-04-how-react-draws/render.wav",
       "duration": 11
     },
     {
       "id": "commit",
-      "min": 11,
+      "min": 12,
       "text": "3. Commit: update the screen.",
       "visual": "stage",
       "zoom": 0.9,
@@ -504,31 +592,55 @@
           "y": 170,
           "w": 440,
           "h": 760,
-          "title": "Feed",
+          "title": "Cart",
           "color": "blue"
         },
         {
-          "id": "cd",
-          "kind": "card",
+          "id": "r0",
+          "kind": "row",
           "x": 0,
-          "y": 130,
+          "y": 40,
           "w": 380,
-          "h": 330,
-          "text": "Beach day",
-          "sub": "12 likes",
-          "color": "pink",
-          "fs": 34
+          "h": 100,
+          "text": "Shoes",
+          "sub": "$40 x 1",
+          "color": "blue",
+          "fs": 32
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": 160,
+          "w": 380,
+          "h": 100,
+          "text": "Cap",
+          "sub": "$15 x 1",
+          "color": "yellow",
+          "fs": 32
+        },
+        {
+          "id": "tot",
+          "kind": "row",
+          "x": 0,
+          "y": 300,
+          "w": 380,
+          "h": 100,
+          "text": "Total",
+          "sub": "$55",
+          "color": "green",
+          "fs": 32
         },
         {
           "id": "bt",
           "kind": "btn",
-          "x": 0,
-          "y": 330,
-          "w": 220,
-          "h": 70,
-          "text": "Like",
-          "color": "pink",
-          "fs": 34
+          "x": 140,
+          "y": 40,
+          "w": 70,
+          "h": 56,
+          "text": "+",
+          "color": "green",
+          "fs": 40
         },
         {
           "id": "s1",
@@ -567,11 +679,11 @@
           "id": "dr",
           "kind": "card",
           "x": 410,
-          "y": 130,
+          "y": 170,
           "w": 290,
-          "h": 270,
-          "text": "Beach day",
-          "sub": "13 likes",
+          "h": 300,
+          "text": "Shoes x 2",
+          "sub": "Total $95",
           "color": "yellow",
           "fs": 30
         },
@@ -580,7 +692,7 @@
           "kind": "label",
           "x": 0,
           "y": 620,
-          "text": "only the number changes",
+          "text": "only 2 things changed",
           "fs": 36,
           "color": "green"
         }
@@ -590,7 +702,9 @@
           "do": "show",
           "ids": [
             "ph",
-            "cd",
+            "r0",
+            "r1",
+            "tot",
             "bt",
             "s1",
             "s2",
@@ -610,18 +724,35 @@
         {
           "do": "send",
           "from": "dr",
-          "to": "cd",
+          "to": "r0",
           "color": "green",
-          "t": 0.9
+          "t": 0.8
         },
         {
           "do": "sub",
-          "id": "cd",
-          "text": "13 likes"
+          "id": "r0",
+          "text": "$40 x 2"
         },
         {
           "do": "flash",
-          "id": "cd",
+          "id": "r0",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "dr",
+          "to": "tot",
+          "color": "green",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "tot",
+          "text": "$95"
+        },
+        {
+          "do": "flash",
+          "id": "tot",
           "color": "green"
         },
         {
@@ -631,9 +762,9 @@
           ]
         }
       ],
-      "say": "Step three, commit. React updates the real screen, but only the part that changed. The number changes. The picture and button stay exactly as they were.",
+      "say": "Step three, commit. React updates the real screen, but only what changed. The shoes line, and the total. The cap stays exactly as it was.",
       "voice": "/audio/rx-04-how-react-draws/commit.wav",
-      "duration": 11
+      "duration": 12
     },
     {
       "id": "close",
