@@ -1,225 +1,154 @@
 {
-  "title": "JavaScript 1: The Event Loop",
+  "title": "JavaScript 6: Event bubbling",
   "subtitle": "JavaScript, Explained Visually",
   "audio": null,
   "beats": [
     {
-      "id": "one_worker",
+      "id": "parent",
       "min": 14,
-      "text": "JavaScript has one worker.",
+      "text": "Parents hear it too.",
       "visual": "stage",
       "zoom": 1.1,
-      "badge": "THE PAGE FREEZES",
-      "badgeColor": "red",
       "actors": [
         {
-          "id": "q",
-          "kind": "cells",
-          "x": -310,
-          "y": -60,
-          "values": [
-            "click",
-            "type",
-            "big loop",
-            "scroll"
-          ],
-          "dir": "v",
-          "size": 100,
-          "gap": 8,
+          "id": "pg",
+          "kind": "box",
+          "x": 0,
+          "y": -290,
+          "w": 620,
+          "h": 120,
+          "text": "Page",
           "color": "blue",
-          "title": "Waiting tasks",
-          "fs": 24
+          "fs": 40,
+          "sub": "outermost"
         },
         {
-          "id": "w",
-          "kind": "node",
-          "x": 40,
-          "y": -60,
-          "r": 85,
-          "text": "JS",
-          "fs": 56,
-          "color": "yellow"
+          "id": "cd",
+          "kind": "box",
+          "x": 0,
+          "y": -90,
+          "w": 500,
+          "h": 120,
+          "text": "Card",
+          "color": "pink",
+          "fs": 40,
+          "sub": "has a listener"
         },
         {
-          "id": "wl",
-          "kind": "label",
-          "x": 40,
-          "y": 70,
-          "text": "one worker",
-          "fs": 28,
+          "id": "bt",
+          "kind": "box",
+          "x": 0,
+          "y": 110,
+          "w": 380,
+          "h": 120,
+          "text": "Button",
+          "color": "green",
+          "fs": 40,
+          "sub": "has a listener"
+        },
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "pg",
+          "to": "cd",
           "color": "muted"
         },
         {
-          "id": "done",
-          "kind": "box",
-          "x": 340,
-          "y": -60,
-          "w": 190,
-          "h": 150,
-          "text": "Done",
-          "sub": "0 tasks",
-          "color": "green",
-          "fs": 40
+          "id": "l2",
+          "kind": "link",
+          "from": "cd",
+          "to": "bt",
+          "color": "muted"
+        },
+        {
+          "id": "you",
+          "kind": "node",
+          "x": 0,
+          "y": 310,
+          "r": 65,
+          "text": "You",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "r1",
+          "kind": "label",
+          "x": 0,
+          "y": 10,
+          "text": "button ran",
+          "fs": 30,
+          "color": "green"
+        },
+        {
+          "id": "r2",
+          "kind": "label",
+          "x": 0,
+          "y": -190,
+          "text": "card ran too!",
+          "fs": 30,
+          "color": "pink"
         }
       ],
       "steps": [
         {
           "do": "show",
           "ids": [
-            "q"
+            "pg",
+            "l1",
+            "cd",
+            "l2",
+            "bt",
+            "you"
           ]
         },
         {
           "do": "wait",
           "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "you",
+          "to": "bt",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "bt",
+          "color": "green"
         },
         {
           "do": "show",
           "ids": [
-            "w",
-            "wl"
+            "r1"
           ]
         },
         {
           "do": "wait",
           "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "bt",
+          "to": "cd",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "flash",
+          "id": "cd",
+          "color": "pink"
         },
         {
           "do": "show",
           "ids": [
-            "done"
+            "r2"
           ]
-        },
-        {
-          "do": "wait",
-          "t": 0.6
-        },
-        {
-          "do": "send",
-          "from": "q:0",
-          "to": "w",
-          "color": "blue",
-          "t": 0.7
-        },
-        {
-          "do": "text",
-          "id": "q:0",
-          "text": ""
-        },
-        {
-          "do": "flash",
-          "id": "w",
-          "color": "yellow"
-        },
-        {
-          "do": "send",
-          "from": "w",
-          "to": "done",
-          "color": "green",
-          "t": 0.5
-        },
-        {
-          "do": "sub",
-          "id": "done",
-          "text": "1 task"
-        },
-        {
-          "do": "flash",
-          "id": "done",
-          "color": "green"
-        },
-        {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "send",
-          "from": "q:1",
-          "to": "w",
-          "color": "blue",
-          "t": 0.7
-        },
-        {
-          "do": "text",
-          "id": "q:1",
-          "text": ""
-        },
-        {
-          "do": "flash",
-          "id": "w",
-          "color": "yellow"
-        },
-        {
-          "do": "send",
-          "from": "w",
-          "to": "done",
-          "color": "green",
-          "t": 0.5
-        },
-        {
-          "do": "sub",
-          "id": "done",
-          "text": "2 tasks"
-        },
-        {
-          "do": "flash",
-          "id": "done",
-          "color": "green"
-        },
-        {
-          "do": "wait",
-          "t": 0.8
-        },
-        {
-          "do": "stroke",
-          "id": "q:2",
-          "color": "red"
-        },
-        {
-          "do": "send",
-          "from": "q:2",
-          "to": "w",
-          "color": "red",
-          "t": 0.7
-        },
-        {
-          "do": "text",
-          "id": "q:2",
-          "text": ""
-        },
-        {
-          "do": "stroke",
-          "id": "w",
-          "color": "red"
-        },
-        {
-          "do": "text",
-          "id": "wl",
-          "text": "busy for 3 seconds...",
-          "color": "red"
-        },
-        {
-          "do": "wait",
-          "t": 0.8
-        },
-        {
-          "do": "flash",
-          "id": "q:3",
-          "color": "red"
-        },
-        {
-          "do": "wait",
-          "t": 0.4
-        },
-        {
-          "do": "flash",
-          "id": "q:3",
-          "color": "red"
         }
       ],
-      "say": "JavaScript can only do one thing at a time. It has a single worker, and tasks wait in line. Most tasks finish in a blink. But when one task takes a long time, everything behind it just waits, and the page freezes. So how does a website wait for the internet without freezing? That is what the event loop solves.",
-      "voice": "/audio/preview/one_worker.wav",
-      "duration": 21.5
+      "say": "This has a surprising result. If the card has its own click listener, it runs when you click the button inside it. Even though you never touched the card. The parent reacts, because the click bubbled up to it.",
+      "voice": "/audio/preview/parent.wav",
+      "duration": 14
     }
   ]
 }
