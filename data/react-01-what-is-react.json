@@ -6,29 +6,231 @@
     {
       "id": "declarative",
       "min": 8,
-      "duration": 12.5,
       "text": "Describe the UI. React updates the DOM.",
-      "visual": "compare",
-      "left": {
-        "title": "Imperative",
-        "color": "red",
-        "items": [
-          "Find the element",
-          "Change its text",
-          "Track every case"
-        ]
-      },
-      "right": {
-        "title": "Declarative",
-        "color": "green",
-        "items": [
-          "Describe the UI",
-          "for the current state",
-          "React updates the DOM"
-        ]
-      },
-      "say": "In plain JavaScript, you tell the browser how to change the page, step by step. React flips that: you describe what the screen should look like for the current data, and React does the updating.",
-      "voice": "/audio/react-01-what-is-react/declarative.wav"
+      "duration": 12.5,
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "ll",
+          "kind": "label",
+          "x": -255,
+          "y": -430,
+          "text": "Imperative",
+          "fs": 46,
+          "color": "red"
+        },
+        {
+          "id": "lcode",
+          "kind": "code",
+          "x": -255,
+          "y": -250,
+          "w": 470,
+          "fs": 24,
+          "lines": [
+            [
+              "el = $('#count');",
+              "text"
+            ],
+            [
+              "el.textContent = 1;",
+              "text"
+            ],
+            [
+              "el.classList.add('hot');",
+              "text"
+            ]
+          ]
+        },
+        {
+          "id": "lnote",
+          "kind": "label",
+          "x": -255,
+          "y": -90,
+          "text": "you update each piece",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "ldom",
+          "kind": "box",
+          "x": -255,
+          "y": 120,
+          "w": 300,
+          "h": 150,
+          "text": "DOM",
+          "sub": "count: 0",
+          "color": "muted",
+          "fs": 40
+        },
+        {
+          "id": "rl",
+          "kind": "label",
+          "x": 255,
+          "y": -430,
+          "text": "Declarative",
+          "fs": 46,
+          "color": "green"
+        },
+        {
+          "id": "rcode",
+          "kind": "code",
+          "x": 255,
+          "y": -250,
+          "w": 470,
+          "fs": 24,
+          "lines": [
+            [
+              "<p className={cls}>",
+              "text"
+            ],
+            [
+              "  {count}",
+              "text"
+            ],
+            [
+              "</p>",
+              "text"
+            ]
+          ]
+        },
+        {
+          "id": "rstate",
+          "kind": "box",
+          "x": 255,
+          "y": -90,
+          "w": 300,
+          "h": 90,
+          "text": "count = 0",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "rdom",
+          "kind": "box",
+          "x": 255,
+          "y": 120,
+          "w": 300,
+          "h": 150,
+          "text": "DOM",
+          "sub": "count: 0",
+          "color": "muted",
+          "fs": 40
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ll",
+            "lcode",
+            "lnote",
+            "ldom"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "line",
+          "id": "lcode",
+          "i": 0
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "line",
+          "id": "lcode",
+          "i": 1
+        },
+        {
+          "do": "send",
+          "from": "lcode",
+          "to": "ldom",
+          "color": "red"
+        },
+        {
+          "do": "sub",
+          "id": "ldom",
+          "text": "count: 1"
+        },
+        {
+          "do": "flash",
+          "id": "ldom",
+          "color": "red"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "line",
+          "id": "lcode",
+          "i": 2
+        },
+        {
+          "do": "send",
+          "from": "lcode",
+          "to": "ldom",
+          "color": "red"
+        },
+        {
+          "do": "flash",
+          "id": "ldom",
+          "color": "red"
+        },
+        {
+          "do": "wait",
+          "t": 1.2
+        },
+        {
+          "do": "show",
+          "ids": [
+            "rl",
+            "rcode",
+            "rstate",
+            "rdom"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "text",
+          "id": "rstate",
+          "text": "count = 1"
+        },
+        {
+          "do": "flash",
+          "id": "rstate",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "rstate",
+          "to": "rdom",
+          "color": "green"
+        },
+        {
+          "do": "sub",
+          "id": "rdom",
+          "text": "count: 1"
+        },
+        {
+          "do": "flash",
+          "id": "rdom",
+          "color": "green"
+        }
+      ],
+      "say": "In plain JavaScript, you tell the browser how to change the page, step by step: find this element, change its text, add a class. React flips that. You describe what the screen should look like for the current data, and React does the updating for you."
     },
     {
       "id": "tree",

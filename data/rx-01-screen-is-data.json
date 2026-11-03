@@ -1,0 +1,41 @@
+{
+  "title": "React 1: The Screen Is Your Data",
+  "subtitle": "React, Explained Visually",
+  "audio": null,
+  "beats": [
+    {"id": "picture", "min": 14, "text": "The screen is a picture of your data.", "visual": "stage", "zoom": 1.1,
+     "actors": [
+       {"id": "l1", "kind": "link", "from": "data", "to": "machine", "color": "muted"},
+       {"id": "l2", "kind": "link", "from": "machine", "to": "phone", "color": "muted"},
+       {"id": "data", "kind": "box", "x": -340, "y": -80, "w": 220, "h": 190, "text": "Data", "sub": "likes: 12", "color": "yellow", "fs": 46},
+       {"id": "dlab", "kind": "label", "x": -340, "y": 70, "text": "what you know", "fs": 28, "color": "muted"},
+       {"id": "machine", "kind": "node", "x": 0, "y": -80, "r": 95, "text": "React", "fs": 46, "color": "blue"},
+       {"id": "mlab", "kind": "label", "x": 0, "y": 70, "text": "draws the screen", "fs": 28, "color": "muted"},
+       {"id": "phone", "kind": "box", "x": 340, "y": -80, "w": 250, "h": 330, "text": "", "color": "green"},
+       {"id": "heart", "kind": "label", "x": 340, "y": -140, "text": "♥", "fs": 120, "color": "red"},
+       {"id": "count", "kind": "label", "x": 340, "y": -10, "text": "12", "fs": 90, "color": "text"},
+       {"id": "slab", "kind": "label", "x": 340, "y": 110, "text": "what people see", "fs": 28, "color": "muted"}
+     ],
+     "steps": [
+       {"do": "show", "ids": ["data", "dlab"]},
+       {"do": "wait", "t": 1.0},
+       {"do": "show", "ids": ["l1", "l2", "machine", "mlab"]},
+       {"do": "wait", "t": 1.0},
+       {"do": "show", "ids": ["phone", "slab"]},
+       {"do": "send", "from": "data", "to": "machine", "color": "yellow"}, {"do": "flash", "id": "machine", "color": "blue"},
+       {"do": "send", "from": "machine", "to": "phone", "color": "blue"},
+       {"do": "show", "ids": ["heart", "count"]}, {"do": "flash", "id": "phone", "color": "green"},
+       {"do": "wait", "t": 1.2},
+       {"do": "sub", "id": "data", "text": "likes: 13"}, {"do": "flash", "id": "data", "color": "yellow"},
+       {"do": "send", "from": "data", "to": "machine", "color": "yellow"}, {"do": "flash", "id": "machine", "color": "blue"},
+       {"do": "send", "from": "machine", "to": "phone", "color": "blue"},
+       {"do": "text", "id": "count", "text": "13"}, {"do": "flash", "id": "phone", "color": "green"},
+       {"do": "wait", "t": 1.0},
+       {"do": "sub", "id": "data", "text": "likes: 14"}, {"do": "flash", "id": "data", "color": "yellow"},
+       {"do": "send", "from": "data", "to": "machine", "color": "yellow"}, {"do": "flash", "id": "machine", "color": "blue"},
+       {"do": "send", "from": "machine", "to": "phone", "color": "blue"},
+       {"do": "text", "id": "count", "text": "14"}, {"do": "flash", "id": "phone", "color": "green"}
+     ],
+     "say": "Think of your screen as a picture of your data. React is the machine in the middle. Give it the data, and it draws the screen. When the data changes, from twelve likes to thirteen, it draws a new picture. You never touch the screen yourself."}
+  ]
+}
