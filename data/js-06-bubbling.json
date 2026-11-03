@@ -4,96 +4,76 @@
   "audio": null,
   "beats": [
     {
-      "id": "tap",
-      "min": 14,
-      "text": "Tap a button. Tap a card?",
+      "id": "hook",
+      "min": 11,
+      "text": "Why did the post open too?",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
-          "id": "pg",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": -20,
-          "w": 820,
-          "h": 900,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "pl",
-          "kind": "label",
-          "x": 0,
-          "y": -420,
-          "text": "Page",
-          "fs": 46,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Feed",
           "color": "blue"
         },
         {
           "id": "cd",
-          "kind": "box",
+          "kind": "card",
           "x": 0,
-          "y": 40,
-          "w": 640,
-          "h": 560,
-          "text": "",
+          "y": -10,
+          "w": 580,
+          "h": 520,
+          "text": "Beach day",
+          "sub": "Ana posted a photo",
           "color": "pink",
-          "fs": 1
-        },
-        {
-          "id": "cl",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "Card",
-          "fs": 46,
-          "color": "pink"
+          "fs": 40
         },
         {
           "id": "bt",
-          "kind": "box",
+          "kind": "btn",
           "x": 0,
-          "y": 170,
-          "w": 400,
-          "h": 170,
-          "text": "Button",
-          "color": "green",
-          "fs": 50
+          "y": 190,
+          "w": 300,
+          "h": 84,
+          "text": "Like",
+          "color": "pink",
+          "fs": 38
         },
         {
-          "id": "you",
-          "kind": "node",
+          "id": "ts",
+          "kind": "btn",
           "x": 0,
-          "y": 560,
-          "r": 65,
-          "text": "You",
-          "fs": 34,
-          "color": "yellow"
+          "y": 500,
+          "w": 520,
+          "h": 84,
+          "text": "",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 250,
+          "y": 700,
+          "r": 34
         }
       ],
       "steps": [
         {
           "do": "show",
           "ids": [
-            "pg",
-            "pl"
+            "ph"
           ]
-        },
-        {
-          "do": "wait",
-          "t": 0.7
         },
         {
           "do": "show",
           "ids": [
-            "cd",
-            "cl"
+            "cd"
           ]
-        },
-        {
-          "do": "wait",
-          "t": 0.7
         },
         {
           "do": "show",
@@ -102,13 +82,38 @@
           ]
         },
         {
-          "do": "wait",
-          "t": 0.7
+          "do": "show",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": 100,
+          "y": 190,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "bt",
+          "color": "pink"
+        },
+        {
+          "do": "text",
+          "id": "ts",
+          "text": "Liked"
         },
         {
           "do": "show",
           "ids": [
-            "you"
+            "ts"
           ]
         },
         {
@@ -116,144 +121,125 @@
           "t": 0.5
         },
         {
-          "do": "send",
-          "from": "you",
-          "to": "bt",
-          "color": "yellow",
-          "t": 0.9
-        },
-        {
-          "do": "flash",
-          "id": "bt",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.4
-        },
-        {
           "do": "flash",
           "id": "cd",
           "color": "yellow"
         },
         {
           "do": "text",
-          "id": "cl",
-          "text": "Card: tapped too!"
+          "id": "ts",
+          "text": "...and the post opened!"
         },
         {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "flash",
-          "id": "pg",
-          "color": "yellow"
-        },
-        {
-          "do": "text",
-          "id": "pl",
-          "text": "Page: tapped too!"
+          "do": "fill",
+          "id": "ts",
+          "color": "red"
         }
       ],
-      "say": "You tap a button. But the button sits inside a card, and the card sits inside a page. So when you tap the button, you also tapped the card, and the page. They all contain it.",
-      "voice": "/audio/js-06-bubbling/tap.wav",
-      "duration": 14
+      "say": "You know the Like button on a post? You tap it, and sometimes the whole post opens too. Why? Because a tap does not stay where you put it.",
+      "voice": "/audio/js-06-bubbling/hook.wav",
+      "duration": 11
     },
     {
-      "id": "rise",
-      "min": 14,
-      "text": "The click bubbles up.",
+      "id": "bubble",
+      "min": 11,
+      "text": "A tap bubbles up.",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
-          "id": "pg",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": -20,
-          "w": 820,
-          "h": 900,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "pl",
-          "kind": "label",
-          "x": 0,
-          "y": -420,
-          "text": "Page",
-          "fs": 46,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Feed",
           "color": "blue"
         },
         {
           "id": "cd",
-          "kind": "box",
+          "kind": "card",
           "x": 0,
-          "y": 40,
-          "w": 640,
-          "h": 560,
-          "text": "",
+          "y": -10,
+          "w": 580,
+          "h": 520,
+          "text": "Beach day",
+          "sub": "Ana posted a photo",
           "color": "pink",
-          "fs": 1
-        },
-        {
-          "id": "cl",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "Card",
-          "fs": 46,
-          "color": "pink"
+          "fs": 40
         },
         {
           "id": "bt",
-          "kind": "box",
+          "kind": "btn",
           "x": 0,
-          "y": 170,
-          "w": 400,
-          "h": 170,
-          "text": "Button",
-          "color": "green",
-          "fs": 50
+          "y": 190,
+          "w": 300,
+          "h": 84,
+          "text": "Like",
+          "color": "pink",
+          "fs": 38
         },
         {
-          "id": "you",
-          "kind": "node",
-          "x": 0,
-          "y": 560,
-          "r": 65,
-          "text": "You",
-          "fs": 34,
-          "color": "yellow"
+          "id": "fg",
+          "kind": "tap",
+          "x": 250,
+          "y": 700,
+          "r": 34
         },
         {
           "id": "tk",
           "kind": "node",
           "x": 0,
-          "y": 170,
-          "r": 48,
-          "text": "click",
-          "fs": 24,
+          "y": 190,
+          "r": 44,
+          "text": "tap",
+          "fs": 22,
           "color": "yellow"
         },
         {
           "id": "a1",
           "kind": "label",
-          "x": 0,
-          "y": 10,
+          "x": 250,
+          "y": 90,
           "text": "\u25b2",
-          "fs": 110,
+          "fs": 80,
           "color": "yellow"
         },
         {
           "id": "a2",
           "kind": "label",
-          "x": 0,
-          "y": -320,
+          "x": 250,
+          "y": -310,
           "text": "\u25b2",
-          "fs": 110,
+          "fs": 80,
+          "color": "yellow"
+        },
+        {
+          "id": "h1",
+          "kind": "label",
+          "x": 0,
+          "y": 320,
+          "text": "1  Button heard it",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "h2",
+          "kind": "label",
+          "x": 0,
+          "y": 370,
+          "text": "2  Card heard it",
+          "fs": 34,
+          "color": "yellow"
+        },
+        {
+          "id": "h3",
+          "kind": "label",
+          "x": 0,
+          "y": 420,
+          "text": "3  Screen heard it",
+          "fs": 34,
           "color": "yellow"
         }
       ],
@@ -261,24 +247,24 @@
         {
           "do": "show",
           "ids": [
-            "pg",
-            "pl",
+            "ph",
             "cd",
-            "cl",
             "bt",
-            "you"
+            "fg"
           ]
         },
         {
-          "do": "wait",
-          "t": 0.6
+          "do": "move",
+          "id": "fg",
+          "x": 100,
+          "y": 190,
+          "t": 0.8
         },
         {
-          "do": "send",
-          "from": "you",
-          "to": "bt",
-          "color": "yellow",
-          "t": 0.8
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
         },
         {
           "do": "show",
@@ -289,18 +275,20 @@
         {
           "do": "flash",
           "id": "bt",
-          "color": "yellow"
+          "color": "pink"
         },
         {
-          "do": "wait",
-          "t": 0.5
+          "do": "show",
+          "ids": [
+            "h1"
+          ]
         },
         {
           "do": "move",
           "id": "tk",
           "x": 0,
-          "y": -90,
-          "t": 1.0
+          "y": -30,
+          "t": 0.7
         },
         {
           "do": "show",
@@ -314,20 +302,17 @@
           "color": "yellow"
         },
         {
-          "do": "text",
-          "id": "cl",
-          "text": "Card: heard it"
-        },
-        {
-          "do": "wait",
-          "t": 0.4
+          "do": "show",
+          "ids": [
+            "h2"
+          ]
         },
         {
           "do": "move",
           "id": "tk",
-          "x": 0,
-          "y": -330,
-          "t": 1.0
+          "x": 230,
+          "y": -421,
+          "t": 0.8
         },
         {
           "do": "show",
@@ -336,385 +321,127 @@
           ]
         },
         {
-          "do": "flash",
-          "id": "pg",
-          "color": "yellow"
-        },
-        {
-          "do": "text",
-          "id": "pl",
-          "text": "Page: heard it"
-        }
-      ],
-      "say": "JavaScript models exactly this. The click starts at the button, then rises up, one layer at a time. First the card, then the page. Like a bubble floating up through water. That is why it is called bubbling.",
-      "voice": "/audio/js-06-bubbling/rise.wav",
-      "duration": 14.5
-    },
-    {
-      "id": "why",
-      "min": 16,
-      "text": "Why is that useful?",
-      "visual": "stage",
-      "zoom": 1.0,
-      "actors": [
-        {
-          "id": "cd",
-          "kind": "box",
-          "x": 0,
-          "y": -40,
-          "w": 860,
-          "h": 330,
-          "text": "",
-          "color": "pink",
-          "fs": 1
-        },
-        {
-          "id": "cl",
-          "kind": "label",
-          "x": 0,
-          "y": -170,
-          "text": "Card",
-          "fs": 40,
-          "color": "pink"
-        },
-        {
-          "id": "b0",
-          "kind": "box",
-          "x": -300,
-          "y": -40,
-          "w": 170,
-          "h": 110,
-          "text": "Like",
-          "color": "green",
-          "fs": 34
-        },
-        {
-          "id": "b1",
-          "kind": "box",
-          "x": -100,
-          "y": -40,
-          "w": 170,
-          "h": 110,
-          "text": "Share",
-          "color": "green",
-          "fs": 34
-        },
-        {
-          "id": "b2",
-          "kind": "box",
-          "x": 100,
-          "y": -40,
-          "w": 170,
-          "h": 110,
-          "text": "Save",
-          "color": "green",
-          "fs": 34
-        },
-        {
-          "id": "b3",
-          "kind": "box",
-          "x": 300,
-          "y": -40,
-          "w": 170,
-          "h": 110,
-          "text": "More",
-          "color": "green",
-          "fs": 34
-        },
-        {
-          "id": "li",
-          "kind": "box",
-          "x": 0,
-          "y": -330,
-          "w": 640,
-          "h": 130,
-          "text": "one listener",
-          "color": "yellow",
-          "fs": 44,
-          "sub": "on the card"
-        },
-        {
-          "id": "no",
-          "kind": "label",
-          "x": 0,
-          "y": 200,
-          "text": "not four listeners",
-          "fs": 40,
-          "color": "red"
-        },
-        {
-          "id": "ok",
-          "kind": "label",
-          "x": 0,
-          "y": 300,
-          "text": "one place to look",
-          "fs": 44,
-          "color": "green"
-        }
-      ],
-      "steps": [
-        {
           "do": "show",
           "ids": [
-            "cd",
-            "cl"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 0.6
-        },
-        {
-          "do": "show",
-          "ids": [
-            "b0",
-            "b1",
-            "b2",
-            "b3"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 1
-        },
-        {
-          "do": "show",
-          "ids": [
-            "li"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 0.6
-        },
-        {
-          "do": "send",
-          "from": "b0",
-          "to": "li",
-          "color": "yellow",
-          "t": 0.9
-        },
-        {
-          "do": "flash",
-          "id": "li",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.3
-        },
-        {
-          "do": "send",
-          "from": "b1",
-          "to": "li",
-          "color": "yellow",
-          "t": 0.9
-        },
-        {
-          "do": "flash",
-          "id": "li",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.3
-        },
-        {
-          "do": "send",
-          "from": "b2",
-          "to": "li",
-          "color": "yellow",
-          "t": 0.9
-        },
-        {
-          "do": "flash",
-          "id": "li",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.3
-        },
-        {
-          "do": "send",
-          "from": "b3",
-          "to": "li",
-          "color": "yellow",
-          "t": 0.9
-        },
-        {
-          "do": "flash",
-          "id": "li",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.3
-        },
-        {
-          "do": "wait",
-          "t": 0.5
-        },
-        {
-          "do": "show",
-          "ids": [
-            "no"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 0.8
-        },
-        {
-          "do": "show",
-          "ids": [
-            "ok"
+            "h3"
           ]
         }
       ],
-      "say": "Why is that useful? Imagine four buttons in a card. Without bubbling, you would have to listen on every single button. With bubbling, you listen once, on the card, and every click inside it arrives there. Less work, and one place to look.",
-      "voice": "/audio/js-06-bubbling/why.wav",
-      "duration": 17.0
+      "say": "A tap starts at the button. Then it bubbles up, to the card, and then to the screen. Every layer gets to hear it.",
+      "voice": "/audio/js-06-bubbling/bubble.wav",
+      "duration": 11
     },
     {
       "id": "capture",
-      "min": 14,
-      "text": "First down, then up.",
+      "min": 11,
+      "text": "Down first, then up.",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
-          "id": "pg",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": -20,
-          "w": 820,
-          "h": 900,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "pl",
-          "kind": "label",
-          "x": 0,
-          "y": -420,
-          "text": "Page",
-          "fs": 46,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Feed",
           "color": "blue"
         },
         {
           "id": "cd",
-          "kind": "box",
+          "kind": "card",
           "x": 0,
-          "y": 40,
-          "w": 640,
-          "h": 560,
-          "text": "",
+          "y": -10,
+          "w": 580,
+          "h": 520,
+          "text": "Beach day",
+          "sub": "Ana posted a photo",
           "color": "pink",
-          "fs": 1
-        },
-        {
-          "id": "cl",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "Card",
-          "fs": 46,
-          "color": "pink"
+          "fs": 40
         },
         {
           "id": "bt",
-          "kind": "box",
+          "kind": "btn",
           "x": 0,
-          "y": 170,
-          "w": 400,
-          "h": 170,
-          "text": "Button",
-          "color": "green",
-          "fs": 50
-        },
-        {
-          "id": "you",
-          "kind": "node",
-          "x": 0,
-          "y": 560,
-          "r": 65,
-          "text": "You",
-          "fs": 34,
-          "color": "yellow"
+          "y": 190,
+          "w": 300,
+          "h": 84,
+          "text": "Like",
+          "color": "pink",
+          "fs": 38
         },
         {
           "id": "td",
           "kind": "node",
-          "x": -110,
-          "y": -330,
-          "r": 48,
+          "x": -230,
+          "y": -421,
+          "r": 44,
           "text": "down",
-          "fs": 24,
+          "fs": 22,
           "color": "blue"
         },
         {
           "id": "tu",
           "kind": "node",
-          "x": 110,
-          "y": 170,
-          "r": 48,
+          "x": 230,
+          "y": 190,
+          "r": 44,
           "text": "up",
-          "fs": 24,
+          "fs": 22,
           "color": "yellow"
         },
         {
           "id": "d1",
           "kind": "label",
-          "x": -110,
-          "y": -300,
-          "text": "\u25bc",
-          "fs": 110,
+          "x": -250,
+          "y": 90,
+          "text": "\u25b2",
+          "fs": 80,
           "color": "blue"
         },
         {
           "id": "d2",
           "kind": "label",
-          "x": -110,
-          "y": 0,
-          "text": "\u25bc",
-          "fs": 110,
+          "x": -250,
+          "y": -310,
+          "text": "\u25b2",
+          "fs": 80,
           "color": "blue"
         },
         {
           "id": "u1",
           "kind": "label",
-          "x": 110,
-          "y": 0,
+          "x": 250,
+          "y": 90,
           "text": "\u25b2",
-          "fs": 110,
+          "fs": 80,
           "color": "yellow"
         },
         {
           "id": "u2",
           "kind": "label",
-          "x": 110,
-          "y": -300,
+          "x": 250,
+          "y": -310,
           "text": "\u25b2",
-          "fs": 110,
+          "fs": 80,
           "color": "yellow"
         },
         {
           "id": "n1",
           "kind": "label",
-          "x": -110,
-          "y": -520,
-          "text": "1  capture",
+          "x": -250,
+          "y": 330,
+          "text": "1  down",
           "fs": 36,
           "color": "blue"
         },
         {
           "id": "n2",
           "kind": "label",
-          "x": 110,
-          "y": -520,
-          "text": "2  bubble",
+          "x": 250,
+          "y": 330,
+          "text": "2  up",
           "fs": 36,
           "color": "yellow"
         }
@@ -723,16 +450,10 @@
         {
           "do": "show",
           "ids": [
-            "pg",
-            "pl",
+            "ph",
             "cd",
-            "cl",
             "bt"
           ]
-        },
-        {
-          "do": "wait",
-          "t": 0.8
         },
         {
           "do": "show",
@@ -744,9 +465,9 @@
         {
           "do": "move",
           "id": "td",
-          "x": -110,
-          "y": -90,
-          "t": 1.0
+          "x": -230,
+          "y": -30,
+          "t": 0.8
         },
         {
           "do": "show",
@@ -755,16 +476,11 @@
           ]
         },
         {
-          "do": "flash",
-          "id": "cd",
-          "color": "blue"
-        },
-        {
           "do": "move",
           "id": "td",
-          "x": -110,
-          "y": 170,
-          "t": 1.0
+          "x": -230,
+          "y": 190,
+          "t": 0.8
         },
         {
           "do": "show",
@@ -778,10 +494,6 @@
           "color": "blue"
         },
         {
-          "do": "wait",
-          "t": 0.6
-        },
-        {
           "do": "show",
           "ids": [
             "n2",
@@ -791,9 +503,9 @@
         {
           "do": "move",
           "id": "tu",
-          "x": 110,
-          "y": -90,
-          "t": 1.0
+          "x": 250,
+          "y": -30,
+          "t": 0.8
         },
         {
           "do": "show",
@@ -802,16 +514,11 @@
           ]
         },
         {
-          "do": "flash",
-          "id": "cd",
-          "color": "yellow"
-        },
-        {
           "do": "move",
           "id": "tu",
-          "x": 110,
-          "y": -330,
-          "t": 1.0
+          "x": 250,
+          "y": -421,
+          "t": 0.8
         },
         {
           "do": "show",
@@ -821,133 +528,114 @@
         },
         {
           "do": "flash",
-          "id": "pg",
+          "id": "cd",
           "color": "yellow"
         }
       ],
-      "say": "There is also a first half. Before bubbling, the click travels down from the page to the button. That is called capturing. So the full trip is down first, then back up.",
+      "say": "There is also a first half. Before it bubbles, the tap travels down, from the screen to the button. That is capturing. Then it rises back up.",
       "voice": "/audio/js-06-bubbling/capture.wav",
-      "duration": 14
+      "duration": 11
     },
     {
       "id": "stop",
-      "min": 14,
-      "text": "You can stop the bubble.",
+      "min": 11,
+      "text": "Stop the tap at the button.",
       "visual": "stage",
-      "zoom": 1.0,
+      "zoom": 0.85,
       "actors": [
         {
-          "id": "pg",
-          "kind": "box",
+          "id": "ph",
+          "kind": "phone",
           "x": 0,
-          "y": -20,
-          "w": 820,
-          "h": 900,
-          "text": "",
-          "color": "blue",
-          "fs": 1
-        },
-        {
-          "id": "pl",
-          "kind": "label",
-          "x": 0,
-          "y": -420,
-          "text": "Page",
-          "fs": 46,
+          "y": 40,
+          "w": 660,
+          "h": 1100,
+          "title": "Feed",
           "color": "blue"
         },
         {
           "id": "cd",
-          "kind": "box",
+          "kind": "card",
           "x": 0,
-          "y": 40,
-          "w": 640,
-          "h": 560,
-          "text": "",
+          "y": -10,
+          "w": 580,
+          "h": 520,
+          "text": "Beach day",
+          "sub": "Ana posted a photo",
           "color": "pink",
-          "fs": 1
-        },
-        {
-          "id": "cl",
-          "kind": "label",
-          "x": 0,
-          "y": -200,
-          "text": "Card",
-          "fs": 46,
-          "color": "pink"
+          "fs": 40
         },
         {
           "id": "bt",
-          "kind": "box",
+          "kind": "btn",
           "x": 0,
-          "y": 170,
-          "w": 400,
-          "h": 170,
-          "text": "Button",
-          "color": "green",
-          "fs": 50
+          "y": 190,
+          "w": 300,
+          "h": 84,
+          "text": "Like",
+          "color": "pink",
+          "fs": 38
         },
         {
-          "id": "you",
-          "kind": "node",
+          "id": "ts",
+          "kind": "btn",
           "x": 0,
-          "y": 560,
-          "r": 65,
-          "text": "You",
-          "fs": 34,
-          "color": "yellow"
+          "y": 500,
+          "w": 520,
+          "h": 84,
+          "text": "",
+          "color": "green",
+          "fs": 34
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 250,
+          "y": 700,
+          "r": 34
         },
         {
           "id": "tk",
           "kind": "node",
           "x": 0,
-          "y": 170,
-          "r": 48,
-          "text": "click",
-          "fs": 24,
+          "y": 190,
+          "r": 44,
+          "text": "tap",
+          "fs": 22,
           "color": "yellow"
         },
         {
           "id": "sp",
           "kind": "label",
           "x": 0,
-          "y": 0,
+          "y": 90,
           "text": "STOP",
-          "fs": 90,
+          "fs": 80,
           "color": "red"
-        },
-        {
-          "id": "x",
-          "kind": "label",
-          "x": 0,
-          "y": -320,
-          "text": "never hears it",
-          "fs": 40,
-          "color": "muted"
         }
       ],
       "steps": [
         {
           "do": "show",
           "ids": [
-            "pg",
-            "pl",
+            "ph",
             "cd",
-            "cl",
             "bt",
-            "you"
+            "fg"
           ]
         },
         {
-          "do": "wait",
-          "t": 0.6
+          "do": "move",
+          "id": "fg",
+          "x": 100,
+          "y": 190,
+          "t": 0.8
         },
         {
-          "do": "send",
-          "from": "you",
-          "to": "bt",
-          "color": "yellow",
-          "t": 0.8
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
         },
         {
           "do": "show",
@@ -958,23 +646,14 @@
         {
           "do": "flash",
           "id": "bt",
-          "color": "yellow"
-        },
-        {
-          "do": "wait",
-          "t": 0.5
+          "color": "pink"
         },
         {
           "do": "move",
           "id": "tk",
           "x": 0,
-          "y": 70,
-          "t": 0.6
-        },
-        {
-          "do": "stroke",
-          "id": "bt",
-          "color": "red"
+          "y": 120,
+          "t": 0.5
         },
         {
           "do": "show",
@@ -988,135 +667,28 @@
           "color": "red"
         },
         {
-          "do": "wait",
-          "t": 0.6
-        },
-        {
           "do": "text",
-          "id": "cl",
-          "text": "Card: nothing"
-        },
-        {
-          "do": "text",
-          "id": "pl",
-          "text": "Page: nothing"
+          "id": "ts",
+          "text": "Liked"
         },
         {
           "do": "show",
           "ids": [
-            "x"
+            "ts"
           ]
         }
       ],
-      "say": "Sometimes a parent should not hear it. Then you stop the click at the button, using stop propagation. The card and the page never find out.",
+      "say": "Do not want the post to open? Stop the tap at the button. Now only Like happens. The card and screen never find out.",
       "voice": "/audio/js-06-bubbling/stop.wav",
-      "duration": 14
-    },
-    {
-      "id": "recap",
-      "min": 14,
-      "text": "The whole picture.",
-      "visual": "stage",
-      "zoom": 1.0,
-      "actors": [
-        {
-          "id": "c1",
-          "kind": "box",
-          "x": 0,
-          "y": -290,
-          "w": 560,
-          "h": 120,
-          "text": "down",
-          "color": "blue",
-          "fs": 44,
-          "sub": "capture"
-        },
-        {
-          "id": "c2",
-          "kind": "box",
-          "x": 0,
-          "y": -140,
-          "w": 560,
-          "h": 120,
-          "text": "up",
-          "color": "yellow",
-          "fs": 44,
-          "sub": "bubble through parents"
-        },
-        {
-          "id": "c3",
-          "kind": "box",
-          "x": 0,
-          "y": 10,
-          "w": 560,
-          "h": 120,
-          "text": "one listener",
-          "color": "pink",
-          "fs": 40,
-          "sub": "hears all children"
-        },
-        {
-          "id": "c4",
-          "kind": "box",
-          "x": 0,
-          "y": 160,
-          "w": 560,
-          "h": 120,
-          "text": "stop",
-          "color": "red",
-          "fs": 44,
-          "sub": "ends the trip"
-        }
-      ],
-      "steps": [
-        {
-          "do": "show",
-          "ids": [
-            "c1"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 1
-        },
-        {
-          "do": "show",
-          "ids": [
-            "c2"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 1
-        },
-        {
-          "do": "show",
-          "ids": [
-            "c3"
-          ]
-        },
-        {
-          "do": "wait",
-          "t": 1
-        },
-        {
-          "do": "show",
-          "ids": [
-            "c4"
-          ]
-        }
-      ],
-      "say": "To remember it. A click goes down first, then bubbles up through every parent. That lets one parent listen for all its children. And when you need to, you can stop the bubble.",
-      "voice": "/audio/js-06-bubbling/recap.wav",
-      "duration": 14
+      "duration": 11
     },
     {
       "id": "close",
-      "min": 4,
+      "min": 3,
       "text": "Next: event delegation.",
-      "say": "Next up, event delegation. Follow for more.",
+      "say": "Taps bubble up, from the button to the screen, and you can stop them. Next up, event delegation. Follow for more.",
       "voice": "/audio/js-06-bubbling/close.wav",
-      "duration": 4.5
+      "duration": 8.0
     }
   ]
 }
