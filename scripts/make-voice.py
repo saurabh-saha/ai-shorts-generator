@@ -28,10 +28,16 @@ out.mkdir(parents=True, exist_ok=True)
 for beat in data["beats"]:
     wav = out / f"{beat['id']}.wav"
     if not os.environ.get("VOICE_SKIP_TTS"):
-        aiff = out / f"{beat['id']}.aiff"
-        subprocess.run(["say", "-v", voice, "-r", rate, "-o", str(aiff), beat["say"]], check=True)
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(aiff), "-ar", "44100", "-ac", "1", str(wav)], check=True)
-        aiff.unlink()
+        if os.environ.get("VOICE_ENGINE") == "kokoro":
+            # open-source neural voice; VOICE=af_sky etc., SPEED ~0.95
+            kv = os.environ.get("VOICE", "af_sky")
+            subprocess.run([".venv-tts/bin/python", "scripts/kokoro-tts.py", str(wav), kv,
+                            os.environ.get("SPEED", "0.95"), beat["say"]], check=True)
+        else:
+            aiff = out / f"{beat['id']}.aiff"
+            subprocess.run(["say", "-v", voice, "-r", rate, "-o", str(aiff), beat["say"]], check=True)
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(aiff), "-ar", "44100", "-ac", "1", str(wav)], check=True)
+            aiff.unlink()
     length = float(subprocess.check_output(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(wav)]).decode())
     beat["voice"] = f"/audio/{topic}/{beat['id']}.wav"
