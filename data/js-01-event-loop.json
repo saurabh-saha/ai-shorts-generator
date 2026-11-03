@@ -3,31 +3,1186 @@
   "subtitle": "JavaScript, Explained Visually",
   "audio": null,
   "beats": [
-    {"id": "one_worker", "min": 14, "text": "JavaScript has one worker.", "visual": "stage", "zoom": 1.1, "badge": "THE PAGE FREEZES", "badgeColor": "red",
-     "actors": [
-       {"id": "q", "kind": "cells", "x": -310, "y": -60, "values": ["click", "type", "big loop", "scroll"], "dir": "v", "size": 100, "gap": 8, "color": "blue", "title": "Waiting tasks", "fs": 24},
-       {"id": "w", "kind": "node", "x": 40, "y": -60, "r": 85, "text": "JS", "fs": 56, "color": "yellow"},
-       {"id": "wl", "kind": "label", "x": 40, "y": 70, "text": "one worker", "fs": 28, "color": "muted"},
-       {"id": "done", "kind": "box", "x": 340, "y": -60, "w": 190, "h": 150, "text": "Done", "sub": "0 tasks", "color": "green", "fs": 40}
-     ],
-     "steps": [
-       {"do": "show", "ids": ["q"]}, {"do": "wait", "t": 0.8},
-       {"do": "show", "ids": ["w", "wl"]}, {"do": "wait", "t": 0.8},
-       {"do": "show", "ids": ["done"]}, {"do": "wait", "t": 0.6},
-       {"do": "send", "from": "q:0", "to": "w", "color": "blue", "t": 0.7}, {"do": "text", "id": "q:0", "text": ""},
-       {"do": "flash", "id": "w", "color": "yellow"},
-       {"do": "send", "from": "w", "to": "done", "color": "green", "t": 0.5}, {"do": "sub", "id": "done", "text": "1 task"}, {"do": "flash", "id": "done", "color": "green"},
-       {"do": "wait", "t": 0.5},
-       {"do": "send", "from": "q:1", "to": "w", "color": "blue", "t": 0.7}, {"do": "text", "id": "q:1", "text": ""},
-       {"do": "flash", "id": "w", "color": "yellow"},
-       {"do": "send", "from": "w", "to": "done", "color": "green", "t": 0.5}, {"do": "sub", "id": "done", "text": "2 tasks"}, {"do": "flash", "id": "done", "color": "green"},
-       {"do": "wait", "t": 0.8},
-       {"do": "stroke", "id": "q:2", "color": "red"},
-       {"do": "send", "from": "q:2", "to": "w", "color": "red", "t": 0.7}, {"do": "text", "id": "q:2", "text": ""},
-       {"do": "stroke", "id": "w", "color": "red"}, {"do": "text", "id": "wl", "text": "busy for 3 seconds...", "color": "red"},
-       {"do": "wait", "t": 0.8},
-       {"do": "flash", "id": "q:3", "color": "red"}, {"do": "wait", "t": 0.4}, {"do": "flash", "id": "q:3", "color": "red"}
-     ],
-     "say": "JavaScript can only do one thing at a time. It has a single worker, and tasks wait in line. Most tasks finish in a blink. But when one task takes a long time, everything behind it just waits, and the page freezes. So how does a website wait for the internet without freezing? That is what the event loop solves."}
+    {
+      "id": "one_worker",
+      "min": 14,
+      "text": "JavaScript has one worker.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "badge": "THE PAGE FREEZES",
+      "badgeColor": "red",
+      "actors": [
+        {
+          "id": "q",
+          "kind": "cells",
+          "x": -310,
+          "y": -60,
+          "values": [
+            "click",
+            "type",
+            "big loop",
+            "scroll"
+          ],
+          "dir": "v",
+          "size": 100,
+          "gap": 8,
+          "color": "blue",
+          "title": "Waiting tasks",
+          "fs": 24
+        },
+        {
+          "id": "w",
+          "kind": "node",
+          "x": 40,
+          "y": -60,
+          "r": 85,
+          "text": "JS",
+          "fs": 56,
+          "color": "yellow"
+        },
+        {
+          "id": "wl",
+          "kind": "label",
+          "x": 40,
+          "y": 70,
+          "text": "one worker",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "done",
+          "kind": "box",
+          "x": 340,
+          "y": -60,
+          "w": 190,
+          "h": 150,
+          "text": "Done",
+          "sub": "0 tasks",
+          "color": "green",
+          "fs": 40
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "q"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "w",
+            "wl"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "done"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "q:0",
+          "to": "w",
+          "color": "blue",
+          "t": 0.7
+        },
+        {
+          "do": "text",
+          "id": "q:0",
+          "text": ""
+        },
+        {
+          "do": "flash",
+          "id": "w",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "w",
+          "to": "done",
+          "color": "green",
+          "t": 0.5
+        },
+        {
+          "do": "sub",
+          "id": "done",
+          "text": "1 task"
+        },
+        {
+          "do": "flash",
+          "id": "done",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "send",
+          "from": "q:1",
+          "to": "w",
+          "color": "blue",
+          "t": 0.7
+        },
+        {
+          "do": "text",
+          "id": "q:1",
+          "text": ""
+        },
+        {
+          "do": "flash",
+          "id": "w",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "w",
+          "to": "done",
+          "color": "green",
+          "t": 0.5
+        },
+        {
+          "do": "sub",
+          "id": "done",
+          "text": "2 tasks"
+        },
+        {
+          "do": "flash",
+          "id": "done",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "stroke",
+          "id": "q:2",
+          "color": "red"
+        },
+        {
+          "do": "send",
+          "from": "q:2",
+          "to": "w",
+          "color": "red",
+          "t": 0.7
+        },
+        {
+          "do": "text",
+          "id": "q:2",
+          "text": ""
+        },
+        {
+          "do": "stroke",
+          "id": "w",
+          "color": "red"
+        },
+        {
+          "do": "text",
+          "id": "wl",
+          "text": "busy for 3 seconds...",
+          "color": "red"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "q:3",
+          "color": "red"
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "flash",
+          "id": "q:3",
+          "color": "red"
+        }
+      ],
+      "say": "JavaScript can only do one thing at a time. It has a single worker, and tasks wait in line. Most tasks finish in a blink. But when one task takes a long time, everything behind it just waits, and the page freezes. So how does a website wait for the internet without freezing? That is what the event loop solves.",
+      "voice": "/audio/js-01-event-loop/one_worker.wav",
+      "duration": 21.5
+    },
+    {
+      "id": "hand_off",
+      "min": 14,
+      "text": "The browser does the waiting.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "badge": "JS NEVER STOPS TO WAIT",
+      "badgeColor": "green",
+      "actors": [
+        {
+          "id": "w",
+          "kind": "node",
+          "x": -300,
+          "y": -150,
+          "r": 85,
+          "text": "JS",
+          "fs": 56,
+          "color": "yellow"
+        },
+        {
+          "id": "wl",
+          "kind": "label",
+          "x": -300,
+          "y": -25,
+          "text": "one worker",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "br",
+          "kind": "box",
+          "x": 300,
+          "y": -150,
+          "w": 300,
+          "h": 200,
+          "text": "Browser",
+          "sub": "timers \u00b7 network",
+          "color": "blue",
+          "fs": 42
+        },
+        {
+          "id": "brl",
+          "kind": "label",
+          "x": 300,
+          "y": -20,
+          "text": "does the waiting",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "req",
+          "kind": "label",
+          "x": 0,
+          "y": -215,
+          "text": "fetch data",
+          "fs": 32,
+          "color": "yellow"
+        },
+        {
+          "id": "tasks",
+          "kind": "cells",
+          "x": 0,
+          "y": 170,
+          "values": [
+            "draw",
+            "type",
+            "scroll"
+          ],
+          "dir": "h",
+          "size": 110,
+          "gap": 12,
+          "color": "blue",
+          "title": "JS keeps working",
+          "fs": 26
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "w",
+            "wl"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "br",
+            "brl"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "req"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "w",
+          "to": "br",
+          "color": "yellow",
+          "t": 0.9
+        },
+        {
+          "do": "sub",
+          "id": "br",
+          "text": "waiting for the network..."
+        },
+        {
+          "do": "flash",
+          "id": "br",
+          "color": "blue"
+        },
+        {
+          "do": "wait",
+          "t": 1.0
+        },
+        {
+          "do": "show",
+          "ids": [
+            "tasks"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "send",
+          "from": "tasks:0",
+          "to": "w",
+          "color": "blue",
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "tasks:0",
+          "text": ""
+        },
+        {
+          "do": "flash",
+          "id": "w",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "tasks:1",
+          "to": "w",
+          "color": "blue",
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "tasks:1",
+          "text": ""
+        },
+        {
+          "do": "flash",
+          "id": "w",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "tasks:2",
+          "to": "w",
+          "color": "blue",
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "tasks:2",
+          "text": ""
+        },
+        {
+          "do": "flash",
+          "id": "w",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "sub",
+          "id": "br",
+          "text": "data arrived!"
+        },
+        {
+          "do": "flash",
+          "id": "br",
+          "color": "green"
+        }
+      ],
+      "say": "The trick is that the browser does the waiting, not JavaScript. When your code asks for data from the internet, JavaScript hands that job to the browser, and moves straight on to the next task. The browser waits for the network in the background, while JavaScript keeps working.",
+      "voice": "/audio/js-01-event-loop/hand_off.wav",
+      "duration": 18.0
+    },
+    {
+      "id": "stack_queue",
+      "min": 14,
+      "text": "The call stack and the queue.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "stack",
+          "kind": "cells",
+          "x": -330,
+          "y": -40,
+          "values": [
+            "",
+            "",
+            ""
+          ],
+          "dir": "v",
+          "size": 100,
+          "gap": 8,
+          "color": "yellow",
+          "title": "Call stack",
+          "fs": 26
+        },
+        {
+          "id": "br",
+          "kind": "box",
+          "x": 0,
+          "y": -290,
+          "w": 360,
+          "h": 130,
+          "text": "Browser",
+          "sub": "idle",
+          "color": "blue",
+          "fs": 42
+        },
+        {
+          "id": "queue",
+          "kind": "cells",
+          "x": 330,
+          "y": -40,
+          "values": [
+            "",
+            "",
+            ""
+          ],
+          "dir": "v",
+          "size": 100,
+          "gap": 8,
+          "color": "green",
+          "title": "Callback queue",
+          "fs": 26
+        },
+        {
+          "id": "sl",
+          "kind": "label",
+          "x": -330,
+          "y": 170,
+          "text": "where code runs",
+          "fs": 26,
+          "color": "muted"
+        },
+        {
+          "id": "ql",
+          "kind": "label",
+          "x": 330,
+          "y": 170,
+          "text": "a waiting room",
+          "fs": 26,
+          "color": "muted"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "stack",
+            "sl"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": "main"
+        },
+        {
+          "do": "flash",
+          "id": "stack:2",
+          "color": "yellow"
+        },
+        {
+          "do": "text",
+          "id": "stack:1",
+          "text": "fetch"
+        },
+        {
+          "do": "flash",
+          "id": "stack:1",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "br"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "stack:1",
+          "to": "br",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "stack:1",
+          "text": ""
+        },
+        {
+          "do": "sub",
+          "id": "br",
+          "text": "waiting for the network..."
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "queue",
+            "ql"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": ""
+        },
+        {
+          "do": "sub",
+          "id": "br",
+          "text": "data arrived!"
+        },
+        {
+          "do": "flash",
+          "id": "br",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "br",
+          "to": "queue:2",
+          "color": "green",
+          "t": 0.9
+        },
+        {
+          "do": "text",
+          "id": "queue:2",
+          "text": "callback"
+        },
+        {
+          "do": "flash",
+          "id": "queue:2",
+          "color": "green"
+        }
+      ],
+      "say": "Inside JavaScript there are two places to know. The call stack is where the current task runs, one at a time. And the callback queue is a waiting room for finished jobs. When the browser finishes the internet request, its callback does not run right away. It waits in the queue.",
+      "voice": "/audio/js-01-event-loop/stack_queue.wav",
+      "duration": 18.5
+    },
+    {
+      "id": "loop",
+      "min": 16,
+      "text": "The event loop is the checker.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "stack",
+          "kind": "cells",
+          "x": -330,
+          "y": -60,
+          "values": [
+            "",
+            "",
+            ""
+          ],
+          "dir": "v",
+          "size": 100,
+          "gap": 8,
+          "color": "yellow",
+          "title": "Call stack",
+          "fs": 26
+        },
+        {
+          "id": "loop",
+          "kind": "node",
+          "x": 0,
+          "y": -60,
+          "r": 80,
+          "text": "Loop",
+          "fs": 40,
+          "color": "pink"
+        },
+        {
+          "id": "lq",
+          "kind": "label",
+          "x": 0,
+          "y": 75,
+          "text": "is the stack empty?",
+          "fs": 28,
+          "color": "muted"
+        },
+        {
+          "id": "queue",
+          "kind": "cells",
+          "x": 330,
+          "y": -60,
+          "values": [
+            "",
+            "",
+            ""
+          ],
+          "dir": "v",
+          "size": 100,
+          "gap": 8,
+          "color": "green",
+          "title": "Callback queue",
+          "fs": 26
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "stack",
+            "loop",
+            "lq",
+            "queue"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": "long task"
+        },
+        {
+          "do": "flash",
+          "id": "stack:2",
+          "color": "red"
+        },
+        {
+          "do": "text",
+          "id": "queue:2",
+          "text": "A"
+        },
+        {
+          "do": "text",
+          "id": "queue:1",
+          "text": "B"
+        },
+        {
+          "do": "flash",
+          "id": "queue:2",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "text",
+          "id": "lq",
+          "text": "stack empty? NO",
+          "color": "red"
+        },
+        {
+          "do": "flash",
+          "id": "loop",
+          "color": "red"
+        },
+        {
+          "do": "wait",
+          "t": 1.4
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": ""
+        },
+        {
+          "do": "text",
+          "id": "lq",
+          "text": "stack empty? YES",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "loop",
+          "color": "green"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "send",
+          "from": "queue:2",
+          "to": "stack:2",
+          "color": "pink",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "queue:2",
+          "text": ""
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": "A"
+        },
+        {
+          "do": "flash",
+          "id": "stack:2",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": ""
+        },
+        {
+          "do": "flash",
+          "id": "loop",
+          "color": "green"
+        },
+        {
+          "do": "send",
+          "from": "queue:1",
+          "to": "stack:2",
+          "color": "pink",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "queue:1",
+          "text": ""
+        },
+        {
+          "do": "text",
+          "id": "stack:2",
+          "text": "B"
+        },
+        {
+          "do": "flash",
+          "id": "stack:2",
+          "color": "yellow"
+        }
+      ],
+      "say": "The event loop has one simple job. It keeps checking: is the call stack empty? If it is, it takes the first waiting callback from the queue, and puts it on the stack. If the stack is busy, the callback just waits its turn. That is why a long task delays everything, even something you asked to run right now.",
+      "voice": "/audio/js-01-event-loop/loop.wav",
+      "duration": 21.0
+    },
+    {
+      "id": "vip",
+      "min": 15,
+      "text": "Promises get a VIP line.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "badge": "PROMISES RUN BEFORE TIMERS",
+      "badgeColor": "pink",
+      "actors": [
+        {
+          "id": "stack",
+          "kind": "box",
+          "x": 0,
+          "y": -290,
+          "w": 340,
+          "h": 130,
+          "text": "Call stack",
+          "sub": "a task just finished",
+          "color": "yellow",
+          "fs": 40
+        },
+        {
+          "id": "vip",
+          "kind": "cells",
+          "x": 0,
+          "y": -90,
+          "values": [
+            "promise 1",
+            "promise 2"
+          ],
+          "dir": "h",
+          "size": 170,
+          "gap": 12,
+          "color": "pink",
+          "title": "VIP line: promises",
+          "fs": 24
+        },
+        {
+          "id": "norm",
+          "kind": "cells",
+          "x": 0,
+          "y": 140,
+          "values": [
+            "timer (0 ms)"
+          ],
+          "dir": "h",
+          "size": 170,
+          "gap": 12,
+          "color": "blue",
+          "title": "Normal line: timers",
+          "fs": 24
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "stack"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "vip"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "norm"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.9
+        },
+        {
+          "do": "send",
+          "from": "vip:0",
+          "to": "stack",
+          "color": "pink",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "vip:0",
+          "text": ""
+        },
+        {
+          "do": "sub",
+          "id": "stack",
+          "text": "promise 1 runs first"
+        },
+        {
+          "do": "flash",
+          "id": "stack",
+          "color": "pink"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "vip:1",
+          "to": "stack",
+          "color": "pink",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "vip:1",
+          "text": ""
+        },
+        {
+          "do": "sub",
+          "id": "stack",
+          "text": "promise 2 runs next"
+        },
+        {
+          "do": "flash",
+          "id": "stack",
+          "color": "pink"
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "send",
+          "from": "norm:0",
+          "to": "stack",
+          "color": "blue",
+          "t": 0.8
+        },
+        {
+          "do": "text",
+          "id": "norm:0",
+          "text": ""
+        },
+        {
+          "do": "sub",
+          "id": "stack",
+          "text": "the timer runs last"
+        },
+        {
+          "do": "flash",
+          "id": "stack",
+          "color": "blue"
+        }
+      ],
+      "say": "One more detail. Promises get a faster line, called the microtask queue. After each task, the loop empties this VIP line first, and only then looks at the normal queue. So a promise callback always runs before a timer, even when the timer is set to zero seconds.",
+      "voice": "/audio/js-01-event-loop/vip.wav",
+      "duration": 19.0
+    },
+    {
+      "id": "recap",
+      "min": 15,
+      "text": "The whole picture.",
+      "visual": "stage",
+      "zoom": 1.1,
+      "actors": [
+        {
+          "id": "l1",
+          "kind": "link",
+          "from": "s",
+          "to": "b",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l2",
+          "kind": "link",
+          "from": "b",
+          "to": "q",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l3",
+          "kind": "link",
+          "from": "q",
+          "to": "lp",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "l4",
+          "kind": "link",
+          "from": "lp",
+          "to": "s",
+          "color": "muted",
+          "dashed": true
+        },
+        {
+          "id": "s",
+          "kind": "box",
+          "x": -250,
+          "y": -230,
+          "w": 300,
+          "h": 130,
+          "text": "Call stack",
+          "sub": "one worker",
+          "color": "yellow",
+          "fs": 38
+        },
+        {
+          "id": "b",
+          "kind": "box",
+          "x": 250,
+          "y": -230,
+          "w": 300,
+          "h": 130,
+          "text": "Browser",
+          "sub": "does the waiting",
+          "color": "blue",
+          "fs": 38
+        },
+        {
+          "id": "q",
+          "kind": "box",
+          "x": 250,
+          "y": 10,
+          "w": 300,
+          "h": 130,
+          "text": "Queue",
+          "sub": "finished jobs wait",
+          "color": "green",
+          "fs": 38
+        },
+        {
+          "id": "lp",
+          "kind": "box",
+          "x": -250,
+          "y": 10,
+          "w": 300,
+          "h": 130,
+          "text": "Event loop",
+          "sub": "moves them in",
+          "color": "pink",
+          "fs": 38
+        },
+        {
+          "id": "tok",
+          "kind": "node",
+          "x": -250,
+          "y": -230,
+          "r": 26,
+          "text": "",
+          "color": "text"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "s"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "b",
+            "l1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "q",
+            "l2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "lp",
+            "l3",
+            "l4"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "tok"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 250,
+          "y": -230,
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "b",
+          "color": "blue"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": 250,
+          "y": 10,
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "q",
+          "color": "green"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": -250,
+          "y": 10,
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "lp",
+          "color": "pink"
+        },
+        {
+          "do": "move",
+          "id": "tok",
+          "x": -250,
+          "y": -230,
+          "t": 0.8
+        },
+        {
+          "do": "flash",
+          "id": "s",
+          "color": "yellow"
+        }
+      ],
+      "say": "So, in one picture. JavaScript has one worker. The browser does the waiting. Finished jobs line up in a queue, and the event loop moves them to the worker whenever it is free. Next, we will look at promises, and how they make waiting easier to write.",
+      "voice": "/audio/js-01-event-loop/recap.wav",
+      "duration": 17.0
+    },
+    {
+      "id": "close",
+      "min": 4,
+      "text": "Next: promises.",
+      "say": "Next up, promises. Follow for more.",
+      "voice": "/audio/js-01-event-loop/close.wav",
+      "duration": 4
+    }
   ]
 }
