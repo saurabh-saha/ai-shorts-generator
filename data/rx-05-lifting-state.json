@@ -1,0 +1,664 @@
+{
+  "title": "React 5: Lifting state up",
+  "subtitle": "React, Explained Visually",
+  "audio": null,
+  "beats": [
+    {
+      "id": "hook",
+      "min": 10,
+      "text": "Why did the player not change?",
+      "visual": "stage",
+      "zoom": 0.9,
+      "actors": [
+        {
+          "id": "ph",
+          "kind": "phone",
+          "x": 0,
+          "y": 170,
+          "w": 440,
+          "h": 760,
+          "title": "Music",
+          "color": "blue"
+        },
+        {
+          "id": "r0",
+          "kind": "row",
+          "x": 0,
+          "y": 40,
+          "w": 380,
+          "h": 100,
+          "text": "Sunrise",
+          "sub": "tap Play",
+          "color": "blue",
+          "fs": 32
+        },
+        {
+          "id": "r1",
+          "kind": "row",
+          "x": 0,
+          "y": 160,
+          "w": 380,
+          "h": 100,
+          "text": "Midnight",
+          "sub": "tap Play",
+          "color": "pink",
+          "fs": 32
+        },
+        {
+          "id": "r2",
+          "kind": "row",
+          "x": 0,
+          "y": 280,
+          "w": 380,
+          "h": 100,
+          "text": "Golden",
+          "sub": "tap Play",
+          "color": "yellow",
+          "fs": 32
+        },
+        {
+          "id": "b0",
+          "kind": "btn",
+          "x": 135,
+          "y": 40,
+          "w": 100,
+          "h": 50,
+          "text": "Play",
+          "color": "green",
+          "fs": 26
+        },
+        {
+          "id": "b1",
+          "kind": "btn",
+          "x": 135,
+          "y": 160,
+          "w": 100,
+          "h": 50,
+          "text": "Play",
+          "color": "green",
+          "fs": 26
+        },
+        {
+          "id": "b2",
+          "kind": "btn",
+          "x": 135,
+          "y": 280,
+          "w": 100,
+          "h": 50,
+          "text": "Play",
+          "color": "green",
+          "fs": 26
+        },
+        {
+          "id": "np",
+          "kind": "row",
+          "x": 0,
+          "y": 440,
+          "w": 380,
+          "h": 96,
+          "text": "Now playing",
+          "sub": "nothing yet",
+          "color": "pink",
+          "fs": 30
+        },
+        {
+          "id": "fg",
+          "kind": "tap",
+          "x": 230,
+          "y": 620,
+          "r": 30
+        },
+        {
+          "id": "q",
+          "kind": "label",
+          "x": 0,
+          "y": 640,
+          "text": "why did the player not change?",
+          "fs": 34,
+          "color": "yellow"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "ph",
+            "r0",
+            "r1",
+            "r2",
+            "b0",
+            "b1",
+            "b2",
+            "np",
+            "fg"
+          ]
+        },
+        {
+          "do": "move",
+          "id": "fg",
+          "x": 135,
+          "y": 160,
+          "t": 0.8
+        },
+        {
+          "do": "pulse",
+          "ids": [
+            "fg"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "b1",
+          "color": "green"
+        },
+        {
+          "do": "sub",
+          "id": "r1",
+          "text": "playing"
+        },
+        {
+          "do": "flash",
+          "id": "r1",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "q"
+          ]
+        }
+      ],
+      "say": "You tap Play on a song. The list knows. But the player at the bottom still says nothing yet. Why did it not change?",
+      "voice": "/audio/rx-05-lifting-state/hook.wav",
+      "duration": 10
+    },
+    {
+      "id": "problem",
+      "min": 12,
+      "text": "Siblings cannot share memory.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "app",
+          "kind": "box",
+          "x": 0,
+          "y": -420,
+          "w": 230,
+          "h": 100,
+          "text": "App",
+          "color": "blue",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "ls",
+          "kind": "box",
+          "x": -220,
+          "y": -230,
+          "w": 230,
+          "h": 100,
+          "text": "Song list",
+          "color": "green",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "pl",
+          "kind": "box",
+          "x": 220,
+          "y": -230,
+          "w": 230,
+          "h": 100,
+          "text": "Player",
+          "color": "pink",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "k1",
+          "kind": "link",
+          "from": "app",
+          "to": "ls",
+          "color": "muted"
+        },
+        {
+          "id": "k2",
+          "kind": "link",
+          "from": "app",
+          "to": "pl",
+          "color": "muted"
+        },
+        {
+          "id": "m1",
+          "kind": "label",
+          "x": -220,
+          "y": -140,
+          "text": "knows: Midnight",
+          "fs": 30,
+          "color": "yellow"
+        },
+        {
+          "id": "m2",
+          "kind": "label",
+          "x": 220,
+          "y": -140,
+          "text": "knows: nothing",
+          "fs": 30,
+          "color": "red"
+        },
+        {
+          "id": "kx",
+          "kind": "link",
+          "from": "ls",
+          "to": "pl",
+          "color": "red",
+          "dashed": true
+        },
+        {
+          "id": "xx",
+          "kind": "label",
+          "x": 0,
+          "y": -80,
+          "text": "can't see each other",
+          "fs": 34,
+          "color": "red"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "app",
+            "ls",
+            "pl",
+            "k1",
+            "k2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.6
+        },
+        {
+          "do": "show",
+          "ids": [
+            "m1"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "m2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "show",
+          "ids": [
+            "kx"
+          ]
+        },
+        {
+          "do": "show",
+          "ids": [
+            "xx"
+          ]
+        },
+        {
+          "do": "flash",
+          "id": "ls",
+          "color": "yellow"
+        },
+        {
+          "do": "flash",
+          "id": "pl",
+          "color": "red"
+        }
+      ],
+      "say": "Here is why. The song list keeps its own memory, and it knows you chose Midnight. The player keeps its own memory too, and it knows nothing. They are siblings, and siblings cannot see each other's memory.",
+      "voice": "/audio/rx-05-lifting-state/problem.wav",
+      "duration": 13.0
+    },
+    {
+      "id": "fix",
+      "min": 12,
+      "text": "Move the memory up.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "app",
+          "kind": "box",
+          "x": 0,
+          "y": -420,
+          "w": 230,
+          "h": 100,
+          "text": "App",
+          "color": "blue",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "ls",
+          "kind": "box",
+          "x": -220,
+          "y": -230,
+          "w": 230,
+          "h": 100,
+          "text": "Song list",
+          "color": "green",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "pl",
+          "kind": "box",
+          "x": 220,
+          "y": -230,
+          "w": 230,
+          "h": 100,
+          "text": "Player",
+          "color": "pink",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "k1",
+          "kind": "link",
+          "from": "app",
+          "to": "ls",
+          "color": "muted"
+        },
+        {
+          "id": "k2",
+          "kind": "link",
+          "from": "app",
+          "to": "pl",
+          "color": "muted"
+        },
+        {
+          "id": "mem",
+          "kind": "box",
+          "x": -220,
+          "y": -90,
+          "w": 300,
+          "h": 100,
+          "text": "current song",
+          "color": "yellow",
+          "fs": 30,
+          "sub": "Midnight"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "app",
+            "ls",
+            "pl",
+            "k1",
+            "k2"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "mem"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.8
+        },
+        {
+          "do": "move",
+          "id": "mem",
+          "x": 330,
+          "y": -420,
+          "t": 1.4
+        },
+        {
+          "do": "flash",
+          "id": "app",
+          "color": "yellow"
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "flash",
+          "id": "mem",
+          "color": "yellow"
+        }
+      ],
+      "say": "The fix is to move the memory up, to their shared parent. Now the app owns the current song. It is the one place that knows.",
+      "voice": "/audio/rx-05-lifting-state/fix.wav",
+      "duration": 12
+    },
+    {
+      "id": "flow",
+      "min": 14,
+      "text": "Data down, requests up.",
+      "visual": "stage",
+      "zoom": 1.0,
+      "actors": [
+        {
+          "id": "app",
+          "kind": "box",
+          "x": 0,
+          "y": -420,
+          "w": 230,
+          "h": 100,
+          "text": "App",
+          "color": "blue",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "ls",
+          "kind": "box",
+          "x": -220,
+          "y": -230,
+          "w": 230,
+          "h": 100,
+          "text": "Song list",
+          "color": "green",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "pl",
+          "kind": "box",
+          "x": 220,
+          "y": -230,
+          "w": 230,
+          "h": 100,
+          "text": "Player",
+          "color": "pink",
+          "fs": 34,
+          "sub": " "
+        },
+        {
+          "id": "k1",
+          "kind": "link",
+          "from": "app",
+          "to": "ls",
+          "color": "muted"
+        },
+        {
+          "id": "k2",
+          "kind": "link",
+          "from": "app",
+          "to": "pl",
+          "color": "muted"
+        },
+        {
+          "id": "mem",
+          "kind": "box",
+          "x": 330,
+          "y": -420,
+          "w": 300,
+          "h": 100,
+          "text": "current song",
+          "color": "yellow",
+          "fs": 30,
+          "sub": "Midnight"
+        },
+        {
+          "id": "dn",
+          "kind": "label",
+          "x": -150,
+          "y": -340,
+          "text": "data goes down",
+          "fs": 30,
+          "color": "blue"
+        },
+        {
+          "id": "up",
+          "kind": "label",
+          "x": -150,
+          "y": -130,
+          "text": "requests go up",
+          "fs": 30,
+          "color": "yellow"
+        }
+      ],
+      "steps": [
+        {
+          "do": "show",
+          "ids": [
+            "app",
+            "ls",
+            "pl",
+            "k1",
+            "k2",
+            "mem"
+          ]
+        },
+        {
+          "do": "wait",
+          "t": 0.4
+        },
+        {
+          "do": "show",
+          "ids": [
+            "dn"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "app",
+          "to": "ls",
+          "color": "blue",
+          "t": 0.7
+        },
+        {
+          "do": "send",
+          "from": "app",
+          "to": "pl",
+          "color": "blue",
+          "t": 0.7
+        },
+        {
+          "do": "sub",
+          "id": "ls",
+          "text": "Midnight"
+        },
+        {
+          "do": "sub",
+          "id": "pl",
+          "text": "Midnight"
+        },
+        {
+          "do": "wait",
+          "t": 0.5
+        },
+        {
+          "do": "show",
+          "ids": [
+            "up"
+          ]
+        },
+        {
+          "do": "send",
+          "from": "ls",
+          "to": "app",
+          "color": "yellow",
+          "t": 0.8
+        },
+        {
+          "do": "sub",
+          "id": "mem",
+          "text": "Golden"
+        },
+        {
+          "do": "flash",
+          "id": "mem",
+          "color": "yellow"
+        },
+        {
+          "do": "send",
+          "from": "app",
+          "to": "ls",
+          "color": "blue",
+          "t": 0.7
+        },
+        {
+          "do": "send",
+          "from": "app",
+          "to": "pl",
+          "color": "blue",
+          "t": 0.7
+        },
+        {
+          "do": "sub",
+          "id": "ls",
+          "text": "Golden"
+        },
+        {
+          "do": "sub",
+          "id": "pl",
+          "text": "Golden"
+        },
+        {
+          "do": "flash",
+          "id": "ls",
+          "color": "green"
+        },
+        {
+          "do": "flash",
+          "id": "pl",
+          "color": "green"
+        }
+      ],
+      "say": "Now the app hands the song down to both children, as props. When you tap a new song, the list sends a request up. The app updates its memory, and passes the new song down to both. Now they always agree.",
+      "voice": "/audio/rx-05-lifting-state/flow.wav",
+      "duration": 14
+    },
+    {
+      "id": "close",
+      "min": 3,
+      "text": "Next: effects.",
+      "say": "When two pieces need the same data, give it to their parent. Next up, effects. Follow for more.",
+      "voice": "/audio/rx-05-lifting-state/close.wav",
+      "duration": 7.0
+    }
+  ]
+}
